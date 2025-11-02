@@ -146,7 +146,13 @@ serve(async (req) => {
       try {
         const startAttempt = Date.now();
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+        const timeoutId = setTimeout(() => controller.abort(), 300000); // 5 minute timeout
+        
+        // Log progress every 30 seconds
+        const progressInterval = setInterval(() => {
+          const elapsed = Math.round((Date.now() - startAttempt) / 1000);
+          console.log(`⏳ Still waiting for quantum service... ${elapsed}s elapsed`);
+        }, 30000);
         
         response = await fetch(endpoint, {
           method: 'POST',
@@ -159,6 +165,7 @@ serve(async (req) => {
         });
         
         clearTimeout(timeoutId);
+        clearInterval(progressInterval);
         executionTime = Date.now() - startAttempt;
 
         console.log(`Endpoint ${endpoint} returned status: ${response.status}`);
