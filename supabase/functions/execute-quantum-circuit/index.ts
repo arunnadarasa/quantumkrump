@@ -75,16 +75,49 @@ serve(async (req) => {
 
     const startTime = Date.now();
 
-    const response = await fetch(`${quantumServiceUrl}/execute`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        guppy_code,
-        backend_type,
-        shots,
-        parameters
-      })
-    });
+    // Derive service payload from incoming request
+    const functionNameMatch = typeof guppy_code === 'string' ? /def\s+([a-zA-Z_]\w*)\s*\(/.exec(guppy_code) : null;
+    const circuit_name = functionNameMatch?.[1] || (parameters?.circuit_name) || 'custom_circuit';
+
+    const n_qubits = (
+      typeof guppy_code === 'string'
+        ? (guppy_code.match(/qubit\s*\(\s*\)/g)?.length || 0)
+        : 0
+    ) || (typeof parameters?.n_qubits === 'number' ? parameters.n_qubits : 0) || 2;
+
+    const simulatorMap: Record<string, string> = {
+      statevector: 'quest',
+      stabilizer: 'stabilizer',
+      density: 'density',
+      density_matrix: 'density',
+      noisy: 'noisy',
+    };
+    const simulator = simulatorMap[String(backend_type).toLowerCase()] ?? 'quest';
+
+    const servicePayload = {
+      circuit_name,
+      n_qubits,
+      shots,
+      simulator,
+      seed: parameters?.seed ?? null,
+      noise_enabled: parameters?.noise_enabled ?? false,
+      noise_params: parameters?.noise_params ?? null,
+    };
+
+    console.log('Calling quantum service /run with payload:', servicePayload);
+
+    let response: Response;
+    try {
+      response = await fetch(`${quantumServiceUrl}/run`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(servicePayload),
+      });
+    } catch (e) {
+      console.error('Quantum service network error:', e);
+      // Synthesize a failed response to trigger error handling below
+      response = new Response(JSON.stringify({ error: 'network_error' }), { status: 503 });
+    }
 
     const executionTime = Date.now() - startTime;
 
