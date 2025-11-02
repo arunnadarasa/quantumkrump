@@ -69,14 +69,17 @@ export default function Dashboard() {
   };
 
   const transformSeleneResults = (seleneData: any): any => {
-    if (!seleneData?.results || !Array.isArray(seleneData.results)) {
-      return seleneData;
+    // Unwrap the response if it has a 'data' property
+    const actualData = seleneData?.data || seleneData;
+    
+    if (!actualData?.results || !Array.isArray(actualData.results)) {
+      return actualData;
     }
 
-    const shots = seleneData.shots || seleneData.results.length;
+    const shots = actualData.shots || actualData.results.length;
     const measurements: Record<string, number> = {};
     
-    for (const shot of seleneData.results) {
+    for (const shot of actualData.results) {
       const measurementKeys = Object.keys(shot)
         .filter(k => k.startsWith('m'))
         .sort();
@@ -97,8 +100,8 @@ export default function Dashboard() {
       measurements,
       probabilities,
       shots,
-      circuit: seleneData.circuit,
-      n_qubits: seleneData.n_qubits,
+      circuit: actualData.circuit,
+      n_qubits: actualData.n_qubits,
       statevector: null
     };
   };
