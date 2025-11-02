@@ -26,7 +26,17 @@ export default function Dashboard() {
   const [executing, setExecuting] = useState(false);
   const [results, setResults] = useState<any>(null);
   const [selectedCircuitId, setSelectedCircuitId] = useState<string | null>(null);
+  const [selectedTemplateId, setSelectedTemplateId] = useState<string | null>(null);
   const [executionProgress, setExecutionProgress] = useState("");
+
+  // Circuit mapping for quantum service API
+  const circuitApiMapping: Record<string, { name: string; n_qubits: number } | null> = {
+    'bell-state': { name: 'bell', n_qubits: 2 },
+    'ghz-state': { name: 'ghz_3', n_qubits: 3 },
+    'teleportation': { name: 'teleport', n_qubits: 3 },
+    'grover-2qubit': null,  // Not available in API
+    'custom': null  // Not available in API
+  };
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -37,6 +47,7 @@ export default function Dashboard() {
   const handleSelectTemplate = async (template: CircuitTemplate) => {
     setCode(template.guppy_code);
     setSelectedCircuitId(null);
+    setSelectedTemplateId(template.id);
 
     // Save to library
     if (user) {
@@ -127,6 +138,18 @@ export default function Dashboard() {
       return;
     }
 
+    // Check if circuit is supported
+    const circuitConfig = selectedTemplateId ? circuitApiMapping[selectedTemplateId] : null;
+    
+    if (!circuitConfig) {
+      toast({
+        title: "Circuit not supported",
+        description: "This circuit is not available in the quantum service yet. Please select Bell State, GHZ State, or Teleportation.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setExecuting(true);
     setResults(null);
     setExecutionProgress("Creating job...");
@@ -166,9 +189,9 @@ export default function Dashboard() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          circuit_name: 'custom',
-          shots: shots,
-          guppy_code: code
+          circuit_name: circuitConfig.name,
+          n_qubits: circuitConfig.n_qubits,
+          shots: shots
         })
       });
 
@@ -176,7 +199,8 @@ export default function Dashboard() {
       progressInterval = null;
 
       if (!quantumResponse.ok) {
-        throw new Error(`Quantum service error: ${quantumResponse.statusText}`);
+        const errorData = await quantumResponse.json().catch(() => ({}));
+        throw new Error(errorData.error || `Quantum service error: ${quantumResponse.statusText}`);
       }
 
       const quantumResults = await quantumResponse.json();
