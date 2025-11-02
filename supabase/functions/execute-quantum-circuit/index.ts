@@ -106,9 +106,20 @@ serve(async (req) => {
 
     console.log('Calling quantum service /run with payload:', servicePayload);
 
+    // Normalize base URL and build endpoint to avoid wrong paths
+    let endpoint: string;
+    try {
+      const base = new URL(quantumServiceUrl);
+      base.pathname = '/';
+      endpoint = new URL('run', base).toString();
+    } catch (_e) {
+      endpoint = `${quantumServiceUrl.replace(/\/\/+$/, '')}/run`;
+    }
+    console.log('Quantum service endpoint:', endpoint);
+
     let response: Response;
     try {
-      response = await fetch(`${quantumServiceUrl}/run`, {
+      response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(servicePayload),
