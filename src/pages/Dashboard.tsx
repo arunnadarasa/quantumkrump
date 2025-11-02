@@ -26,7 +26,6 @@ export default function Dashboard() {
   const [executing, setExecuting] = useState(false);
   const [results, setResults] = useState<any>(null);
   const [selectedCircuitId, setSelectedCircuitId] = useState<string | null>(null);
-  const [pollingJobId, setPollingJobId] = useState<string | null>(null);
   const [executionProgress, setExecutionProgress] = useState("");
 
   useEffect(() => {
@@ -58,67 +57,39 @@ export default function Dashboard() {
     }
   };
 
-  const pollJobStatus = async (jobId: string) => {
-    const startTime = Date.now();
-    const maxPollingTime = 5 * 60 * 1000; // 5 minutes
-    const pollInterval = 2000; // 2 seconds
+  const transformSeleneResults = (seleneData: any): any => {
+    if (!seleneData?.results || !Array.isArray(seleneData.results)) {
+      return seleneData;
+    }
 
-    const poll = async () => {
-      const elapsed = Math.round((Date.now() - startTime) / 1000);
-      setExecutionProgress(`Executing circuit... ${elapsed}s elapsed`);
-
-      const { data: job, error } = await supabase
-        .from('quantum_jobs')
-        .select('status, results, error_message, execution_time_ms')
-        .eq('id', jobId)
-        .single();
-
-      if (error) {
-        console.error('Polling error:', error);
-        setExecuting(false);
-        setPollingJobId(null);
-        toast({
-          title: "Error checking job status",
-          description: error.message,
-          variant: "destructive"
-        });
-        return;
-      }
-
-      if (job.status === 'completed') {
-        setResults(job.results);
-        setExecuting(false);
-        setPollingJobId(null);
-        setExecutionProgress("");
-        toast({
-          title: "Execution completed!",
-          description: `Circuit executed in ${(job.execution_time_ms / 1000).toFixed(1)}s with ${shots} shots`,
-        });
-      } else if (job.status === 'failed') {
-        setExecuting(false);
-        setPollingJobId(null);
-        setExecutionProgress("");
-        toast({
-          title: "Execution failed",
-          description: job.error_message || "Unknown error",
-          variant: "destructive"
-        });
-      } else if (Date.now() - startTime > maxPollingTime) {
-        setExecuting(false);
-        setPollingJobId(null);
-        setExecutionProgress("");
-        toast({
-          title: "Execution timeout",
-          description: "Job is still running. Check Job Queue for updates.",
-          variant: "destructive"
-        });
-      } else {
-        // Continue polling
-        setTimeout(poll, pollInterval);
-      }
+    const shots = seleneData.shots || seleneData.results.length;
+    const measurements: Record<string, number> = {};
+    
+    for (const shot of seleneData.results) {
+      const measurementKeys = Object.keys(shot)
+        .filter(k => k.startsWith('m'))
+        .sort();
+      
+      const bitstring = measurementKeys
+        .map(key => shot[key] ? '1' : '0')
+        .join('');
+      
+      measurements[bitstring] = (measurements[bitstring] || 0) + 1;
+    }
+    
+    const probabilities: Record<string, number> = {};
+    for (const [state, count] of Object.entries(measurements)) {
+      probabilities[state] = count / shots;
+    }
+    
+    return {
+      measurements,
+      probabilities,
+      shots,
+      circuit: seleneData.circuit,
+      n_qubits: seleneData.n_qubits,
+      statevector: null
     };
-
-    poll();
   };
 
   const loadJobResults = async (jobId: string) => {
@@ -158,34 +129,89 @@ export default function Dashboard() {
 
     setExecuting(true);
     setResults(null);
-    setExecutionProgress("Submitting job...");
+    setExecutionProgress("Creating job...");
+
+    let progressInterval: NodeJS.Timeout | null = null;
 
     try {
-      const { data, error } = await supabase.functions.invoke('execute-quantum-circuit', {
-        body: {
+      // 1. Create job record in database
+      const { data: job, error: jobError } = await supabase
+        .from('quantum_jobs')
+        .insert({
+          user_id: user.id,
           circuit_id: selectedCircuitId,
-          guppy_code: code,
           backend_type: backendType,
           shots,
+          status: 'running',
           parameters: {}
-        }
+        })
+        .select()
+        .single();
+
+      if (jobError) throw jobError;
+
+      setExecutionProgress("Calling quantum service...");
+      const startTime = Date.now();
+
+      // Show elapsed time during quantum service call
+      progressInterval = setInterval(() => {
+        const elapsed = Math.round((Date.now() - startTime) / 1000);
+        setExecutionProgress(`Waiting for quantum results... ${elapsed}s elapsed`);
+      }, 1000);
+
+      // 2. Call quantum service directly (CORS enabled)
+      const quantumResponse = await fetch('https://quantum-service.fly.dev/run', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          circuit_name: 'custom',
+          shots: shots,
+          guppy_code: code
+        })
       });
 
-      if (error) throw error;
+      clearInterval(progressInterval);
+      progressInterval = null;
 
-      const jobId = data.job_id;
-      setPollingJobId(jobId);
+      if (!quantumResponse.ok) {
+        throw new Error(`Quantum service error: ${quantumResponse.statusText}`);
+      }
+
+      const quantumResults = await quantumResponse.json();
+      const executionTime = Date.now() - startTime;
+
+      setExecutionProgress("Processing results...");
+
+      // 3. Transform and update job with results
+      const transformedResults = transformSeleneResults(quantumResults);
+      
+      const { error: updateError } = await supabase
+        .from('quantum_jobs')
+        .update({
+          status: 'completed',
+          results: transformedResults,
+          execution_time_ms: executionTime,
+          completed_at: new Date().toISOString()
+        })
+        .eq('id', job.id);
+
+      if (updateError) throw updateError;
+
+      // 4. Display results immediately
+      setResults(transformedResults);
+      setExecuting(false);
+      setExecutionProgress("");
       
       toast({
-        title: "Job submitted",
-        description: `Job ID: ${jobId.slice(0, 8)}... Now polling for results...`,
+        title: "Execution completed!",
+        description: `Circuit executed in ${(executionTime / 1000).toFixed(1)}s with ${shots} shots`,
       });
-
-      // Start polling for results
-      pollJobStatus(jobId);
 
     } catch (error) {
       console.error('Execution error:', error);
+      if (progressInterval) clearInterval(progressInterval);
       setExecuting(false);
       setExecutionProgress("");
       toast({
