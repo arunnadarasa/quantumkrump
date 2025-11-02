@@ -124,12 +124,19 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
           )}
 
           {/* Bloch Sphere for single qubit */}
-          {showBlochSphere && (
-            <div>
-              <h3 className="text-sm font-medium mb-4">Bloch Sphere Visualization</h3>
-              <BlochSphere probabilities={results.probabilities} />
-            </div>
-          )}
+        {showBlochSphere && (
+          <div>
+            <h3 className="text-sm font-medium mb-4">Bloch Sphere Visualization</h3>
+            {(() => {
+              try {
+                return <BlochSphere probabilities={results.probabilities} />;
+              } catch (e) {
+                console.error('BlochSphere render error:', e);
+                return <div className="text-sm text-muted-foreground">3D visualization unavailable</div>;
+              }
+            })()}
+          </div>
+        )}
 
           {/* Debug Data Collapsible */}
           <Collapsible open={debugOpen} onOpenChange={setDebugOpen}>
