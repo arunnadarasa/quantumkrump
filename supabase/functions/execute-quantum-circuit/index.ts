@@ -75,9 +75,21 @@ serve(async (req) => {
 
     const startTime = Date.now();
 
+    // Map frontend template names to backend circuit names
+    const circuitNameMap: Record<string, string> = {
+      'bell_state': 'bell',
+      'ghz_state': 'ghz',
+      'ghz_3_state': 'ghz_3',
+      'ghz_4_state': 'ghz_4',
+      'teleportation': 'teleport',
+      'quantum_teleportation': 'teleport',
+      'teleport_circuit': 'teleport'
+    };
+
     // Derive service payload from incoming request
     const functionNameMatch = typeof guppy_code === 'string' ? /def\s+([a-zA-Z_]\w*)\s*\(/.exec(guppy_code) : null;
-    const circuit_name = functionNameMatch?.[1] || (parameters?.circuit_name) || 'custom_circuit';
+    const extractedName = functionNameMatch?.[1] || (parameters?.circuit_name) || 'custom_circuit';
+    const circuit_name = circuitNameMap[extractedName] || extractedName;
 
     const n_qubits = (
       typeof guppy_code === 'string'
@@ -113,12 +125,12 @@ serve(async (req) => {
       baseUrl = new URL('http://localhost');
     }
 
-    // Try multiple endpoint candidates - prioritize execute endpoints for custom Guppy code
+    // Try multiple endpoint candidates - prioritize /run since it's the only working endpoint
     const candidates = [
-      { path: 'execute', payload: { guppy_code, backend_type, shots, parameters } },
-      { path: 'api/execute', payload: { guppy_code, backend_type, shots, parameters } },
       { path: 'run', payload: servicePayload },
-      { path: 'api/run', payload: servicePayload }
+      { path: 'api/run', payload: servicePayload },
+      { path: 'execute', payload: { guppy_code, backend_type, shots, parameters } },
+      { path: 'api/execute', payload: { guppy_code, backend_type, shots, parameters } }
     ];
 
     const attemptedEndpoints: Array<{ endpoint: string; status: number; error?: string }> = [];
