@@ -6,6 +6,50 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
+/**
+ * Transform Selene results format to dashboard format
+ */
+function transformSeleneResults(seleneData: any): any {
+  if (!seleneData?.results || !Array.isArray(seleneData.results)) {
+    return seleneData; // Return as-is if unexpected format
+  }
+
+  const shots = seleneData.shots || seleneData.results.length;
+  const measurements: Record<string, number> = {};
+  
+  // Convert each shot's boolean measurements to bitstring
+  for (const shot of seleneData.results) {
+    // Extract measurement keys in order (m0, m1, m2, ...)
+    const measurementKeys = Object.keys(shot)
+      .filter(k => k.startsWith('m'))
+      .sort(); // m0, m1, m2, ...
+    
+    // Convert booleans to bitstring: true=1, false=0
+    const bitstring = measurementKeys
+      .map(key => shot[key] ? '1' : '0')
+      .join('');
+    
+    // Count occurrences
+    measurements[bitstring] = (measurements[bitstring] || 0) + 1;
+  }
+  
+  // Calculate probabilities
+  const probabilities: Record<string, number> = {};
+  for (const [state, count] of Object.entries(measurements)) {
+    probabilities[state] = count / shots;
+  }
+  
+  return {
+    measurements,
+    probabilities,
+    shots,
+    circuit: seleneData.circuit,
+    n_qubits: seleneData.n_qubits,
+    // Note: Selene doesn't return statevector in shot-based execution
+    statevector: null
+  };
+}
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -248,12 +292,15 @@ serve(async (req) => {
 
     const results = await response.json();
 
-    // Update job with results
+    // Transform Selene format to dashboard format
+    const transformedResults = transformSeleneResults(results);
+
+    // Update job with transformed results
     await supabase
       .from('quantum_jobs')
       .update({
         status: 'completed',
-        results,
+        results: transformedResults,
         execution_time_ms: executionTime,
         completed_at: new Date().toISOString()
       })
@@ -261,7 +308,7 @@ serve(async (req) => {
 
     console.log('Quantum job completed:', job.id);
 
-    return new Response(JSON.stringify({ job_id: job.id, results }), {
+    return new Response(JSON.stringify({ job_id: job.id, results: transformedResults }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     });
 
