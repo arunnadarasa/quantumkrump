@@ -1,6 +1,3 @@
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Line, Text } from '@react-three/drei';
-
 interface BlochSphereProps {
   probabilities: Record<string, number>;
 }
@@ -8,83 +5,134 @@ interface BlochSphereProps {
 export const BlochSphere = ({ probabilities }: BlochSphereProps) => {
   console.log('BlochSphere rendering with probabilities:', probabilities);
   
-  // Calculate Bloch sphere coordinates from probabilities
-  // For a single qubit: |ψ⟩ = cos(θ/2)|0⟩ + e^(iφ) sin(θ/2)|1⟩
+  // Calculate state representation
   const prob0 = Math.max(0, Math.min(1, probabilities['0'] || 0));
   const prob1 = Math.max(0, Math.min(1, probabilities['1'] || 0));
   
-  // Calculate theta from probabilities with safety checks
+  // Calculate angle for 2D projection (theta on XZ plane)
   const theta = 2 * Math.acos(Math.sqrt(prob0));
-  const phi = 0; // We don't have phase information from measurements
+  const angle = isFinite(theta) ? theta : 0;
   
-  // Convert to Cartesian coordinates with NaN protection
-  const x = isFinite(theta) ? Math.sin(theta) * Math.cos(phi) : 0;
-  const y = isFinite(theta) ? Math.sin(theta) * Math.sin(phi) : 0;
-  const z = isFinite(theta) ? Math.cos(theta) : 1;
-
+  // Convert to 2D coordinates (side view of Bloch sphere)
+  const centerX = 200;
+  const centerY = 200;
+  const radius = 150;
+  
+  // Calculate state vector position
+  const stateX = centerX;
+  const stateY = centerY - (radius * Math.cos(angle));
+  
   return (
-    <div className="w-full h-[400px] bg-muted/30 rounded-lg">
-      <Canvas camera={{ position: [3, 3, 3], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
+    <div className="w-full h-[400px] bg-muted/30 rounded-lg flex items-center justify-center">
+      <svg width="400" height="400" viewBox="0 0 400 400">
+        {/* Background circle */}
+        <circle
+          cx={centerX}
+          cy={centerY}
+          r={radius}
+          fill="none"
+          stroke="hsl(var(--border))"
+          strokeWidth="2"
+          strokeDasharray="5,5"
+        />
         
-        {/* Bloch Sphere */}
-        <mesh>
-          <sphereGeometry args={[1, 32, 32]} />
-          <meshStandardMaterial 
-            color="#6366f1" 
-            transparent 
-            opacity={0.1} 
-            wireframe 
-          />
-        </mesh>
-
-        {/* X, Y, Z axes */}
-        <Line
-          points={[[-1.5, 0, 0], [1.5, 0, 0]]}
-          color="#ef4444"
-          lineWidth={2}
+        {/* Vertical axis */}
+        <line
+          x1={centerX}
+          y1={centerY - radius - 20}
+          x2={centerX}
+          y2={centerY + radius + 20}
+          stroke="hsl(var(--primary))"
+          strokeWidth="2"
+          markerEnd="url(#arrowhead)"
         />
-        <Line
-          points={[[0, -1.5, 0], [0, 1.5, 0]]}
-          color="#10b981"
-          lineWidth={2}
-        />
-        <Line
-          points={[[0, 0, -1.5], [0, 0, 1.5]]}
-          color="#3b82f6"
-          lineWidth={2}
-        />
-
-        {/* Axis labels */}
-        <Text position={[1.7, 0, 0]} fontSize={0.2} color="#ef4444">
-          X
-        </Text>
-        <Text position={[0, 1.7, 0]} fontSize={0.2} color="#10b981">
-          Y
-        </Text>
-        <Text position={[0, 0, 1.7]} fontSize={0.2} color="#3b82f6">
+        
+        {/* Arrow marker definition */}
+        <defs>
+          <marker
+            id="arrowhead"
+            markerWidth="10"
+            markerHeight="10"
+            refX="5"
+            refY="5"
+            orient="auto"
+          >
+            <polygon
+              points="0 0, 10 5, 0 10"
+              fill="hsl(var(--primary))"
+            />
+          </marker>
+        </defs>
+        
+        {/* |0⟩ label at top */}
+        <text
+          x={centerX + 15}
+          y={centerY - radius - 25}
+          fill="hsl(var(--primary))"
+          fontSize="18"
+          fontWeight="bold"
+        >
           |0⟩
-        </Text>
-        <Text position={[0, 0, -1.7]} fontSize={0.2} color="#3b82f6">
+        </text>
+        
+        {/* |1⟩ label at bottom */}
+        <text
+          x={centerX + 15}
+          y={centerY + radius + 35}
+          fill="hsl(var(--primary))"
+          fontSize="18"
+          fontWeight="bold"
+        >
           |1⟩
-        </Text>
-
-        {/* State vector arrow */}
-        <Line
-          points={[[0, 0, 0], [x, y, z]]}
-          color="#6366f1"
-          lineWidth={4}
+        </text>
+        
+        {/* State vector line */}
+        <line
+          x1={centerX}
+          y1={centerY}
+          x2={stateX}
+          y2={stateY}
+          stroke="hsl(var(--chart-1))"
+          strokeWidth="4"
         />
         
         {/* State point */}
-        <mesh position={[x, y, z]}>
-          <sphereGeometry args={[0.08, 16, 16]} />
-          <meshStandardMaterial color="#6366f1" />
-        </mesh>
-
-        <OrbitControls enableZoom={true} enablePan={false} />
-      </Canvas>
+        <circle
+          cx={stateX}
+          cy={stateY}
+          r="8"
+          fill="hsl(var(--chart-1))"
+        />
+        
+        {/* Probability labels */}
+        <text
+          x={20}
+          y={30}
+          fill="hsl(var(--foreground))"
+          fontSize="14"
+        >
+          P(|0⟩) = {(prob0 * 100).toFixed(1)}%
+        </text>
+        <text
+          x={20}
+          y={50}
+          fill="hsl(var(--foreground))"
+          fontSize="14"
+        >
+          P(|1⟩) = {(prob1 * 100).toFixed(1)}%
+        </text>
+        
+        {/* Angle indicator */}
+        {angle > 0.1 && (
+          <path
+            d={`M ${centerX} ${centerY - 30} A 30 30 0 0 1 ${centerX + 30 * Math.sin(angle)} ${centerY - 30 * Math.cos(angle)}`}
+            fill="none"
+            stroke="hsl(var(--muted-foreground))"
+            strokeWidth="1"
+            strokeDasharray="2,2"
+          />
+        )}
+      </svg>
     </div>
   );
 };
