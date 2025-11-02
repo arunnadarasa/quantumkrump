@@ -113,76 +113,96 @@ serve(async (req) => {
       baseUrl = new URL('http://localhost');
     }
 
-    // Try multiple endpoint candidates
+    // Try multiple endpoint candidates - prioritize execute endpoints for custom Guppy code
     const candidates = [
-      { path: 'run', payload: servicePayload },
       { path: 'execute', payload: { guppy_code, backend_type, shots, parameters } },
-      { path: 'api/run', payload: servicePayload },
-      { path: 'api/execute', payload: { guppy_code, backend_type, shots, parameters } }
+      { path: 'api/execute', payload: { guppy_code, backend_type, shots, parameters } },
+      { path: 'run', payload: servicePayload },
+      { path: 'api/run', payload: servicePayload }
     ];
 
-    const attemptedEndpoints: string[] = [];
+    const attemptedEndpoints: Array<{ endpoint: string; status: number; error?: string }> = [];
     let response: Response | null = null;
     let executionTime = 0;
 
     for (const candidate of candidates) {
       const endpoint = new URL(candidate.path, baseUrl).toString();
-      attemptedEndpoints.push(endpoint);
       
       console.log(`Trying quantum service endpoint: ${endpoint}`);
       console.log('Payload:', JSON.stringify(candidate.payload, null, 2));
 
       try {
         const startAttempt = Date.now();
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+        
         response = await fetch(endpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
           body: JSON.stringify(candidate.payload),
+          signal: controller.signal
         });
+        
+        clearTimeout(timeoutId);
         executionTime = Date.now() - startAttempt;
 
         console.log(`Endpoint ${endpoint} returned status: ${response.status}`);
 
-        if (response.status === 404) {
-          console.log(`Endpoint not found, trying next...`);
+        // Success - process and return results
+        if (response.ok) {
+          console.log(`✓ Successfully called ${endpoint}`);
+          break;
+        }
+
+        // Not successful - record error and continue
+        const errorText = await response.text();
+        console.error(`Endpoint ${endpoint} error (${response.status}):`, errorText);
+        
+        attemptedEndpoints.push({
+          endpoint,
+          status: response.status,
+          error: errorText.slice(0, 200) // Keep first 200 chars
+        });
+
+        // Continue to next endpoint for these recoverable errors
+        if (
+          response.status === 404 ||
+          errorText.includes('Unknown circuit') ||
+          errorText.includes('Not Found') ||
+          errorText.includes('not found')
+        ) {
+          console.log(`Recoverable error, trying next endpoint...`);
+          response = null;
           continue;
         }
 
-        if (!response.ok) {
-          const error = await response.text();
-          console.error(`Endpoint ${endpoint} error:`, error);
-          
-          await supabase
-            .from('quantum_jobs')
-            .update({ 
-              status: 'failed', 
-              error_message: `Service error at ${endpoint}: ${error}`,
-              completed_at: new Date().toISOString()
-            })
-            .eq('id', job.id);
-          
-          return new Response(JSON.stringify({ 
-            error: `Service error: ${error}`,
-            attempted_endpoints: attemptedEndpoints 
-          }), {
-            status: 500,
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-          });
-        }
-
-        // Success! Break out of loop
-        console.log(`✓ Successfully called ${endpoint}`);
-        break;
+        // For other errors, still try remaining endpoints
+        response = null;
+        continue;
 
       } catch (e) {
-        console.error(`Network error calling ${endpoint}:`, e);
+        const errorMsg = e instanceof Error ? e.message : 'Network error';
+        console.error(`Error calling ${endpoint}:`, errorMsg);
+        attemptedEndpoints.push({
+          endpoint,
+          status: 0,
+          error: errorMsg
+        });
+        response = null;
         continue;
       }
     }
 
     // If all endpoints failed
     if (!response || !response.ok) {
-      const errorMsg = `All endpoints failed. Attempted: ${attemptedEndpoints.join(', ')}`;
+      const errorSummary = attemptedEndpoints.map(
+        a => `${a.endpoint} (${a.status}): ${a.error || 'Unknown error'}`
+      ).join('; ');
+      
+      const errorMsg = `All endpoints failed. Attempts: ${errorSummary}`;
       console.error(errorMsg);
       
       await supabase
@@ -195,7 +215,8 @@ serve(async (req) => {
         .eq('id', job.id);
       
       return new Response(JSON.stringify({ 
-        error: errorMsg,
+        error: 'All quantum service endpoints failed',
+        details: errorMsg,
         attempted_endpoints: attemptedEndpoints 
       }), {
         status: 503,
@@ -203,26 +224,8 @@ serve(async (req) => {
       });
     }
 
+    // At this point, response.ok is true
     executionTime = executionTime || (Date.now() - startTime);
-
-    if (!response.ok) {
-      const error = await response.text();
-      console.error('Quantum service error:', error);
-      
-      await supabase
-        .from('quantum_jobs')
-        .update({ 
-          status: 'failed', 
-          error_message: error,
-          completed_at: new Date().toISOString()
-        })
-        .eq('id', job.id);
-      
-      return new Response(JSON.stringify({ error }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      });
-    }
 
     const results = await response.json();
 
