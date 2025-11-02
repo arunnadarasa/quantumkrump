@@ -26,6 +26,8 @@ export default function Dashboard() {
   const [executing, setExecuting] = useState(false);
   const [results, setResults] = useState<any>(null);
   const [selectedCircuitId, setSelectedCircuitId] = useState<string | null>(null);
+  const [pollingJobId, setPollingJobId] = useState<string | null>(null);
+  const [executionProgress, setExecutionProgress] = useState("");
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -56,6 +58,94 @@ export default function Dashboard() {
     }
   };
 
+  const pollJobStatus = async (jobId: string) => {
+    const startTime = Date.now();
+    const maxPollingTime = 5 * 60 * 1000; // 5 minutes
+    const pollInterval = 2000; // 2 seconds
+
+    const poll = async () => {
+      const elapsed = Math.round((Date.now() - startTime) / 1000);
+      setExecutionProgress(`Executing circuit... ${elapsed}s elapsed`);
+
+      const { data: job, error } = await supabase
+        .from('quantum_jobs')
+        .select('status, results, error_message, execution_time_ms')
+        .eq('id', jobId)
+        .single();
+
+      if (error) {
+        console.error('Polling error:', error);
+        setExecuting(false);
+        setPollingJobId(null);
+        toast({
+          title: "Error checking job status",
+          description: error.message,
+          variant: "destructive"
+        });
+        return;
+      }
+
+      if (job.status === 'completed') {
+        setResults(job.results);
+        setExecuting(false);
+        setPollingJobId(null);
+        setExecutionProgress("");
+        toast({
+          title: "Execution completed!",
+          description: `Circuit executed in ${(job.execution_time_ms / 1000).toFixed(1)}s with ${shots} shots`,
+        });
+      } else if (job.status === 'failed') {
+        setExecuting(false);
+        setPollingJobId(null);
+        setExecutionProgress("");
+        toast({
+          title: "Execution failed",
+          description: job.error_message || "Unknown error",
+          variant: "destructive"
+        });
+      } else if (Date.now() - startTime > maxPollingTime) {
+        setExecuting(false);
+        setPollingJobId(null);
+        setExecutionProgress("");
+        toast({
+          title: "Execution timeout",
+          description: "Job is still running. Check Job Queue for updates.",
+          variant: "destructive"
+        });
+      } else {
+        // Continue polling
+        setTimeout(poll, pollInterval);
+      }
+    };
+
+    poll();
+  };
+
+  const loadJobResults = async (jobId: string) => {
+    const { data: job, error } = await supabase
+      .from('quantum_jobs')
+      .select('results')
+      .eq('id', jobId)
+      .single();
+
+    if (error) {
+      toast({
+        title: "Error loading results",
+        description: error.message,
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (job.results) {
+      setResults(job.results);
+      toast({
+        title: "Results loaded",
+        description: "Previous job results displayed",
+      });
+    }
+  };
+
   const handleExecute = async () => {
     if (!code.trim()) {
       toast({
@@ -68,6 +158,7 @@ export default function Dashboard() {
 
     setExecuting(true);
     setResults(null);
+    setExecutionProgress("Submitting job...");
 
     try {
       const { data, error } = await supabase.functions.invoke('execute-quantum-circuit', {
@@ -82,20 +173,26 @@ export default function Dashboard() {
 
       if (error) throw error;
 
-      setResults(data.results);
+      const jobId = data.job_id;
+      setPollingJobId(jobId);
+      
       toast({
-        title: "Execution completed!",
-        description: `Circuit executed successfully with ${shots} shots`,
+        title: "Job submitted",
+        description: `Job ID: ${jobId.slice(0, 8)}... Now polling for results...`,
       });
+
+      // Start polling for results
+      pollJobStatus(jobId);
+
     } catch (error) {
       console.error('Execution error:', error);
+      setExecuting(false);
+      setExecutionProgress("");
       toast({
         title: "Execution failed",
         description: error instanceof Error ? error.message : "Unknown error",
         variant: "destructive"
       });
-    } finally {
-      setExecuting(false);
     }
   };
 
@@ -185,7 +282,7 @@ export default function Dashboard() {
                   {executing ? (
                     <>
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Executing...
+                      {executionProgress || "Executing..."}
                     </>
                   ) : (
                     <>
@@ -205,7 +302,7 @@ export default function Dashboard() {
             <div className="h-[500px]">
               <AIAssistant />
             </div>
-            <JobQueue />
+            <JobQueue onJobClick={loadJobResults} />
           </div>
         </div>
       </div>

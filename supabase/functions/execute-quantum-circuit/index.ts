@@ -88,12 +88,15 @@ serve(async (req) => {
       throw jobError;
     }
 
-    // Call Python quantum service
+    // Return job ID immediately for frontend polling
+    console.log(`Job created with ID: ${job.id}, starting background processing...`);
+
+    // Start background quantum processing
     const quantumServiceUrl = Deno.env.get('QUANTUM_SERVICE_URL');
     
     if (!quantumServiceUrl) {
       // For demo purposes without Python service, return mock data
-      console.log('QUANTUM_SERVICE_URL not configured, returning mock data');
+      console.log('QUANTUM_SERVICE_URL not configured, using mock data');
       
       const mockResults = {
         measurements: { '00': 512, '11': 512 },
@@ -112,10 +115,13 @@ serve(async (req) => {
         })
         .eq('id', job.id);
 
-      return new Response(JSON.stringify({ job_id: job.id, results: mockResults }), {
+      return new Response(JSON.stringify({ job_id: job.id, status: 'completed' }), {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       });
     }
+
+    // Start async background processing
+    const processQuantumJob = async () => {
 
     const startTime = Date.now();
 
@@ -306,9 +312,14 @@ serve(async (req) => {
       })
       .eq('id', job.id);
 
-    console.log('Quantum job completed:', job.id);
+      console.log('Quantum job completed:', job.id);
+    };
 
-    return new Response(JSON.stringify({ job_id: job.id, results: transformedResults }), {
+    // Execute quantum processing in background
+    processQuantumJob();
+
+    // Return immediately with job ID for polling
+    return new Response(JSON.stringify({ job_id: job.id, status: 'running' }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     });
 

@@ -14,7 +14,11 @@ interface Job {
   execution_time_ms?: number;
 }
 
-export const JobQueue = () => {
+interface JobQueueProps {
+  onJobClick?: (jobId: string) => void;
+}
+
+export const JobQueue = ({ onJobClick }: JobQueueProps) => {
   const [jobs, setJobs] = useState<Job[]>([]);
 
   useEffect(() => {
@@ -84,7 +88,12 @@ export const JobQueue = () => {
             {jobs.map((job) => (
               <div
                 key={job.id}
-                className="flex items-center justify-between p-3 rounded-lg border bg-card hover:bg-accent/50 transition-colors"
+                onClick={() => job.status === 'completed' && onJobClick?.(job.id)}
+                className={`flex items-center justify-between p-3 rounded-lg border bg-card transition-colors ${
+                  job.status === 'completed' 
+                    ? 'hover:bg-accent/50 cursor-pointer' 
+                    : 'hover:bg-accent/30'
+                }`}
               >
                 <div className="flex items-center gap-3">
                   {getStatusIcon(job.status)}
@@ -94,7 +103,7 @@ export const JobQueue = () => {
                     </p>
                     <p className="text-xs text-muted-foreground">
                       {new Date(job.created_at).toLocaleTimeString()}
-                      {job.execution_time_ms && ` • ${job.execution_time_ms}ms`}
+                      {job.execution_time_ms && ` • ${(job.execution_time_ms / 1000).toFixed(1)}s`}
                     </p>
                   </div>
                 </div>
