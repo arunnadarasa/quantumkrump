@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Atom, Sparkles, Zap } from "lucide-react";
+import quantumKrumpLogo from "@/assets/quantum-krump-logo.png";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Index = () => {
       <div className="text-center space-y-8 max-w-3xl">
         <div className="flex justify-center mb-8">
           <div className="p-6 rounded-full bg-primary/10 animate-pulse-glow">
-            <Atom className="w-24 h-24 text-primary" />
+            <img src={quantumKrumpLogo} alt="Quantum Krump" className="w-24 h-24" />
           </div>
         </div>
         
