@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Atom, Sparkles, Zap } from "lucide-react";
+import quantumKrumpLogo from "@/assets/quantum-krump-logo.png";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -9,6 +10,12 @@ const Index = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background via-background to-muted p-4">
       <div className="text-center space-y-8 max-w-3xl">
+        <div className="flex justify-center mb-8">
+          <div className="p-6 rounded-full bg-primary/10 animate-pulse-glow">
+            <img src={quantumKrumpLogo} alt="Quantum Krump" className="w-24 h-24" />
+          </div>
+        </div>
+        
         <h1 className="text-5xl md:text-7xl font-bold gradient-quantum bg-clip-text text-transparent">
           Quantum Orchestrator
         </h1>

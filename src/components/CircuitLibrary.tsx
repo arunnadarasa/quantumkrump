@@ -23,12 +23,10 @@ export const CircuitLibrary = ({ onSelectTemplate }: CircuitLibraryProps) => {
         {circuitTemplates.map((template) => {
           const Icon = iconMap[template.circuit_type] || FileCode;
           return (
-            <Card key={template.id} className="glass-card glass-hover shimmer-border">
+            <Card key={template.id} className="hover:border-primary transition-colors">
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  <div className="p-2 rounded-lg bg-primary/10 glow-border">
-                    <Icon className="w-5 h-5 text-primary" />
-                  </div>
+                  <Icon className="w-5 h-5 text-primary" />
                   <CardTitle className="text-lg">{template.name}</CardTitle>
                 </div>
                 <CardDescription>{template.description}</CardDescription>
@@ -37,7 +35,7 @@ export const CircuitLibrary = ({ onSelectTemplate }: CircuitLibraryProps) => {
                 <Button
                   onClick={() => onSelectTemplate(template)}
                   variant="outline"
-                  className="w-full glass-card hover:bg-primary/10 hover:border-primary/50 transition-all"
+                  className="w-full"
                 >
                   Load Template
                 </Button>
