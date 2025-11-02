@@ -196,7 +196,8 @@ serve(async (req) => {
       try {
         const startAttempt = Date.now();
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 300000); // 5 minute timeout
+        // Set timeout to 170s to ensure we complete before edge function timeout (180s)
+        const timeoutId = setTimeout(() => controller.abort(), 170000);
         
         // Log progress every 30 seconds
         const progressInterval = setInterval(() => {
@@ -297,22 +298,45 @@ serve(async (req) => {
     executionTime = executionTime || (Date.now() - startTime);
 
     const results = await response.json();
+    console.log('✓ Received results from quantum service');
 
     // Transform Selene format to dashboard format
     const transformedResults = transformSeleneResults(results);
+    console.log('✓ Transformed results for dashboard');
 
-    // Update job with transformed results
-    await supabase
-      .from('quantum_jobs')
-      .update({
-        status: 'completed',
-        results: transformedResults,
-        execution_time_ms: executionTime,
-        completed_at: new Date().toISOString()
-      })
-      .eq('id', job.id);
+    // Update job with transformed results - retry up to 3 times
+    let updateSuccess = false;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      console.log(`Attempting to update database (attempt ${attempt}/3)...`);
+      
+      const { error: updateError } = await supabase
+        .from('quantum_jobs')
+        .update({
+          status: 'completed',
+          results: transformedResults,
+          execution_time_ms: executionTime,
+          completed_at: new Date().toISOString()
+        })
+        .eq('id', job.id);
 
-      console.log('Quantum job completed:', job.id);
+      if (!updateError) {
+        console.log(`✓ Successfully updated job ${job.id} in database`);
+        updateSuccess = true;
+        break;
+      }
+      
+      console.error(`Database update attempt ${attempt} failed:`, updateError);
+      if (attempt < 3) {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1s before retry
+      }
+    }
+
+    if (!updateSuccess) {
+      console.error(`Failed to update job ${job.id} after 3 attempts`);
+      throw new Error('Failed to update job status in database');
+    }
+
+    console.log('Quantum job completed:', job.id);
     };
 
     // Execute quantum processing in background (fire-and-forget)
