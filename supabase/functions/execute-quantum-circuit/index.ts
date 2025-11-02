@@ -315,8 +315,21 @@ serve(async (req) => {
       console.log('Quantum job completed:', job.id);
     };
 
-    // Execute quantum processing in background
-    processQuantumJob();
+    // Execute quantum processing in background (fire-and-forget)
+    // Don't await - let it run in background while we return immediately
+    processQuantumJob().catch(error => {
+      console.error('Background quantum job processing error:', error);
+      // Update job status to failed
+      supabase
+        .from('quantum_jobs')
+        .update({ 
+          status: 'failed', 
+          error_message: error.message || 'Background processing error',
+          completed_at: new Date().toISOString()
+        })
+        .eq('id', job.id)
+        .then(() => console.log('Job marked as failed due to processing error'));
+    });
 
     // Return immediately with job ID for polling
     return new Response(JSON.stringify({ job_id: job.id, status: 'running' }), {
