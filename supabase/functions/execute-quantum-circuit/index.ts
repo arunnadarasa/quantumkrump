@@ -104,33 +104,106 @@ serve(async (req) => {
       noise_params: parameters?.noise_params ?? null,
     };
 
-    console.log('Calling quantum service /run with payload:', servicePayload);
-
-    // Normalize base URL and build endpoint to avoid wrong paths
-    let endpoint: string;
+    // Normalize base URL
+    let baseUrl: URL;
     try {
-      const base = new URL(quantumServiceUrl);
-      base.pathname = '/';
-      endpoint = new URL('run', base).toString();
+      baseUrl = new URL(quantumServiceUrl);
+      baseUrl.pathname = '/';
     } catch (_e) {
-      endpoint = `${quantumServiceUrl.replace(/\/\/+$/, '')}/run`;
+      baseUrl = new URL('http://localhost');
     }
-    console.log('Quantum service endpoint:', endpoint);
 
-    let response: Response;
-    try {
-      response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(servicePayload),
+    // Try multiple endpoint candidates
+    const candidates = [
+      { path: 'run', payload: servicePayload },
+      { path: 'execute', payload: { guppy_code, backend_type, shots, parameters } },
+      { path: 'api/run', payload: servicePayload },
+      { path: 'api/execute', payload: { guppy_code, backend_type, shots, parameters } }
+    ];
+
+    const attemptedEndpoints: string[] = [];
+    let response: Response | null = null;
+    let executionTime = 0;
+
+    for (const candidate of candidates) {
+      const endpoint = new URL(candidate.path, baseUrl).toString();
+      attemptedEndpoints.push(endpoint);
+      
+      console.log(`Trying quantum service endpoint: ${endpoint}`);
+      console.log('Payload:', JSON.stringify(candidate.payload, null, 2));
+
+      try {
+        const startAttempt = Date.now();
+        response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(candidate.payload),
+        });
+        executionTime = Date.now() - startAttempt;
+
+        console.log(`Endpoint ${endpoint} returned status: ${response.status}`);
+
+        if (response.status === 404) {
+          console.log(`Endpoint not found, trying next...`);
+          continue;
+        }
+
+        if (!response.ok) {
+          const error = await response.text();
+          console.error(`Endpoint ${endpoint} error:`, error);
+          
+          await supabase
+            .from('quantum_jobs')
+            .update({ 
+              status: 'failed', 
+              error_message: `Service error at ${endpoint}: ${error}`,
+              completed_at: new Date().toISOString()
+            })
+            .eq('id', job.id);
+          
+          return new Response(JSON.stringify({ 
+            error: `Service error: ${error}`,
+            attempted_endpoints: attemptedEndpoints 
+          }), {
+            status: 500,
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+          });
+        }
+
+        // Success! Break out of loop
+        console.log(`✓ Successfully called ${endpoint}`);
+        break;
+
+      } catch (e) {
+        console.error(`Network error calling ${endpoint}:`, e);
+        continue;
+      }
+    }
+
+    // If all endpoints failed
+    if (!response || !response.ok) {
+      const errorMsg = `All endpoints failed. Attempted: ${attemptedEndpoints.join(', ')}`;
+      console.error(errorMsg);
+      
+      await supabase
+        .from('quantum_jobs')
+        .update({ 
+          status: 'failed', 
+          error_message: errorMsg,
+          completed_at: new Date().toISOString()
+        })
+        .eq('id', job.id);
+      
+      return new Response(JSON.stringify({ 
+        error: errorMsg,
+        attempted_endpoints: attemptedEndpoints 
+      }), {
+        status: 503,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       });
-    } catch (e) {
-      console.error('Quantum service network error:', e);
-      // Synthesize a failed response to trigger error handling below
-      response = new Response(JSON.stringify({ error: 'network_error' }), { status: 503 });
     }
 
-    const executionTime = Date.now() - startTime;
+    executionTime = executionTime || (Date.now() - startTime);
 
     if (!response.ok) {
       const error = await response.text();
