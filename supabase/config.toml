@@ -1,1 +1,7 @@
 project_id = "zvzporrvcdsafunkyfco"
+
+[functions.execute-quantum-circuit]
+verify_jwt = true
+
+[functions.ai-quantum-assistant]
+verify_jwt = true
