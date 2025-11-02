@@ -54,10 +54,12 @@ export const AIAssistant = () => {
   };
 
   return (
-    <Card className="flex flex-col h-full">
+    <Card className="flex flex-col h-full glass-card shimmer-border">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Bot className="w-5 h-5 text-accent" />
+          <div className="p-2 rounded-lg bg-accent/20 glow-border animate-pulse">
+            <Bot className="w-5 h-5 text-accent" />
+          </div>
           Quantum AI Assistant
         </CardTitle>
       </CardHeader>
@@ -73,10 +75,10 @@ export const AIAssistant = () => {
             {messages.map((msg, idx) => (
               <div
                 key={idx}
-                className={`p-3 rounded-lg ${
+                className={`p-3 rounded-xl glass-card animate-fade-in ${
                   msg.role === "user"
-                    ? "bg-primary text-primary-foreground ml-8"
-                    : "bg-muted mr-8"
+                    ? "bg-primary/20 border-primary/40 ml-8 glow-border"
+                    : "bg-accent/10 border-accent/30 mr-8"
                 }`}
               >
                 <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
@@ -91,8 +93,13 @@ export const AIAssistant = () => {
             onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
             placeholder="Ask about quantum circuits..."
             disabled={isStreaming}
+            className="glass-card focus:glow-border transition-all"
           />
-          <Button onClick={handleSend} disabled={isStreaming || !input.trim()}>
+          <Button 
+            onClick={handleSend} 
+            disabled={isStreaming || !input.trim()}
+            className="gradient-quantum glow-border hover:scale-105 transition-transform"
+          >
             <Send className="w-4 h-4" />
           </Button>
         </div>

@@ -263,12 +263,12 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen gradient-mesh">
       {/* Header */}
-      <header className="border-b border-border bg-card">
+      <header className="sticky top-0 z-50 glass-card border-b backdrop-blur-xl">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 animate-pulse-glow">
+            <div className="p-2 rounded-lg bg-primary/20 animate-pulse-glow glow-border">
               <Atom className="w-6 h-6 text-primary" />
             </div>
             <div>
@@ -278,7 +278,7 @@ export default function Dashboard() {
               <p className="text-sm text-muted-foreground">Guppy + Selene + Lovable</p>
             </div>
           </div>
-          <Button onClick={handleSignOut} variant="outline" size="sm">
+          <Button onClick={handleSignOut} variant="outline" size="sm" className="glass-card glass-hover border-primary/20">
             <LogOut className="w-4 h-4 mr-2" />
             Sign Out
           </Button>
@@ -298,7 +298,7 @@ export default function Dashboard() {
             <CircuitEditor code={code} onChange={setCode} />
 
             {/* Execution Controls */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 border rounded-lg bg-card">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 rounded-xl glass-card shimmer-border">
               <div className="space-y-2">
                 <Label htmlFor="backend">Backend</Label>
                 <Select value={backendType} onValueChange={setBackendType}>
@@ -330,7 +330,7 @@ export default function Dashboard() {
                 <Button
                   onClick={handleExecute}
                   disabled={executing || !code.trim()}
-                  className="w-full gradient-quantum"
+                  className="w-full gradient-quantum hover:scale-105 transition-transform glow-border animate-glow"
                 >
                   {executing ? (
                     <>

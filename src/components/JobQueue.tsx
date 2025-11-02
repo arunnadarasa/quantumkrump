@@ -73,9 +73,12 @@ export const JobQueue = ({ onJobClick }: JobQueueProps) => {
   };
 
   return (
-    <Card>
+    <Card className="glass-card shimmer-border">
       <CardHeader>
-        <CardTitle>Job Queue</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          <span className="text-2xl">⚡</span>
+          Job Queue
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <ScrollArea className="h-[300px]">
@@ -89,10 +92,10 @@ export const JobQueue = ({ onJobClick }: JobQueueProps) => {
               <div
                 key={job.id}
                 onClick={() => job.status === 'completed' && onJobClick?.(job.id)}
-                className={`flex items-center justify-between p-3 rounded-lg border bg-card transition-colors ${
+                className={`flex items-center justify-between p-3 rounded-xl glass-card glass-hover animate-fade-in ${
                   job.status === 'completed' 
-                    ? 'hover:bg-accent/50 cursor-pointer' 
-                    : 'hover:bg-accent/30'
+                    ? 'cursor-pointer glow-border' 
+                    : ''
                 }`}
               >
                 <div className="flex items-center gap-3">

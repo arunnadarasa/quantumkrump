@@ -19,9 +19,12 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
 
   if (!results) {
     return (
-      <Card>
+      <Card className="glass-card">
         <CardHeader>
-          <CardTitle>Results</CardTitle>
+          <CardTitle className="flex items-center gap-2">
+            <span className="text-2xl">📊</span>
+            Results
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground text-center py-8">
@@ -44,16 +47,22 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
   const showBlochSphere = nQubits === 1 && results.probabilities;
 
   return (
-    <Card>
+    <Card className="glass-card shimmer-border animate-fade-in">
       <CardHeader>
-        <CardTitle>Measurement Results</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          <span className="text-2xl">🔬</span>
+          Measurement Results
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-6">
           {/* Measurements Table */}
           <div>
-            <h3 className="text-sm font-medium mb-3">Measurement Counts</h3>
-            <div className="rounded-lg border border-border overflow-hidden">
+            <h3 className="text-sm font-medium mb-3 flex items-center gap-2">
+              <span className="w-1 h-4 bg-primary rounded-full animate-glow"></span>
+              Measurement Counts
+            </h3>
+            <div className="rounded-lg border border-primary/20 overflow-hidden glass-card">
               <table className="w-full">
                 <thead className="bg-muted">
                   <tr>
@@ -64,7 +73,7 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
                 </thead>
                 <tbody className="divide-y divide-border">
                   {chartData.map(({ state, count, probability }) => (
-                    <tr key={state} className="hover:bg-muted/50">
+                    <tr key={state} className="hover:bg-primary/5 transition-colors">
                       <td className="px-4 py-2">
                         <code className="text-sm font-mono">|{state}⟩</code>
                       </td>
@@ -99,8 +108,11 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
 
           {/* Bar Chart */}
           {chartData.length > 0 && (
-            <div>
-              <h3 className="text-sm font-medium mb-4">Measurement Distribution</h3>
+            <div className="glass-card p-4 rounded-xl">
+              <h3 className="text-sm font-medium mb-4 flex items-center gap-2">
+                <span className="w-1 h-4 bg-secondary rounded-full animate-glow"></span>
+                Measurement Distribution
+              </h3>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />

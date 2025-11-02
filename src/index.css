@@ -105,6 +105,65 @@ All colors MUST be HSL.
   .animate-pulse-glow {
     animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
+  /* Glassmorphism Utilities */
+  .glass-card {
+    background: hsl(var(--card) / 0.4);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: 0 8px 32px 0 hsl(var(--primary) / 0.1);
+  }
+
+  .glass-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-hover:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 12px 40px hsl(var(--primary) / 0.2);
+    border-color: hsl(var(--primary) / 0.4);
+  }
+
+  .gradient-mesh {
+    background: 
+      radial-gradient(at 0% 0%, hsl(262 83% 58% / 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsl(217 91% 60% / 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsl(189 94% 43% / 0.15) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsl(262 83% 68% / 0.15) 0px, transparent 50%),
+      hsl(var(--background));
+    background-attachment: fixed;
+  }
+
+  .shimmer-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      hsl(var(--primary) / 0.3), 
+      transparent
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .glow-border {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    border: 1px solid hsl(var(--primary) / 0.5);
+  }
+
+  .animate-glow {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
 }
 
 @keyframes pulse-glow {
@@ -113,5 +172,23 @@ All colors MUST be HSL.
   }
   50% {
     box-shadow: 0 0 40px hsl(262 83% 68% / 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.5);
   }
 }
