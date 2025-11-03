@@ -440,10 +440,8 @@ export default function Dashboard() {
             />
           </div>
 
-          {/* Desktop: 3-column layout, Mobile: stacked */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-            {/* Editor & Controls */}
-            <div className="lg:col-span-2 space-y-3 md:space-y-4">
+          {/* Main Content - Full Width */}
+          <div className="space-y-3 md:space-y-4">
               <CircuitEditor 
                 code={code} 
                 onChange={setCode}
@@ -505,19 +503,10 @@ export default function Dashboard() {
               </div>
 
               <QuantumResults results={results} />
-            </div>
-
-            {/* AI Assistant & Job Queue - Hidden on mobile, shown as floating popup instead */}
-            <div className="hidden md:block space-y-4 md:space-y-6">
-              <div className="min-h-[300px] max-h-[50vh] lg:h-[500px]">
-                <AIAssistant />
-              </div>
-              <JobQueue onJobClick={loadJobResults} />
-            </div>
           </div>
         </div>
 
-        {/* Mobile Floating AI Chat */}
+        {/* Floating AI Chat */}
         <MobileAIChat onJobClick={loadJobResults} />
 
         {/* Circuit Generator Dialog */}

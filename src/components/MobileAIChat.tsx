@@ -41,7 +41,7 @@ export const MobileAIChat = ({ onJobClick }: MobileAIChatProps) => {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="floating-chat-button md:hidden bg-primary text-primary-foreground hover:bg-primary/90 glow-quantum"
+        className="floating-chat-button bg-primary text-primary-foreground hover:bg-primary/90 glow-quantum"
         aria-label="Open AI Assistant"
       >
         <Bot className="w-6 h-6" />
@@ -50,7 +50,7 @@ export const MobileAIChat = ({ onJobClick }: MobileAIChatProps) => {
       {/* Backdrop */}
       {isOpen && (
         <div
-          className="chat-backdrop md:hidden"
+          className="chat-backdrop"
           onClick={() => setIsOpen(false)}
           aria-hidden="true"
         />
@@ -58,7 +58,7 @@ export const MobileAIChat = ({ onJobClick }: MobileAIChatProps) => {
 
       {/* Chat Popup */}
       {isOpen && (
-        <div className="chat-popup-container md:hidden bg-background border-t shadow-2xl">
+        <div className="chat-popup-container bg-background border shadow-2xl">
           <div className="flex flex-col h-full">
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b bg-card">
