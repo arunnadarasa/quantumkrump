@@ -80,7 +80,9 @@ export const AIAssistant = ({ isMobilePopup = false }: AIAssistantProps) => {
                       : "bg-muted mr-8"
                   }`}
                 >
-                  <div className="text-sm prose prose-sm dark:prose-invert max-w-none">
+                  <div className={`text-sm prose prose-sm dark:prose-invert max-w-none ${
+                    msg.role === "user" ? "prose-invert" : ""
+                  }`}>
                     <ReactMarkdown>{msg.content}</ReactMarkdown>
                   </div>
                 </div>
@@ -136,7 +138,9 @@ export const AIAssistant = ({ isMobilePopup = false }: AIAssistantProps) => {
                     : "bg-muted mr-4 md:mr-8"
                 }`}
                 >
-                <div className="text-xs md:text-sm prose prose-sm dark:prose-invert max-w-none">
+                <div className={`text-xs md:text-sm prose prose-sm dark:prose-invert max-w-none ${
+                  msg.role === "user" ? "prose-invert" : ""
+                }`}>
                   <ReactMarkdown>{msg.content}</ReactMarkdown>
                 </div>
               </div>
