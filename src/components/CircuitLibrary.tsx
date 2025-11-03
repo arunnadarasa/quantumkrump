@@ -22,8 +22,8 @@ export const CircuitLibrary = ({ onSelectTemplate, selectedTemplateId }: Circuit
   return (
     <div className="space-y-3 md:space-y-4">
       <h2 className="text-xl md:text-2xl font-bold px-2 md:px-0">Circuit Templates</h2>
-      {/* Mobile: Horizontal scroll (72vw with peek), Desktop: Grid */}
-      <div className="md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-4 flex md:flex-none overflow-x-auto md:overflow-x-visible gap-3 pb-3 md:pb-0 px-2 md:px-0 snap-x snap-mandatory md:snap-none">
+      {/* Mobile: Vertical stack, Desktop: Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 px-2 md:px-0">
         {circuitTemplates.map((template) => {
           const Icon = iconMap[template.circuit_type] || FileCode;
           const isSelected = selectedTemplateId === template.id;
@@ -34,7 +34,7 @@ export const CircuitLibrary = ({ onSelectTemplate, selectedTemplateId }: Circuit
               onClick={() => onSelectTemplate(template)}
               className={cn(
                 "relative overflow-hidden cursor-pointer transition-all duration-300",
-                "flex-shrink-0 w-[72vw] md:w-auto snap-start",
+                "w-full",
                 "hover:scale-[1.02] hover:shadow-lg",
                 "bg-gradient-to-br",
                 template.colorTheme,
