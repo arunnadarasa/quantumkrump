@@ -11,8 +11,12 @@ const Index = () => {
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background via-background to-muted p-4">
       <div className="text-center space-y-8 max-w-3xl">
         <div className="flex justify-center mb-8">
-          <div className="p-6 rounded-full bg-primary/10 animate-pulse-glow">
-            <img src={quantumKrumpLogo} alt="Quantum Krump" className="w-24 h-24" />
+          <div className="relative">
+            <img 
+              src={quantumKrumpLogo} 
+              alt="Quantum Krump" 
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full animate-pulse-glow"
+            />
           </div>
         </div>
         

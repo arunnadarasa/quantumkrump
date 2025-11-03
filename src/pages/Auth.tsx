@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { Atom } from "lucide-react";
+import quantumKrumpLogo from "@/assets/quantum-krump-logo.png";
 
 export default function Auth() {
   const [email, setEmail] = useState("");
@@ -86,9 +86,11 @@ export default function Auth() {
       <Card className="w-full max-w-md border-primary/20 glow-quantum">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-            <div className="p-3 rounded-full bg-primary/10 animate-pulse-glow">
-              <Atom className="w-12 h-12 text-primary" />
-            </div>
+            <img 
+              src={quantumKrumpLogo} 
+              alt="Quantum Krump" 
+              className="w-32 h-32 rounded-full animate-pulse-glow"
+            />
           </div>
           <CardTitle className="text-3xl gradient-quantum bg-clip-text text-transparent">
             Quantum Orchestrator
