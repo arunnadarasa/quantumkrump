@@ -74,14 +74,14 @@ export const JobQueue = ({ onJobClick }: JobQueueProps) => {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Job Queue</CardTitle>
+      <CardHeader className="p-4 md:p-6">
+        <CardTitle className="text-base md:text-lg">Job Queue</CardTitle>
       </CardHeader>
-      <CardContent>
-        <ScrollArea className="h-[300px]">
+      <CardContent className="p-4 md:p-6 pt-0">
+        <ScrollArea className="h-[200px] md:h-[300px]">
           <div className="space-y-2">
             {jobs.length === 0 && (
-              <p className="text-sm text-muted-foreground text-center py-4">
+              <p className="text-xs md:text-sm text-muted-foreground text-center py-4">
                 No jobs yet. Execute a circuit to get started!
               </p>
             )}
@@ -89,19 +89,19 @@ export const JobQueue = ({ onJobClick }: JobQueueProps) => {
               <div
                 key={job.id}
                 onClick={() => job.status === 'completed' && onJobClick?.(job.id)}
-                className={`flex items-center justify-between p-3 rounded-lg border bg-card transition-colors ${
+                className={`flex flex-col sm:flex-row sm:items-center sm:justify-between p-2 md:p-3 rounded-lg border bg-card transition-colors gap-2 ${
                   job.status === 'completed' 
-                    ? 'hover:bg-accent/50 cursor-pointer' 
+                    ? 'hover:bg-accent/50 cursor-pointer touch-target' 
                     : 'hover:bg-accent/30'
                 }`}
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 md:gap-3">
                   {getStatusIcon(job.status)}
-                  <div>
-                    <p className="text-sm font-medium">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs md:text-sm font-medium truncate">
                       {job.backend_type} ({job.shots} shots)
                     </p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-[10px] md:text-xs text-muted-foreground">
                       {new Date(job.created_at).toLocaleTimeString()}
                       {job.execution_time_ms && ` • ${(job.execution_time_ms / 1000).toFixed(1)}s`}
                     </p>

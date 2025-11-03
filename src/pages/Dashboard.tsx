@@ -266,96 +266,101 @@ export default function Dashboard() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 animate-pulse-glow">
-              <Atom className="w-6 h-6 text-primary" />
+        <div className="container mx-auto px-2 sm:px-4 py-2 md:py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2 md:gap-3">
+            <div className="p-1.5 md:p-2 rounded-lg bg-primary/10 animate-pulse-glow">
+              <Atom className="w-5 h-5 md:w-6 md:h-6 text-primary" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold gradient-quantum bg-clip-text text-transparent">
+              <h1 className="text-lg md:text-2xl font-bold gradient-quantum bg-clip-text text-transparent">
                 Quantum Orchestrator
               </h1>
-              <p className="text-sm text-muted-foreground">Guppy + Selene + Lovable</p>
+              <p className="text-xs md:text-sm text-muted-foreground hidden sm:block">Guppy + Selene + Lovable</p>
             </div>
           </div>
-          <Button onClick={handleSignOut} variant="outline" size="sm">
-            <LogOut className="w-4 h-4 mr-2" />
-            Sign Out
+          <Button onClick={handleSignOut} variant="outline" size="sm" className="touch-target">
+            <LogOut className="w-4 h-4 md:mr-2" />
+            <span className="hidden md:inline">Sign Out</span>
           </Button>
         </div>
       </header>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Left Column - Circuit Library */}
-          <div className="lg:col-span-3">
+      <div className="container mx-auto px-2 sm:px-4 py-4 md:py-6">
+        <div className="space-y-4 md:space-y-6">
+          {/* Circuit Library */}
+          <div>
             <CircuitLibrary onSelectTemplate={handleSelectTemplate} />
           </div>
 
-          {/* Middle Column - Editor & Controls */}
-          <div className="lg:col-span-2 space-y-6">
-            <CircuitEditor code={code} onChange={setCode} />
+          {/* Desktop: 3-column layout, Mobile: stacked */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+            {/* Editor & Controls */}
+            <div className="lg:col-span-2 space-y-4 md:space-y-6">
+              <CircuitEditor code={code} onChange={setCode} />
 
-            {/* Execution Controls */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 border rounded-lg bg-card">
-              <div className="space-y-2">
-                <Label htmlFor="backend">Backend</Label>
-                <Select value={backendType} onValueChange={setBackendType}>
-                  <SelectTrigger id="backend">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="statevector">State Vector</SelectItem>
-                    <SelectItem value="stabilizer">Stabilizer</SelectItem>
-                    <SelectItem value="density_matrix">Density Matrix</SelectItem>
-                    <SelectItem value="noisy">Noisy Simulator</SelectItem>
-                  </SelectContent>
-                </Select>
+              {/* Execution Controls */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 p-3 md:p-4 border rounded-lg bg-card">
+                <div className="space-y-2">
+                  <Label htmlFor="backend">Backend</Label>
+                  <Select value={backendType} onValueChange={setBackendType}>
+                    <SelectTrigger id="backend" className="touch-target">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="statevector">State Vector</SelectItem>
+                      <SelectItem value="stabilizer">Stabilizer</SelectItem>
+                      <SelectItem value="density_matrix">Density Matrix</SelectItem>
+                      <SelectItem value="noisy">Noisy Simulator</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="shots">Shots</Label>
+                  <Input
+                    id="shots"
+                    type="number"
+                    min="1"
+                    max="10000"
+                    value={shots}
+                    onChange={(e) => setShots(parseInt(e.target.value) || 1024)}
+                    className="touch-target"
+                  />
+                </div>
+
+                <div className="flex items-end sm:col-span-2 md:col-span-1">
+                  <Button
+                    onClick={handleExecute}
+                    disabled={executing || !code.trim()}
+                    className="w-full gradient-quantum touch-target"
+                  >
+                    {executing ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        <span className="hidden sm:inline">{executionProgress || "Executing..."}</span>
+                        <span className="sm:hidden">...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Play className="w-4 h-4 mr-2" />
+                        Execute Circuit
+                      </>
+                    )}
+                  </Button>
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="shots">Shots</Label>
-                <Input
-                  id="shots"
-                  type="number"
-                  min="1"
-                  max="10000"
-                  value={shots}
-                  onChange={(e) => setShots(parseInt(e.target.value) || 1024)}
-                />
-              </div>
-
-              <div className="flex items-end">
-                <Button
-                  onClick={handleExecute}
-                  disabled={executing || !code.trim()}
-                  className="w-full gradient-quantum"
-                >
-                  {executing ? (
-                    <>
-                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      {executionProgress || "Executing..."}
-                    </>
-                  ) : (
-                    <>
-                      <Play className="w-4 h-4 mr-2" />
-                      Execute Circuit
-                    </>
-                  )}
-                </Button>
-              </div>
+              <QuantumResults results={results} />
             </div>
 
-            <QuantumResults results={results} />
-          </div>
-
-          {/* Right Column - AI Assistant & Job Queue */}
-          <div className="space-y-6">
-            <div className="h-[500px]">
-              <AIAssistant />
+            {/* AI Assistant & Job Queue */}
+            <div className="space-y-4 md:space-y-6">
+              <div className="min-h-[300px] max-h-[50vh] lg:h-[500px]">
+                <AIAssistant />
+              </div>
+              <JobQueue onJobClick={loadJobResults} />
             </div>
-            <JobQueue onJobClick={loadJobResults} />
           </div>
         </div>
       </div>

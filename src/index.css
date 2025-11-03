@@ -105,6 +105,11 @@ All colors MUST be HSL.
   .animate-pulse-glow {
     animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
+  /* Touch-friendly targets for mobile */
+  .touch-target {
+    @apply min-h-[44px];
+  }
 }
 
 @keyframes pulse-glow {
