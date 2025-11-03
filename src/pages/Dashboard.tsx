@@ -210,13 +210,27 @@ export default function Dashboard() {
     const measurements: Record<string, number> = {};
     
     for (const shot of actualData.results) {
-      const measurementKeys = Object.keys(shot)
-        .filter(k => k.startsWith('m'))
-        .sort();
+      // Check if this is Krump choreography (uses named results)
+      const isKrump = 'jab_stomp' in shot;
       
-      const bitstring = measurementKeys
-        .map(key => shot[key] ? '1' : '0')
-        .join('');
+      let bitstring: string;
+      if (isKrump) {
+        // Krump circuit uses named results in specific order
+        bitstring = [
+          shot.jab_stomp ? '1' : '0',
+          shot.arm_swing ? '1' : '0',
+          shot.chest_pop ? '1' : '0'
+        ].join('');
+      } else {
+        // Standard circuits use 'm' prefix (m0, m1, m2, etc.)
+        const measurementKeys = Object.keys(shot)
+          .filter(k => k.startsWith('m'))
+          .sort();
+        
+        bitstring = measurementKeys
+          .map(key => shot[key] ? '1' : '0')
+          .join('');
+      }
       
       measurements[bitstring] = (measurements[bitstring] || 0) + 1;
     }
