@@ -1,7 +1,7 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { decodeKrumpResults, getEnergyLevel, getSuggestedRoutine, DecodedMove } from "@/lib/krump-decoder";
+import { Progress } from "@/components/ui/progress";
+import { decodeKrumpResults, getEnergyLevel, getSuggestedRoutine, type DecodedMove } from "@/lib/krump-decoder";
 
 interface KrumpChoreographyProps {
   measurements: Record<string, number>;
@@ -9,125 +9,157 @@ interface KrumpChoreographyProps {
   shots: number;
 }
 
+const getEnergyColor = (energy: number) => {
+  switch (energy) {
+    case 0: return "bg-muted text-muted-foreground border-muted";
+    case 1: return "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20";
+    case 2: return "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20";
+    case 3: return "bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20";
+    default: return "bg-muted text-muted-foreground border-muted";
+  }
+};
+
+const getEnergyGradient = (energy: number) => {
+  switch (energy) {
+    case 0: return "from-muted/50 to-muted/20";
+    case 1: return "from-emerald-500/10 to-emerald-500/5";
+    case 2: return "from-amber-500/10 to-amber-500/5";
+    case 3: return "from-rose-500/10 to-rose-500/5";
+    default: return "from-muted/50 to-muted/20";
+  }
+};
+
+const getEnergyDot = (energy: number) => {
+  switch (energy) {
+    case 0: return "⚪";
+    case 1: return "🟢";
+    case 2: return "🟡";
+    case 3: return "🔴";
+    default: return "⚪";
+  }
+};
+
 export const KrumpChoreography = ({ measurements, probabilities, shots }: KrumpChoreographyProps) => {
   const decodedMoves = decodeKrumpResults(measurements, probabilities);
-  const suggestedRoutine = getSuggestedRoutine(decodedMoves, 5);
-
-  const totalEnergy = decodedMoves.reduce((sum, move) => sum + (move.energy * move.count), 0);
-  const avgEnergy = (totalEnergy / shots).toFixed(2);
+  const suggestedRoutine = getSuggestedRoutine(decodedMoves);
+  
+  const averageEnergy = decodedMoves.reduce((sum, move) => sum + (move.energy * move.probability), 0);
 
   return (
     <div className="space-y-6">
-      <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
+      <Card>
         <CardHeader>
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle className="text-2xl flex items-center gap-2">
-                💃 Krump Choreography Decoder
-              </CardTitle>
-              <CardDescription className="mt-2">
-                Quantum measurements translated into dance moves
-              </CardDescription>
-            </div>
-            <Badge variant="secondary" className="text-lg px-4 py-2">
-              Avg Energy: {avgEnergy} {getEnergyLevel(Math.round(parseFloat(avgEnergy)))}
-            </Badge>
-          </div>
+          <CardTitle className="flex items-center gap-2">
+            <span className="text-2xl">💃</span>
+            Krump Choreography Breakdown
+          </CardTitle>
+          <p className="text-sm text-muted-foreground">
+            Average Energy: {getEnergyLevel(Math.round(averageEnergy))} ({averageEnergy.toFixed(2)})
+          </p>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {decodedMoves.map((move) => (
-            <div
-              key={move.bitstring}
-              className="p-4 rounded-lg border bg-card/50 hover:bg-card/80 transition-colors"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-3 flex-1">
-                  <span className="text-4xl">{move.emoji}</span>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-semibold text-lg">{move.name}</h3>
-                      <Badge variant="outline" className="font-mono text-xs">
-                        |{move.bitstring}⟩
-                      </Badge>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {decodedMoves.map((move) => (
+              <Card 
+                key={move.bitstring} 
+                className={`overflow-hidden border-2 transition-all hover:shadow-lg hover:scale-[1.02] cursor-pointer bg-gradient-to-br ${getEnergyGradient(move.energy)}`}
+              >
+                <CardContent className="p-5">
+                  <div className="flex items-start gap-4">
+                    <div className="text-5xl flex-shrink-0 leading-none">
+                      {move.emoji}
                     </div>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      {move.description}
-                    </p>
-                    <div className="flex items-center gap-4 text-xs">
-                      <span className="flex items-center gap-1">
-                        <span className="font-medium">Energy:</span>
-                        <span>{getEnergyLevel(move.energy)}</span>
-                      </span>
-                      <Separator orientation="vertical" className="h-4" />
-                      <span className="flex items-center gap-1">
-                        <span className="font-medium">Count:</span>
-                        <span className="font-mono">{move.count}</span>
-                      </span>
-                      <Separator orientation="vertical" className="h-4" />
-                      <span className="flex items-center gap-1">
-                        <span className="font-medium">Probability:</span>
-                        <span className="font-mono">{(move.probability * 100).toFixed(2)}%</span>
-                      </span>
+                    <div className="flex-1 min-w-0 space-y-3">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <h3 className="font-bold text-lg">{move.name}</h3>
+                          <Badge variant="secondary" className="text-xs">
+                            |{move.bitstring}⟩
+                          </Badge>
+                        </div>
+                        <p className="text-sm text-muted-foreground">
+                          {move.description}
+                        </p>
+                      </div>
+                      
+                      <div className="space-y-2 pt-2 border-t border-border/50">
+                        <div className="flex items-center justify-between">
+                          <span className={`text-xs font-medium px-2 py-1 rounded-full border ${getEnergyColor(move.energy)}`}>
+                            {getEnergyDot(move.energy)} Energy: {move.energy}
+                          </span>
+                          <span className="text-xs text-muted-foreground">
+                            {move.count} counts
+                          </span>
+                        </div>
+                        
+                        <div className="space-y-1">
+                          <div className="flex items-center justify-between text-sm">
+                            <span className="font-semibold text-primary">
+                              {(move.probability * 100).toFixed(1)}%
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              probability
+                            </span>
+                          </div>
+                          <Progress value={move.probability * 100} className="h-2" />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="flex flex-col items-center gap-1 min-w-[80px]">
-                  <div className="text-2xl font-bold text-primary">
-                    {(move.probability * 100).toFixed(1)}%
-                  </div>
-                  <div className="w-full bg-secondary rounded-full h-2">
-                    <div
-                      className="bg-primary rounded-full h-2 transition-all"
-                      style={{ width: `${move.probability * 100}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </CardContent>
       </Card>
 
-      <Card className="border-primary/20">
+      <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            🎭 Suggested Routine
-            <Badge variant="secondary">Top {suggestedRoutine.length} Moves</Badge>
+            <span className="text-2xl">🎭</span>
+            Suggested Routine
           </CardTitle>
-          <CardDescription>
-            Most probable move sequence based on quantum measurements
-          </CardDescription>
+          <p className="text-sm text-muted-foreground">
+            Top {suggestedRoutine.length} most probable moves for your choreography
+          </p>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-4">
           <div className="flex flex-wrap gap-2">
             {suggestedRoutine.map((move, index) => (
-              <div key={move.bitstring} className="flex items-center gap-2">
-                <Badge
-                  variant="outline"
-                  className="text-lg px-4 py-2 flex items-center gap-2"
-                >
-                  <span className="text-xl">{move.emoji}</span>
-                  <span className="font-semibold">{move.name}</span>
-                  <span className="text-xs text-muted-foreground">
-                    ({(move.probability * 100).toFixed(1)}%)
-                  </span>
-                </Badge>
-                {index < suggestedRoutine.length - 1 && (
-                  <span className="text-muted-foreground">→</span>
-                )}
-              </div>
+              <Badge 
+                key={move.bitstring} 
+                variant="outline" 
+                className="text-sm px-4 py-2 hover:bg-primary/10 transition-colors"
+              >
+                {index + 1}. {move.emoji} {move.name} 
+                <span className="ml-2 font-semibold text-primary">
+                  {(move.probability * 100).toFixed(1)}%
+                </span>
+              </Badge>
             ))}
           </div>
-          <Separator className="my-4" />
-          <div className="text-sm text-muted-foreground">
-            <p className="mb-2">
-              <strong>Choreography Notes:</strong>
-            </p>
-            <ul className="list-disc list-inside space-y-1 ml-2">
-              <li>Start with the highest probability move to establish your foundation</li>
-              <li>Transition between moves by increasing or decreasing energy levels</li>
-              <li>The quantum superposition means all moves are possible - improvise between them!</li>
-              <li>Higher energy moves ({getEnergyLevel(3)}) should be used as climactic moments</li>
+          
+          <div className="p-4 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg border border-primary/20">
+            <h4 className="font-semibold mb-3 flex items-center gap-2">
+              <span>📝</span> Choreography Tips
+            </h4>
+            <ul className="text-sm space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span>Start with the highest probability moves for consistency and recognition</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span>Mix energy levels (🟢→🟡→🔴) to create dynamic flow and build intensity</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span>Repeat the top 3 moves to create a memorable, recognizable routine</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span>Use lower probability moves as accents, variations, or smooth transitions</span>
+              </li>
             </ul>
           </div>
         </CardContent>
