@@ -5,3 +5,6 @@ verify_jwt = true
 
 [functions.ai-quantum-assistant]
 verify_jwt = true
+
+[functions.generate-quantum-circuit]
+verify_jwt = true

@@ -8,6 +8,7 @@ import { AIAssistant } from "@/components/AIAssistant";
 import { MobileAIChat } from "@/components/MobileAIChat";
 import { JobQueue } from "@/components/JobQueue";
 import { QuantumResults } from "@/components/QuantumResults";
+import { CircuitGeneratorDialog } from "@/components/CircuitGeneratorDialog";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
@@ -29,6 +30,9 @@ export default function Dashboard() {
   const [selectedCircuitId, setSelectedCircuitId] = useState<string | null>(null);
   const [selectedTemplateId, setSelectedTemplateId] = useState<string | null>(null);
   const [executionProgress, setExecutionProgress] = useState("");
+  const [showGeneratorDialog, setShowGeneratorDialog] = useState(false);
+  const [generatedCircuitMetadata, setGeneratedCircuitMetadata] = useState<any>(null);
+  const [currentDomain, setCurrentDomain] = useState<string | null>(null);
 
   // Circuit mapping for quantum service API
   const circuitApiMapping: Record<string, { name: string; n_qubits: number } | null> = {
@@ -46,9 +50,18 @@ export default function Dashboard() {
   }, [user, authLoading, navigate]);
 
   const handleSelectTemplate = async (template: CircuitTemplate) => {
+    // If custom template is selected, show the generator dialog
+    if (template.id === 'custom') {
+      setSelectedTemplateId(template.id);
+      setShowGeneratorDialog(true);
+      return;
+    }
+
     setCode(template.guppy_code);
     setSelectedCircuitId(null);
     setSelectedTemplateId(template.id);
+    setGeneratedCircuitMetadata(null);
+    setCurrentDomain(null);
 
     // Save to library
     if (user) {
@@ -66,6 +79,20 @@ export default function Dashboard() {
       if (error) {
         console.error('Error saving circuit:', error);
       }
+    }
+  };
+
+  const handleGeneratedCircuit = (code: string, metadata: any) => {
+    setCode(code);
+    setGeneratedCircuitMetadata(metadata);
+    setCurrentDomain(metadata.domainInsights ? metadata.algorithmUsed : null);
+    
+    // Update execution parameters based on AI suggestions
+    if (metadata.suggestedShots) {
+      setShots(metadata.suggestedShots);
+    }
+    if (metadata.suggestedBackend) {
+      setBackendType(metadata.suggestedBackend);
     }
   };
 
@@ -301,7 +328,13 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
             {/* Editor & Controls */}
             <div className="lg:col-span-2 space-y-4 md:space-y-6">
-              <CircuitEditor code={code} onChange={setCode} />
+              <CircuitEditor 
+                code={code} 
+                onChange={setCode}
+                isCustomCircuit={selectedTemplateId === 'custom'}
+                onGenerateClick={() => setShowGeneratorDialog(true)}
+                currentDomain={currentDomain}
+              />
 
               {/* Execution Controls */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 p-3 md:p-4 border rounded-lg bg-card">
@@ -370,6 +403,13 @@ export default function Dashboard() {
 
         {/* Mobile Floating AI Chat */}
         <MobileAIChat onJobClick={loadJobResults} />
+
+        {/* Circuit Generator Dialog */}
+        <CircuitGeneratorDialog
+          open={showGeneratorDialog}
+          onOpenChange={setShowGeneratorDialog}
+          onGenerate={handleGeneratedCircuit}
+        />
       </div>
     </div>
   );

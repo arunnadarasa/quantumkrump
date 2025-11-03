@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      generated_circuits: {
+        Row: {
+          algorithm_used: string | null
+          created_at: string | null
+          domain: string
+          executed: boolean | null
+          execution_count: number | null
+          generated_code: string
+          id: string
+          qubit_count: number | null
+          use_case: string
+          user_id: string
+        }
+        Insert: {
+          algorithm_used?: string | null
+          created_at?: string | null
+          domain: string
+          executed?: boolean | null
+          execution_count?: number | null
+          generated_code: string
+          id?: string
+          qubit_count?: number | null
+          use_case: string
+          user_id: string
+        }
+        Update: {
+          algorithm_used?: string | null
+          created_at?: string | null
+          domain?: string
+          executed?: boolean | null
+          execution_count?: number | null
+          generated_code?: string
+          id?: string
+          qubit_count?: number | null
+          use_case?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string | null
