@@ -97,13 +97,13 @@ export const CircuitGeneratorDialog = ({ open, onOpenChange, onGenerate }: Circu
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-[95vw] sm:max-w-md md:max-w-2xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2 text-2xl">
-            <Sparkles className="w-6 h-6 text-primary" />
+          <DialogTitle className="flex items-center gap-2 text-lg sm:text-xl md:text-2xl">
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             Generate Quantum Circuit
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-xs sm:text-sm">
             {step === "domain" 
               ? "Select your application domain to generate a custom quantum circuit"
               : "Describe your specific use case for quantum optimization"
@@ -112,21 +112,21 @@ export const CircuitGeneratorDialog = ({ open, onOpenChange, onGenerate }: Circu
         </DialogHeader>
 
         {step === "domain" && (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 py-3 sm:py-4">
             {domains.map((domain) => {
               const Icon = domain.icon;
               return (
                 <Card
                   key={domain.id}
-                  className="p-4 cursor-pointer hover:border-primary transition-all hover:shadow-lg group"
+                  className="p-3 sm:p-4 cursor-pointer hover:border-primary transition-all hover:shadow-lg group active:scale-95"
                   onClick={() => handleDomainSelect(domain.id)}
                 >
-                  <div className="flex flex-col items-center text-center space-y-2">
-                    <div className={`p-3 rounded-full bg-background group-hover:scale-110 transition-transform ${domain.color}`}>
-                      <Icon className="w-6 h-6" />
+                  <div className="flex flex-col items-center text-center space-y-1.5 sm:space-y-2">
+                    <div className={`p-2 sm:p-3 rounded-full bg-background group-hover:scale-110 transition-transform ${domain.color}`}>
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <h3 className="font-semibold">{domain.name}</h3>
-                    <p className="text-xs text-muted-foreground">{domain.description}</p>
+                    <h3 className="text-sm sm:text-base font-semibold">{domain.name}</h3>
+                    <p className="text-xs text-muted-foreground line-clamp-2">{domain.description}</p>
                   </div>
                 </Card>
               );
@@ -135,10 +135,10 @@ export const CircuitGeneratorDialog = ({ open, onOpenChange, onGenerate }: Circu
         )}
 
         {step === "usecase" && selectedDomainData && (
-          <div className="space-y-4 py-4">
-            <div className="flex items-center gap-2 p-3 bg-muted rounded-lg">
-              <selectedDomainData.icon className={`w-5 h-5 ${selectedDomainData.color}`} />
-              <span className="font-medium">{selectedDomainData.name} Domain</span>
+          <div className="space-y-3 sm:space-y-4 py-3 sm:py-4">
+            <div className="flex items-center gap-2 p-2 sm:p-3 bg-muted rounded-lg">
+              <selectedDomainData.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${selectedDomainData.color}`} />
+              <span className="text-sm sm:text-base font-medium">{selectedDomainData.name} Domain</span>
             </div>
 
             <div className="space-y-2">
@@ -147,7 +147,7 @@ export const CircuitGeneratorDialog = ({ open, onOpenChange, onGenerate }: Circu
                 value={useCase}
                 onChange={(e) => setUseCase(e.target.value)}
                 placeholder={`Example: I want to optimize ${selectedDomainData.name.toLowerCase()} systems by simulating...`}
-                className="min-h-[150px] font-mono text-sm"
+                className="min-h-[120px] sm:min-h-[150px] font-mono text-xs sm:text-sm"
               />
             </div>
 
@@ -159,23 +159,26 @@ export const CircuitGeneratorDialog = ({ open, onOpenChange, onGenerate }: Circu
                   setSelectedDomain(null);
                 }}
                 disabled={isGenerating}
+                className="text-sm sm:text-base"
               >
                 Back
               </Button>
               <Button
                 onClick={handleGenerate}
                 disabled={isGenerating || !useCase.trim()}
-                className="gap-2"
+                className="gap-2 text-sm sm:text-base"
               >
                 {isGenerating ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Generating...
+                    <span className="hidden sm:inline">Generating...</span>
+                    <span className="sm:hidden">...</span>
                   </>
                 ) : (
                   <>
                     <Sparkles className="w-4 h-4" />
-                    Generate Circuit
+                    <span className="hidden sm:inline">Generate Circuit</span>
+                    <span className="sm:hidden">Generate</span>
                   </>
                 )}
               </Button>
