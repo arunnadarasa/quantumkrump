@@ -291,7 +291,10 @@ export default function Dashboard() {
         <div className="space-y-4 md:space-y-6">
           {/* Circuit Library */}
           <div>
-            <CircuitLibrary onSelectTemplate={handleSelectTemplate} />
+            <CircuitLibrary 
+              onSelectTemplate={handleSelectTemplate} 
+              selectedTemplateId={selectedTemplateId}
+            />
           </div>
 
           {/* Desktop: 3-column layout, Mobile: stacked */}

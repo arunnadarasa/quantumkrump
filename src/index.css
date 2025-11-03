@@ -158,6 +158,13 @@ All colors MUST be HSL.
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
+
+  /* Circuit template peek effect on mobile */
+  @media (max-width: 768px) {
+    .snap-x {
+      scroll-padding-inline: 0.5rem;
+    }
+  }
 }
 
 @keyframes pulse-glow {

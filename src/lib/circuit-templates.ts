@@ -5,6 +5,8 @@ export interface CircuitTemplate {
   circuit_type: string;
   guppy_code: string;
   parameters: Record<string, any>;
+  colorTheme: string;
+  qubitCount: number;
 }
 
 export const circuitTemplates: CircuitTemplate[] = [
@@ -13,6 +15,8 @@ export const circuitTemplates: CircuitTemplate[] = [
     name: "Bell State",
     description: "Create an entangled pair of qubits in the |Φ+⟩ state",
     circuit_type: "bell",
+    colorTheme: "from-purple-500/20 to-pink-500/20 border-purple-500/30",
+    qubitCount: 2,
     guppy_code: `# Bell State Circuit
 # Creates an entangled pair of qubits
 
@@ -41,6 +45,8 @@ def bell_state():
     name: "GHZ State",
     description: "Create a 3-qubit maximally entangled state",
     circuit_type: "ghz",
+    colorTheme: "from-blue-500/20 to-cyan-500/20 border-blue-500/30",
+    qubitCount: 3,
     guppy_code: `# GHZ State Circuit
 # Creates a 3-qubit maximally entangled state
 
@@ -74,6 +80,8 @@ def ghz_state():
     name: "Quantum Teleportation",
     description: "Teleport a quantum state from one qubit to another",
     circuit_type: "teleportation",
+    colorTheme: "from-orange-500/20 to-yellow-500/20 border-orange-500/30",
+    qubitCount: 3,
     guppy_code: `# Quantum Teleportation Circuit
 # Teleports a quantum state using entanglement
 
@@ -116,6 +124,8 @@ def teleportation():
     name: "Grover's Search (2-qubit)",
     description: "Search for a marked item in a 2-qubit space",
     circuit_type: "grover",
+    colorTheme: "from-green-500/20 to-teal-500/20 border-green-500/30",
+    qubitCount: 2,
     guppy_code: `# Grover's Algorithm (2 qubits)
 # Searches for marked state |11⟩
 
@@ -157,6 +167,8 @@ def grover_2qubit():
     name: "Custom Circuit",
     description: "Write your own Guppy quantum circuit",
     circuit_type: "custom",
+    colorTheme: "from-gray-500/20 to-slate-500/20 border-gray-500/30",
+    qubitCount: 1,
     guppy_code: `# Custom Quantum Circuit
 # Write your own Guppy code here
 
