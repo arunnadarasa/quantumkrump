@@ -16,9 +16,10 @@ interface Job {
 
 interface JobQueueProps {
   onJobClick?: (jobId: string) => void;
+  isMobilePopup?: boolean;
 }
 
-export const JobQueue = ({ onJobClick }: JobQueueProps) => {
+export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
   const [jobs, setJobs] = useState<Job[]>([]);
 
   useEffect(() => {
@@ -72,6 +73,49 @@ export const JobQueue = ({ onJobClick }: JobQueueProps) => {
     return <Badge variant={variant as any}>{status}</Badge>;
   };
 
+  // Mobile popup mode - render without Card wrapper
+  if (isMobilePopup) {
+    return (
+      <div className="flex flex-col h-full p-4">
+        <ScrollArea className="flex-1">
+          <div className="space-y-2">
+            {jobs.length === 0 && (
+              <p className="text-sm text-muted-foreground text-center py-8">
+                No jobs yet. Execute a circuit to get started!
+              </p>
+            )}
+            {jobs.map((job) => (
+              <div
+                key={job.id}
+                onClick={() => job.status === 'completed' && onJobClick?.(job.id)}
+                className={`flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 rounded-lg border bg-card transition-colors gap-2 ${
+                  job.status === 'completed' 
+                    ? 'hover:bg-accent/50 cursor-pointer touch-target' 
+                    : 'hover:bg-accent/30'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  {getStatusIcon(job.status)}
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium truncate">
+                      {job.backend_type} ({job.shots} shots)
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {new Date(job.created_at).toLocaleTimeString()}
+                      {job.execution_time_ms && ` • ${(job.execution_time_ms / 1000).toFixed(1)}s`}
+                    </p>
+                  </div>
+                </div>
+                {getStatusBadge(job.status)}
+              </div>
+            ))}
+          </div>
+        </ScrollArea>
+      </div>
+    );
+  }
+
+  // Desktop mode - render with Card wrapper
   return (
     <Card>
       <CardHeader className="p-4 md:p-6">

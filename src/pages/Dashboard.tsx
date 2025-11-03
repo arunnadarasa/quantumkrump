@@ -369,7 +369,7 @@ export default function Dashboard() {
         </div>
 
         {/* Mobile Floating AI Chat */}
-        <MobileAIChat />
+        <MobileAIChat onJobClick={loadJobResults} />
       </div>
     </div>
   );

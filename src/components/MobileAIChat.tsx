@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react";
 import { Bot, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AIAssistant } from "@/components/AIAssistant";
+import { JobQueue } from "@/components/JobQueue";
 
-export const MobileAIChat = () => {
+interface MobileAIChatProps {
+  onJobClick: (jobId: string) => void;
+}
+
+export const MobileAIChat = ({ onJobClick }: MobileAIChatProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("ai");
 
   // Prevent body scroll when chat is open
   useEffect(() => {
@@ -57,7 +64,7 @@ export const MobileAIChat = () => {
             <div className="flex items-center justify-between p-4 border-b bg-card">
               <div className="flex items-center gap-2">
                 <Bot className="w-5 h-5 text-accent" />
-                <h3 className="font-semibold text-base">Quantum AI Assistant</h3>
+                <h3 className="font-semibold text-base">Quantum Assistant</h3>
               </div>
               <Button
                 variant="ghost"
@@ -70,9 +77,22 @@ export const MobileAIChat = () => {
               </Button>
             </div>
 
-            {/* Chat Content */}
+            {/* Tabbed Content */}
             <div className="flex-1 overflow-hidden">
-              <AIAssistant isMobilePopup />
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="flex flex-col h-full">
+                <TabsList className="grid w-full grid-cols-2 mx-4 mt-2">
+                  <TabsTrigger value="ai">AI Assistant</TabsTrigger>
+                  <TabsTrigger value="jobs">Job History</TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="ai" className="flex-1 mt-0 overflow-hidden">
+                  <AIAssistant isMobilePopup />
+                </TabsContent>
+                
+                <TabsContent value="jobs" className="flex-1 mt-0 overflow-hidden">
+                  <JobQueue onJobClick={onJobClick} isMobilePopup />
+                </TabsContent>
+              </Tabs>
             </div>
           </div>
         </div>
