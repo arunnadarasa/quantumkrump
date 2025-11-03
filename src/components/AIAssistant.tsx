@@ -6,6 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useStreamingAI } from "@/hooks/useStreamingAI";
 import { Bot, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   role: "user" | "assistant";
@@ -79,7 +80,9 @@ export const AIAssistant = ({ isMobilePopup = false }: AIAssistantProps) => {
                       : "bg-muted mr-8"
                   }`}
                 >
-                  <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                  <div className="text-sm prose prose-sm dark:prose-invert max-w-none">
+                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                  </div>
                 </div>
               ))}
             </div>
@@ -132,8 +135,10 @@ export const AIAssistant = ({ isMobilePopup = false }: AIAssistantProps) => {
                     ? "bg-primary text-primary-foreground ml-4 md:ml-8"
                     : "bg-muted mr-4 md:mr-8"
                 }`}
-              >
-                <p className="text-xs md:text-sm whitespace-pre-wrap">{msg.content}</p>
+                >
+                <div className="text-xs md:text-sm prose prose-sm dark:prose-invert max-w-none">
+                  <ReactMarkdown>{msg.content}</ReactMarkdown>
+                </div>
               </div>
             ))}
           </div>
