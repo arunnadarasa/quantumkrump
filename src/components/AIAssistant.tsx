@@ -12,7 +12,11 @@ interface Message {
   content: string;
 }
 
-export const AIAssistant = () => {
+interface AIAssistantProps {
+  isMobilePopup?: boolean;
+}
+
+export const AIAssistant = ({ isMobilePopup = false }: AIAssistantProps) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const { streamChat, isStreaming } = useStreamingAI();
@@ -52,6 +56,56 @@ export const AIAssistant = () => {
       }
     });
   };
+
+  // If in mobile popup mode, render without Card wrapper
+  if (isMobilePopup) {
+    return (
+      <div className="flex flex-col h-full">
+        <div className="flex-1 flex flex-col p-4 pt-2 min-h-0">
+          <ScrollArea className="flex-1 pr-4 mb-4">
+            <div className="space-y-4">
+              {messages.length === 0 && (
+                <div className="text-center text-muted-foreground py-8">
+                  <Bot className="w-12 h-12 mx-auto mb-2 text-accent" />
+                  <p className="text-sm">Ask me about quantum circuits, Guppy code, or circuit results!</p>
+                </div>
+              )}
+              {messages.map((msg, idx) => (
+                <div
+                  key={idx}
+                  className={`p-3 rounded-lg ${
+                    msg.role === "user"
+                      ? "bg-primary text-primary-foreground ml-8"
+                      : "bg-muted mr-8"
+                  }`}
+                >
+                  <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                </div>
+              ))}
+            </div>
+          </ScrollArea>
+          <div className="flex gap-2 sticky bottom-0 bg-background pb-safe">
+            <Input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
+              placeholder="Ask about quantum circuits..."
+              disabled={isStreaming}
+              className="text-sm touch-target"
+            />
+            <Button 
+              onClick={handleSend} 
+              disabled={isStreaming || !input.trim()}
+              className="touch-target"
+              size="sm"
+            >
+              <Send className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Card className="flex flex-col h-full">

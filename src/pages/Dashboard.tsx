@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { CircuitLibrary } from "@/components/CircuitLibrary";
 import { CircuitEditor } from "@/components/CircuitEditor";
 import { AIAssistant } from "@/components/AIAssistant";
+import { MobileAIChat } from "@/components/MobileAIChat";
 import { JobQueue } from "@/components/JobQueue";
 import { QuantumResults } from "@/components/QuantumResults";
 import { Button } from "@/components/ui/button";
@@ -354,8 +355,8 @@ export default function Dashboard() {
               <QuantumResults results={results} />
             </div>
 
-            {/* AI Assistant & Job Queue */}
-            <div className="space-y-4 md:space-y-6">
+            {/* AI Assistant & Job Queue - Hidden on mobile, shown as floating popup instead */}
+            <div className="hidden md:block space-y-4 md:space-y-6">
               <div className="min-h-[300px] max-h-[50vh] lg:h-[500px]">
                 <AIAssistant />
               </div>
@@ -363,6 +364,9 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+
+        {/* Mobile Floating AI Chat */}
+        <MobileAIChat />
       </div>
     </div>
   );
