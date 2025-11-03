@@ -85,7 +85,103 @@ export default function Dashboard() {
 
     // Auto-execute Krump choreography template
     if (template.id === 'krump-choreography') {
-      setTimeout(() => handleExecute(), 100);
+      executeKrumpChoreography();
+    }
+  };
+
+  const executeKrumpChoreography = async () => {
+    setExecuting(true);
+    setResults(null);
+    setExecutionProgress("Creating job...");
+
+    let progressInterval: NodeJS.Timeout | null = null;
+
+    try {
+      // 1. Create job record
+      const { data: job, error: jobError } = await supabase
+        .from('quantum_jobs')
+        .insert({
+          user_id: user?.id,
+          circuit_id: null,
+          backend_type: backendType,
+          shots: shots,
+          status: 'running',
+          parameters: {}
+        })
+        .select()
+        .single();
+
+      if (jobError) throw jobError;
+
+      setExecutionProgress("Calling quantum service...");
+      const startTime = Date.now();
+
+      // Progress updates
+      progressInterval = setInterval(() => {
+        const elapsed = Math.round((Date.now() - startTime) / 1000);
+        setExecutionProgress(`Waiting for quantum results... ${elapsed}s elapsed`);
+      }, 1000);
+
+      // 2. Call quantum service
+      const quantumResponse = await fetch('https://quantum-service.fly.dev/run', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          circuit_name: 'krump_choreography',
+          n_qubits: 3,
+          shots: shots
+        })
+      });
+
+      clearInterval(progressInterval);
+      progressInterval = null;
+
+      if (!quantumResponse.ok) {
+        const errorData = await quantumResponse.json().catch(() => ({}));
+        throw new Error(errorData.error || `Quantum service error: ${quantumResponse.statusText}`);
+      }
+
+      const quantumResults = await quantumResponse.json();
+      const executionTime = Date.now() - startTime;
+
+      setExecutionProgress("Processing results...");
+
+      // 3. Transform results
+      const transformedResults = transformSeleneResults(quantumResults);
+      
+      // 4. Update job
+      const { error: updateError } = await supabase
+        .from('quantum_jobs')
+        .update({
+          status: 'completed',
+          results: transformedResults,
+          execution_time_ms: executionTime,
+          completed_at: new Date().toISOString()
+        })
+        .eq('id', job.id);
+
+      if (updateError) throw updateError;
+
+      // 5. Display results
+      setResults(transformedResults);
+      setExecuting(false);
+      setExecutionProgress("");
+      
+      toast({
+        title: "Quantum Krump Choreography Complete! 💃",
+        description: `Generated ${shots} quantum dance moves in ${(executionTime / 1000).toFixed(1)}s`,
+      });
+
+    } catch (error) {
+      console.error('Krump execution error:', error);
+      if (progressInterval) clearInterval(progressInterval);
+      setExecuting(false);
+      setExecutionProgress("");
+      toast({
+        title: "Quantum choreography failed",
+        description: error instanceof Error ? error.message : "Unknown error",
+        variant: "destructive"
+      });
     }
   };
 
@@ -182,7 +278,7 @@ export default function Dashboard() {
     if (!circuitConfig) {
       toast({
         title: "Circuit not supported",
-        description: "This circuit is not available in the quantum service yet. Please select Bell State, GHZ State, or Teleportation.",
+        description: "This circuit is not available in the quantum service yet. Please select Bell State, GHZ State, Teleportation, or Quantum Krump Choreography.",
         variant: "destructive"
       });
       return;
