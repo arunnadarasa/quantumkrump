@@ -8,7 +8,7 @@ import { AIAssistant } from "@/components/AIAssistant";
 import { MobileAIChat } from "@/components/MobileAIChat";
 import { JobQueue } from "@/components/JobQueue";
 import { QuantumResults } from "@/components/QuantumResults";
-import { QuantumKrumpCircuit } from "@/components/QuantumKrumpCircuit";
+
 import { CircuitGeneratorDialog } from "@/components/CircuitGeneratorDialog";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -41,6 +41,7 @@ export default function Dashboard() {
     'ghz-state': { name: 'ghz_3', n_qubits: 3 },
     'teleportation': { name: 'teleport', n_qubits: 3 },
     'grover-2qubit': null,  // Not available in API
+    'krump-choreography': { name: 'krump_choreography', n_qubits: 3 },
     'custom': null  // Not available in API
   };
 
@@ -80,6 +81,11 @@ export default function Dashboard() {
       if (error) {
         console.error('Error saving circuit:', error);
       }
+    }
+
+    // Auto-execute Krump choreography template
+    if (template.id === 'krump-choreography') {
+      setTimeout(() => handleExecute(), 100);
     }
   };
 
@@ -390,8 +396,6 @@ export default function Dashboard() {
               </div>
 
               <QuantumResults results={results} />
-              
-              <QuantumKrumpCircuit />
             </div>
 
             {/* AI Assistant & Job Queue - Hidden on mobile, shown as floating popup instead */}

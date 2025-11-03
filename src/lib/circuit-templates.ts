@@ -163,6 +163,38 @@ def grover_2qubit():
     parameters: {}
   },
   {
+    id: "krump-choreography",
+    name: "Quantum Krump Choreography",
+    description: "Generate explosive Krump dance moves using quantum entanglement",
+    circuit_type: "krump",
+    colorTheme: "from-purple-500/20 to-fuchsia-500/20 border-purple-500/30",
+    qubitCount: 3,
+    guppy_code: `# Quantum Krump Choreography Circuit
+# Uses 3-qubit GHZ entanglement for synchronized dance moves
+
+from guppy import quantum
+
+@quantum
+def krump_choreography():
+    # Initialize qubits for each move
+    q0 = qubit()  # jab_stomp
+    q1 = qubit()  # arm_swing
+    q2 = qubit()  # chest_pop
+    
+    # Create entangled superposition
+    q0 = h(q0)           # Superposition on first qubit
+    q0, q1 = cx(q0, q1)  # Entangle second
+    q1, q2 = cx(q1, q2)  # Entangle third
+    
+    # Measure all qubits
+    m0 = measure(q0)  # jab_stomp result
+    m1 = measure(q1)  # arm_swing result
+    m2 = measure(q2)  # chest_pop result
+    
+    return m0, m1, m2`,
+    parameters: {}
+  },
+  {
     id: "custom",
     name: "Custom Circuit",
     description: "Write your own Guppy quantum circuit",

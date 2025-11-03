@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { circuitTemplates, CircuitTemplate } from "@/lib/circuit-templates";
-import { FileCode, Atom, Network, Search, Wand2, Check } from "lucide-react";
+import { FileCode, Atom, Network, Search, Wand2, Check, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, typeof Atom> = {
@@ -9,6 +9,7 @@ const iconMap: Record<string, typeof Atom> = {
   ghz: Network,
   teleportation: Wand2,
   grover: Search,
+  krump: Zap,
   custom: FileCode
 };
 
