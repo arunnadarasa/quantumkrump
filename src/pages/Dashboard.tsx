@@ -8,6 +8,7 @@ import { AIAssistant } from "@/components/AIAssistant";
 import { MobileAIChat } from "@/components/MobileAIChat";
 import { JobQueue } from "@/components/JobQueue";
 import { QuantumResults } from "@/components/QuantumResults";
+import { QuantumKrumpCircuit } from "@/components/QuantumKrumpCircuit";
 import { CircuitGeneratorDialog } from "@/components/CircuitGeneratorDialog";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -389,6 +390,8 @@ export default function Dashboard() {
               </div>
 
               <QuantumResults results={results} />
+              
+              <QuantumKrumpCircuit />
             </div>
 
             {/* AI Assistant & Job Queue - Hidden on mobile, shown as floating popup instead */}
