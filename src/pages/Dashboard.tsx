@@ -128,7 +128,6 @@ export default function Dashboard() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           circuit_name: 'krump_choreography',
-          n_qubits: 3,
           shots: shots
         })
       });
