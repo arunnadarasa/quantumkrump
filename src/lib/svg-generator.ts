@@ -30,9 +30,18 @@ export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): str
   const barMaxWidth = 350;
   const margin = { top: 120, right: 20, bottom: 40, left: 120 };
 
+  // Prepare raw data JSON
+  const rawData = {
+    results,
+    metadata: jobMetadata
+  };
+  const rawDataJSON = JSON.stringify(rawData, null, 2);
+  const rawDataLines = rawDataJSON.split('\n');
+  const rawDataHeight = rawDataLines.length * 14 + 60;
+
   // Calculate total height
   const tableHeight = chartData.length * 30 + 80;
-  const totalHeight = margin.top + chartHeight + tableHeight + 60;
+  const totalHeight = margin.top + chartHeight + tableHeight + rawDataHeight + 80;
 
   // Generate SVG
   const svg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -116,6 +125,27 @@ export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): str
     <text x="${chartWidth - 120}" y="${y + 18}" text-anchor="end" font-size="12" fill="#666666">${percentage}%</text>
       `;
     }).join('')}
+  </g>
+  
+  <!-- Raw Data Section -->
+  <g transform="translate(0, ${margin.top + chartHeight + tableHeight + 60})">
+    <text x="${chartWidth / 2}" y="0" text-anchor="middle" font-size="16" font-weight="600" fill="#333333">
+      Raw Data (JSON)
+    </text>
+    
+    <!-- Data background -->
+    <rect x="40" y="15" width="${chartWidth - 80}" height="${rawDataHeight - 40}" fill="#f9f9f9" rx="4" stroke="#e0e0e0" stroke-width="1"/>
+    
+    <!-- JSON content -->
+    ${rawDataLines.map((line, i) => {
+      const y = 35 + i * 14;
+      const escapedLine = line
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+      return `<text x="50" y="${y}" font-size="10" font-family="monospace" fill="#333333">${escapedLine}</text>`;
+    }).join('\n    ')}
   </g>
   
   <!-- Footer -->
