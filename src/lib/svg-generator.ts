@@ -157,7 +157,7 @@ export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): str
   </g>
   
   <!-- Table Section -->
-  <g transform="translate(0, ${margin.top + chartHeight + probabilityHeight + 80})"
+  <g transform="translate(0, ${margin.top + chartHeight + probabilityHeight + 80})">
     <text x="${chartWidth / 2}" y="0" text-anchor="middle" font-size="16" font-weight="600" fill="#333333">
       Detailed Results
     </text>
@@ -183,7 +183,7 @@ export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): str
   </g>
   
   <!-- Raw Data Section -->
-  <g transform="translate(0, ${margin.top + chartHeight + probabilityHeight + tableHeight + 100})"
+  <g transform="translate(0, ${margin.top + chartHeight + probabilityHeight + tableHeight + 100})">
     <text x="${chartWidth / 2}" y="0" text-anchor="middle" font-size="16" font-weight="600" fill="#333333">
       Raw Data (JSON)
     </text>
