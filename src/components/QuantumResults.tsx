@@ -9,6 +9,7 @@ import { KrumpChoreography } from "./KrumpChoreography";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { generateResultsSVG, downloadSVG } from "@/lib/svg-generator";
+import { generateKrumpSVG, downloadKrumpSVG } from "@/lib/krump-svg-generator";
 import { useToast } from "@/hooks/use-toast";
 
 interface QuantumResultsProps {
@@ -25,9 +26,23 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
 
   const handleDownloadSVG = () => {
     try {
-      const svg = generateResultsSVG(results);
-      const filename = `quantum-results-${results.circuit || 'circuit'}-${Date.now()}.svg`;
-      downloadSVG(svg, filename);
+      const isKrump = results.circuit === 'krump_choreography';
+      
+      const svg = isKrump 
+        ? generateKrumpSVG(results, { 
+            circuit: results.circuit, 
+            shots: results.shots,
+            backend_type: 'simulator'
+          })
+        : generateResultsSVG(results);
+      
+      const filename = isKrump
+        ? `krump-choreography-${Date.now()}.svg`
+        : `quantum-results-${results.circuit || 'circuit'}-${Date.now()}.svg`;
+      
+      const downloadFn = isKrump ? downloadKrumpSVG : downloadSVG;
+      downloadFn(svg, filename);
+      
       toast({
         title: "Success",
         description: "SVG file downloaded successfully",

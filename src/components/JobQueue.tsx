@@ -6,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Loader2, CheckCircle2, XCircle, Clock, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { generateResultsSVG, downloadSVG } from "@/lib/svg-generator";
+import { generateKrumpSVG, downloadKrumpSVG } from "@/lib/krump-svg-generator";
 import { useToast } from "@/hooks/use-toast";
 
 interface Job {
@@ -94,15 +95,25 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
       }
 
       const results = data.results as any;
-      const svg = generateResultsSVG(results, {
+      const isKrump = results.circuit === 'krump_choreography';
+      
+      const metadata = {
         backend_type: data.backend_type,
         shots: data.shots,
         created_at: data.created_at,
         circuit: results.circuit
-      });
+      };
       
-      const filename = `quantum-job-${jobId.slice(0, 8)}-${Date.now()}.svg`;
-      downloadSVG(svg, filename);
+      const svg = isKrump
+        ? generateKrumpSVG(results, metadata)
+        : generateResultsSVG(results, metadata);
+      
+      const filename = isKrump
+        ? `krump-choreography-${jobId.slice(0, 8)}-${Date.now()}.svg`
+        : `quantum-job-${jobId.slice(0, 8)}-${Date.now()}.svg`;
+      
+      const downloadFn = isKrump ? downloadKrumpSVG : downloadSVG;
+      downloadFn(svg, filename);
 
       toast({
         title: "Success",

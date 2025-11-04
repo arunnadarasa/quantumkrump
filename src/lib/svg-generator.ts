@@ -23,9 +23,11 @@ export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): str
   })).sort((a, b) => b.count - a.count);
 
   const maxCount = Math.max(...chartData.map(d => d.count));
+  const maxProbability = Math.max(...chartData.map(d => d.probability));
   const barHeight = 30;
   const barSpacing = 10;
   const chartHeight = chartData.length * (barHeight + barSpacing) + 40;
+  const probabilityHeight = chartData.length * (barHeight + barSpacing) + 40;
   const chartWidth = 600;
   const barMaxWidth = 350;
   const margin = { top: 120, right: 20, bottom: 40, left: 120 };
@@ -41,7 +43,7 @@ export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): str
 
   // Calculate total height
   const tableHeight = chartData.length * 30 + 80;
-  const totalHeight = margin.top + chartHeight + tableHeight + rawDataHeight + 80;
+  const totalHeight = margin.top + chartHeight + probabilityHeight + tableHeight + rawDataHeight + 140;
 
   // Generate SVG
   const svg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -61,6 +63,14 @@ export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): str
   <text x="${chartWidth / 2}" y="75" text-anchor="middle" font-size="12" fill="#999999">
     ${timestamp}
   </text>
+  
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="probGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
   
   <!-- Divider -->
   <line x1="40" y1="90" x2="${chartWidth - 40}" y2="90" stroke="#e0e0e0" stroke-width="2"/>
@@ -101,8 +111,43 @@ export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): str
     </text>
   </g>
   
+  <!-- Probability Distribution Section -->
+  <g transform="translate(${margin.left}, ${margin.top + chartHeight + 40})">
+    <text x="${barMaxWidth / 2}" y="-20" text-anchor="middle" font-size="16" font-weight="600" fill="#333333">
+      Probability Distribution
+    </text>
+    
+    <!-- Y-axis labels and bars -->
+    ${chartData.map((d, i) => {
+      const y = i * (barHeight + barSpacing);
+      const barWidth = (d.probability / maxProbability) * barMaxWidth;
+      const percentage = (d.probability * 100).toFixed(2);
+      
+      return `
+    <!-- State label -->
+    <text x="-10" y="${y + barHeight / 2 + 5}" text-anchor="end" font-size="14" font-family="monospace" fill="#333333">
+      |${d.state}⟩
+    </text>
+    
+    <!-- Bar with gradient -->
+    <rect x="0" y="${y}" width="${barWidth}" height="${barHeight}" fill="url(#probGradient)" rx="4"/>
+    
+    <!-- Percentage label -->
+    <text x="${barWidth + 10}" y="${y + barHeight / 2 + 5}" font-size="12" fill="#666666">
+      ${percentage}%
+    </text>
+      `;
+    }).join('')}
+    
+    <!-- X-axis -->
+    <line x1="0" y1="${probabilityHeight - 40}" x2="${barMaxWidth}" y2="${probabilityHeight - 40}" stroke="#999999" stroke-width="1"/>
+    <text x="${barMaxWidth / 2}" y="${probabilityHeight - 15}" text-anchor="middle" font-size="12" fill="#666666">
+      Probability
+    </text>
+  </g>
+  
   <!-- Table Section -->
-  <g transform="translate(0, ${margin.top + chartHeight + 40})">
+  <g transform="translate(0, ${margin.top + chartHeight + probabilityHeight + 80})"
     <text x="${chartWidth / 2}" y="0" text-anchor="middle" font-size="16" font-weight="600" fill="#333333">
       Detailed Results
     </text>
@@ -128,7 +173,7 @@ export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): str
   </g>
   
   <!-- Raw Data Section -->
-  <g transform="translate(0, ${margin.top + chartHeight + tableHeight + 60})">
+  <g transform="translate(0, ${margin.top + chartHeight + probabilityHeight + tableHeight + 100})"
     <text x="${chartWidth / 2}" y="0" text-anchor="middle" font-size="16" font-weight="600" fill="#333333">
       Raw Data (JSON)
     </text>
