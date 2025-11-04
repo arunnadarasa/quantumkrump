@@ -1,12 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { useEffect, useState } from "react";
 import { BlochSphere } from "./BlochSphere";
 import { KrumpChoreography } from "./KrumpChoreography";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { generateResultsSVG, downloadSVG } from "@/lib/svg-generator";
+import { useToast } from "@/hooks/use-toast";
 
 interface QuantumResultsProps {
   results: any;
@@ -14,10 +17,30 @@ interface QuantumResultsProps {
 
 export const QuantumResults = ({ results }: QuantumResultsProps) => {
   const [debugOpen, setDebugOpen] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     console.log('QuantumResults received:', results);
   }, [results]);
+
+  const handleDownloadSVG = () => {
+    try {
+      const svg = generateResultsSVG(results);
+      const filename = `quantum-results-${results.circuit || 'circuit'}-${Date.now()}.svg`;
+      downloadSVG(svg, filename);
+      toast({
+        title: "Success",
+        description: "SVG file downloaded successfully",
+      });
+    } catch (error) {
+      console.error('Error generating SVG:', error);
+      toast({
+        title: "Error",
+        description: "Failed to generate SVG file",
+        variant: "destructive",
+      });
+    }
+  };
 
   if (!results) {
     return (
@@ -64,7 +87,13 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
         <TabsContent value="quantum" className="mt-4">
           <Card>
             <CardHeader className="p-4 md:p-6">
-              <CardTitle className="text-base md:text-lg">Quantum Measurement Results</CardTitle>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-base md:text-lg">Quantum Measurement Results</CardTitle>
+                <Button onClick={handleDownloadSVG} variant="outline" size="sm">
+                  <Download className="w-4 h-4" />
+                  <span className="hidden md:inline ml-2">Download SVG</span>
+                </Button>
+              </div>
             </CardHeader>
             <CardContent className="p-4 md:p-6 pt-0">
               <div className="space-y-4 md:space-y-6">
@@ -184,7 +213,13 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
   return (
     <Card>
       <CardHeader className="p-4 md:p-6">
-        <CardTitle className="text-base md:text-lg">Measurement Results</CardTitle>
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-base md:text-lg">Measurement Results</CardTitle>
+          <Button onClick={handleDownloadSVG} variant="outline" size="sm">
+            <Download className="w-4 h-4" />
+            <span className="hidden md:inline ml-2">Download SVG</span>
+          </Button>
+        </div>
       </CardHeader>
       <CardContent className="p-4 md:p-6 pt-0">
         <div className="space-y-4 md:space-y-6">

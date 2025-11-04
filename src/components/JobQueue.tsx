@@ -3,7 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, CheckCircle2, XCircle, Clock } from "lucide-react";
+import { Loader2, CheckCircle2, XCircle, Clock, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { generateResultsSVG, downloadSVG } from "@/lib/svg-generator";
+import { useToast } from "@/hooks/use-toast";
 
 interface Job {
   id: string;
@@ -21,6 +24,8 @@ interface JobQueueProps {
 
 export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
   const [jobs, setJobs] = useState<Job[]>([]);
+  const [downloadingJobId, setDownloadingJobId] = useState<string | null>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
     fetchJobs();
@@ -73,6 +78,48 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
     return <Badge variant={variant as any}>{status}</Badge>;
   };
 
+  const handleDownloadJob = async (jobId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setDownloadingJobId(jobId);
+
+    try {
+      const { data, error } = await supabase
+        .from('quantum_jobs')
+        .select('results, backend_type, shots, created_at')
+        .eq('id', jobId)
+        .single();
+
+      if (error || !data || !data.results) {
+        throw new Error('Failed to fetch job results');
+      }
+
+      const results = data.results as any;
+      const svg = generateResultsSVG(results, {
+        backend_type: data.backend_type,
+        shots: data.shots,
+        created_at: data.created_at,
+        circuit: results.circuit
+      });
+      
+      const filename = `quantum-job-${jobId.slice(0, 8)}-${Date.now()}.svg`;
+      downloadSVG(svg, filename);
+
+      toast({
+        title: "Success",
+        description: "Job results downloaded as SVG",
+      });
+    } catch (error) {
+      console.error('Error downloading job:', error);
+      toast({
+        title: "Error",
+        description: "Failed to download job results",
+        variant: "destructive",
+      });
+    } finally {
+      setDownloadingJobId(null);
+    }
+  };
+
   // Mobile popup mode - render without Card wrapper
   if (isMobilePopup) {
     return (
@@ -94,7 +141,7 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
                     : 'hover:bg-accent/30'
                 }`}
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 flex-1 min-w-0">
                   {getStatusIcon(job.status)}
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium truncate">
@@ -106,7 +153,24 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
                     </p>
                   </div>
                 </div>
-                {getStatusBadge(job.status)}
+                <div className="flex items-center gap-2">
+                  {job.status === 'completed' && (
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={(e) => handleDownloadJob(job.id, e)}
+                      disabled={downloadingJobId === job.id}
+                      className="h-8 w-8"
+                    >
+                      {downloadingJobId === job.id ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <Download className="w-4 h-4" />
+                      )}
+                    </Button>
+                  )}
+                  {getStatusBadge(job.status)}
+                </div>
               </div>
             ))}
           </div>
@@ -139,7 +203,7 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
                     : 'hover:bg-accent/30'
                 }`}
               >
-                <div className="flex items-center gap-2 md:gap-3">
+                <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
                   {getStatusIcon(job.status)}
                   <div className="min-w-0 flex-1">
                     <p className="text-xs md:text-sm font-medium truncate">
@@ -151,7 +215,24 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
                     </p>
                   </div>
                 </div>
-                {getStatusBadge(job.status)}
+                <div className="flex items-center gap-2">
+                  {job.status === 'completed' && (
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={(e) => handleDownloadJob(job.id, e)}
+                      disabled={downloadingJobId === job.id}
+                      className="h-7 w-7 md:h-8 md:w-8"
+                    >
+                      {downloadingJobId === job.id ? (
+                        <Loader2 className="w-3 h-3 md:w-4 md:h-4 animate-spin" />
+                      ) : (
+                        <Download className="w-3 h-3 md:w-4 md:h-4" />
+                      )}
+                    </Button>
+                  )}
+                  {getStatusBadge(job.status)}
+                </div>
               </div>
             ))}
           </div>
