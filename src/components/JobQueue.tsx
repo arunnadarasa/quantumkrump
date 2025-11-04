@@ -16,6 +16,7 @@ interface Job {
   shots: number;
   created_at: string;
   execution_time_ms?: number;
+  results?: any;
 }
 
 interface JobQueueProps {
@@ -26,6 +27,7 @@ interface JobQueueProps {
 export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [downloadingJobId, setDownloadingJobId] = useState<string | null>(null);
+  const [krumpJobIds, setKrumpJobIds] = useState<Set<string>>(new Set());
   const { toast } = useToast();
 
   useEffect(() => {
@@ -52,11 +54,22 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
   const fetchJobs = async () => {
     const { data } = await supabase
       .from('quantum_jobs')
-      .select('id, status, backend_type, shots, created_at, execution_time_ms')
+      .select('id, status, backend_type, shots, created_at, execution_time_ms, results')
       .order('created_at', { ascending: false })
       .limit(10);
 
-    if (data) setJobs(data);
+    if (data) {
+      setJobs(data);
+      
+      // Identify which jobs are Krump choreography
+      const krumpIds = new Set<string>();
+      data.forEach(job => {
+        if (job.results && (job.results as any).circuit === 'krump_choreography') {
+          krumpIds.add(job.id);
+        }
+      });
+      setKrumpJobIds(krumpIds);
+    }
   };
 
   const getStatusIcon = (status: string) => {
@@ -79,7 +92,7 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
     return <Badge variant={variant as any}>{status}</Badge>;
   };
 
-  const handleDownloadJob = async (jobId: string, e: React.MouseEvent) => {
+  const handleDownloadKrumpJob = async (jobId: string, e: React.MouseEvent) => {
     e.stopPropagation();
     setDownloadingJobId(jobId);
 
@@ -95,8 +108,6 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
       }
 
       const results = data.results as any;
-      const isKrump = results.circuit === 'krump_choreography';
-      
       const metadata = {
         backend_type: data.backend_type,
         shots: data.shots,
@@ -104,26 +115,62 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
         circuit: results.circuit
       };
       
-      const svg = isKrump
-        ? generateKrumpSVG(results, metadata)
-        : generateResultsSVG(results, metadata);
-      
-      const filename = isKrump
-        ? `krump-choreography-${jobId.slice(0, 8)}-${Date.now()}.svg`
-        : `quantum-job-${jobId.slice(0, 8)}-${Date.now()}.svg`;
-      
-      const downloadFn = isKrump ? downloadKrumpSVG : downloadSVG;
-      downloadFn(svg, filename);
+      const svg = generateKrumpSVG(results, metadata);
+      const filename = `krump-choreography-${jobId.slice(0, 8)}-${Date.now()}.svg`;
+      downloadKrumpSVG(svg, filename);
 
       toast({
         title: "Success",
-        description: "Job results downloaded as SVG",
+        description: "Krump choreography downloaded as SVG",
       });
     } catch (error) {
-      console.error('Error downloading job:', error);
+      console.error('Error downloading Krump job:', error);
       toast({
         title: "Error",
-        description: "Failed to download job results",
+        description: "Failed to download Krump choreography",
+        variant: "destructive",
+      });
+    } finally {
+      setDownloadingJobId(null);
+    }
+  };
+
+  const handleDownloadQuantumJob = async (jobId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setDownloadingJobId(jobId);
+
+    try {
+      const { data, error } = await supabase
+        .from('quantum_jobs')
+        .select('results, backend_type, shots, created_at')
+        .eq('id', jobId)
+        .single();
+
+      if (error || !data || !data.results) {
+        throw new Error('Failed to fetch job results');
+      }
+
+      const results = data.results as any;
+      const metadata = {
+        backend_type: data.backend_type,
+        shots: data.shots,
+        created_at: data.created_at,
+        circuit: results.circuit
+      };
+      
+      const svg = generateResultsSVG(results, metadata);
+      const filename = `quantum-job-${jobId.slice(0, 8)}-${Date.now()}.svg`;
+      downloadSVG(svg, filename);
+
+      toast({
+        title: "Success",
+        description: "Quantum data downloaded as SVG",
+      });
+    } catch (error) {
+      console.error('Error downloading quantum job:', error);
+      toast({
+        title: "Error",
+        description: "Failed to download quantum data",
         variant: "destructive",
       });
     } finally {
@@ -166,19 +213,54 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
                 </div>
                 <div className="flex items-center gap-2">
                   {job.status === 'completed' && (
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={(e) => handleDownloadJob(job.id, e)}
-                      disabled={downloadingJobId === job.id}
-                      className="h-8 w-8"
-                    >
-                      {downloadingJobId === job.id ? (
-                        <Loader2 className="w-4 h-4 animate-spin" />
+                    <>
+                      {krumpJobIds.has(job.id) ? (
+                        <div className="flex items-center gap-1">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={(e) => handleDownloadKrumpJob(job.id, e)}
+                            disabled={downloadingJobId === job.id}
+                            className="h-8 w-8"
+                            title="Download Krump Choreography"
+                          >
+                            {downloadingJobId === job.id ? (
+                              <Loader2 className="w-4 h-4 animate-spin" />
+                            ) : (
+                              <span className="text-base">💃</span>
+                            )}
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={(e) => handleDownloadQuantumJob(job.id, e)}
+                            disabled={downloadingJobId === job.id}
+                            className="h-8 w-8"
+                            title="Download Quantum Data"
+                          >
+                            {downloadingJobId === job.id ? (
+                              <Loader2 className="w-4 h-4 animate-spin" />
+                            ) : (
+                              <span className="text-base">⚛️</span>
+                            )}
+                          </Button>
+                        </div>
                       ) : (
-                        <Download className="w-4 h-4" />
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={(e) => handleDownloadQuantumJob(job.id, e)}
+                          disabled={downloadingJobId === job.id}
+                          className="h-8 w-8"
+                        >
+                          {downloadingJobId === job.id ? (
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                          ) : (
+                            <Download className="w-4 h-4" />
+                          )}
+                        </Button>
                       )}
-                    </Button>
+                    </>
                   )}
                   {getStatusBadge(job.status)}
                 </div>
@@ -228,19 +310,54 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
                 </div>
                 <div className="flex items-center gap-2">
                   {job.status === 'completed' && (
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={(e) => handleDownloadJob(job.id, e)}
-                      disabled={downloadingJobId === job.id}
-                      className="h-7 w-7 md:h-8 md:w-8"
-                    >
-                      {downloadingJobId === job.id ? (
-                        <Loader2 className="w-3 h-3 md:w-4 md:h-4 animate-spin" />
+                    <>
+                      {krumpJobIds.has(job.id) ? (
+                        <div className="flex items-center gap-1">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={(e) => handleDownloadKrumpJob(job.id, e)}
+                            disabled={downloadingJobId === job.id}
+                            className="h-7 w-7 md:h-8 md:w-8"
+                            title="Download Krump Choreography"
+                          >
+                            {downloadingJobId === job.id ? (
+                              <Loader2 className="w-3 h-3 md:w-4 md:h-4 animate-spin" />
+                            ) : (
+                              <span className="text-sm md:text-base">💃</span>
+                            )}
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={(e) => handleDownloadQuantumJob(job.id, e)}
+                            disabled={downloadingJobId === job.id}
+                            className="h-7 w-7 md:h-8 md:w-8"
+                            title="Download Quantum Data"
+                          >
+                            {downloadingJobId === job.id ? (
+                              <Loader2 className="w-3 h-3 md:w-4 md:h-4 animate-spin" />
+                            ) : (
+                              <span className="text-sm md:text-base">⚛️</span>
+                            )}
+                          </Button>
+                        </div>
                       ) : (
-                        <Download className="w-3 h-3 md:w-4 md:h-4" />
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={(e) => handleDownloadQuantumJob(job.id, e)}
+                          disabled={downloadingJobId === job.id}
+                          className="h-7 w-7 md:h-8 md:w-8"
+                        >
+                          {downloadingJobId === job.id ? (
+                            <Loader2 className="w-3 h-3 md:w-4 md:h-4 animate-spin" />
+                          ) : (
+                            <Download className="w-3 h-3 md:w-4 md:h-4" />
+                          )}
+                        </Button>
                       )}
-                    </Button>
+                    </>
                   )}
                   {getStatusBadge(job.status)}
                 </div>
