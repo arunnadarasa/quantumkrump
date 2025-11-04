@@ -97,6 +97,12 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
             measurements={results.measurements}
             probabilities={results.probabilities}
             shots={results.shots}
+            results={results}
+            jobMetadata={{
+              circuit: results.circuit,
+              backend_type: 'simulator',
+              created_at: new Date().toISOString()
+            }}
           />
         </TabsContent>
         <TabsContent value="quantum" className="mt-4">
@@ -106,7 +112,7 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
                 <CardTitle className="text-base md:text-lg">Quantum Measurement Results</CardTitle>
                 <Button onClick={handleDownloadSVG} variant="outline" size="sm">
                   <Download className="w-4 h-4" />
-                  <span className="hidden md:inline ml-2">Download SVG</span>
+                  <span className="hidden md:inline ml-2">Download Quantum</span>
                 </Button>
               </div>
             </CardHeader>

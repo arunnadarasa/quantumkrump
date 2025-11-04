@@ -5,6 +5,16 @@ export interface JobMetadata {
   backend_type?: string;
 }
 
+const escapeXml = (str: string): string => {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+};
+
 export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): string => {
   const measurements = results.measurements || {};
   const probabilities = results.probabilities || {};
@@ -58,10 +68,10 @@ export const generateResultsSVG = (results: any, jobMetadata?: JobMetadata): str
   
   <!-- Metadata -->
   <text x="${chartWidth / 2}" y="55" text-anchor="middle" font-size="14" fill="#666666">
-    Circuit: ${circuit} | Shots: ${shots} | Backend: ${backend}
+    Circuit: ${escapeXml(circuit)} | Shots: ${shots} | Backend: ${escapeXml(backend)}
   </text>
   <text x="${chartWidth / 2}" y="75" text-anchor="middle" font-size="12" fill="#999999">
-    ${timestamp}
+    ${escapeXml(timestamp)}
   </text>
   
   <!-- Definitions -->

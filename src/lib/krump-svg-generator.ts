@@ -7,6 +7,16 @@ export interface KrumpJobMetadata {
   backend_type?: string;
 }
 
+const escapeXml = (str: string): string => {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+};
+
 const getEnergyColor = (energy: number): string => {
   switch (energy) {
     case 0: return '#9ca3af'; // gray
@@ -103,13 +113,13 @@ export const generateKrumpSVG = (results: any, jobMetadata?: KrumpJobMetadata): 
   
   <!-- Metadata -->
   <text x="${chartWidth / 2}" y="60" text-anchor="middle" font-size="14" fill="#666666">
-    Circuit: ${circuit} | Shots: ${shots} | Backend: ${backend}
+    Circuit: ${escapeXml(circuit)} | Shots: ${shots} | Backend: ${escapeXml(backend)}
   </text>
   <text x="${chartWidth / 2}" y="80" text-anchor="middle" font-size="12" fill="#999999">
-    ${timestamp}
+    ${escapeXml(timestamp)}
   </text>
   <text x="${chartWidth / 2}" y="105" text-anchor="middle" font-size="16" font-weight="600" fill="#8b5cf6">
-    Average Energy: ${getEnergyLevel(Math.round(avgEnergy))} (${avgEnergy.toFixed(2)})
+    Average Energy: ${escapeXml(getEnergyLevel(Math.round(avgEnergy)))} (${avgEnergy.toFixed(2)})
   </text>
   
   <!-- Divider -->
@@ -134,10 +144,10 @@ export const generateKrumpSVG = (results: any, jobMetadata?: KrumpJobMetadata): 
       <rect x="0" y="0" width="580" height="${moveCardHeight - 10}" fill="#fafafa" rx="8" stroke="#e0e0e0" stroke-width="1"/>
       
       <!-- Move name and emoji -->
-      <text x="20" y="30" font-size="16" font-weight="600" fill="#1a1a1a">${move.emoji} ${move.name}</text>
+      <text x="20" y="30" font-size="16" font-weight="600" fill="#1a1a1a">${escapeXml(move.emoji)} ${escapeXml(move.name)}</text>
       
       <!-- Energy level -->
-      <text x="20" y="55" font-size="14" fill="#666666">Energy: ${getEnergyLevel(move.energy)} (${move.energy})</text>
+      <text x="20" y="55" font-size="14" fill="#666666">Energy: ${escapeXml(getEnergyLevel(move.energy))} (${move.energy})</text>
       
       <!-- Count and probability -->
       <text x="20" y="80" font-size="13" fill="#666666">Count: ${move.count} | Probability: ${(move.probability * 100).toFixed(1)}%</text>
@@ -152,7 +162,7 @@ export const generateKrumpSVG = (results: any, jobMetadata?: KrumpJobMetadata): 
       </text>
       
       <!-- Description -->
-      <text x="20" y="165" font-size="10" fill="#999999">${move.description}</text>
+      <text x="20" y="165" font-size="10" fill="#999999">${escapeXml(move.description)}</text>
     </g>
       `;
     }).join('')}
@@ -170,7 +180,7 @@ export const generateKrumpSVG = (results: any, jobMetadata?: KrumpJobMetadata): 
       const y = 50 + i * 40;
       return `
     <text x="80" y="${y}" font-size="14" font-weight="500" fill="#1a1a1a">
-      ${i + 1}. ${move.emoji} ${move.name} (${(move.probability * 100).toFixed(1)}%)
+      ${i + 1}. ${escapeXml(move.emoji)} ${escapeXml(move.name)} (${(move.probability * 100).toFixed(1)}%)
     </text>
       `;
     }).join('')}

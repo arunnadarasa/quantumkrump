@@ -1,12 +1,22 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 import { decodeKrumpResults, getEnergyLevel, getSuggestedRoutine, type DecodedMove } from "@/lib/krump-decoder";
+import { generateKrumpSVG, downloadKrumpSVG } from "@/lib/krump-svg-generator";
+import { useToast } from "@/hooks/use-toast";
 
 interface KrumpChoreographyProps {
   measurements: Record<string, number>;
   probabilities: Record<string, number>;
   shots: number;
+  results?: any;
+  jobMetadata?: {
+    circuit?: string;
+    backend_type?: string;
+    created_at?: string;
+  };
 }
 
 const getEnergyColor = (energy: number) => {
@@ -39,23 +49,52 @@ const getEnergyDot = (energy: number) => {
   }
 };
 
-export const KrumpChoreography = ({ measurements, probabilities, shots }: KrumpChoreographyProps) => {
+export const KrumpChoreography = ({ measurements, probabilities, shots, results, jobMetadata }: KrumpChoreographyProps) => {
+  const { toast } = useToast();
   const decodedMoves = decodeKrumpResults(measurements, probabilities);
   const suggestedRoutine = getSuggestedRoutine(decodedMoves);
   
   const averageEnergy = decodedMoves.reduce((sum, move) => sum + (move.energy * move.probability), 0);
 
+  const handleDownloadKrumpSVG = () => {
+    try {
+      const svg = generateKrumpSVG(results || { measurements, probabilities, shots }, jobMetadata);
+      const filename = `krump-choreography-${Date.now()}.svg`;
+      downloadKrumpSVG(svg, filename);
+      
+      toast({
+        title: "Success",
+        description: "Krump choreography SVG downloaded successfully",
+      });
+    } catch (error) {
+      console.error('Error generating Krump SVG:', error);
+      toast({
+        title: "Error",
+        description: "Failed to generate Krump SVG file",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <span className="text-2xl">💃</span>
-            Krump Choreography Breakdown
-          </CardTitle>
-          <p className="text-sm text-muted-foreground">
-            Average Energy: {getEnergyLevel(Math.round(averageEnergy))} ({averageEnergy.toFixed(2)})
-          </p>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle className="flex items-center gap-2">
+                <span className="text-2xl">💃</span>
+                Krump Choreography Breakdown
+              </CardTitle>
+              <p className="text-sm text-muted-foreground mt-1">
+                Average Energy: {getEnergyLevel(Math.round(averageEnergy))} ({averageEnergy.toFixed(2)})
+              </p>
+            </div>
+            <Button onClick={handleDownloadKrumpSVG} variant="outline" size="sm">
+              <Download className="w-4 h-4" />
+              <span className="hidden md:inline ml-2">Download Krump</span>
+            </Button>
+          </div>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
