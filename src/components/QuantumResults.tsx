@@ -24,34 +24,22 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
     console.log('QuantumResults received:', results);
   }, [results]);
 
-  const handleDownloadSVG = () => {
+  const handleDownloadQuantumSVG = () => {
     try {
-      const isKrump = results.circuit === 'krump_choreography';
+      const svg = generateResultsSVG(results);
+      const filename = `quantum-results-${results.circuit || 'circuit'}-${Date.now()}.svg`;
       
-      const svg = isKrump 
-        ? generateKrumpSVG(results, { 
-            circuit: results.circuit, 
-            shots: results.shots,
-            backend_type: 'simulator'
-          })
-        : generateResultsSVG(results);
-      
-      const filename = isKrump
-        ? `krump-choreography-${Date.now()}.svg`
-        : `quantum-results-${results.circuit || 'circuit'}-${Date.now()}.svg`;
-      
-      const downloadFn = isKrump ? downloadKrumpSVG : downloadSVG;
-      downloadFn(svg, filename);
+      downloadSVG(svg, filename);
       
       toast({
         title: "Success",
-        description: "SVG file downloaded successfully",
+        description: "Quantum data SVG downloaded successfully",
       });
     } catch (error) {
-      console.error('Error generating SVG:', error);
+      console.error('Error generating quantum SVG:', error);
       toast({
         title: "Error",
-        description: "Failed to generate SVG file",
+        description: "Failed to generate quantum SVG file",
         variant: "destructive",
       });
     }
@@ -110,7 +98,7 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
             <CardHeader className="p-4 md:p-6">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-base md:text-lg">Quantum Measurement Results</CardTitle>
-                <Button onClick={handleDownloadSVG} variant="outline" size="sm">
+                <Button onClick={handleDownloadQuantumSVG} variant="outline" size="sm">
                   <Download className="w-4 h-4" />
                   <span className="hidden md:inline ml-2">Download Quantum</span>
                 </Button>
@@ -236,7 +224,7 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
       <CardHeader className="p-4 md:p-6">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base md:text-lg">Measurement Results</CardTitle>
-          <Button onClick={handleDownloadSVG} variant="outline" size="sm">
+          <Button onClick={handleDownloadQuantumSVG} variant="outline" size="sm">
             <Download className="w-4 h-4" />
             <span className="hidden md:inline ml-2">Download SVG</span>
           </Button>
