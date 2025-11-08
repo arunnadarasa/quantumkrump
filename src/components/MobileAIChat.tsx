@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AIAssistant } from "@/components/AIAssistant";
 import { JobQueue } from "@/components/JobQueue";
+import { GeneratedCircuitsGallery } from "@/components/GeneratedCircuitsGallery";
 
 interface MobileAIChatProps {
   onJobClick: (jobId: string) => void;
@@ -80,13 +81,18 @@ export const MobileAIChat = ({ onJobClick }: MobileAIChatProps) => {
             {/* Tabbed Content */}
             <div className="flex-1 overflow-hidden">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="flex flex-col h-full">
-                <TabsList className="grid w-full grid-cols-2 mx-4 mt-2">
-                  <TabsTrigger value="ai">AI Assistant</TabsTrigger>
-                  <TabsTrigger value="jobs">Job History</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-3 mx-4 mt-2">
+                  <TabsTrigger value="ai">AI</TabsTrigger>
+                  <TabsTrigger value="circuits">Circuits</TabsTrigger>
+                  <TabsTrigger value="jobs">Jobs</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="ai" className="flex-1 mt-0 overflow-hidden">
                   <AIAssistant isMobilePopup />
+                </TabsContent>
+                
+                <TabsContent value="circuits" className="flex-1 mt-0 overflow-hidden">
+                  <GeneratedCircuitsGallery isMobilePopup />
                 </TabsContent>
                 
                 <TabsContent value="jobs" className="flex-1 mt-0 overflow-hidden">
