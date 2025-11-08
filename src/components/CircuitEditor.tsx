@@ -2,7 +2,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Download } from "lucide-react";
+import { generateCircuitPortraitSVG, downloadCircuitPortrait } from "@/lib/circuit-portrait-generator";
+import { useToast } from "@/hooks/use-toast";
 
 interface CircuitEditorProps {
   code: string;
@@ -13,6 +15,50 @@ interface CircuitEditorProps {
 }
 
 export const CircuitEditor = ({ code, onChange, isCustomCircuit, onGenerateClick, currentDomain }: CircuitEditorProps) => {
+  const { toast } = useToast();
+
+  const handleDownloadPortrait = async () => {
+    if (!code.trim()) {
+      toast({
+        title: "No code to download",
+        description: "Please write some circuit code first",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      const metadata = {
+        circuitName: currentDomain || "Custom Circuit",
+        domain: currentDomain,
+        timestamp: new Date().toLocaleString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        })
+      };
+      
+      const svg = await generateCircuitPortraitSVG(code, metadata);
+      const filename = `quantum-circuit-portrait-${Date.now()}.svg`;
+      downloadCircuitPortrait(svg, filename);
+      
+      toast({
+        title: "Portrait Downloaded! ✨",
+        description: "Your quantum circuit portrait is ready",
+      });
+    } catch (error) {
+      console.error('Error generating portrait:', error);
+      toast({
+        title: "Download Failed",
+        description: "Could not generate circuit portrait",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <Card className="h-full">
       <CardHeader className="p-4 md:p-6">
@@ -25,18 +71,31 @@ export const CircuitEditor = ({ code, onChange, isCustomCircuit, onGenerateClick
               </Badge>
             )}
           </div>
-          {isCustomCircuit && (
+          <div className="flex items-center gap-2">
             <Button
               size="sm"
               variant="outline"
-              onClick={onGenerateClick}
+              onClick={handleDownloadPortrait}
               className="gap-2"
+              title="Download Circuit Portrait"
             >
-              <Sparkles className="w-4 h-4" />
-              <span className="hidden md:inline">Generate with AI</span>
-              <span className="md:hidden">AI</span>
+              <Download className="w-4 h-4" />
+              <span className="hidden md:inline">Download Portrait</span>
+              <span className="md:hidden">Portrait</span>
             </Button>
-          )}
+            {isCustomCircuit && (
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={onGenerateClick}
+                className="gap-2"
+              >
+                <Sparkles className="w-4 h-4" />
+                <span className="hidden md:inline">Generate with AI</span>
+                <span className="md:hidden">AI</span>
+              </Button>
+            )}
+          </div>
         </div>
       </CardHeader>
       <CardContent className="p-4 md:p-6 pt-0">
