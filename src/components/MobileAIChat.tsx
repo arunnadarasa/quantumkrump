@@ -81,17 +81,17 @@ export const MobileAIChat = ({ onJobClick }: MobileAIChatProps) => {
             {/* Tabbed Content */}
             <div className="flex-1 overflow-hidden">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="flex flex-col h-full">
-                <TabsList className="grid w-full grid-cols-3 mx-4 mt-2 h-12 p-1.5 gap-1">
-                  <TabsTrigger value="ai" className="flex items-center gap-1.5">
-                    <MessageSquare className="w-4 h-4" />
+                <TabsList className="grid w-full grid-cols-3 mx-2 mt-2 h-12 p-1 gap-0.5">
+                  <TabsTrigger value="ai" className="flex items-center gap-1 text-xs">
+                    <MessageSquare className="w-3.5 h-3.5" />
                     <span>AI</span>
                   </TabsTrigger>
-                  <TabsTrigger value="circuits" className="flex items-center gap-1.5">
-                    <Sparkles className="w-4 h-4" />
+                  <TabsTrigger value="circuits" className="flex items-center gap-1 text-xs">
+                    <Sparkles className="w-3.5 h-3.5" />
                     <span>Circuits</span>
                   </TabsTrigger>
-                  <TabsTrigger value="jobs" className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4" />
+                  <TabsTrigger value="jobs" className="flex items-center gap-1 text-xs">
+                    <Clock className="w-3.5 h-3.5" />
                     <span>Jobs</span>
                   </TabsTrigger>
                 </TabsList>
