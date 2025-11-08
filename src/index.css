@@ -163,7 +163,7 @@ All colors MUST be HSL.
     .chat-popup-container {
       /* Desktop: floating window */
       bottom: 7rem;
-      right: 2rem;
+      right: 4rem;
       left: auto;
       width: 440px;
       height: 600px;
