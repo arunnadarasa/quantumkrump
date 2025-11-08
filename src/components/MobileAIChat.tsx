@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Bot, X } from "lucide-react";
+import { Bot, X, MessageSquare, Sparkles, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AIAssistant } from "@/components/AIAssistant";
@@ -81,10 +81,19 @@ export const MobileAIChat = ({ onJobClick }: MobileAIChatProps) => {
             {/* Tabbed Content */}
             <div className="flex-1 overflow-hidden">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="flex flex-col h-full">
-                <TabsList className="grid w-full grid-cols-3 mx-4 mt-2">
-                  <TabsTrigger value="ai">AI</TabsTrigger>
-                  <TabsTrigger value="circuits">Circuits</TabsTrigger>
-                  <TabsTrigger value="jobs">Jobs</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-3 mx-4 mt-2 h-12 p-1.5 gap-1">
+                  <TabsTrigger value="ai" className="flex items-center gap-1.5">
+                    <MessageSquare className="w-4 h-4" />
+                    <span>AI</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="circuits" className="flex items-center gap-1.5">
+                    <Sparkles className="w-4 h-4" />
+                    <span>Circuits</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="jobs" className="flex items-center gap-1.5">
+                    <Clock className="w-4 h-4" />
+                    <span>Jobs</span>
+                  </TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="ai" className="flex-1 mt-0 overflow-hidden">
