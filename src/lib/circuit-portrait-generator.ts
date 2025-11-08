@@ -1,5 +1,6 @@
 import ikfLogo from "@/assets/ikf-logo.png";
-import iyqLogo from "@/assets/iyq-logo.png";
+import iyqLogoWhite from "@/assets/iyq-logo-white.png";
+import quantumKrumpLogo from "@/assets/quantum-krump-logo.png";
 
 export interface CircuitPortraitMetadata {
   circuitName?: string;
@@ -82,12 +83,13 @@ export async function generateCircuitPortraitSVG(
   options?: { highlight?: boolean }
 ): Promise<string> {
   const ikfBase64 = await imageToBase64(ikfLogo);
-  const iyqBase64 = await imageToBase64(iyqLogo);
+  const iyqBase64 = await imageToBase64(iyqLogoWhite);
+  const quantumKrumpBase64 = await imageToBase64(quantumKrumpLogo);
   
   const enableHighlight = options?.highlight !== false;
   const highlightedLines = highlightGuppyCode(guppyCode, enableHighlight);
   const lineHeight = 20;
-  const codeStartY = 240;
+  const codeStartY = 260;
   const codeHeight = Math.max(highlightedLines.length * lineHeight + 60, 400);
   
   // Calculate additional space for prompt and category
@@ -152,22 +154,26 @@ export async function generateCircuitPortraitSVG(
         fill="none" stroke="url(#headerGradient)" stroke-width="2" rx="20"/>
   
   <!-- Header section -->
-  <rect x="40" y="40" width="1120" height="160" fill="url(#headerGradient)" rx="15"/>
+  <rect x="40" y="40" width="1120" height="180" fill="url(#headerGradient)" rx="15"/>
   
-  <!-- IKF Logo -->
-  <image href="${ikfBase64}" x="60" y="55" width="120" height="120" preserveAspectRatio="xMidYMid meet"/>
+  <!-- Logos: Horizontal Three-Logo Layout -->
+  <!-- IKF Logo (left) -->
+  <image href="${ikfBase64}" x="60" y="50" width="120" height="120" preserveAspectRatio="xMidYMid meet"/>
   
-  <!-- IYQ Logo -->
-  <image href="${iyqBase64}" x="1020" y="55" width="120" height="120" preserveAspectRatio="xMidYMid meet"/>
+  <!-- Quantum Krump Logo (center-left, larger) -->
+  <image href="${quantumKrumpBase64}" x="520" y="40" width="160" height="160" preserveAspectRatio="xMidYMid meet"/>
+  
+  <!-- IYQ White Logo (right) -->
+  <image href="${iyqBase64}" x="1020" y="50" width="120" height="120" preserveAspectRatio="xMidYMid meet"/>
   
   <!-- Main title -->
-  <text x="600" y="100" text-anchor="middle" fill="#ffffff" font-size="42" font-weight="700" 
+  <text x="600" y="125" text-anchor="middle" fill="#ffffff" font-size="42" font-weight="700" 
         font-family="Arial, sans-serif" filter="url(#glow)">
     KRUMP QUANTUM VIBE CODER
   </text>
   
   <!-- Subtitle -->
-  <text x="600" y="140" text-anchor="middle" fill="#e0e7ff" font-size="18" font-weight="400" 
+  <text x="600" y="165" text-anchor="middle" fill="#e0e7ff" font-size="18" font-weight="400" 
         font-family="Arial, sans-serif">
     International Year of Quantum Science and Technology 2025
   </text>
