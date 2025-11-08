@@ -33,56 +33,59 @@ async function imageToBase64(url: string): Promise<string> {
   });
 }
 
-// Syntax highlighting for Guppy code
-function highlightGuppyCode(code: string): { lineNumber: number; html: string }[] {
+// Syntax highlighting for Guppy code (safe version that won't break SVG)
+function highlightGuppyCode(code: string, enableHighlight: boolean = true): { lineNumber: number; html: string }[] {
   const lines = code.split('\n');
   const keywords = ['@guppy', 'def', 'for', 'in', 'range', 'return', 'if', 'else', 'while'];
   
   return lines.map((line, index) => {
-    let highlighted = line;
+    // First, escape XML special characters
+    let escaped = escapeXml(line);
     
-    // Escape XML special characters
-    highlighted = highlighted
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
-    
-    // Highlight comments
-    if (highlighted.includes('#')) {
-      const parts = highlighted.split('#');
-      highlighted = parts[0] + '<tspan fill="#a78bfa" font-style="italic">#' + parts.slice(1).join('#') + '</tspan>';
+    // If highlighting is disabled, return plain escaped text
+    if (!enableHighlight) {
+      return {
+        lineNumber: index + 1,
+        html: escaped
+      };
     }
     
-    // Highlight keywords
+    // Split into code and comment parts at first '#'
+    const hashIndex = escaped.indexOf('#');
+    let codePart = hashIndex >= 0 ? escaped.substring(0, hashIndex) : escaped;
+    let commentPart = hashIndex >= 0 ? escaped.substring(hashIndex) : '';
+    
+    // Only highlight keywords and functions in the code part (not in comments)
     keywords.forEach(keyword => {
       const regex = new RegExp(`\\b(${keyword})\\b`, 'g');
-      highlighted = highlighted.replace(regex, '<tspan fill="#f472b6" font-weight="600">$1</tspan>');
+      codePart = codePart.replace(regex, '<tspan fill="#f472b6" font-weight="600">$1</tspan>');
     });
     
     // Highlight function names (word followed by parenthesis)
-    highlighted = highlighted.replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g, '<tspan fill="#60a5fa">$1</tspan>(');
+    codePart = codePart.replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g, '<tspan fill="#60a5fa">$1</tspan>(');
     
-    // Highlight strings
-    highlighted = highlighted.replace(/"([^"]*)"/g, '<tspan fill="#34d399">"$1"</tspan>');
-    highlighted = highlighted.replace(/'([^']*)'/g, '<tspan fill="#34d399">\'$1\'</tspan>');
+    // Wrap comment in italic tspan
+    if (commentPart) {
+      commentPart = '<tspan fill="#a78bfa" font-style="italic">' + commentPart + '</tspan>';
+    }
     
     return {
       lineNumber: index + 1,
-      html: highlighted
+      html: codePart + commentPart
     };
   });
 }
 
 export async function generateCircuitPortraitSVG(
   guppyCode: string,
-  metadata: CircuitPortraitMetadata
+  metadata: CircuitPortraitMetadata,
+  options?: { highlight?: boolean }
 ): Promise<string> {
   const ikfBase64 = await imageToBase64(ikfLogo);
   const iyqBase64 = await imageToBase64(iyqLogo);
   
-  const highlightedLines = highlightGuppyCode(guppyCode);
+  const enableHighlight = options?.highlight !== false;
+  const highlightedLines = highlightGuppyCode(guppyCode, enableHighlight);
   const lineHeight = 20;
   const codeStartY = 240;
   const codeHeight = Math.max(highlightedLines.length * lineHeight + 60, 400);

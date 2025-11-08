@@ -31,6 +31,13 @@ export const CircuitEditor = ({
 }: CircuitEditorProps) => {
   const { toast } = useToast();
 
+  // Helper to validate SVG parsing
+  const parseOk = (svgContent: string): boolean => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(svgContent, 'image/svg+xml');
+    return !doc.querySelector('parsererror');
+  };
+
   const handleDownloadPortrait = async () => {
     if (!code.trim()) {
       toast({
@@ -59,14 +66,28 @@ export const CircuitEditor = ({
         })
       };
       
-      const svg = await generateCircuitPortraitSVG(code, metadata);
+      // Try generating with highlighting first
+      let svg = await generateCircuitPortraitSVG(code, metadata);
+      
+      // Validate the SVG - if it fails, regenerate without highlighting
+      if (!parseOk(svg)) {
+        console.warn('SVG parsing failed with highlighting, retrying without...');
+        svg = await generateCircuitPortraitSVG(code, metadata, { highlight: false });
+        
+        toast({
+          title: "Portrait Downloaded (Safe Mode) ✨",
+          description: "Generated without syntax highlighting for safety",
+        });
+      } else {
+        toast({
+          title: "Portrait Downloaded! ✨",
+          description: "Your quantum circuit portrait is ready",
+        });
+      }
+      
       const filename = `quantum-circuit-portrait-${Date.now()}.svg`;
       downloadCircuitPortrait(svg, filename);
       
-      toast({
-        title: "Portrait Downloaded! ✨",
-        description: "Your quantum circuit portrait is ready",
-      });
     } catch (error) {
       console.error('Error generating portrait:', error);
       toast({
