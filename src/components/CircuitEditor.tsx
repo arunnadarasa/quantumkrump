@@ -12,9 +12,23 @@ interface CircuitEditorProps {
   isCustomCircuit?: boolean;
   onGenerateClick?: () => void;
   currentDomain?: string;
+  prompt?: string;
+  category?: string;
+  backend?: string;
+  shots?: number;
 }
 
-export const CircuitEditor = ({ code, onChange, isCustomCircuit, onGenerateClick, currentDomain }: CircuitEditorProps) => {
+export const CircuitEditor = ({ 
+  code, 
+  onChange, 
+  isCustomCircuit, 
+  onGenerateClick, 
+  currentDomain,
+  prompt,
+  category,
+  backend,
+  shots
+}: CircuitEditorProps) => {
   const { toast } = useToast();
 
   const handleDownloadPortrait = async () => {
@@ -31,6 +45,10 @@ export const CircuitEditor = ({ code, onChange, isCustomCircuit, onGenerateClick
       const metadata = {
         circuitName: currentDomain || "Custom Circuit",
         domain: currentDomain,
+        prompt: prompt,
+        category: category,
+        backend: backend,
+        shots: shots,
         timestamp: new Date().toLocaleString('en-US', {
           year: 'numeric',
           month: 'long',

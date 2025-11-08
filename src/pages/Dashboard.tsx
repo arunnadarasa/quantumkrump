@@ -34,6 +34,8 @@ export default function Dashboard() {
   const [showGeneratorDialog, setShowGeneratorDialog] = useState(false);
   const [generatedCircuitMetadata, setGeneratedCircuitMetadata] = useState<any>(null);
   const [currentDomain, setCurrentDomain] = useState<string | null>(null);
+  const [currentPrompt, setCurrentPrompt] = useState<string>("");
+  const [currentCategory, setCurrentCategory] = useState<string>("");
 
   // Circuit mapping for quantum service API
   const circuitApiMapping: Record<string, { name: string; n_qubits: number } | null> = {
@@ -188,6 +190,14 @@ export default function Dashboard() {
     setCode(code);
     setGeneratedCircuitMetadata(metadata);
     setCurrentDomain(metadata.domainInsights ? metadata.algorithmUsed : null);
+    
+    // Store prompt and category for portrait
+    if (metadata.originalPrompt) {
+      setCurrentPrompt(metadata.originalPrompt);
+    }
+    if (metadata.category) {
+      setCurrentCategory(metadata.category);
+    }
     
     // Update execution parameters based on AI suggestions
     if (metadata.suggestedShots) {
@@ -448,6 +458,10 @@ export default function Dashboard() {
                 isCustomCircuit={selectedTemplateId === 'custom'}
                 onGenerateClick={() => setShowGeneratorDialog(true)}
                 currentDomain={currentDomain}
+                prompt={currentPrompt}
+                category={currentCategory}
+                backend={backendType}
+                shots={shots}
               />
 
               {/* Execution Controls */}

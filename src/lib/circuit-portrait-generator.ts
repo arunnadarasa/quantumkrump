@@ -7,7 +7,19 @@ export interface CircuitPortraitMetadata {
   backend?: string;
   shots?: number;
   timestamp: string;
+  prompt?: string;
+  category?: string;
 }
+
+// Helper to escape XML special characters
+const escapeXml = (text: string): string => {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+};
 
 // Convert image to base64 for embedding in SVG
 async function imageToBase64(url: string): Promise<string> {
@@ -74,7 +86,11 @@ export async function generateCircuitPortraitSVG(
   const lineHeight = 20;
   const codeStartY = 240;
   const codeHeight = Math.max(highlightedLines.length * lineHeight + 60, 400);
-  const totalHeight = codeHeight + 380;
+  
+  // Calculate additional space for prompt and category
+  const promptHeight = metadata.prompt ? 80 : 0;
+  const categoryHeight = metadata.category ? 40 : 0;
+  const totalHeight = codeHeight + 380 + promptHeight + categoryHeight;
   
   // Generate code lines SVG
   const codeLinesSVG = highlightedLines.map((line, index) => {
@@ -161,7 +177,7 @@ export async function generateCircuitPortraitSVG(
   <rect x="500" y="190" width="200" height="30" fill="#8b5cf6" rx="15" opacity="0.3"/>
   <text x="600" y="210" text-anchor="middle" fill="#e0e7ff" font-size="14" font-weight="600" 
         font-family="Arial, sans-serif">
-    ${metadata.domain}
+    ${escapeXml(metadata.domain)}
   </text>
   ` : ''}
   
@@ -178,11 +194,34 @@ export async function generateCircuitPortraitSVG(
   <!-- Code title -->
   <text x="600" y="${codeStartY + 5}" text-anchor="middle" fill="#a78bfa" font-size="16" 
         font-weight="600" font-family="Arial, sans-serif">
-    ${metadata.circuitName || 'Quantum Circuit'}
+    ${escapeXml(metadata.circuitName || 'Quantum Circuit')}
   </text>
   
   <!-- Code lines -->
   ${codeLinesSVG}
+  
+  ${metadata.prompt ? `
+  <!-- Prompt section -->
+  <text x="80" y="${codeStartY + codeHeight + 40}" fill="#a78bfa" font-size="14" 
+        font-weight="600" font-family="Arial, sans-serif">
+    ORIGINAL PROMPT:
+  </text>
+  <text x="80" y="${codeStartY + codeHeight + 65}" fill="#e0e7ff" font-size="13" 
+        font-family="Arial, sans-serif">
+    ${escapeXml(metadata.prompt.substring(0, 140))}${metadata.prompt.length > 140 ? '...' : ''}
+  </text>
+  ` : ''}
+  
+  ${metadata.category ? `
+  <!-- Category section -->
+  <rect x="80" y="${codeStartY + codeHeight + (metadata.prompt ? 85 : 40)}" width="${Math.max(150, metadata.category.length * 8 + 40)}" height="28" 
+        fill="#8b5cf6" rx="14" opacity="0.4"/>
+  <text x="${90 + Math.max(150, metadata.category.length * 8 + 40) / 2}" y="${codeStartY + codeHeight + (metadata.prompt ? 104 : 59)}" 
+        text-anchor="middle" fill="#e0e7ff" font-size="12" font-weight="600" 
+        font-family="Arial, sans-serif">
+    ${escapeXml(metadata.category)}
+  </text>
+  ` : ''}
   
   <!-- Footer section -->
   <rect x="40" y="${totalHeight - 120}" width="1120" height="80" fill="#0f172a" rx="15" opacity="0.8"/>
@@ -194,13 +233,13 @@ export async function generateCircuitPortraitSVG(
   <!-- Timestamp -->
   <text x="80" y="${totalHeight - 80}" fill="#e0e7ff" font-size="16" font-weight="500" 
         font-family="Arial, sans-serif">
-    Generated: ${metadata.timestamp}
+    Generated: ${escapeXml(metadata.timestamp)}
   </text>
   
   <!-- Circuit metadata -->
   ${metadata.backend || metadata.shots ? `
   <text x="80" y="${totalHeight - 55}" fill="#94a3b8" font-size="14" font-family="Arial, sans-serif">
-    ${metadata.backend ? `Backend: ${metadata.backend}` : ''} ${metadata.backend && metadata.shots ? '|' : ''} ${metadata.shots ? `Shots: ${metadata.shots}` : ''}
+    ${metadata.backend ? `Backend: ${escapeXml(metadata.backend)}` : ''} ${metadata.backend && metadata.shots ? '|' : ''} ${metadata.shots ? `Shots: ${escapeXml(String(metadata.shots))}` : ''}
   </text>
   ` : ''}
   

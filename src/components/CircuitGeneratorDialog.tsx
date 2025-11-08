@@ -69,7 +69,11 @@ export const CircuitGeneratorDialog = ({ open, onOpenChange, onGenerate }: Circu
         });
       }
 
-      onGenerate(data.guppyCode, data);
+      onGenerate(data.guppyCode, {
+        ...data,
+        originalPrompt: useCase,
+        category: domains.find(d => d.id === selectedDomain)?.name
+      });
       
       toast({
         title: "✨ Circuit generated!",
