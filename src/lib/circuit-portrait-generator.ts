@@ -156,12 +156,9 @@ export async function generateCircuitPortraitSVG(
   <!-- Header section -->
   <rect x="40" y="40" width="1120" height="180" fill="url(#headerGradient)" rx="15"/>
   
-  <!-- Logos: Horizontal Three-Logo Layout -->
+  <!-- Logos: Two-Logo Layout -->
   <!-- IKF Logo (left) -->
   <image href="${ikfBase64}" x="60" y="50" width="120" height="120" preserveAspectRatio="xMidYMid meet"/>
-  
-  <!-- Quantum Krump Logo (center-left, larger) -->
-  <image href="${quantumKrumpBase64}" x="520" y="40" width="160" height="160" preserveAspectRatio="xMidYMid meet"/>
   
   <!-- IYQ White Logo (right) -->
   <image href="${iyqBase64}" x="1020" y="50" width="120" height="120" preserveAspectRatio="xMidYMid meet"/>
@@ -252,10 +249,8 @@ export async function generateCircuitPortraitSVG(
   </text>
   ` : ''}
   
-  <!-- Quantum decorative elements -->
-  <circle cx="1100" cy="${totalHeight - 70}" r="25" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
-  <circle cx="1100" cy="${totalHeight - 70}" r="15" fill="none" stroke="#06b6d4" stroke-width="1" opacity="0.5"/>
-  <circle cx="1100" cy="${totalHeight - 70}" r="3" fill="#8b5cf6" opacity="0.8" filter="url(#glow)"/>
+  <!-- Quantum Krump Logo (footer right) -->
+  <image href="${quantumKrumpBase64}" x="1020" y="${totalHeight - 110}" width="80" height="80" preserveAspectRatio="xMidYMid meet" filter="url(#glow)"/>
 </svg>`;
 }
 
