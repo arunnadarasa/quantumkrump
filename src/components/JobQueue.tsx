@@ -158,7 +158,7 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
         circuit: results.circuit
       };
       
-      const svg = generateResultsSVG(results, metadata);
+      const svg = await generateResultsSVG(results, metadata);
       const filename = `quantum-job-${jobId.slice(0, 8)}-${Date.now()}.svg`;
       downloadSVG(svg, filename);
 

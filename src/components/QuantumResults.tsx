@@ -24,9 +24,14 @@ export const QuantumResults = ({ results }: QuantumResultsProps) => {
     console.log('QuantumResults received:', results);
   }, [results]);
 
-  const handleDownloadQuantumSVG = () => {
+  const handleDownloadQuantumSVG = async () => {
     try {
-      const svg = generateResultsSVG(results);
+      const svg = await generateResultsSVG(results, {
+        circuit: results.circuit || "Quantum Circuit",
+        shots: results.shots,
+        created_at: new Date().toISOString(),
+        backend_type: results.backend || "simulator"
+      });
       const filename = `quantum-results-${results.circuit || 'circuit'}-${Date.now()}.svg`;
       
       downloadSVG(svg, filename);
