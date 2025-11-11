@@ -1,4 +1,7 @@
 import { decodeKrumpResults, getEnergyLevel, getSuggestedRoutine } from './krump-decoder';
+import ikfLogo from "@/assets/ikf-logo.png";
+import iyqLogoWhite from "@/assets/iyq-logo-white.png";
+import quantumKrumpLogo from "@/assets/quantum-krump-logo.png";
 
 export interface KrumpJobMetadata {
   circuit?: string;
@@ -16,6 +19,19 @@ const escapeXml = (str: string): string => {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;');
 };
+
+// Convert image to base64 for embedding in SVG
+async function imageToBase64(url: string): Promise<string> {
+  const response = await fetch(url);
+  const blob = await response.blob();
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
 
 const getEnergyColor = (energy: number): string => {
   switch (energy) {
@@ -47,7 +63,7 @@ const getEnergyEmoji = (energy: number): string => {
   }
 };
 
-export const generateKrumpSVG = (results: any, jobMetadata?: KrumpJobMetadata): string => {
+export const generateKrumpSVG = async (results: any, jobMetadata?: KrumpJobMetadata): Promise<string> => {
   const measurements = results.measurements || {};
   const probabilities = results.probabilities || {};
   const shots = results.shots || jobMetadata?.shots || 0;
@@ -57,10 +73,15 @@ export const generateKrumpSVG = (results: any, jobMetadata?: KrumpJobMetadata): 
     : new Date().toLocaleString();
   const backend = jobMetadata?.backend_type || 'simulator';
 
+  // Convert logos to base64 for SVG embedding
+  const ikfBase64 = await imageToBase64(ikfLogo);
+  const iyqBase64 = await imageToBase64(iyqLogoWhite);
+  const quantumKrumpBase64 = await imageToBase64(quantumKrumpLogo);
+
   // Decode krump moves
   const decodedMoves = decodeKrumpResults(measurements, probabilities);
   const suggestedRoutine = getSuggestedRoutine(decodedMoves, 5);
-  
+
   // Calculate average energy
   const avgEnergy = decodedMoves.reduce((sum, move) => sum + move.probability, 0) > 0
     ? decodedMoves.reduce((sum, move) => sum + move.energy * move.probability, 0)
@@ -73,7 +94,7 @@ export const generateKrumpSVG = (results: any, jobMetadata?: KrumpJobMetadata): 
   });
 
   const chartWidth = 650;
-  const margin = { top: 120, left: 30, right: 30, bottom: 40 };
+  const margin = { top: 130, left: 30, right: 30, bottom: 40 };
   
   // Calculate heights - much more compact
   const moveCardHeight = 80;
@@ -84,7 +105,7 @@ export const generateKrumpSVG = (results: any, jobMetadata?: KrumpJobMetadata): 
   const tipsHeight = 110;
   const energyDistHeight = 200;
   
-  const totalHeight = margin.top + moveCardsHeight + routineHeight + tipsHeight + energyDistHeight + 80;
+  const totalHeight = margin.top + moveCardsHeight + routineHeight + tipsHeight + energyDistHeight + 100;
 
   // Generate SVG
   const svg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -161,18 +182,24 @@ export const generateKrumpSVG = (results: any, jobMetadata?: KrumpJobMetadata): 
         fill="none" stroke="url(#headerGradient)" stroke-width="2" rx="20" opacity="0.6"/>
   
   <!-- Premium Header with glassmorphism effect -->
-  <rect x="30" y="15" width="590" height="90" fill="url(#headerGradient)" rx="12" opacity="0.8"/>
+  <rect x="30" y="15" width="590" height="110" fill="url(#headerGradient)" rx="12" opacity="0.8"/>
   
-  <text x="${chartWidth / 2}" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff" filter="url(#textGlow)">
+  <!-- IKF Logo (left) -->
+  <image href="${ikfBase64}" x="40" y="25" width="60" height="60" preserveAspectRatio="xMidYMid meet"/>
+
+  <!-- IYQ White Logo (right) -->
+  <image href="${iyqBase64}" x="550" y="25" width="60" height="60" preserveAspectRatio="xMidYMid meet"/>
+  
+  <text x="${chartWidth / 2}" y="50" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff" filter="url(#textGlow)">
     🎭 Krump Choreography Analysis
   </text>
   
-  <text x="${chartWidth / 2}" y="62" text-anchor="middle" font-size="11" fill="#e0e7ff" font-weight="500">
+  <text x="${chartWidth / 2}" y="72" text-anchor="middle" font-size="11" fill="#e0e7ff" font-weight="500">
     ${escapeXml(circuit)} • ${shots} shots • ${escapeXml(backend)}
   </text>
   
   <!-- Energy gauge visualization -->
-  <g transform="translate(${chartWidth / 2 - 80}, 75)">
+  <g transform="translate(${chartWidth / 2 - 80}, 92)">
     <rect x="0" y="0" width="160" height="20" fill="#1e293b" rx="10" opacity="0.6"/>
     <rect x="0" y="0" width="${avgEnergy * 40}" height="20" fill="url(#energyGradient${Math.round(avgEnergy)})" rx="10"/>
     <text x="80" y="14" text-anchor="middle" font-size="10" font-weight="600" fill="#e0e7ff">
@@ -348,9 +375,13 @@ export const generateKrumpSVG = (results: any, jobMetadata?: KrumpJobMetadata): 
   </g>
   
   <!-- Premium Footer -->
-  <g transform="translate(0, ${totalHeight - 50})">
-    <rect width="100%" height="50" fill="#0f172a" rx="15" opacity="0.8"/>
-    <text x="${chartWidth / 2}" y="30" text-anchor="middle" font-size="9" fill="#e0e7ff" font-weight="500">
+  <g transform="translate(0, ${totalHeight - 60})">
+    <rect width="100%" height="60" fill="#0f172a" rx="15" opacity="0.8"/>
+    
+    <!-- Quantum Krump Logo (footer right) -->
+    <image href="${quantumKrumpBase64}" x="565" y="5" width="50" height="50" preserveAspectRatio="xMidYMid meet" filter="url(#textGlow)"/>
+    
+    <text x="60" y="35" text-anchor="start" font-size="9" fill="#e0e7ff" font-weight="500">
       Quantum Krump Platform • ${escapeXml(timestamp)}
     </text>
   </g>

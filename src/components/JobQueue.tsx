@@ -115,7 +115,7 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
         circuit: results.circuit
       };
       
-      const svg = generateKrumpSVG(results, metadata);
+      const svg = await generateKrumpSVG(results, metadata);
       const filename = `krump-choreography-${jobId.slice(0, 8)}-${Date.now()}.svg`;
       downloadKrumpSVG(svg, filename);
 

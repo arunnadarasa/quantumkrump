@@ -56,9 +56,9 @@ export const KrumpChoreography = ({ measurements, probabilities, shots, results,
   
   const averageEnergy = decodedMoves.reduce((sum, move) => sum + (move.energy * move.probability), 0);
 
-  const handleDownloadKrumpSVG = () => {
+  const handleDownloadKrumpSVG = async () => {
     try {
-      const svg = generateKrumpSVG(results || { measurements, probabilities, shots }, jobMetadata);
+      const svg = await generateKrumpSVG(results || { measurements, probabilities, shots }, jobMetadata);
       const filename = `krump-choreography-${Date.now()}.svg`;
       downloadKrumpSVG(svg, filename);
       
@@ -75,7 +75,6 @@ export const KrumpChoreography = ({ measurements, probabilities, shots, results,
       });
     }
   };
-
   return (
     <div className="space-y-6">
       <Card>
