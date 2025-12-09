@@ -97,6 +97,7 @@ export default function Dashboard() {
     setExecutionProgress("Creating job...");
 
     let progressInterval: NodeJS.Timeout | null = null;
+    let jobId: string | null = null;
 
     try {
       // 1. Create job record
@@ -114,6 +115,7 @@ export default function Dashboard() {
         .single();
 
       if (jobError) throw jobError;
+      jobId = job.id;
 
       setExecutionProgress("Calling quantum service...");
       const startTime = Date.now();
@@ -176,6 +178,19 @@ export default function Dashboard() {
     } catch (error) {
       console.error('Krump execution error:', error);
       if (progressInterval) clearInterval(progressInterval);
+      
+      // Mark job as failed in database
+      if (jobId) {
+        await supabase
+          .from('quantum_jobs')
+          .update({
+            status: 'failed',
+            error_message: error instanceof Error ? error.message : 'Unknown error',
+            completed_at: new Date().toISOString()
+          })
+          .eq('id', jobId);
+      }
+      
       setExecuting(false);
       setExecutionProgress("");
       toast({
@@ -312,6 +327,7 @@ export default function Dashboard() {
     setExecutionProgress("Creating job...");
 
     let progressInterval: NodeJS.Timeout | null = null;
+    let jobId: string | null = null;
 
     try {
       // 1. Create job record in database
@@ -329,6 +345,7 @@ export default function Dashboard() {
         .single();
 
       if (jobError) throw jobError;
+      jobId = job.id;
 
       setExecutionProgress("Calling quantum service...");
       const startTime = Date.now();
@@ -393,6 +410,19 @@ export default function Dashboard() {
     } catch (error) {
       console.error('Execution error:', error);
       if (progressInterval) clearInterval(progressInterval);
+      
+      // Mark job as failed in database
+      if (jobId) {
+        await supabase
+          .from('quantum_jobs')
+          .update({
+            status: 'failed',
+            error_message: error instanceof Error ? error.message : 'Unknown error',
+            completed_at: new Date().toISOString()
+          })
+          .eq('id', jobId);
+      }
+      
       setExecuting(false);
       setExecutionProgress("");
       toast({
