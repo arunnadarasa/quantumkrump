@@ -47,6 +47,49 @@ export default function Dashboard() {
     'custom': null  // Not available in API
   };
 
+  // Fetch with timeout and automatic retry for cold starts
+  const fetchWithTimeoutAndRetry = async (
+    url: string, 
+    options: RequestInit, 
+    timeoutMs = 90000,
+    onRetry?: () => void
+  ): Promise<Response> => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+    
+    try {
+      const response = await fetch(url, { ...options, signal: controller.signal });
+      clearTimeout(timeoutId);
+      return response;
+    } catch (error) {
+      clearTimeout(timeoutId);
+      
+      // If timeout, throw clear message
+      if (error instanceof Error && error.name === 'AbortError') {
+        throw new Error('Request timed out after 90 seconds');
+      }
+      
+      // Retry once for network errors (cold start scenario)
+      console.log('First attempt failed, retrying (cold start)...');
+      onRetry?.();
+      
+      const retryController = new AbortController();
+      const retryTimeoutId = setTimeout(() => retryController.abort(), timeoutMs);
+      
+      try {
+        const response = await fetch(url, { ...options, signal: retryController.signal });
+        clearTimeout(retryTimeoutId);
+        return response;
+      } catch (retryError) {
+        clearTimeout(retryTimeoutId);
+        if (retryError instanceof Error && retryError.name === 'AbortError') {
+          throw new Error('Request timed out after 90 seconds (retry)');
+        }
+        throw retryError;
+      }
+    }
+  };
+
   useEffect(() => {
     if (!authLoading && !user) {
       navigate("/auth");
@@ -117,7 +160,7 @@ export default function Dashboard() {
       if (jobError) throw jobError;
       jobId = job.id;
 
-      setExecutionProgress("Calling quantum service...");
+      setExecutionProgress("Connecting to quantum service...");
       const startTime = Date.now();
 
       // Progress updates
@@ -126,15 +169,20 @@ export default function Dashboard() {
         setExecutionProgress(`Waiting for quantum results... ${elapsed}s elapsed`);
       }, 1000);
 
-      // 2. Call quantum service
-      const quantumResponse = await fetch('https://quantum-service.fly.dev/run', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          circuit_name: 'krump_choreography',
-          shots: shots
-        })
-      });
+      // 2. Call quantum service with timeout and retry for cold starts
+      const quantumResponse = await fetchWithTimeoutAndRetry(
+        'https://quantum-service.fly.dev/run',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            circuit_name: 'krump_choreography',
+            shots: shots
+          })
+        },
+        90000,
+        () => setExecutionProgress("Waking up quantum service...")
+      );
 
       clearInterval(progressInterval);
       progressInterval = null;
@@ -347,7 +395,7 @@ export default function Dashboard() {
       if (jobError) throw jobError;
       jobId = job.id;
 
-      setExecutionProgress("Calling quantum service...");
+      setExecutionProgress("Connecting to quantum service...");
       const startTime = Date.now();
 
       // Show elapsed time during quantum service call
@@ -356,18 +404,21 @@ export default function Dashboard() {
         setExecutionProgress(`Waiting for quantum results... ${elapsed}s elapsed`);
       }, 1000);
 
-      // 2. Call quantum service directly (CORS enabled)
-      const quantumResponse = await fetch('https://quantum-service.fly.dev/run', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      // 2. Call quantum service with timeout and retry for cold starts
+      const quantumResponse = await fetchWithTimeoutAndRetry(
+        'https://quantum-service.fly.dev/run',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            circuit_name: circuitConfig.name,
+            n_qubits: circuitConfig.n_qubits,
+            shots: shots
+          })
         },
-        body: JSON.stringify({
-          circuit_name: circuitConfig.name,
-          n_qubits: circuitConfig.n_qubits,
-          shots: shots
-        })
-      });
+        90000,
+        () => setExecutionProgress("Waking up quantum service...")
+      );
 
       clearInterval(progressInterval);
       progressInterval = null;
