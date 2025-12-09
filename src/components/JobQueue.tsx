@@ -30,6 +30,15 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
   const [krumpJobIds, setKrumpJobIds] = useState<Set<string>>(new Set());
   const { toast } = useToast();
 
+  const formatJobDateTime = (dateString: string) => {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear().toString().slice(-2);
+    const time = date.toLocaleTimeString();
+    return `${day}/${month}/${year} ${time}`;
+  };
+
   useEffect(() => {
     fetchJobs();
 
@@ -206,7 +215,7 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
                       {job.backend_type} ({job.shots} shots)
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {new Date(job.created_at).toLocaleTimeString()}
+                      {formatJobDateTime(job.created_at)}
                       {job.execution_time_ms && ` • ${(job.execution_time_ms / 1000).toFixed(1)}s`}
                     </p>
                   </div>
@@ -303,7 +312,7 @@ export const JobQueue = ({ onJobClick, isMobilePopup }: JobQueueProps) => {
                       {job.backend_type} ({job.shots} shots)
                     </p>
                     <p className="text-[10px] md:text-xs text-muted-foreground">
-                      {new Date(job.created_at).toLocaleTimeString()}
+                      {formatJobDateTime(job.created_at)}
                       {job.execution_time_ms && ` • ${(job.execution_time_ms / 1000).toFixed(1)}s`}
                     </p>
                   </div>
