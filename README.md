@@ -1,73 +1,105 @@
-# Welcome to your Lovable project
+# Quantum Krump Platform
 
-## Project info
+A quantum computing platform that fuses quantum circuit execution with Krump dance choreography generation, powered by Guppy quantum programming and Selene quantum emulation.
 
-**URL**: https://lovable.dev/projects/e482cb3b-78ef-42e2-ab1a-b59558f12b68
+![Quantum Krump](https://img.shields.io/badge/Quantum-Krump-blueviolet) ![React](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Fly.io](https://img.shields.io/badge/Fly.io-Quantum%20Service-purple)
 
-## How can I edit this code?
+## 🎯 Overview
 
-There are several ways of editing your application.
+Quantum Krump translates quantum measurement outcomes into expressive Krump dance moves. Run real quantum circuits on a Selene-powered backend and watch as superposition collapses into choreography.
 
-**Use Lovable**
+### Key Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e482cb3b-78ef-42e2-ab1a-b59558f12b68) and start prompting.
+- **Quantum Circuit Execution** — Run pre-built circuits (Bell State, GHZ, Teleportation, Grover's) or custom Guppy code via a Python quantum service on Fly.io
+- **Krump Choreography Generation** — Map quantum measurement bitstrings to Krump dance moves (Stomp, Chest Pop, Arm Swing, Jab)
+- **AI Quantum Assistant** — Streaming AI chat for circuit suggestions, debugging, and quantum theory explanations
+- **Circuit Generator** — AI-powered circuit generation for real-world use cases across domains (finance, healthcare, logistics, etc.)
+- **Interactive Bloch Sphere** — 3D visualization of quantum states
+- **Job Queue** — Track circuit execution history with timing and results
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🏗 Architecture
 
-**Use your preferred IDE**
+```
+┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
+│  React Frontend │────▶│  Lovable Cloud   │────▶│ Python Quantum  │
+│  (Lovable)      │     │  Edge Functions  │     │ Service (Fly.io)│
+│                 │◀────│                  │◀────│ Guppy + Selene  │
+└─────────────────┘     └──────────────────┘     └─────────────────┘
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Frontend**: React + TypeScript + Tailwind CSS + Three.js (Bloch Sphere)
+- **Backend**: Lovable Cloud (Supabase) — auth, database, edge functions
+- **Quantum Service**: Python FastAPI on Fly.io — Guppy compilation + Selene emulation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🚀 Getting Started
 
-Follow these steps:
+### Prerequisites
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Node.js 18+
+- npm or bun
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Local Development
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone <repo-url>
+cd <project>
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Automatically configured by Lovable Cloud:
 
-**Use GitHub Codespaces**
+| Variable | Description |
+|----------|-------------|
+| `VITE_SUPABASE_URL` | Backend API URL |
+| `VITE_SUPABASE_PUBLISHABLE_KEY` | Backend public key |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Quantum Service (Fly.io)
 
-## What technologies are used for this project?
+The quantum execution backend runs on Fly.io with auto-stop enabled. Cold starts take ~5-6 seconds — the frontend handles this with automatic retry logic.
 
-This project is built with:
+## 📊 Supported Circuits
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+| Circuit | Qubits | Description |
+|---------|--------|-------------|
+| Bell State | 2 | Entangled qubit pair |
+| GHZ State | 3 | Maximal 3-qubit entanglement |
+| Quantum Teleportation | 3 | Quantum state transfer |
+| Grover's Algorithm | 2 | Quantum search |
+| Krump Choreography | 3 | Dance move generation |
 
-## How can I deploy this project?
+## 🔧 Tech Stack
 
-Simply open [Lovable](https://lovable.dev/projects/e482cb3b-78ef-42e2-ab1a-b59558f12b68) and click on Share -> Publish.
+- **React 18** + **TypeScript**
+- **Tailwind CSS** + **shadcn/ui**
+- **Three.js** (via @react-three/fiber) — 3D Bloch Sphere
+- **Recharts** — Result visualization
+- **React Router** — Navigation
+- **TanStack Query** — Data fetching
+- **Lovable Cloud** — Auth, database, edge functions
+- **Fly.io** — Quantum service hosting
 
-## Can I connect a custom domain to my Lovable project?
+## 📖 Usage
 
-Yes, you can!
+1. Sign up at `/auth`
+2. Select a circuit template or write custom Guppy code
+3. Configure backend type and shot count
+4. Execute and view measurement results
+5. For Krump circuits, see generated choreography sequences
+6. Use the AI assistant for help
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🔗 Resources
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- [Guppy Documentation](https://docs.quantinuum.com/guppy/)
+- [Selene GitHub](https://github.com/CQCL/selene)
+- [Lovable Docs](https://docs.lovable.dev/)
+
+## 📄 License
+
+This project is proprietary. All rights reserved.
+
+---
+
+Built with ❤️ using Guppy, Selene, and Lovable
