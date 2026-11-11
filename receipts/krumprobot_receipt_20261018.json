@@ -1,0 +1,26 @@
+{
+  "model_id": "socialprescribing/KrumpRobot",
+  "timestamp": "2026-10-18T15:35:00Z",
+  "training_platform": "Modal Cloud (modal.com)",
+  "hardware_profile": "Modal Debian Slim Container (4 vCPUs, PyTorch 2.x)",
+  "source_video": "Arun - Quantum Krump live performance (Fractured Cosmos session)",
+  "training_time_s": 547.06,
+  "epochs": 100,
+  "n_samples": 4392,
+  "final_loss": 0.00976,
+  "geodesic_error_rad": 0.0405,
+  "geodesic_error_deg": 2.32,
+  "p50_latency_ms": 2.696,
+  "p99_latency_ms": 4.069,
+  "model_sha256": "d066e7f5c602212a9e4d660b3584ac6f675b6012cfd68849d7b6d6a2bb31d061",
+  "primitives": [
+    "STOMP",
+    "JAB",
+    "CHEST POP",
+    "ARM SWING",
+    "KILL-OFF"
+  ],
+  "bpm": 140,
+  "controlled_bones": 22,
+  "status": "SEALED_VERIFIED"
+}

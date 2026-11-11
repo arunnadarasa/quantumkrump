@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "experiment": "Quantum Krump Machine Learning Model (QKMLM)",
+    "timestamp": "2026-10-18T09:55:00Z",
+    "modal_app": "qkmlm-training",
+    "cloud_provider": "Modal Cloud (modal.com)",
+    "runtime_environment": "Debian Slim (Python 3.11, PyTorch 2.x)",
+    "total_execution_time_sec": 42.415
+  },
+  "model_architecture": {
+    "name": "QKMLM-v1",
+    "qubits": 4,
+    "variational_layers": 3,
+    "entanglement_topology": "Ring-CX + DisCoPy Frobenius Monoidal Cross-Swap",
+    "classical_encoder": "Linear(8, 8) + pi*tanh scaling",
+    "decoder_heads": {
+      "foundation_classifier": "Linear(8, 32) -> GELU -> Linear(32, 5)",
+      "phenotype_predictor": "Linear(8, 32) -> GELU -> Linear(32, 5)",
+      "energy_resonance_regressor": "Linear(8, 16) -> GELU -> Linear(16, 1) -> Sigmoid"
+    },
+    "total_trainable_parameters": 1175,
+    "quantum_circuit_parameters": 36
+  },
+  "dataset": {
+    "n_total": 2500,
+    "n_train": 2000,
+    "n_test": 500,
+    "foundation_distribution": {
+      "STOMP": 473,
+      "JAB": 513,
+      "CHEST POP": 522,
+      "ARM SWING": 507,
+      "KILL-OFF": 485
+    },
+    "phenotype_distribution": {
+      "Brawler": 498,
+      "Flash": 470,
+      "BigHomie": 510,
+      "Flow": 534,
+      "Hype": 488
+    },
+    "biophysical_features": [
+      "LMA_Weight",
+      "LMA_Time",
+      "LMA_Space",
+      "LMA_Flow",
+      "GRF_Peak_Fz_BW",
+      "Thoracic_Jerk_k_m_s3",
+      "BPM_Phase_Frac",
+      "CHRNA1_Motor_Sync"
+    ]
+  },
+  "training_performance": {
+    "epochs": 60,
+    "initial_loss": 2.2348,
+    "final_train_loss": 0.2643,
+    "convergence_status": "CONVERGED"
+  },
+  "test_benchmark_metrics": {
+    "foundation_classification_accuracy": 0.986,
+    "phenotype_prediction_accuracy": 0.894,
+    "energy_resonance_rmse": 0.0326,
+    "inference_latency_p50_ms": 4.962,
+    "inference_latency_p99_ms": 5.541,
+    "status": "PASS"
+  },
+  "confusion_matrices": {
+    "foundation": [
+      [
+        85,
+        0,
+        0,
+        2,
+        0
+      ],
+      [
+        1,
+        103,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        104,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        113,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        88
+      ]
+    ],
+    "phenotype": [
+      [
+        110,
+        0,
+        2,
+        0,
+        16
+      ],
+      [
+        0,
+        80,
+        2,
+        0,
+        2
+      ],
+      [
+        1,
+        3,
+        80,
+        0,
+        10
+      ],
+      [
+        0,
+        0,
+        0,
+        103,
+        0
+      ],
+      [
+        9,
+        0,
+        8,
+        0,
+        74
+      ]
+    ]
+  },
+  "hardware_compilation_and_compression": {
+    "target_qpu": "Quantinuum Nexus Helios-1E-Lite",
+    "openqasm_version": "2.0",
+    "raw_circuit_depth": 43,
+    "haiqu_compressed_depth": 6,
+    "depth_reduction_pct": 86.05,
+    "projected_readout_fidelity": 0.9976
+  },
+  "audit_gate_G_QKMLM": {
+    "verdict": "VERIFIED (PASS)",
+    "epistemic_standard": "Strictly empirical kinesthetic classification; zero claims of biological quantum brain coherence",
+    "reproducibility": "Deterministic seed 20261018 verified on Modal Cloud container"
+  }
+}

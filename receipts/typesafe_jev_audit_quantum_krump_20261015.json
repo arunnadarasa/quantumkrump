@@ -1,0 +1,44 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "epistemic_rigor": {
+      "type": "score",
+      "score": 2.01,
+      "confidence": 0.98,
+      "legend": {
+        "0": "Level 0: Uncalibrated speedup overclaims",
+        "1": "Level 1: Basic classical comparison without shot audit",
+        "2": "Level 2: Strict classical floor with explicit emulator demarcation",
+        "3": "Level 3: Exhaustive multi-platform benchmark, verified receipts, and zero QPU overclaims"
+      },
+      "probabilities": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.98,
+        "3": 0.02
+      }
+    },
+    "pedagogical_soundness": {
+      "type": "noul",
+      "noul": 0.58
+    },
+    "mathematical_consistency": {
+      "type": "noul",
+      "noul": 0.26
+    },
+    "scientific_merit_tier": {
+      "type": "choice",
+      "choice": "reject",
+      "confidence": 0.76,
+      "probabilities": {
+        "top_tier": 0.0,
+        "revisions_needed": 0.16,
+        "reject": 0.84
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 872,
+    "output_tokens": 109
+  }
+}

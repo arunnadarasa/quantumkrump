@@ -1,0 +1,130 @@
+{
+  "benchmark_name": "DisCoPy Monoidal String Diagrams & Dagger-Compact Duets",
+  "timestamp_utc": "2026-10-18T10:52:53.650417Z",
+  "discopy_version": "1.2.2",
+  "category_theory": {
+    "category_name": "C_Krump",
+    "category_type": "Frobenius Monoidal Category (Dagger-Compact with Self-Dual Objects)",
+    "monoidal_unit": "I (Empty Stage / Baseline Neutral Rest)",
+    "generating_objects": [
+      "Dancer"
+    ],
+    "generating_morphisms": [
+      "STOMP",
+      "JAB",
+      "CHEST POP",
+      "ARM SWING",
+      "BUCK HOP",
+      "KILL-OFF"
+    ],
+    "interchange_law": {
+      "formula": "(f2 o f1) (x) (g2 o g1) == (f2 (x) g2) o (f1 (x) g1)",
+      "verified": true,
+      "reduction_method": "discopy.frobenius.Diagram.normal_form()"
+    },
+    "dagger_compact_structure": {
+      "entanglement_cap": "Cap(Dancer, Dancer) : I -> Dancer (x) Dancer",
+      "killoff_cup": "Cup(Dancer, Dancer) : Dancer (x) Dancer -> I",
+      "snake_equation_verified": true,
+      "snake_hypergraph_verified": true,
+      "reduction_method": "discopy.frobenius.Diagram.normal_form()"
+    },
+    "symmetric_monoidal_structure": {
+      "swap_morphism": "Swap(Dancer, Dancer) : Dancer (x) Dancer -> Dancer (x) Dancer",
+      "involution_verified": true
+    },
+    "frobenius_spiders": {
+      "split_spider": "Spider(1, 2, Dancer) : Dancer -> Dancer (x) Dancer",
+      "merge_spider": "Spider(2, 1, Dancer) : Dancer (x) Dancer -> Dancer",
+      "fusion_verified": true
+    },
+    "full_duet_choreography": {
+      "diagram": "Cap(Dancer, Dancer) >> CHEST POP @ Dancer >> Dancer @ JAB >> Swap(Dancer, Dancer) >> ARM SWING @ Dancer >> Dancer @ BUCK HOP >> Cup(Dancer, Dancer)",
+      "box_count": 7,
+      "domain": "Ty()",
+      "codomain": "Ty()"
+    }
+  },
+  "quantum_functor_simulation": {
+    "functor": "F_DisCo : C_Krump -> Circ",
+    "bell_state_circuit": "Ket(0, 0) >> H @ qubit >> CX",
+    "bell_probabilities": {
+      "P(|00>)": 0.5000000000000001,
+      "P(|01>)": 0.0,
+      "P(|10>)": 0.0,
+      "P(|11>)": 0.5000000000000001
+    },
+    "quantum_duet_circuit": "Ket(0, 0) >> H @ qubit >> CX >> Z @ qubit >> qubit @ X >> CX >> H @ qubit",
+    "quantum_duet_output_amplitudes": [
+      {
+        "real": 0.0,
+        "imag": 0.0
+      },
+      {
+        "real": 4.266421588589642e-17,
+        "imag": 0.0
+      },
+      {
+        "real": 0.0,
+        "imag": 0.0
+      },
+      {
+        "real": 1.0000000000000002,
+        "imag": 0.0
+      }
+    ]
+  },
+  "generated_artifacts": {
+    "duet_tikz": "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/experiments/../paper/figures/discopy_krump_duet.tikz",
+    "snake_tikz": "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/experiments/../paper/figures/discopy_snake_equation.tikz"
+  },
+  "typesafe_jev_audit": {
+    "status": "success",
+    "timestamp": "2026-10-18T10:52:53.650396Z",
+    "model": "jev-1.13.0",
+    "answers": {
+      "mathematical_non_triviality": {
+        "type": "choice",
+        "choice": "fully_resolved_and_rigorous",
+        "confidence": 0.7,
+        "probabilities": {
+          "fully_resolved_and_rigorous": 0.8,
+          "partially_resolved": 0.15,
+          "unresolved_trivial": 0.05
+        }
+      },
+      "epistemic_safety_and_bounding": {
+        "type": "choice",
+        "choice": "strictly_bounded_safe",
+        "confidence": 0.98,
+        "probabilities": {
+          "strictly_bounded_safe": 0.99,
+          "at_risk_of_misconception": 0.01
+        }
+      },
+      "scientific_integrity_score": {
+        "type": "score",
+        "score": 2.8,
+        "confidence": 0.75,
+        "legend": {
+          "0": "Level 1: Heuristic or pseudoscience with trivial unverified quivers.",
+          "1": "Level 2: Basic formal definitions with unverified algebraic properties.",
+          "2": "Level 3: Sound definitions with manual hand-waving proofs.",
+          "3": "Level 4: Rigorous monoidal category with verified interchange and snake equations via open-source tools.",
+          "4": "Level 5: Exceptional publication-grade integration with verified DisCoPy compilation, exact tensor evaluation, automated TikZ generation, and zero hardware overreach."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.03,
+          "2": 0.05,
+          "3": 0.83,
+          "4": 0.04
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1244,
+      "output_tokens": 146
+    }
+  }
+}

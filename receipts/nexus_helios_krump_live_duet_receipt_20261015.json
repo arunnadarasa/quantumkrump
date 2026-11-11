@@ -1,0 +1,32 @@
+{
+  "schema_version": "2.1.0-honest-canonical-nexus-live",
+  "job_id": "a411dac7-1b75-4538-8ddc-16c560b30faa",
+  "execution_result_id": "39e9b3cb-ca3a-4d9c-b6b1-375c7a8300b1",
+  "platform": "Quantinuum Nexus",
+  "backend": "Helios-1E-lite",
+  "tier": "REMOTE_NOISY_EMULATOR",
+  "project_id": "5c985646-d95b-49fd-9ad4-f9ad6bc8ad63",
+  "physical_hardware_shots": 0,
+  "emulator_shots": 1024,
+  "status": "COMPLETED",
+  "completed_time": "2026-10-15 14:29:42.636616+00:00",
+  "submitted_time": "2026-10-15 14:29:07.568418+00:00",
+  "running_time": "2026-10-15 14:29:36.803155+00:00",
+  "collated_counts": {
+    "(('m0', '0'), ('m1', '1'))": 1018,
+    "(('m0', '0'), ('m1', '0'))": 1,
+    "(('m0', '1'), ('m1', '0'))": 3,
+    "(('m0', '1'), ('m1', '1'))": 2
+  },
+  "register_counts": {
+    "m0": {
+      "0": 1019,
+      "1": 5
+    },
+    "m1": {
+      "1": 1020,
+      "0": 4
+    }
+  },
+  "timestamp_utc": "2026-10-15T14:29:49.877133+00:00"
+}

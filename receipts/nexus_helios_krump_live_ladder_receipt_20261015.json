@@ -1,0 +1,105 @@
+{
+  "schema_version": "2.1.0-honest-canonical-nexus-live",
+  "job_id": "d43f26d9-019d-4688-aa05-66c9cafe2f9b",
+  "execution_result_id": "5751ae7e-7692-4d7d-be6f-5cd41f25ddfd",
+  "platform": "Quantinuum Nexus",
+  "backend": "Helios-1E-lite",
+  "tier": "REMOTE_NOISY_EMULATOR",
+  "project_id": "5c985646-d95b-49fd-9ad4-f9ad6bc8ad63",
+  "physical_hardware_shots": 0,
+  "emulator_shots": 1024,
+  "status": "COMPLETED",
+  "completed_time": "2026-10-15 14:29:43.421920+00:00",
+  "submitted_time": "2026-10-15 14:29:07.117728+00:00",
+  "running_time": "2026-10-15 14:29:36.980612+00:00",
+  "affine_calibration": {
+    "a": 0.492578125,
+    "b": 0.48906249999999973,
+    "r_squared": 0.9942230555139754
+  },
+  "audit_gates": {
+    "Gate_GA_Blinded_QC": {
+      "criterion": "Blinded QC Absolute Error <= 0.05",
+      "true": 0.18,
+      "measured": 0.18091054313099056,
+      "error": 0.0009105431309905654,
+      "tolerance": 0.05,
+      "status": "PASS"
+    },
+    "Gate_GS_Exact_Null": {
+      "criterion": "Exact-Null Control Twin <= 0.05",
+      "true": 0.0,
+      "measured": 0.013178913738019223,
+      "magnitude": 0.013178913738019223,
+      "tolerance": 0.05,
+      "status": "PASS"
+    },
+    "Gate_GL_Linearity": {
+      "criterion": "R^2 >= 0.99",
+      "r_squared": 0.9942230555139754,
+      "tolerance": 0.99,
+      "status": "PASS"
+    },
+    "Gate_GC_Choreo_Contrast": {
+      "criterion": "Choreo Contrast Recovery <= 0.03",
+      "true": 0.224,
+      "measured": 0.21086261980830687,
+      "error": 0.013137380191693138,
+      "tolerance": 0.03,
+      "status": "PASS"
+    }
+  },
+  "rungs": {
+    "Cal_Std_1": {
+      "k_excited": 252,
+      "n_shots": 1024,
+      "p_raw": 0.24609375
+    },
+    "Cal_Std_2": {
+      "k_excited": 396,
+      "n_shots": 1024,
+      "p_raw": 0.38671875
+    },
+    "Cal_Std_3": {
+      "k_excited": 491,
+      "n_shots": 1024,
+      "p_raw": 0.4794921875
+    },
+    "Cal_Std_4": {
+      "k_excited": 614,
+      "n_shots": 1024,
+      "p_raw": 0.599609375
+    },
+    "Cal_Std_5": {
+      "k_excited": 769,
+      "n_shots": 1024,
+      "p_raw": 0.7509765625
+    },
+    "Blinded_QC": {
+      "k_excited": 595,
+      "n_shots": 1024,
+      "p_raw": 0.5810546875
+    },
+    "Choreo_Transition_K7": {
+      "k_excited": 610,
+      "n_shots": 1024,
+      "p_raw": 0.595703125
+    },
+    "Exact_Null_Twin": {
+      "k_excited": 511,
+      "n_shots": 1024,
+      "p_raw": 0.4990234375
+    }
+  },
+  "calibrated_contrasts": {
+    "Cal_Std_1": -0.5039936102236424,
+    "Cal_Std_2": -0.21645367412140581,
+    "Cal_Std_3": -0.026757188498402525,
+    "Cal_Std_4": 0.21884984025559123,
+    "Cal_Std_5": 0.5283546325878598,
+    "Blinded_QC": 0.18091054313099056,
+    "Choreo_Transition_K7": 0.21086261980830687,
+    "Exact_Null_Twin": 0.013178913738019223
+  },
+  "timestamp_utc": "2026-10-15T14:29:48.025246+00:00"
+}
