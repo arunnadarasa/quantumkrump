@@ -1744,6 +1744,366 @@ function initBenchmarkCharts() {
   }
 }
 
+/* ============================================================================
+   8. Universal Multi-Domain Knowledge Graph Explorer (Apache ECharts · v2.0.0)
+   ============================================================================ */
+function initKnowledgeGraph() {
+  const chartEl = document.getElementById("echart-kg");
+  if (!chartEl || !window.echarts) return;
+
+  const searchInput = document.getElementById("kg-search");
+  const countBadge = document.getElementById("kg-count-badge");
+  const pillsWrap = document.getElementById("kg-domain-pills");
+  const layoutBtn = document.getElementById("kg-layout-toggle");
+  const resetBtn = document.getElementById("kg-reset-btn");
+  const mermaidBtn = document.getElementById("kg-mermaid-btn");
+
+  const domainEl = document.getElementById("kg-node-domain");
+  const catEl = document.getElementById("kg-node-cat");
+  const titleEl = document.getElementById("kg-node-title");
+  const idEl = document.getElementById("kg-node-id");
+  const formulaEl = document.getElementById("kg-node-formula");
+  const descEl = document.getElementById("kg-node-desc");
+  const outCountEl = document.getElementById("kg-out-count");
+  const inCountEl = document.getElementById("kg-in-count");
+  const outListEl = document.getElementById("kg-out-list");
+  const inListEl = document.getElementById("kg-in-list");
+
+  const chart = window.echarts.init(chartEl, null, { renderer: "canvas" });
+  let kg = null;
+  let nodeById = new Map();
+  let degreeById = new Map();
+  let activeDomain = "all";
+  let searchQuery = "";
+  let layoutMode = "force"; // "force" | "none"
+  let selectedId = "node_krumprobot";
+
+  function selectNode(nodeId) {
+    const n = nodeById.get(nodeId);
+    if (!n || !kg) return;
+    selectedId = n.id;
+    const domMeta = kg.domains[n.domain] || { name: n.domain, color: "#2dd4bf" };
+
+    if (domainEl) {
+      domainEl.textContent = domMeta.name;
+      domainEl.style.borderColor = domMeta.color;
+      domainEl.style.color = domMeta.color;
+      domainEl.style.background = "rgba(9, 18, 20, 0.85)";
+    }
+    if (catEl) catEl.textContent = n.category || "Entity";
+    if (titleEl) titleEl.textContent = n.name;
+    if (idEl) idEl.textContent = `${n.id} · degree ${degreeById.get(n.id) || 0}`;
+    if (formulaEl) formulaEl.textContent = n.formula || "—";
+    if (descEl) descEl.textContent = n.description || "";
+
+    const outgoing = kg.edges.filter((e) => e.source === n.id);
+    const incoming = kg.edges.filter((e) => e.target === n.id);
+    if (outCountEl) outCountEl.textContent = String(outgoing.length);
+    if (inCountEl) inCountEl.textContent = String(incoming.length);
+
+    const renderRelButtons = (container, edges, isOutgoing) => {
+      if (!container) return;
+      container.innerHTML = "";
+      if (!edges.length) {
+        const empty = document.createElement("div");
+        empty.className = "kg-rel-empty";
+        empty.textContent = "None in ontology";
+        container.appendChild(empty);
+        return;
+      }
+      edges.forEach((edge) => {
+        const peerId = isOutgoing ? edge.target : edge.source;
+        const peer = nodeById.get(peerId);
+        if (!peer) return;
+        const peerDom = kg.domains[peer.domain] || { color: "#9eb7b4" };
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "kg-rel-btn";
+
+        const left = document.createElement("span");
+        const verb = document.createElement("span");
+        verb.className = "kg-rel-verb";
+        verb.textContent = isOutgoing ? `${edge.relation} → ` : `← ${edge.relation} `;
+        const nameSpan = document.createElement("strong");
+        nameSpan.textContent = peer.name;
+        left.appendChild(verb);
+        left.appendChild(nameSpan);
+
+        const dot = document.createElement("span");
+        dot.className = "kg-domain-dot";
+        dot.style.background = peerDom.color;
+        dot.title = peerDom.name || peer.domain;
+
+        btn.appendChild(left);
+        btn.appendChild(dot);
+        btn.addEventListener("click", () => {
+          // Ensure target node is visible if currently filtered out
+          if (activeDomain !== "all" && peer.domain !== activeDomain) {
+            activeDomain = "all";
+            pillsWrap?.querySelectorAll("[data-kg-domain]").forEach((b) => {
+              b.classList.toggle("active", b.dataset.kgDomain === "all");
+            });
+          }
+          if (searchQuery) {
+            searchQuery = "";
+            if (searchInput) searchInput.value = "";
+          }
+          selectNode(peer.id);
+          renderGraph();
+        });
+        container.appendChild(btn);
+      });
+    };
+
+    renderRelButtons(outListEl, outgoing, true);
+    renderRelButtons(inListEl, incoming, false);
+  }
+
+  function getFilteredSubgraph() {
+    if (!kg) return { nodes: [], edges: [] };
+    const q = searchQuery.trim().toLowerCase();
+    const matchedIds = new Set();
+
+    kg.nodes.forEach((n) => {
+      const domOk = activeDomain === "all" || n.domain === activeDomain;
+      if (!domOk) return;
+      if (!q) {
+        matchedIds.add(n.id);
+        return;
+      }
+      const hay = `${n.id} ${n.name} ${n.category || ""} ${n.formula || ""} ${n.description || ""}`.toLowerCase();
+      if (hay.includes(q)) matchedIds.add(n.id);
+    });
+
+    // When filtering by domain or search, include 1-hop neighbors when <= 25 seed matches so context stays connected
+    if ((activeDomain !== "all" || q) && matchedIds.size > 0 && matchedIds.size <= 25) {
+      const seeds = new Set(matchedIds);
+      kg.edges.forEach((e) => {
+        if (seeds.has(e.source)) matchedIds.add(e.target);
+        if (seeds.has(e.target)) matchedIds.add(e.source);
+      });
+    }
+
+    const nodes = kg.nodes.filter((n) => matchedIds.has(n.id));
+    const edges = kg.edges.filter((e) => matchedIds.has(e.source) && matchedIds.has(e.target));
+    return { nodes, edges };
+  }
+
+  function renderGraph() {
+    if (!kg) return;
+    const { nodes, edges } = getFilteredSubgraph();
+    if (countBadge) {
+      countBadge.textContent = `${nodes.length} / ${kg.nodes.length} nodes · ${edges.length} edges`;
+    }
+
+    const domainKeys = Object.keys(kg.domains);
+    const categories = domainKeys.map((k) => ({
+      name: kg.domains[k].name,
+      itemStyle: { color: kg.domains[k].color }
+    }));
+    const catIdxByKey = new Map(domainKeys.map((k, idx) => [k, idx]));
+    const showAllLabels = nodes.length <= 36;
+
+    const seriesNodes = nodes.map((n) => {
+      const deg = degreeById.get(n.id) || 1;
+      const isSelected = n.id === selectedId;
+      const domColor = kg.domains[n.domain]?.color || "#2dd4bf";
+      return {
+        id: n.id,
+        name: n.name,
+        category: catIdxByKey.get(n.domain) ?? 0,
+        value: deg,
+        x: layoutMode === "none" ? n.x : undefined,
+        y: layoutMode === "none" ? n.y : undefined,
+        symbolSize: isSelected ? Math.max(26, 15 + Math.min(20, deg * 2.1)) : 12 + Math.min(20, deg * 1.9),
+        itemStyle: {
+          color: domColor,
+          borderColor: isSelected ? "#ffffff" : "rgba(238, 247, 245, 0.35)",
+          borderWidth: isSelected ? 2.8 : 1.1,
+          shadowBlur: isSelected ? 18 : 6,
+          shadowColor: isSelected ? "#ffffff" : domColor
+        },
+        label: {
+          show: isSelected || showAllLabels || deg >= 5,
+          position: "right",
+          color: isSelected ? "#ffffff" : "#d8ebe8",
+          fontSize: isSelected ? 11.5 : 10,
+          fontWeight: isSelected ? 700 : 500,
+          fontFamily: "IBM Plex Sans, sans-serif",
+          backgroundColor: "rgba(7, 16, 18, 0.72)",
+          padding: [2, 4],
+          borderRadius: 3
+        }
+      };
+    });
+
+    const seriesLinks = edges.map((e) => ({
+      source: e.source,
+      target: e.target,
+      value: e.relation,
+      edgeLabel: e.label || e.relation,
+      lineStyle: {
+        color: e.source === selectedId || e.target === selectedId ? "#f4ae42" : "rgba(158, 183, 180, 0.28)",
+        width: e.source === selectedId || e.target === selectedId ? 2.1 : 1.15,
+        curveness: 0.16
+      }
+    }));
+
+    chart.setOption(
+      {
+        backgroundColor: "transparent",
+        tooltip: {
+          backgroundColor: "rgba(9, 18, 20, 0.95)",
+          borderColor: "rgba(45, 212, 191, 0.42)",
+          textStyle: { color: "#eef7f5", fontSize: 12, fontFamily: "IBM Plex Sans, sans-serif" },
+          formatter: (params) => {
+            if (params.dataType === "edge") {
+              const src = nodeById.get(params.data.source)?.name || params.data.source;
+              const tgt = nodeById.get(params.data.target)?.name || params.data.target;
+              return `<div style="max-width:300px"><strong>${src}</strong> → <strong>${tgt}</strong><br/><span style="color:#2dd4bf;font-family:JetBrains Mono,monospace;font-size:11px">${params.data.value}</span> · ${params.data.edgeLabel}</div>`;
+            }
+            const raw = nodeById.get(params.data.id);
+            if (!raw) return params.name;
+            const dom = kg.domains[raw.domain]?.name || raw.domain;
+            return `<div style="max-width:310px;white-space:normal"><strong>${raw.name}</strong><br/><span style="color:#f4ae42;font-size:11px">${dom} · ${raw.category}</span><br/><code style="font-size:10.5px;color:#2dd4bf">${raw.formula || ""}</code></div>`;
+          }
+        },
+        series: [
+          {
+            type: "graph",
+            layout: layoutMode,
+            roam: true,
+            draggable: layoutMode === "force",
+            categories,
+            data: seriesNodes,
+            links: seriesLinks,
+            edgeSymbol: ["none", "arrow"],
+            edgeSymbolSize: [0, 7],
+            force: {
+              repulsion: 250,
+              edgeLength: [52, 125],
+              gravity: 0.13,
+              friction: 0.62,
+              layoutAnimation: true
+            },
+            emphasis: {
+              focus: "adjacency",
+              lineStyle: { width: 2.6, color: "#2dd4bf" },
+              label: { show: true, fontSize: 11.5, fontWeight: 700, color: "#ffffff" }
+            }
+          }
+        ]
+      },
+      true
+    );
+  }
+
+  chart.on("click", (params) => {
+    if (params.dataType === "node" && params.data?.id) {
+      selectNode(params.data.id);
+      renderGraph();
+    }
+  });
+
+  fetch("receipts/quantum_krump_kg.json")
+    .then((r) => r.json())
+    .then((data) => {
+      kg = data;
+      nodeById = new Map(kg.nodes.map((n) => [n.id, n]));
+      degreeById = new Map(kg.nodes.map((n) => [n.id, 0]));
+      kg.edges.forEach((e) => {
+        degreeById.set(e.source, (degreeById.get(e.source) || 0) + 1);
+        degreeById.set(e.target, (degreeById.get(e.target) || 0) + 1);
+      });
+
+      // Populate domain filter pills
+      if (pillsWrap) {
+        const countsByDom = {};
+        kg.nodes.forEach((n) => {
+          countsByDom[n.domain] = (countsByDom[n.domain] || 0) + 1;
+        });
+        Object.entries(kg.domains).forEach(([domKey, meta]) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "lang-btn";
+          btn.dataset.kgDomain = domKey;
+          const dot = document.createElement("span");
+          dot.className = "kg-domain-dot";
+          dot.style.background = meta.color;
+          btn.appendChild(dot);
+          btn.appendChild(document.createTextNode(`${meta.name} (${countsByDom[domKey] || 0})`));
+          pillsWrap.appendChild(btn);
+        });
+
+        pillsWrap.querySelectorAll("[data-kg-domain]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            activeDomain = btn.dataset.kgDomain || "all";
+            pillsWrap.querySelectorAll("[data-kg-domain]").forEach((b) => {
+              b.classList.toggle("active", b === btn);
+            });
+            renderGraph();
+          });
+        });
+      }
+
+      selectNode(nodeById.has("node_krumprobot") ? "node_krumprobot" : kg.nodes[0].id);
+      renderGraph();
+    })
+    .catch(() => {
+      if (countBadge) countBadge.textContent = "Offline fallback";
+    });
+
+  searchInput?.addEventListener("input", () => {
+    searchQuery = searchInput.value || "";
+    renderGraph();
+  });
+
+  layoutBtn?.addEventListener("click", () => {
+    layoutMode = layoutMode === "force" ? "none" : "force";
+    layoutBtn.textContent = layoutMode === "force" ? "⇄ Layout: Force" : "⇄ Layout: Coordinates";
+    renderGraph();
+  });
+
+  resetBtn?.addEventListener("click", () => {
+    activeDomain = "all";
+    searchQuery = "";
+    if (searchInput) searchInput.value = "";
+    pillsWrap?.querySelectorAll("[data-kg-domain]").forEach((b) => {
+      b.classList.toggle("active", b.dataset.kgDomain === "all");
+    });
+    selectNode("node_krumprobot");
+    renderGraph();
+  });
+
+  mermaidBtn?.addEventListener("click", async () => {
+    if (!kg) return;
+    const { nodes, edges } = getFilteredSubgraph();
+    const lines = ["flowchart LR"];
+    nodes.forEach((n) => {
+      const safe = n.name.replace(/"/g, "'");
+      lines.push(`  ${n.id}["${safe}"]`);
+    });
+    edges.forEach((e) => {
+      lines.push(`  ${e.source} -->|${e.relation}| ${e.target}`);
+    });
+    try {
+      await navigator.clipboard.writeText(lines.join("\n"));
+      const orig = mermaidBtn.textContent;
+      mermaidBtn.textContent = "✓ Copied Mermaid!";
+      setTimeout(() => {
+        mermaidBtn.textContent = orig;
+      }, 1800);
+    } catch {
+      // Clipboard blocked in non-HTTPS contexts
+    }
+  });
+
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(() => chart.resize());
+    ro.observe(chartEl);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNavigationUX();
   initPreprintAndModals();
@@ -1752,5 +2112,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initDiscopyStepper();
   initKrumpRobotTimeline();
   initBenchmarkCharts();
+  initKnowledgeGraph();
   initBibtexAndCopy();
 });

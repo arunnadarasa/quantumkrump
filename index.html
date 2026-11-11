@@ -57,6 +57,7 @@
         <a href="#benchmarks">Scaling</a>
         <a href="#staging">11th Dimension</a>
         <a href="#census">Receipts</a>
+        <a href="#knowledge-graph">Knowledge Graph</a>
         <a href="#cite">Cite</a>
       </nav>
 
@@ -859,16 +860,97 @@ def main() -> None:
                 <td>Classical MLP <code>99.80%</code> (<code>0.04 ms</code>); temporal split <code>1.42°</code> / <code>18.58°</code></td>
                 <td><a href="receipts/deep_review_ablation_receipt_20261111.json"><span class="badge-pass">JSON Ablation</span></a></td>
               </tr>
+              <tr>
+                <td><code>K309</code></td>
+                <td>Universal Knowledge Graph (JSON-LD)</td>
+                <td>10-domain ontological schema connecting pedagogy, DisCoPy, Helios, KrumpRobot &amp; ablations</td>
+                <td><code>90</code> semantic nodes · <code>152</code> directed relations · <code>0</code> dangling edges (<code>v2.0.0</code>)</td>
+                <td><a href="receipts/quantum_krump_kg.json"><span class="badge-pass">JSON-LD v2.0</span></a></td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <!-- Section 8: Open Ecosystem, ClawHub & Zero-Overflow Tabbed BibTeX -->
-    <section id="cite" class="band">
+    <!-- Section 8: Universal Multi-Domain Knowledge Graph Explorer (v2.0.0) -->
+    <section id="knowledge-graph" class="band">
       <div class="container">
-        <p class="kicker">08 · Open Ecosystem &amp; Academic Citation</p>
+        <div class="kg-header-row">
+          <div>
+            <p class="kicker">08 · Universal Multi-Domain Ontology · v2.0.0</p>
+            <h2>Interactive Knowledge Graph Explorer</h2>
+            <p class="lead">
+              Explore all <strong>90 semantic entities</strong> and <strong>152 directed ontological relations</strong> across
+              10 domains — unifying Laban Movement Analysis, South Central LA Krump foundations, anatomical Bloch-kinesphere biomechanics,
+              DisCoPy Frobenius string diagrams, Quantinuum <code>Helios-1E-lite</code> emulation, <code>KrumpRobot</code> Physical AI, and classical ablation floors.
+            </p>
+          </div>
+          <div class="kg-toolbar-actions">
+            <button type="button" id="kg-layout-toggle" class="btn btn-sm">⇄ Layout: Force</button>
+            <button type="button" id="kg-reset-btn" class="btn btn-sm">↺ Reset View</button>
+            <button type="button" id="kg-mermaid-btn" class="btn btn-sm">⧉ Copy Mermaid</button>
+            <a class="btn btn-primary btn-sm" href="receipts/quantum_krump_kg.json" download="quantum_krump_kg.json">⬇ JSON-LD (83 KB)</a>
+          </div>
+        </div>
+
+        <div class="kg-controls-bar">
+          <div class="kg-search-wrap">
+            <input
+              type="search"
+              id="kg-search"
+              class="kg-search-input"
+              placeholder="Filter nodes, formulas, or operators (e.g. STOMP, Frobenius, KrumpRobot, Rosenberg, Helios)…"
+              aria-label="Filter knowledge graph nodes"
+            />
+            <span id="kg-count-badge" class="kg-count-badge">90 / 90 nodes · 152 edges</span>
+          </div>
+          <div id="kg-domain-pills" class="lang-pills" role="group" aria-label="Filter by ontological domain">
+            <button type="button" class="lang-btn active" data-kg-domain="all">All 10 Domains (90)</button>
+          </div>
+        </div>
+
+        <div class="kg-layout">
+          <div class="kg-canvas-panel">
+            <div id="echart-kg" class="kg-canvas-box" role="img" aria-label="Interactive Quantum Krump Universal Knowledge Graph"></div>
+            <div class="kg-canvas-hint">
+              Drag to pan · Scroll/pinch to zoom · Hover any node to focus its 1-hop neighborhood · Click a node to inspect its mathematical operator &amp; relations
+            </div>
+          </div>
+
+          <aside id="kg-inspector" class="panel kg-inspector" aria-live="polite">
+            <div class="kg-inspector-top">
+              <span id="kg-node-domain" class="pill pill-signal">Quantum Information Science</span>
+              <span id="kg-node-cat" class="kg-cat-tag">State Space</span>
+            </div>
+            <h3 id="kg-node-title" style="margin-top:0.55rem">Logical Qubit</h3>
+            <div class="kg-node-id" id="kg-node-id">node_qubit</div>
+
+            <div class="kg-formula-label">Mathematical / Operator Definition</div>
+            <pre class="ket-readout kg-formula-box" id="kg-node-formula">|\psi\rangle = \alpha|0\rangle + \beta|1\rangle, \; |\alpha|^2 + |\beta|^2 = 1</pre>
+
+            <p id="kg-node-desc" class="kg-node-desc">
+              Click any node in the interactive graph or select a connected relation below to inspect its formal definition, domain provenance, and cross-domain links.
+            </p>
+
+            <div class="kg-rel-section">
+              <div class="kg-formula-label">Outgoing Relations (<span id="kg-out-count">0</span>)</div>
+              <div id="kg-out-list" class="kg-rel-list"></div>
+            </div>
+
+            <div class="kg-rel-section">
+              <div class="kg-formula-label">Incoming Relations (<span id="kg-in-count">0</span>)</div>
+              <div id="kg-in-list" class="kg-rel-list"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Open Ecosystem, ClawHub & Zero-Overflow Tabbed BibTeX -->
+    <section id="cite" class="band band-alt">
+      <div class="container">
+        <p class="kicker">09 · Open Ecosystem &amp; Academic Citation</p>
         <h2>Reproduce, Install Skill &amp; Cite</h2>
 
         <div class="two-col cite-grid">
