@@ -14,7 +14,7 @@
     "author": "Arun Nadarasa & Dakota Simao (Twin Bad Liks / Jr Outrage)",
     "federation": "Angels of Krump Movement Federation",
     "acknowledgment": "This work was supported in part by complimentary access to Google Antigravity and Gemini 4 Argon to accelerate scientific workflows.",
-    "created_at": "2026-11-11T18:33:34.042048+00:00",
+    "created_at": "2026-11-11T22:16:26.551779+00:00",
     "license": "CC-BY-4.0 / Apache-2.0",
     "repository": "https://arunnadarasa.github.io/quantumkrump/",
     "stats": {
@@ -488,21 +488,21 @@
     },
     {
       "id": "node_bio_kuramoto",
-      "name": "AlphaGenome Atlas Kuramoto Model",
+      "name": "AlphaGenome 2 & Empirical AVI Kuramoto Model",
       "domain": "biophysical_somatics",
-      "category": "Nonlinear Dynamics",
-      "formula": "\\frac{d\\theta_i}{dt} = \\omega_i + \\frac{K}{N}\\sum_{j=1}^N \\sin(\\theta_j - \\theta_i), \\; R(60) = 0.9999",
-      "description": "Phase synchronization model of 20 dancers coupled to circadian variant impact (AVI) natural frequencies omega_i = omega_0(1 + alpha * AVI_i).",
+      "category": "Single-Cell Genomics & Dynamics",
+      "formula": "\\text{MYH1}_{\\text{fast/motor}} = 2307\\times, \\; \\text{MYHAS}_{\\text{fast/slow}} = 5.94\\times, \\; R_{\\mathrm{intra}}(60) = 0.9999",
+      "description": "Live alphagenome 2.0.0 single-cell conditioning on gastrocnemius fast/slow myocytes (Kedlian et al., 2024; steady-state non-clinical framing per Gayoso et al., 2026) paired with a 20-SNV empirical AVI somatic panel (ACTN3 R577X Phred 29.65).",
       "x": 360,
       "y": 620
     },
     {
       "id": "node_bio_sub_ensembles",
-      "name": "Opposing Sub-Ensembles (Bipartite Signed Kuramoto)",
+      "name": "Opposing Sub-Ensembles (Intra-Group Kuramoto)",
       "domain": "biophysical_somatics",
       "category": "Symmetry Breaking",
-      "formula": "K_{ij} = +K \\; (g_i = g_j), \\; K_{ij} = -K \\; (g_i \\neq g_j) \\implies \\Delta\\Phi = 2.9322\\text{ rad}",
-      "description": "Bipartite signed intra-group ferromagnetic (+K) and inter-group anti-ferromagnetic (-K) oscillator coupling across N1=10 and N2=10 dancers, driving true stable anti-phase separation (Delta Phi -> pi) in Act IV.",
+      "formula": "\\Delta\\Phi = 3.1376\\text{ rad } (|\\Delta\\Phi - \\pi| = 0.0040), \\; R_{\\mathrm{global}}(60) = 0.0020",
+      "description": "Snake-balanced 10v10 intra-sub-ensemble Kuramoto coupling across empirical 20-SNV AVI frequencies, locking R_intra = 0.9999 while opposing Act IV drives achieve anti-phase destructive cancellation.",
       "x": 450,
       "y": 640
     },

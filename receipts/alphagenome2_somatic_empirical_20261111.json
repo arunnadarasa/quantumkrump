@@ -1,0 +1,440 @@
+{
+  "dataset_name": "Quantum Krump Somatic Motor-Unit & Peripheral-Clock Empirical Panel (AlphaGenome 2)",
+  "generated_at_utc": "2026-11-11T22:06:51.763039+00:00",
+  "alphagenome_sdk_version": "2.0.0",
+  "reference_assembly": "GRCh38 / GENCODE v46 MANE Select",
+  "research_use_only_disclosure": "Strictly non-clinical molecular and functional regulatory predictions. Condition embeddings reflect observational steady-state single-cell profiles (Gayoso et al., 2026, p. 14; Kedlian et al., 2024) rather than dynamic acute-exercise transitions.",
+  "ag2_cell_state_specificity": {
+    "ACTN3": {
+      "gene": "ACTN3",
+      "gene_id": "ENSG00000248746.6",
+      "transcript_id": "ENST00000513398.2",
+      "chrom": "chr11",
+      "start": 66546902,
+      "end": 66563334,
+      "strand": "+",
+      "tss": 66546902,
+      "role": "Fast-twitch Z-disc alpha-actinin-3",
+      "atlas_gene_url": "https://deepmind.google.com/science/alphagenome/atlas?q=ACTN3&m=entity",
+      "conditions": {
+        "gastrocnemius_fast_myocyte": {
+          "condition_curie": "UBERON:0001388_CL:0000190",
+          "sc_gene_expression_10x3_nuclear": 59.4945,
+          "promoter_2kb_mean_cpg_methylation": 0.0091
+        },
+        "gastrocnemius_slow_myocyte": {
+          "condition_curie": "UBERON:0001388_CL:0000189",
+          "sc_gene_expression_10x3_nuclear": 47.0525,
+          "promoter_2kb_mean_cpg_methylation": 0.0126
+        },
+        "motor_neuron": {
+          "condition_curie": "CL:0000100",
+          "sc_gene_expression_10x3_nuclear": 0.5885,
+          "promoter_2kb_mean_cpg_methylation": 0.0206
+        }
+      },
+      "fast_vs_motor_neuron_fold": 101.1,
+      "fast_vs_slow_myocyte_fold": 1.2644
+    },
+    "MYH1": {
+      "gene": "MYH1",
+      "gene_id": "ENSG00000109061.10",
+      "transcript_id": "ENST00000226207.6",
+      "chrom": "chr17",
+      "start": 10492306,
+      "end": 10518542,
+      "strand": "-",
+      "tss": 10518542,
+      "role": "Fast-twitch Type IIX myosin heavy chain 1",
+      "atlas_gene_url": "https://deepmind.google.com/science/alphagenome/atlas?q=MYH1&m=entity",
+      "conditions": {
+        "gastrocnemius_fast_myocyte": {
+          "condition_curie": "UBERON:0001388_CL:0000190",
+          "sc_gene_expression_10x3_nuclear": 274.3315,
+          "promoter_2kb_mean_cpg_methylation": 0.0101,
+          "MYHAS_antisense_switch_10x3_nuclear": 60.8259
+        },
+        "gastrocnemius_slow_myocyte": {
+          "condition_curie": "UBERON:0001388_CL:0000189",
+          "sc_gene_expression_10x3_nuclear": 299.2764,
+          "promoter_2kb_mean_cpg_methylation": 0.0125,
+          "MYHAS_antisense_switch_10x3_nuclear": 10.2445
+        },
+        "motor_neuron": {
+          "condition_curie": "CL:0000100",
+          "sc_gene_expression_10x3_nuclear": 0.1189,
+          "promoter_2kb_mean_cpg_methylation": 0.0108,
+          "MYHAS_antisense_switch_10x3_nuclear": 0.7818
+        }
+      },
+      "fast_vs_motor_neuron_fold": 2307.25,
+      "fast_vs_slow_myocyte_fold": 0.9166
+    },
+    "ACTA1": {
+      "gene": "ACTA1",
+      "gene_id": "ENSG00000143632.15",
+      "transcript_id": "ENST00000366684.7",
+      "chrom": "chr1",
+      "start": 229431244,
+      "end": 229434094,
+      "strand": "-",
+      "tss": 229434094,
+      "role": "Skeletal muscle alpha-actin",
+      "atlas_gene_url": "https://deepmind.google.com/science/alphagenome/atlas?q=ACTA1&m=entity",
+      "conditions": {
+        "gastrocnemius_fast_myocyte": {
+          "condition_curie": "UBERON:0001388_CL:0000190",
+          "sc_gene_expression_10x3_nuclear": 497.3474,
+          "promoter_2kb_mean_cpg_methylation": 0.0098
+        },
+        "gastrocnemius_slow_myocyte": {
+          "condition_curie": "UBERON:0001388_CL:0000189",
+          "sc_gene_expression_10x3_nuclear": 1254.0004,
+          "promoter_2kb_mean_cpg_methylation": 0.0141
+        },
+        "motor_neuron": {
+          "condition_curie": "CL:0000100",
+          "sc_gene_expression_10x3_nuclear": 1.0422,
+          "promoter_2kb_mean_cpg_methylation": 0.0223
+        }
+      },
+      "fast_vs_motor_neuron_fold": 477.21,
+      "fast_vs_slow_myocyte_fold": 0.3966
+    },
+    "CHRNA1": {
+      "gene": "CHRNA1",
+      "gene_id": "ENSG00000138435.16",
+      "transcript_id": "ENST00000348749.9",
+      "chrom": "chr2",
+      "start": 174747591,
+      "end": 174764472,
+      "strand": "-",
+      "tss": 174764472,
+      "role": "Postsynaptic NMJ nicotinic acetylcholine receptor alpha-1",
+      "atlas_gene_url": "https://deepmind.google.com/science/alphagenome/atlas?q=CHRNA1&m=entity",
+      "conditions": {
+        "gastrocnemius_fast_myocyte": {
+          "condition_curie": "UBERON:0001388_CL:0000190",
+          "sc_gene_expression_10x3_nuclear": 22.4852,
+          "promoter_2kb_mean_cpg_methylation": 0.0088
+        },
+        "gastrocnemius_slow_myocyte": {
+          "condition_curie": "UBERON:0001388_CL:0000189",
+          "sc_gene_expression_10x3_nuclear": 55.972,
+          "promoter_2kb_mean_cpg_methylation": 0.0103
+        },
+        "motor_neuron": {
+          "condition_curie": "CL:0000100",
+          "sc_gene_expression_10x3_nuclear": 0.367,
+          "promoter_2kb_mean_cpg_methylation": 0.0142
+        }
+      },
+      "fast_vs_motor_neuron_fold": 61.27,
+      "fast_vs_slow_myocyte_fold": 0.4017
+    },
+    "PER2": {
+      "gene": "PER2",
+      "gene_id": "ENSG00000132326.13",
+      "transcript_id": "ENST00000254657.8",
+      "chrom": "chr2",
+      "start": 238244043,
+      "end": 238288610,
+      "strand": "-",
+      "tss": 238288610,
+      "role": "Peripheral circadian clock oscillator (ubiquitous control)",
+      "atlas_gene_url": "https://deepmind.google.com/science/alphagenome/atlas?q=PER2&m=entity",
+      "conditions": {
+        "gastrocnemius_fast_myocyte": {
+          "condition_curie": "UBERON:0001388_CL:0000190",
+          "sc_gene_expression_10x3_nuclear": 5.8788,
+          "promoter_2kb_mean_cpg_methylation": 0.0088
+        },
+        "gastrocnemius_slow_myocyte": {
+          "condition_curie": "UBERON:0001388_CL:0000189",
+          "sc_gene_expression_10x3_nuclear": 5.7347,
+          "promoter_2kb_mean_cpg_methylation": 0.011
+        },
+        "motor_neuron": {
+          "condition_curie": "CL:0000100",
+          "sc_gene_expression_10x3_nuclear": 8.3164,
+          "promoter_2kb_mean_cpg_methylation": 0.0191
+        }
+      },
+      "fast_vs_motor_neuron_fold": 0.71,
+      "fast_vs_slow_myocyte_fold": 1.0251
+    }
+  },
+  "somatic_20_variant_panel": [
+    {
+      "gene": "ACTN3",
+      "role": "Fast-twitch Z-disc alpha-actinin-3 (R577X stop-gain)",
+      "variant": "chr11:66560624:C>T",
+      "avi_raw": 1.549325,
+      "avi_tail_quantile": 0.00108325,
+      "avi_phred": 29.6527,
+      "top_modality": "PROTEIN_TERMINATION",
+      "top_feature_importance": 1.411512,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr11:66560624:C%3ET&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.99891675
+    },
+    {
+      "gene": "ACTN3",
+      "role": "Fast-twitch Z-disc alpha-actinin-3 (TSS promoter window)",
+      "variant": "chr11:66546927:G>C",
+      "avi_raw": 0.100088,
+      "avi_tail_quantile": 0.15246511,
+      "avi_phred": 8.1683,
+      "top_modality": "MAX_ABS_PROCAP",
+      "top_feature_importance": 0.032937,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr11:66546927:G%3EC&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.84753489
+    },
+    {
+      "gene": "ACTN3",
+      "role": "Fast-twitch Z-disc alpha-actinin-3 (TSS promoter window)",
+      "variant": "chr11:66546925:G>T",
+      "avi_raw": 0.284153,
+      "avi_tail_quantile": 0.03977144,
+      "avi_phred": 14.0043,
+      "top_modality": "PHASTCONS_470_WAY",
+      "top_feature_importance": 0.154648,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr11:66546925:G%3ET&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.96022856
+    },
+    {
+      "gene": "ACTN3",
+      "role": "Fast-twitch Z-disc alpha-actinin-3 (TSS promoter window)",
+      "variant": "chr11:66546905:G>A",
+      "avi_raw": 0.48498,
+      "avi_tail_quantile": 0.0139845,
+      "avi_phred": 18.5435,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.19193,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr11:66546905:G%3EA&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.9860155
+    },
+    {
+      "gene": "MYH1",
+      "role": "Fast-twitch Type IIX myosin heavy chain 1 (TSS promoter window)",
+      "variant": "chr17:10518554:A>T",
+      "avi_raw": 0.342706,
+      "avi_tail_quantile": 0.02783662,
+      "avi_phred": 15.5538,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.174605,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr17:10518554:A%3ET&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.97216338
+    },
+    {
+      "gene": "MYH1",
+      "role": "Fast-twitch Type IIX myosin heavy chain 1 (TSS promoter window)",
+      "variant": "chr17:10518541:A>T",
+      "avi_raw": 0.456912,
+      "avi_tail_quantile": 0.01568943,
+      "avi_phred": 18.0439,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.283606,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr17:10518541:A%3ET&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.98431057
+    },
+    {
+      "gene": "MYH1",
+      "role": "Fast-twitch Type IIX myosin heavy chain 1 (TSS promoter window)",
+      "variant": "chr17:10518539:A>G",
+      "avi_raw": 0.600266,
+      "avi_tail_quantile": 0.00873202,
+      "avi_phred": 20.5889,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.380558,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr17:10518539:A%3EG&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.99126798
+    },
+    {
+      "gene": "MYH1",
+      "role": "Fast-twitch Type IIX myosin heavy chain 1 (TSS promoter window)",
+      "variant": "chr17:10518520:C>G",
+      "avi_raw": 1.147912,
+      "avi_tail_quantile": 0.00303644,
+      "avi_phred": 25.1764,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.540201,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr17:10518520:C%3EG&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.99696356
+    },
+    {
+      "gene": "ACTA1",
+      "role": "Skeletal muscle alpha-actin (TSS promoter window)",
+      "variant": "chr1:229434112:C>A",
+      "avi_raw": 0.102763,
+      "avi_tail_quantile": 0.14919651,
+      "avi_phred": 8.2624,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.049651,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr1:229434112:C%3EA&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.85080349
+    },
+    {
+      "gene": "ACTA1",
+      "role": "Skeletal muscle alpha-actin (TSS promoter window)",
+      "variant": "chr1:229434078:G>T",
+      "avi_raw": 0.240337,
+      "avi_tail_quantile": 0.05338699,
+      "avi_phred": 12.7256,
+      "top_modality": "PHASTCONS_470_WAY",
+      "top_feature_importance": 0.138353,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr1:229434078:G%3ET&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.94661301
+    },
+    {
+      "gene": "ACTA1",
+      "role": "Skeletal muscle alpha-actin (TSS promoter window)",
+      "variant": "chr1:229434081:C>A",
+      "avi_raw": 0.385344,
+      "avi_tail_quantile": 0.02212656,
+      "avi_phred": 16.5509,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.171732,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr1:229434081:C%3EA&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.97787344
+    },
+    {
+      "gene": "ACTA1",
+      "role": "Skeletal muscle alpha-actin (TSS promoter window)",
+      "variant": "chr1:229434093:G>T",
+      "avi_raw": 0.621342,
+      "avi_tail_quantile": 0.00822228,
+      "avi_phred": 20.8501,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.411347,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr1:229434093:G%3ET&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.99177772
+    },
+    {
+      "gene": "CHRNA1",
+      "role": "Postsynaptic NMJ nicotinic acetylcholine receptor alpha-1 (TSS promoter window)",
+      "variant": "chr2:174764478:A>C",
+      "avi_raw": 0.070348,
+      "avi_tail_quantile": 0.1985395,
+      "avi_phred": 7.0215,
+      "top_modality": "MERGED_SPLICING",
+      "top_feature_importance": 0.026505,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr2:174764478:A%3EC&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.8014605
+    },
+    {
+      "gene": "CHRNA1",
+      "role": "Postsynaptic NMJ nicotinic acetylcholine receptor alpha-1 (TSS promoter window)",
+      "variant": "chr2:174764464:T>G",
+      "avi_raw": 0.182579,
+      "avi_tail_quantile": 0.08075279,
+      "avi_phred": 10.9284,
+      "top_modality": "MERGED_SPLICING",
+      "top_feature_importance": 0.065153,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr2:174764464:T%3EG&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.91924721
+    },
+    {
+      "gene": "CHRNA1",
+      "role": "Postsynaptic NMJ nicotinic acetylcholine receptor alpha-1 (TSS promoter window)",
+      "variant": "chr2:174764461:G>C",
+      "avi_raw": 0.333002,
+      "avi_tail_quantile": 0.02948242,
+      "avi_phred": 15.3044,
+      "top_modality": "PHASTCONS_470_WAY",
+      "top_feature_importance": 0.149607,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr2:174764461:G%3EC&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.97051758
+    },
+    {
+      "gene": "CHRNA1",
+      "role": "Postsynaptic NMJ nicotinic acetylcholine receptor alpha-1 (TSS promoter window)",
+      "variant": "chr2:174764485:G>A",
+      "avi_raw": 0.655514,
+      "avi_tail_quantile": 0.00731379,
+      "avi_phred": 21.3586,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.279562,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr2:174764485:G%3EA&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.99268621
+    },
+    {
+      "gene": "PER2",
+      "role": "Peripheral circadian clock oscillator (ubiquitous control) (TSS promoter window)",
+      "variant": "chr2:238288617:G>A",
+      "avi_raw": 0.006429,
+      "avi_tail_quantile": 0.45893562,
+      "avi_phred": 3.3825,
+      "top_modality": "MERGED_SPLICING",
+      "top_feature_importance": 0.024197,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr2:238288617:G%3EA&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.54106438
+    },
+    {
+      "gene": "PER2",
+      "role": "Peripheral circadian clock oscillator (ubiquitous control) (TSS promoter window)",
+      "variant": "chr2:238288602:G>C",
+      "avi_raw": 0.081447,
+      "avi_tail_quantile": 0.17886722,
+      "avi_phred": 7.4747,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.058568,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr2:238288602:G%3EC&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.82113278
+    },
+    {
+      "gene": "PER2",
+      "role": "Peripheral circadian clock oscillator (ubiquitous control) (TSS promoter window)",
+      "variant": "chr2:238288625:G>C",
+      "avi_raw": 0.171874,
+      "avi_tail_quantile": 0.08742094,
+      "avi_phred": 10.5838,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.145335,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr2:238288625:G%3EC&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.91257906
+    },
+    {
+      "gene": "PER2",
+      "role": "Peripheral circadian clock oscillator (ubiquitous control) (TSS promoter window)",
+      "variant": "chr2:238288608:A>C",
+      "avi_raw": 0.523194,
+      "avi_tail_quantile": 0.0116449,
+      "avi_phred": 19.3386,
+      "top_modality": "CACTUS_241_WAY",
+      "top_feature_importance": 0.260802,
+      "atlas_url": "https://deepmind.google.com/science/alphagenome/atlas?q=chr2:238288608:A%3EC&m=variant&lItems=avi,section:RNA_SEQ,section:DNASE,section:CHIP_TF",
+      "avi_cdf_quantile": 0.9883551
+    }
+  ],
+  "panel_summary": {
+    "n_variants": 20,
+    "avi_raw_mean": 0.417026,
+    "avi_raw_std": 0.370412,
+    "avi_raw_min": 0.006429,
+    "avi_raw_max": 1.549325,
+    "avi_phred_mean": 15.1757,
+    "avi_phred_max": 29.6527,
+    "standardized_z_scores": [
+      3.056865,
+      -0.855636,
+      -0.358716,
+      0.183456,
+      -0.200641,
+      0.107681,
+      0.494693,
+      1.973171,
+      -0.848414,
+      -0.477006,
+      -0.085531,
+      0.551592,
+      -0.935925,
+      -0.632935,
+      -0.226839,
+      0.643846,
+      -1.108487,
+      -0.905961,
+      -0.661835,
+      0.286622
+    ]
+  }
+}
