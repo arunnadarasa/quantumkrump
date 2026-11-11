@@ -5,9 +5,9 @@ const PREPRINTS = {
     label: "English",
     file: "downloads/quantum-krump-preprint.pdf",
     filename: "quantum-krump-preprint.pdf",
-    title: "Master Monograph (English · 55 Pages)",
+    title: "Master Monograph (English · 56 Pages)",
     abstract:
-      "We present Quantum Krump, a body-first movement curriculum, categorical formalism, theatrical staging framework, and Physical AI research ecosystem introducing superposition, entanglement, and relative phase interference through South Central Los Angeles Krump street dance, Laban Movement Analysis (LMA), and DisCoPy Frobenius monoidal string diagrams. Validated across 18 computational lanes including Quantinuum Nexus Helios-1E-lite emulation (2,048 emulator shots; 0 physical QPU shots claimed; 99.41% duet fidelity), OpenJij QUBO stage routing (E0 = -7.3569), Modal 10-qubit barren-plateau mitigation (5.9x variance retention), QKMLM variational classification (98.60% test accuracy), Motion2MixamoRig 3D recovery (8.765e-11 FK precision), and KrumpRobot 1.01M-parameter causal GRU humanoid control (2.32 deg geodesic error, 2.70 ms latency)."
+      "We present Quantum Krump, a body-first movement curriculum, categorical formalism, theatrical staging framework, and Physical AI research ecosystem introducing superposition, entanglement, and relative phase interference through South Central Los Angeles Krump street dance, Laban Movement Analysis (LMA), and DisCoPy Frobenius monoidal string diagrams. Validated across 19 computational and ablation lanes including Quantinuum Nexus Helios-1E-lite emulation (2,048 emulator shots; 0 physical QPU shots claimed; 99.41% Clifford duet fidelity), OpenJij QUBO stage routing (E0 = -7.3569), Modal 10-qubit barren-plateau mitigation (5.89x variance retention), QKMLM variational classification (98.60% test accuracy alongside matched classical MLP ablations), Motion2MixamoRig 3D recovery (8.765e-11 FK precision), and KrumpRobot 1.01M-parameter causal GRU humanoid control (2.32 deg in-sequence error, 2.70 ms latency)."
   },
   fr: {
     label: "Français",
@@ -29,7 +29,7 @@ const PREPRINTS = {
     label: "Nederlands",
     file: "downloads/quantum-krump-preprint-nl.pdf",
     filename: "quantum-krump-preprint-nl.pdf",
-    title: "Referentiemonografie (Nederlands · 54 Pagina's)",
+    title: "Referentiemonografie (Nederlands · 55 Pagina's)",
     abstract:
       "Wij presenteren Quantum Krump, een belichaamd onderwijscurriculum, DisCoPy-categorische formalisering, het 60-minuten theaterwerk 11th Quantum Dimension met Dakota Simao, en het Motion2MixamoRig / KrumpRobot Physical AI-raamwerk — gevalideerd over 18 computationele benchmarks waaronder Quantinuum Nexus Helios-1E-lite-emulatie (99,41% duetgetrouwheid; 0 fysieke QPU-shots) en Modal Cloud."
   },
@@ -77,7 +77,7 @@ const PREPRINTS = {
     label: "தமிழ்",
     file: "downloads/quantum-krump-preprint-ta.pdf",
     filename: "quantum-krump-preprint-ta.pdf",
-    title: "முதன்மை ஆராய்ச்சி நூல் (தமிழ் பதிப்பு · 61 பக்கங்கள்)",
+    title: "முதன்மை ஆராய்ச்சி நூல் (தமிழ் பதிப்பு · 62 பக்கங்கள்)",
     abstract:
       "தெற்கு லாஸ் ஏஞ்சல்ஸின் Krump நடனம், லாபன் இயக்கப் பகுப்பாய்வு (LMA), மற்றும் DisCoPy வகைமைக் கோட்பாட்டின் வழி மேற்பொருந்துதல், பிணைப்பு, குறுக்கீடு ஆகியவற்றை உடல்வழி கற்பிக்கும் Quantum Krump கட்டமைப்பை வழங்குகிறோம் — இதில் டகோடா சிமாவோ (Twin Bad Liks / Jr Outrage) உடனான 11th Quantum Dimension நாடக ஆக்கம், Quantinuum Helios-1E-lite எமுலேட்டர் சரிபார்ப்பு (99.41% இரட்டையர் துல்லியம்; 0 இயற்பியல் QPU shots), மற்றும் KrumpRobot மனிதஉருவ Physical AI ஆகியவை அடங்கும்."
   }
@@ -201,11 +201,11 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {55-page Master Reference Monograph in 10 languages; Quantinuum Nexus Helios-1E-lite, DisCoPy, Modal Cloud, and KrumpRobot},
+  note    = {56-page Master Reference Monograph in 10 languages; Quantinuum Nexus Helios-1E-lite, DisCoPy, Modal Cloud, and KrumpRobot},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-preprint.pdf}
 }`,
   pedagogy: `@article{nadarasa2026pedagogy,
-  title   = {Quantum Krump: Embodied Quantum Information Pedagogy through Street Dance, Laban Movement Analysis, and String Diagrams},
+  title   = {Embodied Quantum Pedagogy through Krump Street Dance, Laban Movement Analysis, and String Diagrams},
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
@@ -217,7 +217,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun},
   year    = {2026},
   month   = {November},
-  note    = {11-page Standalone Physical AI \\& Humanoid Robotics Preprint},
+  note    = {12-page Standalone Physical AI \\& Humanoid Robotics Preprint},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/krumprobot-physical-ai-paper.pdf}
 }`
 };
@@ -427,7 +427,7 @@ function initPreprintAndModals() {
   let activeDoc = "monograph";
   let zoomFactor = 1.0;
   let currentPdfDoc = null;
-  let currentNumPages = 55;
+  let currentNumPages = 56;
   let currentPage = 1;
   let activeBookmarks = [];
   let pageObserver = null;

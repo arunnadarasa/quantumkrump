@@ -1,0 +1,74 @@
+{
+  "qkmlm_ablations": [
+    {
+      "mode": "vqc",
+      "params": 1175,
+      "acc_f": 0.986,
+      "acc_p": 0.894,
+      "rmse_e": 0.0326,
+      "p50_ms": 1.3127
+    },
+    {
+      "mode": "identity_no_vqc",
+      "params": 1139,
+      "acc_f": 0.996,
+      "acc_p": 0.904,
+      "rmse_e": 0.0307,
+      "p50_ms": 0.0285
+    },
+    {
+      "mode": "classical_matched_1175",
+      "params": 1175,
+      "acc_f": 0.998,
+      "acc_p": 0.886,
+      "rmse_e": 0.0336,
+      "p50_ms": 0.0437
+    },
+    {
+      "mode": "direct_mlp",
+      "params": 1067,
+      "acc_f": 0.998,
+      "acc_p": 0.864,
+      "rmse_e": 0.0219,
+      "p50_ms": 0.0247
+    },
+    {
+      "mode": "sklearn_gbdt",
+      "params": null,
+      "acc_f": 0.99,
+      "acc_p": 0.896,
+      "rmse_e": 0.0221,
+      "p50_ms": 0.6742
+    },
+    {
+      "mode": "linear_logreg_ridge",
+      "params": 99,
+      "acc_f": 0.992,
+      "acc_p": 0.586,
+      "rmse_e": 0.0207,
+      "p50_ms": 0.05
+    }
+  ],
+  "helios_ols": {
+    "a": 0.492578,
+    "se_a": 0.00761,
+    "b": 0.489062,
+    "se_b": 0.021523
+  },
+  "rhyme_test4_chi2": {
+    "chi2": 2.1211,
+    "df": 2,
+    "p": 0.3463
+  },
+  "krumprobot_temporal_split_80_20": {
+    "n_frames_in_npz": 2953,
+    "fps": 29.9898,
+    "duration_s": 98.47,
+    "split_frame": 2362,
+    "n_train_windows": 1169,
+    "n_test_windows": 283,
+    "train_geodesic_deg": 1.42,
+    "heldout_test_geodesic_deg": 18.58,
+    "persistence_baseline_deg": 2.95
+  }
+}
