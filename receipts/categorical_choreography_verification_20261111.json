@@ -1,0 +1,183 @@
+{
+  "experiment": "Functorial Krump Categorical Choreography Theorem Verification",
+  "timestamp_utc": "2026-11-11T20:32:05.976849+00:00",
+  "software_stack": {
+    "discopy": "1.2.2",
+    "sympy": "1.14.0",
+    "pytket": "2.18.1",
+    "numpy": "2.5.2"
+  },
+  "theorem_1_catks_yoneda": {
+    "vertices": [
+      "STOMP_BUCK",
+      "CHEST_POP_KRUMP",
+      "JAB_LIVE",
+      "ARM_SWING_KRUMP",
+      "BUCK_HOP_BUCK",
+      "KILL_OFF_BUCK"
+    ],
+    "generating_transitions": 7,
+    "hom_le_4_transitions_matrix": [
+      [
+        1,
+        4,
+        3,
+        4,
+        0,
+        2
+      ],
+      [
+        0,
+        3,
+        2,
+        2,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        2,
+        2,
+        3,
+        0,
+        1
+      ],
+      [
+        0,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "hom_le_4_extended_matrix": [
+      [
+        5,
+        26,
+        16,
+        26,
+        0,
+        6
+      ],
+      [
+        0,
+        16,
+        15,
+        15,
+        0,
+        11
+      ],
+      [
+        0,
+        0,
+        5,
+        0,
+        0,
+        10
+      ],
+      [
+        0,
+        15,
+        11,
+        16,
+        0,
+        5
+      ],
+      [
+        0,
+        15,
+        11,
+        11,
+        5,
+        5
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        5
+      ]
+    ],
+    "chest_pop_incoming_le_4_paths": 11,
+    "all_6_yoneda_presheaf_profiles_distinct": true
+  },
+  "theorem_2_monoidal_coherence": {
+    "exhaustive_2step_duet_phrases_tested": 1296,
+    "interchange_normal_form_matches": 1296,
+    "snake_left_verified": true,
+    "snake_right_verified": true,
+    "swap_involution_verified": true,
+    "yang_baxter_3dancer_braid_verified": true,
+    "frobenius_associativity_verified": true,
+    "special_frobenius_fusion_verified": true
+  },
+  "theorem_3_strict_fhilb_frobenius": {
+    "specialness_norm_error": 0.0,
+    "left_unit_norm_error": 0.0,
+    "left_counit_norm_error": 0.0,
+    "commutativity_norm_error": 0.0,
+    "frobenius_law_norm_error": 0.0,
+    "snake_fhilb_norm_error": 0.0
+  },
+  "theorem_4_parameterized_nonclifford_duet": {
+    "sympy_born_probabilities": {
+      "P_00": "sin(phi/2)**2*sin(theta/2)**2",
+      "P_01": "sin(phi/2)**2*cos(theta/2)**2",
+      "P_10": "sin(theta/2)**2*cos(phi/2)**2",
+      "P_11": "cos(phi/2)**2*cos(theta/2)**2",
+      "sum": "1"
+    },
+    "grid_points_evaluated": 625,
+    "discopy_phase_scale_turns_per_rad": 0.15915494309189535,
+    "max_discopy_vs_sympy_l2_error": 2.1073424255447017e-08,
+    "max_pytket_vs_sympy_l2_error": 2.1073424255447017e-08,
+    "max_snake_ricochet_transpose_error": 0.0,
+    "concurrence_min": 0.9999999999999998,
+    "concurrence_max": 1.0000000000000004,
+    "stabilizer_renyi_m2_at_clifford_anchor_pi2_pi2_bits": 0.0,
+    "stabilizer_renyi_m2_at_nonclifford_pi4_pi4_bits": 0.8300749985576876,
+    "born_probs_at_pi4_pi4": [
+      0.021447,
+      0.125,
+      0.125,
+      0.728553
+    ],
+    "grid_max_m2_bits": 0.8262854610457029,
+    "grid_max_m2_angles_rad": [
+      0.7539822368615504,
+      0.7539822368615504
+    ]
+  },
+  "quantinuum_native_compilation": {
+    "target_gateset": [
+      "ZZPhase",
+      "PhasedX",
+      "Rz"
+    ],
+    "zzphase_2q_count": 5,
+    "phasedx_1q_count": 14,
+    "rz_virtual_count": 14,
+    "rebase_statevector_fidelity": 0.9999999999999996,
+    "classical_2q_contraction_floor_us": 0.6268
+  },
+  "wall_time_seconds": 5.971
+}

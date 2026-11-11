@@ -190,14 +190,14 @@
       </div>
     </section>
 
-    <!-- Section 1: Three-Paper Publication Suite + 10-Language Selector -->
+    <!-- Section 1: Four-Paper Publication Suite + 10-Language Selector -->
     <section id="papers" class="band band-alt">
       <div class="container">
         <p class="kicker">01 · Open-Access Publication Suite</p>
-        <h2>Focused Companion Papers &amp; 10-Language Master Monograph</h2>
+        <h2>Focused Standalone Papers &amp; 10-Language Master Monograph</h2>
         <p class="lead">
-          To serve distinct research communities without thematic dilution, the project is organized into a comprehensive
-          <strong>56-page Master Reference Monograph</strong> (translated natively into 10 languages) alongside two focused, self-contained companion preprints.
+          To serve distinct peer-review communities without thematic dilution, the project is organized into a comprehensive
+          <strong>56-page Master Reference Monograph</strong> (translated natively into 10 languages) alongside three self-contained, venue-targeted standalone preprints.
         </p>
 
         <div class="papers-grid">
@@ -212,7 +212,7 @@
               <ul class="paper-meta-list">
                 <li><strong>Authors:</strong> Arun Nadarasa &amp; Dakota Simao</li>
                 <li><strong>Languages:</strong> EN, FR, DE, NL, JA, KO, ZH, FIL, HI, TA</li>
-                <li><strong>Audit:</strong> 19 verified computational, ablation &amp; governance lanes</li>
+                <li><strong>Audit:</strong> 20 verified computational, ablation &amp; governance lanes</li>
               </ul>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
@@ -222,7 +222,27 @@
             </div>
           </article>
 
-          <!-- Card 2: Pedagogy Companion -->
+          <!-- Card 2: Standalone Applied Category Theory Paper (NEW!) -->
+          <article class="paper-card featured">
+            <div>
+              <span class="pill pill-signal">Standalone Pure Math / QPL / ACT · 14 Pages</span>
+              <h3 style="margin-top:0.75rem">Functorial Krump: Category Theory Paper</h3>
+              <p>
+                Self-contained theorem-proof mathematical formalization targeting <em>ACT (EPTCS)</em>, <em>Compositionality</em>, and <em>QPL / ISQCMC</em>. Proves finite Yoneda distinguishability, DisCoPy Frobenius coherence across 1,296 duet phrases, and the <strong>Dual-Channel Effort Demultiplexing Theorem</strong>.
+              </p>
+              <ul class="paper-meta-list">
+                <li><strong>Authors:</strong> Arun Nadarasa &amp; Dakota Simao</li>
+                <li><strong>Main Theorem:</strong> Additive non-Clifford magic (<code>0.8301</code> bits) &amp; exact product Born readout (<code>I_C = diag(1,1)</code>)</li>
+                <li><strong>Verification:</strong> DisCoPy 1.2.2 + SymPy 1.14 + pytket 2.18 native ion rebase (<code>F = 1 − 4×10⁻¹⁶</code>)</li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
+              <button type="button" class="btn btn-primary btn-sm" data-open-doc="category">📖 Read in Panel</button>
+              <a class="btn btn-sm" href="downloads/categorical-krump-choreography-paper.pdf" download="categorical-krump-choreography-paper.pdf">⬇ Download (14 pp.)</a>
+            </div>
+          </article>
+
+          <!-- Card 3: Pedagogy Companion -->
           <article class="paper-card">
             <div>
               <span class="pill">Education &amp; Choreography · 15 Pages</span>
@@ -242,7 +262,7 @@
             </div>
           </article>
 
-          <!-- Card 3: Standalone KrumpRobot Paper -->
+          <!-- Card 4: Standalone KrumpRobot Paper -->
           <article class="paper-card robotics">
             <div>
               <span class="pill pill-amber">Standalone Robotics / Vision · 12 Pages</span>
@@ -302,6 +322,7 @@
           <div class="reader-doc-tabs">
             <div class="reader-doc-pills" role="tablist" aria-label="Choose paper to read">
               <button type="button" class="reader-doc-btn active" data-reader-doc="monograph" id="tab-doc-monograph">📘 Master Monograph (EN · 56 pp.)</button>
+              <button type="button" class="reader-doc-btn" data-reader-doc="category">📐 Functorial Krump ACT (14 pp.)</button>
               <button type="button" class="reader-doc-btn" data-reader-doc="pedagogy">🎓 Pedagogy Paper (15 pp.)</button>
               <button type="button" class="reader-doc-btn amber-doc" data-reader-doc="krumprobot">🤖 KrumpRobot Paper (12 pp.)</button>
               <button type="button" class="reader-doc-btn" data-reader-doc="v1">📜 Archival v1 (7 pp.)</button>
@@ -867,6 +888,13 @@ def main() -> None:
                 <td><code>90</code> semantic nodes · <code>152</code> directed relations · <code>0</code> dangling edges (<code>v2.0.0</code>)</td>
                 <td><a href="receipts/quantum_krump_kg.json"><span class="badge-pass">JSON-LD v2.0</span></a></td>
               </tr>
+              <tr>
+                <td><code>K310</code></td>
+                <td>DisCoPy 1.2 + SymPy 1.14 + pytket 2.18</td>
+                <td>Functorial Krump theorem suite: 1,296 interchange phrases, non-Clifford magic &amp; dual-channel demux</td>
+                <td><code>1,296/1,296</code> confluent; <code>M₂ = 0.8301 b</code>; <code>max ‖Δ‖₂ = 2.1×10⁻⁸</code>; <code>0.63 µs</code> CPU</td>
+                <td><a href="receipts/categorical_choreography_verification_20261111.json"><span class="badge-pass">JSON Proof</span></a></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -1017,6 +1045,7 @@ def main() -> None:
 
             <div class="lang-pills" style="margin-top:0.65rem">
               <button type="button" class="lang-btn active" data-bib-tab="monograph">Master Monograph (56 pp.)</button>
+              <button type="button" class="lang-btn" data-bib-tab="category">Functorial Krump ACT (14 pp.)</button>
               <button type="button" class="lang-btn" data-bib-tab="pedagogy">Pedagogy Paper (15 pp.)</button>
               <button type="button" class="lang-btn" data-bib-tab="krumprobot">KrumpRobot Paper (12 pp.)</button>
             </div>

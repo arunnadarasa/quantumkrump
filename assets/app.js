@@ -204,6 +204,14 @@ const BIBTEX = {
   note    = {56-page Master Reference Monograph in 10 languages; Quantinuum Nexus Helios-1E-lite, DisCoPy, Modal Cloud, and KrumpRobot},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-preprint.pdf}
 }`,
+  category: `@article{nadarasa2026functorialkrump,
+  title   = {Functorial Krump: A Dagger-Compact Frobenius Calculus and Dual-Channel Quantum Semantics for Multi-Track Street Dance Choreography},
+  author  = {Nadarasa, Arun and Simao, Dakota},
+  year    = {2026},
+  month   = {November},
+  note    = {14-page Standalone Applied Category Theory Preprint (DisCoPy 1.2.2, SymPy 1.14.0, pytket 2.18.1)},
+  url     = {https://arunnadarasa.github.io/quantumkrump/downloads/categorical-krump-choreography-paper.pdf}
+}`,
   pedagogy: `@article{nadarasa2026pedagogy,
   title   = {Embodied Quantum Pedagogy through Krump Street Dance, Laban Movement Analysis, and String Diagrams},
   author  = {Nadarasa, Arun and Simao, Dakota},
@@ -317,6 +325,19 @@ const PAPER_DOCS = {
       { label: "p.29 Helios-1E-lite", page: 29 },
       { label: "p.36 KrumpRobot AI", page: 36 },
       { label: "Refs & End", page: -1 }
+    ]
+  },
+  category: {
+    file: "downloads/categorical-krump-choreography-paper.pdf",
+    filename: "categorical-krump-choreography-paper.pdf",
+    bookmarks: [
+      { label: "p.1 Intro", page: 1 },
+      { label: "p.3 CatKS & Yoneda", page: 3 },
+      { label: "p.5 Delooped C_Krump", page: 5 },
+      { label: "p.7 Dual-Channel Theorem", page: 7 },
+      { label: "p.10 Stage Quadratization", page: 10 },
+      { label: "p.11 Multi-Backend Check", page: 11 },
+      { label: "p.13 References", page: 13 }
     ]
   },
   pedagogy: {
