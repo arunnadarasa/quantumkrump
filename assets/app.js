@@ -77,9 +77,9 @@ const PREPRINTS = {
     label: "தமிழ்",
     file: "downloads/quantum-krump-preprint-ta.pdf",
     filename: "quantum-krump-preprint-ta.pdf",
-    title: "முதன்மை ஆராய்ச்சி நூல் (தமிழ் பதிப்பு)",
+    title: "முதன்மை ஆராய்ச்சி நூல் (தமிழ் பதிப்பு · 61 பக்கங்கள்)",
     abstract:
-      "தெற்கு லாஸ் ஏஞ்சல்ஸின் Krump நடனம், லாபன் இயக்கப் பகுப்பாய்வு (LMA), மற்றும் DisCoPy வகைப்பாட்டுக் கோட்பாட்டின் வழி மேற்பொருத்தம், பிணைப்பு, குறுக்கீடு ஆகியவற்றை உடல்வழி கற்பிக்கும் Quantum Krump கட்டமைப்பை வழங்குகிறோம் — இதில் 11th Quantum Dimension நாடக ஆக்கம், Quantinuum Helios-1E-lite எமுலேட்டர் சரிபார்ப்பு (99.41% இரட்டையர் துல்லியம்; 0 இயற்பியல் QPU shots), மற்றும் KrumpRobot மனிதஉருவ Physical AI ஆகியவை அடங்கும்."
+      "தெற்கு லாஸ் ஏஞ்சல்ஸின் Krump நடனம், லாபன் இயக்கப் பகுப்பாய்வு (LMA), மற்றும் DisCoPy வகைமைக் கோட்பாட்டின் வழி மேற்பொருந்துதல், பிணைப்பு, குறுக்கீடு ஆகியவற்றை உடல்வழி கற்பிக்கும் Quantum Krump கட்டமைப்பை வழங்குகிறோம் — இதில் டகோடா சிமாவோ (Twin Bad Liks / Jr Outrage) உடனான 11th Quantum Dimension நாடக ஆக்கம், Quantinuum Helios-1E-lite எமுலேட்டர் சரிபார்ப்பு (99.41% இரட்டையர் துல்லியம்; 0 இயற்பியல் QPU shots), மற்றும் KrumpRobot மனிதஉருவ Physical AI ஆகியவை அடங்கும்."
   }
 };
 
@@ -285,48 +285,82 @@ function initNavigationUX() {
   onScroll();
 }
 
-// ── 1. Multilingual Preprint Selector + In-Page PDF Preview Modal ──
+// ── 1. Multilingual Preprint Selector + Live Inline Paper Preview Panel ──
+const PAPER_DOCS = {
+  monograph: {
+    bookmarksEn: [
+      { label: "p.1 Intro & Abstract", page: 1 },
+      { label: "p.5 Workshop Design", page: 5 },
+      { label: "p.8 Laban × Krump", page: 8 },
+      { label: "p.11 Emotion Qubits", page: 11 },
+      { label: "p.17 DisCoPy Diagrams", page: 17 },
+      { label: "p.29 Helios-1E-lite", page: 29 },
+      { label: "p.36 KrumpRobot AI", page: 36 },
+      { label: "p.44 Multi-Qubit Scaling", page: 44 },
+      { label: "p.49 Conclusion", page: 49 }
+    ],
+    bookmarksTa: [
+      { label: "p.1 ஆய்வுச் சுருக்கம்", page: 1 },
+      { label: "p.5 லாபான் × க்ரம்ப்", page: 5 },
+      { label: "p.17 மேடை QUBO", page: 17 },
+      { label: "p.24 DisCoPy சரம்", page: 24 },
+      { label: "p.30 11th Dimension", page: 30 },
+      { label: "p.34 Helios-1E-lite", page: 34 },
+      { label: "p.44 KrumpRobot AI", page: 44 },
+      { label: "p.50 QKMLM", page: 50 },
+      { label: "p.58 மேற்கோள்கள்", page: 58 }
+    ],
+    bookmarksI18n: [
+      { label: "p.1 Title & Abstract", page: 1 },
+      { label: "p.8 Laban × Krump", page: 8 },
+      { label: "p.17 DisCoPy Diagrams", page: 17 },
+      { label: "p.29 Helios-1E-lite", page: 29 },
+      { label: "p.36 KrumpRobot AI", page: 36 },
+      { label: "Refs & End", page: -1 }
+    ]
+  },
+  pedagogy: {
+    file: "downloads/quantum-krump-pedagogy-paper.pdf",
+    filename: "quantum-krump-pedagogy-paper.pdf",
+    bookmarks: [
+      { label: "p.1 Intro & Lineage", page: 1 },
+      { label: "p.2 Bloch Drills", page: 2 },
+      { label: "p.4 LMA × Krump Map", page: 4 },
+      { label: "p.5 DisCoPy Diagrams", page: 5 },
+      { label: "p.8 11th Dimension", page: 8 },
+      { label: "p.9 Helios-1E-lite", page: 9 },
+      { label: "p.11 Rubric & Eval", page: 11 }
+    ]
+  },
+  krumprobot: {
+    file: "downloads/krumprobot-physical-ai-paper.pdf",
+    filename: "krumprobot-physical-ai-paper.pdf",
+    bookmarks: [
+      { label: "p.1 Intro", page: 1 },
+      { label: "p.3 3D Recovery & Kabsch", page: 3 },
+      { label: "p.4 Causal GRU Policy", page: 4 },
+      { label: "p.7 Bipedal ZMP & Swarm", page: 7 },
+      { label: "p.8 WebGL & Sim-to-Real", page: 8 },
+      { label: "p.9 Conclusion", page: 9 }
+    ]
+  },
+  v1: {
+    file: "downloads/quantum-krump-preprint-v1.pdf",
+    filename: "quantum-krump-preprint-v1.pdf",
+    bookmarks: [
+      { label: "p.1 Intro", page: 1 },
+      { label: "p.3 Bloch & LMA", page: 3 },
+      { label: "p.5 Choreography", page: 5 },
+      { label: "p.7 Conclusion", page: 7 }
+    ]
+  }
+};
+
 function initPreprintAndModals() {
-  const container = document.getElementById("lang-pills");
-  const titleEl = document.getElementById("active-lang-title");
-  const absEl = document.getElementById("active-lang-abstract");
-  const dlBtn = document.getElementById("active-lang-download");
-  const prevBtn = document.getElementById("active-lang-preview");
-
-  const pdfModal = document.getElementById("pdf-modal");
-  const pdfIframe = document.getElementById("pdf-iframe");
-  const pdfModalTitle = document.getElementById("pdf-modal-title");
-  const pdfModalDl = document.getElementById("pdf-modal-download");
-  const pdfModalNewTab = document.getElementById("pdf-modal-newtab");
-  const pdfModalClose = document.getElementById("pdf-modal-close");
-
-  function openPdfPreview(url, title) {
-    if (!pdfModal || !pdfIframe) return;
-    pdfModalTitle.textContent = title;
-    pdfIframe.src = url;
-    pdfModalDl.href = url;
-    pdfModalNewTab.href = url;
-    pdfModal.classList.add("open");
-    document.body.style.overflow = "hidden";
+  const PDFJS_CDN = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174";
+  if (window.pdfjsLib) {
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = `${PDFJS_CDN}/pdf.worker.min.js`;
   }
-
-  function closePdfPreview() {
-    if (!pdfModal || !pdfIframe) return;
-    pdfModal.classList.remove("open");
-    pdfIframe.src = "about:blank";
-    document.body.style.overflow = "";
-  }
-
-  document.querySelectorAll("[data-preview-pdf]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      openPdfPreview(btn.dataset.previewPdf, btn.dataset.previewTitle || "PDF Preview");
-    });
-  });
-
-  pdfModalClose?.addEventListener("click", closePdfPreview);
-  pdfModal?.addEventListener("click", (e) => {
-    if (e.target === pdfModal) closePdfPreview();
-  });
 
   // Figure Lightbox
   const imgModal = document.getElementById("img-lightbox");
@@ -336,6 +370,7 @@ function initPreprintAndModals() {
 
   document.querySelectorAll(".fig-card").forEach((card) => {
     card.addEventListener("click", () => {
+      if (card.classList.contains("interactive-mode")) return;
       const img = card.querySelector("img");
       const cap = card.querySelector("figcaption");
       if (!img || !imgModal) return;
@@ -348,53 +383,480 @@ function initPreprintAndModals() {
   });
 
   function closeLightbox() {
-    if (!imgModal) return;
+    if (!imgModal || !imgModal.classList.contains("open")) return;
     imgModal.classList.remove("open");
-    document.body.style.overflow = "";
+    if (!panelEl?.classList.contains("fullscreen")) {
+      document.body.style.overflow = "";
+    }
   }
   imgClose?.addEventListener("click", closeLightbox);
   imgModal?.addEventListener("click", (e) => {
     if (e.target === imgModal) closeLightbox();
   });
 
+  // Inline Paper Preview Panel Elements
+  const container = document.getElementById("lang-pills");
+  const titleEl = document.getElementById("active-lang-title");
+  const absEl = document.getElementById("active-lang-abstract");
+  const dlBtn = document.getElementById("active-lang-download");
+  const prevBtn = document.getElementById("active-lang-preview");
+
+  const panelEl = document.getElementById("paper-preview-panel");
+  const tabMonograph = document.getElementById("tab-doc-monograph");
+  const docTabBtns = document.querySelectorAll("[data-reader-doc]");
+  const tallBtn = document.getElementById("reader-tall-btn");
+  const fsBtn = document.getElementById("reader-fullscreen-btn");
+  const collapseBtn = document.getElementById("reader-collapse-btn");
+
+  const prevPageBtn = document.getElementById("reader-prev-page");
+  const nextPageBtn = document.getElementById("reader-next-page");
+  const pageInput = document.getElementById("reader-page-input");
+  const pageCountEl = document.getElementById("reader-page-count");
+  const zoomOutBtn = document.getElementById("reader-zoom-out");
+  const zoomFitBtn = document.getElementById("reader-zoom-fit");
+  const zoomInBtn = document.getElementById("reader-zoom-in");
+  const zoomLabel = document.getElementById("reader-zoom-label");
+  const newTabLink = document.getElementById("reader-newtab-link");
+  const dlLink = document.getElementById("reader-download-link");
+  const bookmarksEl = document.getElementById("reader-bookmarks");
+  const viewportEl = document.getElementById("reader-viewport");
+  const streamEl = document.getElementById("reader-canvas-stream");
+  const fallbackIframe = document.getElementById("reader-fallback-iframe");
+
+  let activeLang = "en";
+  let activeDoc = "monograph";
+  let zoomFactor = 1.0;
+  let currentPdfDoc = null;
+  let currentNumPages = 55;
+  let currentPage = 1;
+  let activeBookmarks = [];
+  let pageObserver = null;
+  let loadSeq = 0;
+  const pdfCache = new Map();
+
+  function getDocSpec() {
+    if (activeDoc === "monograph") {
+      const item = PREPRINTS[activeLang] || PREPRINTS.en;
+      const bm =
+        activeLang === "en"
+          ? PAPER_DOCS.monograph.bookmarksEn
+          : activeLang === "ta"
+            ? PAPER_DOCS.monograph.bookmarksTa
+            : PAPER_DOCS.monograph.bookmarksI18n;
+      return {
+        file: item.file,
+        filename: item.filename,
+        bookmarks: bm
+      };
+    }
+    return PAPER_DOCS[activeDoc] || PAPER_DOCS.pedagogy;
+  }
+
+  function ensurePanelVisible() {
+    if (!panelEl) return;
+    if (panelEl.classList.contains("collapsed")) {
+      panelEl.classList.remove("collapsed");
+      if (collapseBtn) collapseBtn.textContent = "▾ Hide";
+    }
+  }
+
+  function updateBookmarkHighlight(page) {
+    if (!bookmarksEl || !activeBookmarks.length) return;
+    let activeIdx = 0;
+    for (let i = 0; i < activeBookmarks.length; i++) {
+      if (activeBookmarks[i].resolvedPage <= page) activeIdx = i;
+    }
+    bookmarksEl.querySelectorAll(".bookmark-chip").forEach((chip, idx) => {
+      chip.classList.toggle("active", idx === activeIdx);
+    });
+  }
+
+  function renderBookmarkChips(rawBookmarks, numPages) {
+    if (!bookmarksEl) return;
+    bookmarksEl.innerHTML = "";
+    activeBookmarks = (rawBookmarks || []).map((bm) => ({
+      label: bm.label,
+      resolvedPage: bm.page === -1 ? numPages : Math.max(1, Math.min(numPages, bm.page))
+    }));
+    const labelSpan = document.createElement("span");
+    labelSpan.style.cssText = "font-family:var(--font-mono);font-size:0.68rem;color:var(--ink-dim);margin-right:0.25rem";
+    labelSpan.textContent = "Sections:";
+    bookmarksEl.appendChild(labelSpan);
+
+    activeBookmarks.forEach((bm) => {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "bookmark-chip";
+      chip.textContent = bm.label;
+      chip.addEventListener("click", () => goToPage(bm.resolvedPage, true));
+      bookmarksEl.appendChild(chip);
+    });
+    updateBookmarkHighlight(currentPage);
+  }
+
+  function goToPage(targetPage, smooth = true) {
+    if (!viewportEl) return;
+    const clamped = Math.max(1, Math.min(currentNumPages, targetPage));
+    currentPage = clamped;
+    if (pageInput) pageInput.value = String(clamped);
+    updateBookmarkHighlight(clamped);
+
+    const slot = streamEl?.querySelector(`.pdf-page-slot[data-page-num="${clamped}"]`);
+    if (slot) {
+      viewportEl.scrollTo({
+        top: Math.max(0, slot.offsetTop - 14),
+        behavior: smooth ? "smooth" : "auto"
+      });
+    } else if (fallbackIframe && fallbackIframe.style.display !== "none") {
+      const spec = getDocSpec();
+      fallbackIframe.src = `${spec.file}#page=${clamped}&view=FitH`;
+    }
+  }
+
+  async function renderSinglePageSlot(pdfDoc, pageNum, slot, scale, seq) {
+    if (!slot || slot.dataset.rendered === "1" || seq !== loadSeq) return;
+    slot.dataset.rendered = "1";
+    try {
+      const page = await pdfDoc.getPage(pageNum);
+      if (seq !== loadSeq) return;
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      const cssVp = page.getViewport({ scale });
+      const hiVp = page.getViewport({ scale: scale * dpr });
+
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.floor(hiVp.width);
+      canvas.height = Math.floor(hiVp.height);
+      canvas.style.width = `${Math.floor(cssVp.width)}px`;
+      canvas.style.height = `${Math.floor(cssVp.height)}px`;
+
+      slot.style.width = `${Math.floor(cssVp.width)}px`;
+      slot.style.height = `${Math.floor(cssVp.height)}px`;
+
+      const badge = slot.querySelector(".pdf-page-badge");
+      slot.innerHTML = "";
+      slot.appendChild(canvas);
+      if (badge) slot.appendChild(badge);
+
+      const ctx = canvas.getContext("2d", { alpha: false });
+      await page.render({ canvasContext: ctx, viewport: hiVp }).promise;
+    } catch {
+      slot.dataset.rendered = "";
+    }
+  }
+
+  async function buildPdfSlots(pdfDoc, preservePage, seq) {
+    if (!streamEl || !viewportEl || seq !== loadSeq) return;
+    if (pageObserver) {
+      pageObserver.disconnect();
+      pageObserver = null;
+    }
+
+    const page1 = await pdfDoc.getPage(1);
+    if (seq !== loadSeq) return;
+    const baseVp = page1.getViewport({ scale: 1 });
+    const availW = Math.max(280, (viewportEl.clientWidth || panelEl?.clientWidth || 860) - 36);
+    const fitScale = Math.max(0.42, Math.min(1.38, availW / baseVp.width));
+    const scale = fitScale * zoomFactor;
+
+    const slotW = Math.floor(baseVp.width * scale);
+    const slotH = Math.floor(baseVp.height * scale);
+
+    if (zoomLabel) zoomLabel.textContent = `${Math.round(zoomFactor * 100)}%`;
+
+    streamEl.innerHTML = "";
+    streamEl.style.display = "flex";
+    if (fallbackIframe) fallbackIframe.style.display = "none";
+
+    const frag = document.createDocumentFragment();
+    const slots = [];
+    for (let p = 1; p <= pdfDoc.numPages; p++) {
+      const slot = document.createElement("div");
+      slot.className = "pdf-page-slot";
+      slot.dataset.pageNum = String(p);
+      slot.style.width = `${slotW}px`;
+      slot.style.height = `${slotH}px`;
+
+      const placeholder = document.createElement("span");
+      placeholder.style.cssText = "font-family:var(--font-mono);font-size:0.75rem;color:#688082";
+      placeholder.textContent = `Rendering page ${p}…`;
+      slot.appendChild(placeholder);
+
+      const badge = document.createElement("span");
+      badge.className = "pdf-page-badge";
+      badge.textContent = `${p} / ${pdfDoc.numPages}`;
+      slot.appendChild(badge);
+
+      frag.appendChild(slot);
+      slots.push(slot);
+    }
+    streamEl.appendChild(frag);
+
+    pageObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const pNum = parseInt(entry.target.dataset.pageNum, 10);
+          renderSinglePageSlot(pdfDoc, pNum, entry.target, scale, seq);
+        });
+      },
+      { root: viewportEl, rootMargin: "900px 0px" }
+    );
+    slots.forEach((s) => pageObserver.observe(s));
+
+    // Eagerly render target page and its immediate neighbor so view is instant
+    const startP = Math.max(1, Math.min(pdfDoc.numPages, preservePage || 1));
+    goToPage(startP, false);
+    renderSinglePageSlot(pdfDoc, startP, slots[startP - 1], scale, seq);
+    if (startP < pdfDoc.numPages) {
+      renderSinglePageSlot(pdfDoc, startP + 1, slots[startP], scale, seq);
+    }
+  }
+
+  async function loadCurrentDoc(startPage = 1) {
+    if (!panelEl || !streamEl) return;
+    const seq = ++loadSeq;
+    const spec = getDocSpec();
+
+    docTabBtns.forEach((b) => {
+      b.classList.toggle("active", b.dataset.readerDoc === activeDoc);
+    });
+    if (newTabLink) newTabLink.href = spec.file;
+    if (dlLink) {
+      dlLink.href = spec.file;
+      dlLink.setAttribute("download", spec.filename);
+    }
+
+    if (!window.pdfjsLib) {
+      streamEl.style.display = "none";
+      if (fallbackIframe) {
+        fallbackIframe.style.display = "block";
+        fallbackIframe.src = `${spec.file}#page=${startPage}&view=FitH`;
+      }
+      renderBookmarkChips(spec.bookmarks, currentNumPages);
+      return;
+    }
+
+    streamEl.innerHTML = `<div class="pdf-loading-msg">Loading typeset PDF (${spec.filename})…</div>`;
+
+    try {
+      let pdfDoc = pdfCache.get(spec.file);
+      if (!pdfDoc) {
+        const task = window.pdfjsLib.getDocument({
+          url: spec.file,
+          cMapUrl: `${PDFJS_CDN}/cmaps/`,
+          cMapPacked: true,
+          standardFontDataUrl: `${PDFJS_CDN}/standard_fonts/`
+        });
+        pdfDoc = await task.promise;
+        if (pdfCache.size >= 5) {
+          const oldest = pdfCache.keys().next().value;
+          pdfCache.get(oldest)?.destroy?.();
+          pdfCache.delete(oldest);
+        }
+        pdfCache.set(spec.file, pdfDoc);
+      }
+      if (seq !== loadSeq) return;
+
+      currentPdfDoc = pdfDoc;
+      currentNumPages = pdfDoc.numPages;
+      currentPage = Math.max(1, Math.min(currentNumPages, startPage));
+
+      if (pageCountEl) pageCountEl.textContent = String(currentNumPages);
+      if (pageInput) {
+        pageInput.max = String(currentNumPages);
+        pageInput.value = String(currentPage);
+      }
+      if (activeDoc === "monograph" && tabMonograph) {
+        tabMonograph.textContent = `📘 Master Monograph (${activeLang.toUpperCase()} · ${currentNumPages} pp.)`;
+      }
+
+      renderBookmarkChips(spec.bookmarks, currentNumPages);
+      await buildPdfSlots(pdfDoc, currentPage, seq);
+    } catch {
+      if (seq !== loadSeq) return;
+      streamEl.style.display = "none";
+      if (fallbackIframe) {
+        fallbackIframe.style.display = "block";
+        fallbackIframe.src = `${spec.file}#view=FitH`;
+      }
+    }
+  }
+
+  // Track current page while user scrolls inside #reader-viewport
+  let scrollTick = false;
+  viewportEl?.addEventListener(
+    "scroll",
+    () => {
+      if (scrollTick) return;
+      scrollTick = true;
+      requestAnimationFrame(() => {
+        scrollTick = false;
+        if (!streamEl || streamEl.style.display === "none") return;
+        const probeY = viewportEl.scrollTop + viewportEl.clientHeight * 0.3;
+        const slots = streamEl.querySelectorAll(".pdf-page-slot");
+        let bestPage = currentPage;
+        for (const slot of slots) {
+          if (slot.offsetTop <= probeY) {
+            bestPage = parseInt(slot.dataset.pageNum, 10) || 1;
+          } else {
+            break;
+          }
+        }
+        if (bestPage !== currentPage) {
+          currentPage = bestPage;
+          if (pageInput && document.activeElement !== pageInput) {
+            pageInput.value = String(bestPage);
+          }
+          updateBookmarkHighlight(bestPage);
+        }
+      });
+    },
+    { passive: true }
+  );
+
+  // Toolbar controls
+  prevPageBtn?.addEventListener("click", () => goToPage(currentPage - 1, true));
+  nextPageBtn?.addEventListener("click", () => goToPage(currentPage + 1, true));
+  pageInput?.addEventListener("change", () => {
+    goToPage(parseInt(pageInput.value, 10) || 1, true);
+  });
+  pageInput?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      goToPage(parseInt(pageInput.value, 10) || 1, true);
+      pageInput.blur();
+    }
+  });
+
+  zoomInBtn?.addEventListener("click", () => {
+    zoomFactor = Math.min(2.2, +(zoomFactor + 0.2).toFixed(2));
+    if (currentPdfDoc) buildPdfSlots(currentPdfDoc, currentPage, ++loadSeq);
+  });
+  zoomOutBtn?.addEventListener("click", () => {
+    zoomFactor = Math.max(0.6, +(zoomFactor - 0.2).toFixed(2));
+    if (currentPdfDoc) buildPdfSlots(currentPdfDoc, currentPage, ++loadSeq);
+  });
+  zoomFitBtn?.addEventListener("click", () => {
+    zoomFactor = 1.0;
+    if (currentPdfDoc) buildPdfSlots(currentPdfDoc, currentPage, ++loadSeq);
+  });
+
+  tallBtn?.addEventListener("click", () => {
+    if (!panelEl) return;
+    ensurePanelVisible();
+    const isTall = panelEl.classList.toggle("tall");
+    tallBtn.textContent = isTall ? "↕ Standard" : "↕ Tall";
+  });
+
+  function setFullscreen(enable) {
+    if (!panelEl) return;
+    ensurePanelVisible();
+    panelEl.classList.toggle("fullscreen", enable);
+    if (fsBtn) fsBtn.textContent = enable ? "✕ Exit Fullscreen" : "⛶ Fullscreen";
+    document.body.style.overflow = enable ? "hidden" : "";
+    if (currentPdfDoc) {
+      requestAnimationFrame(() => buildPdfSlots(currentPdfDoc, currentPage, ++loadSeq));
+    }
+  }
+
+  fsBtn?.addEventListener("click", () => {
+    setFullscreen(!panelEl?.classList.contains("fullscreen"));
+  });
+
+  collapseBtn?.addEventListener("click", () => {
+    if (!panelEl) return;
+    if (panelEl.classList.contains("fullscreen")) setFullscreen(false);
+    const collapsed = panelEl.classList.toggle("collapsed");
+    collapseBtn.textContent = collapsed ? "▸ Show Preview" : "▾ Hide";
+  });
+
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      closePdfPreview();
+      if (panelEl?.classList.contains("fullscreen")) setFullscreen(false);
       closeLightbox();
     }
   });
 
-  if (!container || !titleEl || !absEl || !dlBtn) return;
-
-  let active = "en";
-  const render = () => {
-    const item = PREPRINTS[active];
-    titleEl.textContent = item.title;
-    absEl.textContent = item.abstract;
-    dlBtn.setAttribute("href", item.file);
-    dlBtn.setAttribute("download", item.filename);
-    dlBtn.textContent = `⬇ Download ${item.label} PDF`;
-    if (prevBtn) {
-      prevBtn.onclick = () => openPdfPreview(item.file, item.title);
-    }
-    container.querySelectorAll("button").forEach((b) => {
-      b.classList.toggle("active", b.dataset.lang === active);
-    });
-  };
-
-  Object.entries(PREPRINTS).forEach(([code, info]) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "lang-btn";
-    btn.dataset.lang = code;
-    btn.textContent = info.label;
+  // Document switcher tabs inside the preview panel
+  docTabBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      active = code;
-      render();
+      ensurePanelVisible();
+      activeDoc = btn.dataset.readerDoc || "monograph";
+      loadCurrentDoc(1);
     });
-    container.appendChild(btn);
   });
-  render();
+
+  // External "Read in Panel" buttons across Hero, Section 01 Cards, Section 04, and Section 06
+  document.querySelectorAll("[data-open-doc]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      ensurePanelVisible();
+      const docKey = btn.dataset.openDoc || "monograph";
+      const targetP = parseInt(btn.dataset.openPage || "1", 10) || 1;
+      if (docKey !== activeDoc || !currentPdfDoc) {
+        activeDoc = docKey;
+        loadCurrentDoc(targetP);
+      } else if (btn.dataset.openPage) {
+        goToPage(targetP, true);
+      }
+      panelEl?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // 10-Language Monograph Selector
+  if (container && titleEl && absEl && dlBtn) {
+    const syncLangUI = (reloadPdf = true) => {
+      const item = PREPRINTS[activeLang] || PREPRINTS.en;
+      titleEl.textContent = item.title;
+      absEl.textContent = item.abstract;
+      dlBtn.setAttribute("href", item.file);
+      dlBtn.setAttribute("download", item.filename);
+      dlBtn.textContent = `⬇ Download ${item.label} PDF`;
+      if (tabMonograph) {
+        tabMonograph.textContent = `📘 Master Monograph (${activeLang.toUpperCase()})`;
+      }
+      container.querySelectorAll("button").forEach((b) => {
+        b.classList.toggle("active", b.dataset.lang === activeLang);
+      });
+      if (reloadPdf) {
+        ensurePanelVisible();
+        activeDoc = "monograph";
+        loadCurrentDoc(1);
+      }
+    };
+
+    Object.entries(PREPRINTS).forEach(([code, info]) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "lang-btn";
+      btn.dataset.lang = code;
+      btn.textContent = info.label;
+      btn.addEventListener("click", () => {
+        activeLang = code;
+        syncLangUI(true);
+      });
+      container.appendChild(btn);
+    });
+
+    prevBtn?.addEventListener("click", () => {
+      ensurePanelVisible();
+      if (activeDoc !== "monograph") {
+        activeDoc = "monograph";
+        loadCurrentDoc(1);
+      }
+      panelEl?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const qLang = params.get("lang");
+    const qDoc = params.get("doc");
+    const qPage = parseInt(params.get("page") || "1", 10) || 1;
+    if (qLang && PREPRINTS[qLang]) activeLang = qLang;
+    syncLangUI(false);
+    if (qDoc && PAPER_DOCS[qDoc]) activeDoc = qDoc;
+    loadCurrentDoc(qPage);
+  } else {
+    loadCurrentDoc(1);
+  }
 }
 
 // ── 2. Interactive 3D Bloch Kinesphere (With Smooth Animated Gate Transitions) ──
@@ -975,6 +1437,295 @@ function initBibtexAndCopy() {
   });
 }
 
+// ── 6. Sleek Dark-Native Interactive Benchmark Charts (Apache ECharts) ──
+function initBenchmarkCharts() {
+  const btnInteractive = document.getElementById("btn-chart-interactive");
+  const btnStatic = document.getElementById("btn-chart-static");
+  const cards = document.querySelectorAll("#benchmark-fig-grid .fig-card");
+
+  const setChartMode = (interactive) => {
+    cards.forEach((c) => c.classList.toggle("interactive-mode", interactive));
+    if (btnInteractive && btnStatic) {
+      btnInteractive.className = interactive ? "btn btn-primary btn-sm" : "btn btn-ghost btn-sm";
+      btnStatic.className = !interactive ? "btn btn-primary btn-sm" : "btn btn-ghost btn-sm";
+    }
+    if (interactive) {
+      requestAnimationFrame(() => instances.forEach((ch) => ch.resize()));
+    }
+  };
+
+  btnInteractive?.addEventListener("click", () => setChartMode(true));
+  btnStatic?.addEventListener("click", () => setChartMode(false));
+
+  if (!window.echarts) {
+    setChartMode(false);
+    return;
+  }
+
+  const instances = [];
+  const baseText = { fontFamily: "JetBrains Mono, monospace", color: "#9eb7b4" };
+  const baseGrid = { top: 48, right: 22, bottom: 40, left: 64 };
+  const baseTooltip = {
+    trigger: "axis",
+    backgroundColor: "rgba(11, 21, 23, 0.96)",
+    borderColor: "rgba(45, 212, 191, 0.45)",
+    textStyle: { color: "#eef7f5", fontFamily: "Barlow, sans-serif", fontSize: 12 }
+  };
+  const saveTool = {
+    right: 6,
+    top: 4,
+    iconStyle: { borderColor: "#688082" },
+    feature: { saveAsImage: { type: "svg", title: "Save SVG", backgroundColor: "#0c181b" } }
+  };
+
+  // Fig. A: Barren-Plateau Gradient Variance (Log Scale)
+  const elBarren = document.getElementById("echart-barren");
+  if (elBarren) {
+    const ch = window.echarts.init(elBarren, null, { renderer: "svg" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseText,
+      toolbox: saveTool,
+      tooltip: baseTooltip,
+      legend: { top: 6, left: 8, textStyle: { color: "#eef7f5", fontSize: 10.5 }, itemWidth: 14, itemGap: 10 },
+      grid: baseGrid,
+      xAxis: {
+        type: "category",
+        name: "Qubits (n)",
+        nameLocation: "middle",
+        nameGap: 25,
+        data: ["n = 4", "n = 6", "n = 8", "n = 10"],
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } }
+      },
+      yAxis: {
+        type: "log",
+        name: "Var[∂_θ L] (log)",
+        nameLocation: "middle",
+        nameGap: 48,
+        min: 0.0006,
+        max: 0.08,
+        axisLabel: {
+          formatter: (v) => (v >= 0.01 ? v.toFixed(2) : v.toExponential(0))
+        },
+        splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } },
+        axisLine: { show: false }
+      },
+      series: [
+        {
+          name: "DisCoPy Frobenius (Ours)",
+          type: "line",
+          smooth: 0.25,
+          symbol: "circle",
+          symbolSize: 8,
+          lineStyle: { width: 3, color: "#2dd4bf" },
+          itemStyle: { color: "#2dd4bf" },
+          areaStyle: {
+            color: new window.echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: "rgba(45, 212, 191, 0.28)" },
+              { offset: 1, color: "rgba(45, 212, 191, 0.01)" }
+            ])
+          },
+          data: [0.011136, 0.006016, 0.00515, 0.006167]
+        },
+        {
+          name: "Haar-Random Circuit",
+          type: "line",
+          symbol: "rect",
+          symbolSize: 7,
+          lineStyle: { width: 2.5, type: "dashed", color: "#f26a4b" },
+          itemStyle: { color: "#f26a4b" },
+          data: [0.047457, 0.015092, 0.004163, 0.001047]
+        },
+        {
+          name: "O(2⁻ⁿ) Vanishing Bound",
+          type: "line",
+          symbol: "none",
+          lineStyle: { width: 1.5, type: "dotted", color: "#688082" },
+          itemStyle: { color: "#688082" },
+          data: [0.047457, 0.011864, 0.002966, 0.000742]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // Fig. B: Bipartite Entanglement Entropy Across 5 Krump Phenotypes
+  const elEntropy = document.getElementById("echart-entropy");
+  if (elEntropy) {
+    const ch = window.echarts.init(elEntropy, null, { renderer: "svg" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseText,
+      toolbox: saveTool,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 6, left: 8, textStyle: { color: "#eef7f5", fontSize: 10.5 }, itemWidth: 12 },
+      grid: { top: 44, right: 16, bottom: 44, left: 54 },
+      xAxis: {
+        type: "category",
+        data: ["STOMP\n(Brawler)", "JAB\n(Flash)", "CHEST POP\n(BigHomie)", "ARM SWING\n(Flow)", "KILL-OFF\n(Hype)"],
+        axisLabel: { fontSize: 10, interval: 0, lineHeight: 13 },
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } }
+      },
+      yAxis: {
+        type: "value",
+        name: "S(ρ_A) bits",
+        nameLocation: "middle",
+        nameGap: 36,
+        splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+      },
+      series: [
+        { name: "n = 4", type: "bar", barGap: "12%", itemStyle: { color: "#38bdf8", borderRadius: [3, 3, 0, 0] }, data: [1.0667, 1.2712, 1.3632, 0.0119, 0.7574] },
+        { name: "n = 6", type: "bar", itemStyle: { color: "#2dd4bf", borderRadius: [3, 3, 0, 0] }, data: [2.2103, 2.3557, 2.4421, 0.1444, 1.0301] },
+        { name: "n = 8", type: "bar", itemStyle: { color: "#f4ae42", borderRadius: [3, 3, 0, 0] }, data: [3.1691, 3.4372, 3.2141, 0.392, 1.8869] },
+        { name: "n = 10", type: "bar", itemStyle: { color: "#f26a4b", borderRadius: [3, 3, 0, 0] }, data: [3.2553, 4.2718, 2.8363, 0.743, 2.1552] }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // Fig. C: Kinesthetic Quantum Metrology & QFI Scaling
+  const elQfi = document.getElementById("echart-qfi");
+  if (elQfi) {
+    const ch = window.echarts.init(elQfi, null, { renderer: "svg" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseText,
+      toolbox: saveTool,
+      tooltip: baseTooltip,
+      legend: { top: 6, left: 8, textStyle: { color: "#eef7f5", fontSize: 10 }, itemWidth: 13, itemGap: 8 },
+      grid: { top: 56, right: 20, bottom: 40, left: 56 },
+      xAxis: {
+        type: "category",
+        name: "Qubits (n)",
+        nameLocation: "middle",
+        nameGap: 24,
+        data: ["n = 4", "n = 6", "n = 8", "n = 10", "n = 12 (Lock)"],
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } }
+      },
+      yAxis: {
+        type: "value",
+        name: "Fisher Info F_Q",
+        nameLocation: "middle",
+        nameGap: 40,
+        splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+      },
+      series: [
+        {
+          name: "Heisenberg Ceiling (n²)",
+          type: "line",
+          smooth: 0.2,
+          symbol: "triangle",
+          symbolSize: 7,
+          lineStyle: { width: 2, type: "dotted", color: "#f26a4b" },
+          itemStyle: { color: "#f26a4b" },
+          data: [16, 36, 64, 100, 144]
+        },
+        {
+          name: "Session / Group-Lock QFI (Ours)",
+          type: "line",
+          smooth: 0.15,
+          symbol: "diamond",
+          symbolSize: 8,
+          lineStyle: { width: 3, color: "#2dd4bf" },
+          itemStyle: { color: "#2dd4bf" },
+          areaStyle: {
+            color: new window.echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: "rgba(45, 212, 191, 0.22)" },
+              { offset: 1, color: "rgba(45, 212, 191, 0.01)" }
+            ])
+          },
+          data: [4, 6, 8, 10, 40]
+        },
+        {
+          name: "Standard Quantum Limit (n)",
+          type: "line",
+          symbol: "circle",
+          symbolSize: 6,
+          lineStyle: { width: 2, type: "dashed", color: "#f4ae42" },
+          itemStyle: { color: "#f4ae42" },
+          data: [4, 6, 8, 10, 12]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // Fig. D: Haiqu Algorithmic State Compression Scaling
+  const elHaiqu = document.getElementById("echart-haiqu");
+  if (elHaiqu) {
+    const ch = window.echarts.init(elHaiqu, null, { renderer: "svg" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseText,
+      toolbox: saveTool,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 6, left: 8, textStyle: { color: "#eef7f5", fontSize: 10.5 }, itemWidth: 13, itemGap: 8 },
+      grid: { top: 46, right: 56, bottom: 40, left: 52 },
+      xAxis: {
+        type: "category",
+        name: "Qubits (n)",
+        nameLocation: "middle",
+        nameGap: 24,
+        data: ["n = 4", "n = 6", "n = 8", "n = 10"],
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } }
+      },
+      yAxis: [
+        {
+          type: "value",
+          name: "2Q Depth",
+          nameLocation: "middle",
+          nameGap: 36,
+          splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+        },
+        {
+          type: "value",
+          name: "Reduction",
+          nameLocation: "middle",
+          nameGap: 42,
+          min: 75,
+          max: 92,
+          axisLabel: { formatter: "{value}%" },
+          splitLine: { show: false }
+        }
+      ],
+      series: [
+        {
+          name: "Raw 2Q Depth",
+          type: "bar",
+          barWidth: "26%",
+          itemStyle: { color: "rgba(158, 183, 180, 0.35)", borderColor: "#9eb7b4", borderRadius: [4, 4, 0, 0] },
+          data: [58, 66, 74, 82]
+        },
+        {
+          name: "Haiqu Compressed Depth",
+          type: "bar",
+          barWidth: "26%",
+          itemStyle: { color: "#2dd4bf", borderRadius: [4, 4, 0, 0] },
+          label: { show: true, position: "top", color: "#2dd4bf", fontSize: 10, formatter: "{c}" },
+          data: [10, 10, 10, 10]
+        },
+        {
+          name: "Depth Reduction (%)",
+          type: "line",
+          yAxisIndex: 1,
+          symbol: "circle",
+          symbolSize: 7,
+          lineStyle: { width: 2.5, color: "#f4ae42" },
+          itemStyle: { color: "#f4ae42" },
+          data: [82.76, 84.85, 86.49, 87.8]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  if (window.ResizeObserver && instances.length) {
+    const ro = new ResizeObserver(() => instances.forEach((ch) => ch.resize()));
+    const grid = document.getElementById("benchmark-fig-grid");
+    if (grid) ro.observe(grid);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNavigationUX();
   initPreprintAndModals();
@@ -982,5 +1733,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initLkqMapper();
   initDiscopyStepper();
   initKrumpRobotTimeline();
+  initBenchmarkCharts();
   initBibtexAndCopy();
 });

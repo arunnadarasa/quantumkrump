@@ -35,6 +35,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Noto+Sans+Devanagari:wght@400;600&amp;family=Noto+Sans+JP:wght@400;600&amp;family=Noto+Sans+KR:wght@400;600&amp;family=Noto+Sans+SC:wght@400;600&amp;family=Noto+Sans+Tamil:wght@400;600&amp;display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js" defer></script>
 </head>
 <body>
 
@@ -93,8 +95,8 @@
             <span>Quantum Information Scientist &amp; Physical AI Lead · Bradford / London, UK</span>
           </div>
           <div class="author-card">
-            <strong>Dakota Simao</strong>
-            <span>Choreographer, Krump Practitioner &amp; Artistic Co-Director (<em>Jr Maddripp</em> lineage / Geneva &amp; Paris)</span>
+            <strong>Dakota Simao (<em>Twin Bad Liks</em> / <em>Jr Outrage</em>)</strong>
+            <span>Artistic Director &amp; Choreographer · Krump &amp; Contemporary Dance · Geneva, Switzerland</span>
           </div>
         </div>
 
@@ -107,7 +109,7 @@
               <p class="track-desc">Complete curriculum, DisCoPy proofs, Helios-1E-lite emulation, and 4-Act staging in 10 languages.</p>
             </div>
             <div class="track-actions">
-              <button type="button" class="btn btn-primary btn-sm" data-preview-pdf="downloads/quantum-krump-preprint.pdf" data-preview-title="Master Monograph (English · 55 Pages)">👁 Preview</button>
+              <button type="button" class="btn btn-primary btn-sm" data-open-doc="monograph">📖 Read in Panel</button>
               <a class="btn btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">⬇ PDF</a>
               <a class="btn btn-ghost btn-sm" href="#papers">10 Languages →</a>
             </div>
@@ -120,7 +122,7 @@
               <p class="track-desc">90-minute classroom delivery, Bloch Kinesphere drills, 12-item concept inventory &amp; safeguarding.</p>
             </div>
             <div class="track-actions">
-              <button type="button" class="btn btn-sm" style="border-color:var(--signal);color:var(--signal)" data-preview-pdf="downloads/quantum-krump-pedagogy-paper.pdf" data-preview-title="Embodied Pedagogy Companion (15 Pages)">👁 Preview</button>
+              <button type="button" class="btn btn-sm" style="border-color:var(--signal);color:var(--signal)" data-open-doc="pedagogy">📖 Read in Panel</button>
               <a class="btn btn-sm" href="downloads/quantum-krump-pedagogy-paper.pdf" download="quantum-krump-pedagogy-paper.pdf">⬇ PDF</a>
               <a class="btn btn-ghost btn-sm" href="#interactive">Try 3D Bloch →</a>
             </div>
@@ -133,7 +135,7 @@
               <p class="track-desc">Zero quantum circuits: monocular 3D recovery, rest-relative Kabsch retargeting &amp; causal GRU control.</p>
             </div>
             <div class="track-actions">
-              <button type="button" class="btn btn-amber btn-sm" data-preview-pdf="downloads/krumprobot-physical-ai-paper.pdf" data-preview-title="KrumpRobot Physical AI Paper (11 Pages)">👁 Preview</button>
+              <button type="button" class="btn btn-amber btn-sm" data-open-doc="krumprobot">📖 Read in Panel</button>
               <a class="btn btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">⬇ PDF</a>
               <a class="btn btn-ghost btn-sm" href="#krumprobot">1:38 Studio →</a>
             </div>
@@ -213,9 +215,9 @@
               </ul>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
-              <button type="button" class="btn btn-primary btn-sm" data-preview-pdf="downloads/quantum-krump-preprint.pdf" data-preview-title="Master Monograph (English · 55 Pages)">👁 Preview PDF</button>
+              <button type="button" class="btn btn-primary btn-sm" data-open-doc="monograph">📖 Read in Panel</button>
               <a class="btn btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">⬇ English (55 pp.)</a>
-              <a class="btn btn-ghost btn-sm" href="downloads/quantum-krump-preprint-v1.pdf" download="quantum-krump-preprint-v1.pdf">v1 (7 pp.)</a>
+              <button type="button" class="btn btn-ghost btn-sm" data-open-doc="v1">v1 (7 pp.)</button>
             </div>
           </article>
 
@@ -234,7 +236,7 @@
               </ul>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
-              <button type="button" class="btn btn-sm" style="border-color:var(--signal);color:var(--signal)" data-preview-pdf="downloads/quantum-krump-pedagogy-paper.pdf" data-preview-title="Embodied Pedagogy Companion (15 Pages)">👁 Preview PDF</button>
+              <button type="button" class="btn btn-sm" style="border-color:var(--signal);color:var(--signal)" data-open-doc="pedagogy">📖 Read in Panel</button>
               <a class="btn btn-sm" href="downloads/quantum-krump-pedagogy-paper.pdf" download="quantum-krump-pedagogy-paper.pdf">⬇ Download (15 pp.)</a>
             </div>
           </article>
@@ -254,7 +256,7 @@
               </ul>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
-              <button type="button" class="btn btn-amber btn-sm" data-preview-pdf="downloads/krumprobot-physical-ai-paper.pdf" data-preview-title="KrumpRobot Physical AI Paper (11 Pages)">👁 Preview PDF</button>
+              <button type="button" class="btn btn-amber btn-sm" data-open-doc="krumprobot">📖 Read in Panel</button>
               <a class="btn btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">⬇ Download (11 pp.)</a>
             </div>
           </article>
@@ -268,7 +270,7 @@
               <h3 id="active-lang-title">Master Monograph (English · 55 Pages)</h3>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
-              <button id="active-lang-preview" type="button" class="btn btn-sm">👁 Preview in Browser</button>
+              <button id="active-lang-preview" type="button" class="btn btn-sm">📖 Jump to Preview Panel ↓</button>
               <a id="active-lang-download" class="btn btn-primary btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">
                 ⬇ Download English PDF
               </a>
@@ -290,6 +292,60 @@
             <a href="downloads/quantum-krump-preprint-fil.pdf">FIL</a>
             <a href="downloads/quantum-krump-preprint-hi.pdf">HI</a>
             <a href="downloads/quantum-krump-preprint-ta.pdf">TA</a>
+          </div>
+        </div>
+
+        <!-- Live Inline & Expandable Paper Preview Panel -->
+        <div id="paper-preview-panel" class="reader-panel" role="region" aria-label="Interactive Paper Preview Panel">
+          <!-- Top Document Switcher Bar -->
+          <div class="reader-doc-tabs">
+            <div class="reader-doc-pills" role="tablist" aria-label="Choose paper to read">
+              <button type="button" class="reader-doc-btn active" data-reader-doc="monograph" id="tab-doc-monograph">📘 Master Monograph (EN · 55 pp.)</button>
+              <button type="button" class="reader-doc-btn" data-reader-doc="pedagogy">🎓 Pedagogy Paper (15 pp.)</button>
+              <button type="button" class="reader-doc-btn amber-doc" data-reader-doc="krumprobot">🤖 KrumpRobot Paper (11 pp.)</button>
+              <button type="button" class="reader-doc-btn" data-reader-doc="v1">📜 Archival v1 (7 pp.)</button>
+            </div>
+            <div class="reader-controls-group">
+              <button id="reader-tall-btn" type="button" class="reader-icon-btn" title="Toggle taller reading viewport">↕ Tall</button>
+              <button id="reader-fullscreen-btn" type="button" class="reader-icon-btn" title="Expand preview panel to fullscreen">⛶ Fullscreen</button>
+              <button id="reader-collapse-btn" type="button" class="reader-icon-btn" title="Collapse or show preview panel">▾ Hide</button>
+            </div>
+          </div>
+
+          <!-- Page Navigation, Zoom & Download Toolbar -->
+          <div class="reader-toolbar">
+            <div class="reader-controls-group">
+              <button id="reader-prev-page" type="button" class="reader-icon-btn" aria-label="Previous page">◀ Prev</button>
+              <span style="color:var(--ink-muted)">
+                Page
+                <input id="reader-page-input" type="number" min="1" value="1" class="reader-page-input" aria-label="Page number" />
+                of <strong id="reader-page-count" style="color:var(--ink)">55</strong>
+              </span>
+              <button id="reader-next-page" type="button" class="reader-icon-btn" aria-label="Next page">Next ▶</button>
+            </div>
+
+            <div class="reader-controls-group">
+              <button id="reader-zoom-out" type="button" class="reader-icon-btn" aria-label="Zoom out">−</button>
+              <button id="reader-zoom-fit" type="button" class="reader-icon-btn">Fit Width</button>
+              <span id="reader-zoom-label" style="min-width:42px;text-align:center;color:var(--signal)">100%</span>
+              <button id="reader-zoom-in" type="button" class="reader-icon-btn" aria-label="Zoom in">+</button>
+            </div>
+
+            <div class="reader-controls-group">
+              <a id="reader-newtab-link" class="reader-icon-btn" href="downloads/quantum-krump-preprint.pdf" target="_blank" rel="noopener">↗ Open Tab</a>
+              <a id="reader-download-link" class="btn btn-primary btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">⬇ Download PDF</a>
+            </div>
+          </div>
+
+          <!-- Quick Section Jump Bookmarks -->
+          <div id="reader-bookmarks" class="reader-bookmarks" aria-label="Quick section jump bookmarks"></div>
+
+          <!-- Continuous Scroll PDF.js Canvas Stream (with native iframe fallback) -->
+          <div id="reader-viewport" class="reader-viewport">
+            <div id="reader-canvas-stream" class="reader-canvas-stream">
+              <div class="pdf-loading-msg">Loading typeset paper preview…</div>
+            </div>
+            <iframe id="reader-fallback-iframe" title="Paper PDF Fallback Reader" style="display:none;width:100%;height:100%;border:none;border-radius:6px" src="about:blank"></iframe>
           </div>
         </div>
       </div>
@@ -605,7 +661,7 @@ def main() -> None:
             </div>
 
             <div style="margin-top:0.9rem;display:flex;flex-wrap:wrap;gap:0.45rem">
-              <button type="button" class="btn btn-amber btn-sm" data-preview-pdf="downloads/krumprobot-physical-ai-paper.pdf" data-preview-title="KrumpRobot Physical AI Paper (11 Pages)">👁 Preview Paper</button>
+              <button type="button" class="btn btn-amber btn-sm" data-open-doc="krumprobot">📖 Read in Preview Panel</button>
               <a class="btn btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">⬇ PDF (11 pp.)</a>
               <a class="btn btn-ghost btn-sm" href="receipts/krumprobot_receipt_20261018.json">JSON Receipt</a>
             </div>
@@ -622,35 +678,42 @@ def main() -> None:
             <p class="kicker">05 · Multi-Qubit Scaling &amp; Circuit Compression</p>
             <h2 style="margin-bottom:0">Modal Quantum Scientist &amp; Haiqu Benchmarks</h2>
           </div>
-          <span style="font-family:var(--font-mono);font-size:0.74rem;color:var(--ink-muted)">🔍 Click any figure to zoom</span>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.45rem">
+            <button type="button" id="btn-chart-interactive" class="btn btn-primary btn-sm">📊 Interactive Charts (ECharts)</button>
+            <button type="button" id="btn-chart-static" class="btn btn-ghost btn-sm">🖼 High-Res Figures (Zoom)</button>
+          </div>
         </div>
         <p class="lead">
-          Executed on Modal Cloud alongside Haiqu circuit-state compression and Sandia QUOPS volumetric protocols, contrasting Frobenius-structured Krump ansätze against unstructured hardware-efficient baselines across <code>n = 4..10</code> qubits (and 12-qubit metrological synchrony).
+          Executed on Modal Cloud alongside Haiqu circuit-state compression and Sandia QUOPS volumetric protocols, contrasting Frobenius-structured Krump ansätze against unstructured hardware-efficient baselines across <code>n = 4..10</code> qubits (rendered interactively via open-source <a href="https://github.com/apache/echarts" target="_blank" rel="noopener">Apache ECharts</a>).
         </p>
 
-        <div class="fig-grid">
-          <figure class="fig-card">
+        <div id="benchmark-fig-grid" class="fig-grid">
+          <figure class="fig-card interactive-mode">
+            <div id="echart-barren" class="echart-box" aria-label="Interactive Barren Plateau Variance Chart"></div>
             <img src="figures/fig18_barren_plateaus.png" alt="Barren plateau gradient variance retention from n=4 to n=10 qubits" loading="lazy" />
             <figcaption>
-              <strong>Fig. A — Barren-Plateau Mitigation (n = 4..10 Qubits):</strong> Frobenius-structured Krump ansatz retains <strong>5.9× higher</strong> parameter-shift gradient variance at 10 qubits (decay slope −0.49 vs. −0.90 bits/qubit for unstructured Haar-random circuits).
+              <strong>Fig. A — Barren-Plateau Mitigation (n = 4..10 Qubits):</strong> Frobenius-structured Krump ansatz retains <strong>5.89× higher</strong> parameter-shift gradient variance at 10 qubits (<code>6.17×10⁻³</code> vs. <code>1.05×10⁻³</code> for Haar-random circuits).
             </figcaption>
           </figure>
-          <figure class="fig-card">
+          <figure class="fig-card interactive-mode">
+            <div id="echart-entropy" class="echart-box" aria-label="Interactive Bipartite Entanglement Entropy Chart"></div>
             <img src="figures/fig19_entanglement_scaling.png" alt="Bipartite von Neumann entanglement entropy scaling" loading="lazy" />
             <figcaption>
-              <strong>Fig. B — Bipartite Entanglement Entropy S(ρ_A):</strong> Controlled entanglement scaling across the 5 canonical Krump phenotypes without chaotic Page-curve thermalization.
+              <strong>Fig. B — Bipartite Entanglement Entropy S(ρ_A):</strong> Controlled entanglement scaling (bits) across the 5 canonical Krump phenotypes without chaotic Page-curve thermalization (click legend items to filter qubit counts).
             </figcaption>
           </figure>
-          <figure class="fig-card">
+          <figure class="fig-card interactive-mode">
+            <div id="echart-qfi" class="echart-box" aria-label="Interactive Quantum Fisher Information Scaling Chart"></div>
             <img src="figures/fig20_quantum_fisher_info.png" alt="Quantum Fisher Information scaling vs standard quantum limit" loading="lazy" />
             <figcaption>
-              <strong>Fig. C — Kinesthetic Quantum Metrology (F_Q):</strong> Benchmarks session-state Quantum Fisher Information between the unentangled Standard Quantum Limit (<code>SQL ∝ n</code>) and Heisenberg Limit (<code>n²</code>), reaching <code>I_Q = 40.0</code> (3.33× SQL) at 12-qubit group lock.
+              <strong>Fig. C — Kinesthetic Quantum Metrology (F_Q):</strong> Contrasts single-excitation SQL scaling (<code>F_Q = n</code>) and theoretical Heisenberg ceiling (<code>n²</code>) across <code>n = 4..10</code> qubits, plus 12-qubit paired group-lock (<code>I_Q = 40.0</code>, <code>3.33× SQL</code>).
             </figcaption>
           </figure>
-          <figure class="fig-card">
+          <figure class="fig-card interactive-mode">
+            <div id="echart-haiqu" class="echart-box" aria-label="Interactive Haiqu Circuit State Compression Chart"></div>
             <img src="figures/fig21_haiqu_compression_scaling.png" alt="Haiqu circuit depth compression scaling" loading="lazy" />
             <figcaption>
-              <strong>Fig. D — Haiqu Circuit-State Depth Compression:</strong> Reduces two-qubit gate layer depth by <strong>82.8%–87.8%</strong> (mean <strong>85.7%</strong>) across <code>n = 4..10</code> qubits while preserving state fidelity above <code>99.9%</code>.
+              <strong>Fig. D — Haiqu Circuit-State Depth Compression:</strong> Compresses raw two-qubit gate depth (<code>58 → 82</code> layers) down to a constant <code>10</code> layers (<strong>−82.8% to −87.8%</strong>) while holding state overlap fidelity <code>≥ 99.89%</code>.
             </figcaption>
           </figure>
         </div>
@@ -663,37 +726,50 @@ def main() -> None:
         <p class="kicker">06 · Artistic Production &amp; Cultural Lineage</p>
         <h2><em>11th Quantum Dimension</em> — 60-Minute Theatrical Work (20 Dancers)</h2>
         <p class="lead">
-          Co-conceived with <strong>Dakota Simao</strong> (<em>Jr Maddripp</em> lineage; <em>L'âge d'or</em>, <em>Mizu</em>, <em>K.R.U.M.P.</em>), scaling the four workshop mechanics into a full-length proscenium and cypher work with reactive <code>Three.js</code> / <code>anime.js</code> visuals, ElevenLabs spatial voiceover, and Moth Quantum sonic mapping.
+          Co-conceived with choreographer <strong>Dakota Simao</strong> (known in the Krump community as <strong><em>Twin Bad Liks</em></strong> and <strong><em>Jr Outrage</em></strong>; Golden Buzzer on <em>La France a un Incroyable Talent</em> with <strong>300M+ views</strong> worldwide), translating quantum mechanics into an emotionally visceral 1-hour narrative on overcoming domestic violence — supported by reactive <code>Three.js</code> / <code>anime.js</code> stage spatialization, ElevenLabs voice synthesis, and Moth Quantum sonic mapping.
         </p>
 
         <div class="acts-grid">
           <div class="act-card">
-            <span class="pill pill-signal">Act I · 00–15 min</span>
-            <h3 style="margin-top:0.65rem">Superposition</h3>
+            <span class="pill pill-signal">Act I · 00–15 min · Corridor Grid</span>
+            <h3 style="margin-top:0.65rem">Classical Bits</h3>
             <p style="font-size:0.87rem;color:var(--ink-muted);margin:0.45rem 0 0">
-              20 dancers emerge from zero-point stillness into breathing kinespheric spheres, holding simultaneous <em>LIVE</em> and <em>BUCK</em> potentials until percussive strobe freezes collapse subsets of the ensemble.
+              20 dancers move in rigid clockwork lanes enacting binary entrapment (<code>|0⟩</code> silent compliance vs. <code>|1⟩</code> explosive outburst), accompanied by ElevenLabs monotonic narration and Moth Quantum click pulses.
             </p>
           </div>
           <div class="act-card">
-            <span class="pill pill-amber">Act II · 15–32 min</span>
+            <span class="pill pill-amber">Act II · 15–30 min · Constellation</span>
+            <h3 style="margin-top:0.65rem">Qubits &amp; Superposition</h3>
+            <p style="font-size:0.87rem;color:var(--ink-muted);margin:0.45rem 0 0">
+              Continuous 3D emotional Bloch kinesphere (<code>α|0⟩ + β|1⟩</code>): pleading Contemporary upper-body reach coexists with coiled Krump <em>BUCK</em> defense until percussive <code>STOMP</code>/<code>JAB</code> shocks collapse the state.
+            </p>
+          </div>
+          <div class="act-card">
+            <span class="pill pill-ember">Act III · 30–45 min · Split-Field</span>
             <h3 style="margin-top:0.65rem">Entanglement</h3>
             <p style="font-size:0.87rem;color:var(--ink-muted);margin:0.45rem 0 0">
-              10 non-local Bell pairs routed across opposite stage quadrants via OpenJij QUBO ground-state scheduling (<code>E₀ = −7.3569</code>, zero spatial collisions), locking anti-correlated strikes without eye contact.
+              10 non-separable Bell-state (<code>|Φ⁺⟩</code>) duets routed collision-free via OpenJij QUBO (<code>E₀ = −7.3569</code>), enacting non-local trauma-bond mirroring across stage distance without physical contact.
             </p>
           </div>
           <div class="act-card">
-            <span class="pill pill-ember">Act III · 32–48 min</span>
-            <h3 style="margin-top:0.65rem">Interference</h3>
+            <span class="pill">Act IV · 45–60 min · Expanding Circle</span>
+            <h3 style="margin-top:0.65rem">Interference &amp; Liberation</h3>
             <p style="font-size:0.87rem;color:var(--ink-muted);margin:0.45rem 0 0">
-              Traveling 140 BPM polyrhythmic waves cross at stage center: in-phase <code>CHEST POP</code> fronts amplify into collective elevation (<code>Δφ = 0</code>), while out-of-phase fronts cancel into razor-sharp silence (<code>Δφ = π</code>).
+              Cycle-breaking phase inversion (<code>Δφ = π</code>, <code>|A − A|² = 0</code>): incoming kinetic aggression is absorbed into grounded floorwork rather than <code>Δφ = 0</code> escalation, culminating in a unison session <em>Kill-Off</em>.
             </p>
           </div>
-          <div class="act-card">
-            <span class="pill">Act IV · 48–60 min</span>
-            <h3 style="margin-top:0.65rem">The Measurement Cypher</h3>
-            <p style="font-size:0.87rem;color:var(--ink-muted);margin:0.45rem 0 0">
-              Traditional South Central LA Krump session ring honoring Tight Eyez, Big Mijo, Miss Prissy, and Lil C — where witness hype acts as mid-circuit referee measurement driving the final unison <em>Kill-Off</em>.
-            </p>
+        </div>
+
+        <div class="sandbox-bar" style="margin-top:1.15rem">
+          <span style="font-family:var(--font-mono);font-size:0.74rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.06em">
+            Dakota Simao (<em>Twin Bad Liks</em> / <em>Jr Outrage</em>) Repertoire:
+          </span>
+          <div class="sandbox-links">
+            <a class="btn btn-sm" href="https://youtu.be/-q6CQAppxSU" target="_blank" rel="noopener">🏆 France's Got Talent (300M+ Views) ↗</a>
+            <a class="btn btn-sm" href="https://youtu.be/fxDX7mu_QHY" target="_blank" rel="noopener">🌟 Got Talent Global ↗</a>
+            <a class="btn btn-sm" href="https://youtu.be/QeUatDxxhVM" target="_blank" rel="noopener">🤝 Contemporary Krump Duet ↗</a>
+            <a class="btn btn-sm" href="https://www.youtube.com/@dakotasimao" target="_blank" rel="noopener">▶ @dakotasimao ↗</a>
+            <button type="button" class="btn btn-primary btn-sm" data-open-doc="pedagogy" data-open-page="8">📖 Read Staging in Panel →</button>
           </div>
         </div>
       </div>
@@ -877,23 +953,6 @@ def main() -> None:
       </div>
     </div>
   </footer>
-
-  <!-- In-Page PDF Reader Modal -->
-  <div id="pdf-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="pdf-modal-title">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <strong id="pdf-modal-title" style="font-family:var(--font-display);font-size:1.25rem;text-transform:uppercase;letter-spacing:0.02em">PDF Preview</strong>
-        <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
-          <a id="pdf-modal-newtab" class="btn btn-sm" href="#" target="_blank" rel="noopener">Open in New Tab ↗</a>
-          <a id="pdf-modal-download" class="btn btn-primary btn-sm" href="#" download>⬇ Download PDF</a>
-          <button id="pdf-modal-close" type="button" class="btn btn-ghost btn-sm">✕ Close</button>
-        </div>
-      </div>
-      <div class="modal-body">
-        <iframe id="pdf-iframe" title="Research Paper PDF Reader" src="about:blank"></iframe>
-      </div>
-    </div>
-  </div>
 
   <!-- Figure Zoom Lightbox -->
   <div id="img-lightbox" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Figure Zoom Lightbox">
