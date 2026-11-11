@@ -21,7 +21,7 @@ const PREPRINTS = {
     label: "Deutsch",
     file: "downloads/quantum-krump-preprint-de.pdf",
     filename: "quantum-krump-preprint-de.pdf",
-    title: "Referenzmonografie (Deutsch)",
+    title: "Referenzmonografie (Deutsch · 56 Seiten)",
     abstract:
       "Wir präsentieren Quantum Krump: ein körperbasiertes Lehr- und Forschungsökosystem, das Superposition, Verschränkung und Phaseninterferenz durch Krump Street Dance, Laban-Bewegungsanalyse (LMA) und angewandte Kategorientheorie (DisCoPy Frobenius-Stringdiagramme) vermittelt — einschließlich der einstündigen Bühnenproduktion 11th Quantum Dimension, verifizierter Quantinuum-Helios-1E-lite-Emulation (2.048 Emulator-Shots, 0 physische QPU-Shots, 99,41% Duett-Fidelität) sowie Motion2MixamoRig & KrumpRobot Physical AI."
   },
@@ -29,7 +29,7 @@ const PREPRINTS = {
     label: "Nederlands",
     file: "downloads/quantum-krump-preprint-nl.pdf",
     filename: "quantum-krump-preprint-nl.pdf",
-    title: "Referentiemonografie (Nederlands)",
+    title: "Referentiemonografie (Nederlands · 54 Pagina's)",
     abstract:
       "Wij presenteren Quantum Krump, een belichaamd onderwijscurriculum, DisCoPy-categorische formalisering, het 60-minuten theaterwerk 11th Quantum Dimension met Dakota Simao, en het Motion2MixamoRig / KrumpRobot Physical AI-raamwerk — gevalideerd over 18 computationele benchmarks waaronder Quantinuum Nexus Helios-1E-lite-emulatie (99,41% duetgetrouwheid; 0 fysieke QPU-shots) en Modal Cloud."
   },
@@ -37,7 +37,7 @@ const PREPRINTS = {
     label: "日本語",
     file: "downloads/quantum-krump-preprint-ja.pdf",
     filename: "quantum-krump-preprint-ja.pdf",
-    title: "マスター学術モノグラフ（日本語版）",
+    title: "マスター学術モノグラフ（日本語版・全62頁）",
     abstract:
       "本研究は、サウス・セントラル・ロサンゼルス発祥のストリートダンス「Krump」、ラバン動作解析（LMA）、および応用圏論（DisCoPyフロベニウス弦図）を通じて重ね合わせ・量子もつれ・位相干渉を体現する『Quantum Krump』を提示する。Dakota Simaoとの60分舞台作品『11th Quantum Dimension』、Quantinuum Helios-1E-liteエミュレータ検証（2,048ショット、実機QPU 0ショット明記、デュエット忠実度99.41%）、Modal Cloud上のQKMLMおよび単眼3D復元・ヒューマノイド制御モデルKrumpRobot（測地線誤差2.32°、推論遅延2.70 ms）を統合する。"
   },
@@ -45,7 +45,7 @@ const PREPRINTS = {
     label: "한국어",
     file: "downloads/quantum-krump-preprint-ko.pdf",
     filename: "quantum-krump-preprint-ko.pdf",
-    title: "마스터 학술 모노그래프 (한국어판)",
+    title: "마스터 학술 모노그래프 (한국어판 · 53쪽)",
     abstract:
       "본 논문은 크럼프(Krump) 스트리트 댄스, 라반 동작 분석(LMA), DisCoPy 프로베니우스 모노이달 범주론을 결합하여 중첩·얽힘·위상 간섭을 교육하는 신체화 프레임워크 『Quantum Krump』를 제시한다. 다코타 시마오와의 60분 무대 작품 『제11 양자 차원』, Quantinuum Helios-1E-lite 에뮬레이터 검증(2,048샷, 물리 QPU 0샷 명시, 99.41% 충실도), Modal 기반 QKMLM 및 휴머노이드 제어 정책 KrumpRobot(오차 2.32°, 지연 2.70 ms)의 전 과정을 검증한다."
   },
@@ -53,7 +53,7 @@ const PREPRINTS = {
     label: "中文",
     file: "downloads/quantum-krump-preprint-zh.pdf",
     filename: "quantum-krump-preprint-zh.pdf",
-    title: "完整学术专著预印本（中文版）",
+    title: "完整学术专著预印本（中文版 · 50 页）",
     abstract:
       "本文提出《量子克朗普》(Quantum Krump)，结合洛杉矶南区街舞 Krump、拉班动作分析 (LMA) 与应用范畴论 (DisCoPy 弗罗贝尼乌斯弦图)，具身化讲授量子叠加、纠缠与相位干涉。体系涵盖与 Dakota Simao 共创的 60 分钟剧场作品《第 11 量子维度》、Quantinuum Helios-1E-lite 模拟器验证（2,048 次模拟采样，明确声明 0 次真实物理 QPU 采样，双人舞保真度 99.41%）、Modal 云端 10 量子比特贫瘠高原缓解（5.9× 方差保持）以及 Motion2MixamoRig 与 KrumpRobot 具身人形机器人控制策略（测地误差 2.32°，中位延迟 2.70 ms）。"
   },
@@ -61,7 +61,7 @@ const PREPRINTS = {
     label: "Filipino",
     file: "downloads/quantum-krump-preprint-fil.pdf",
     filename: "quantum-krump-preprint-fil.pdf",
-    title: "Master Preprint Monograph (Filipino)",
+    title: "Master Preprint Monograph (Filipino · 58 Pahina)",
     abstract:
       "Inilalahad namin ang Quantum Krump, isang body-first na kurikulum, pormalismong kategoryal sa DisCoPy, produksyong pang-entablado na 11th Quantum Dimension kasama si Dakota Simao, at Physical AI pipeline para sa Motion2MixamoRig at KrumpRobot — napatunayan sa Quantinuum Nexus Helios-1E-lite emulator (2,048 shots; 0 pisikal na QPU shots; 99.41% duet fidelity) at Modal Cloud."
   },
@@ -69,7 +69,7 @@ const PREPRINTS = {
     label: "हिन्दी",
     file: "downloads/quantum-krump-preprint-hi.pdf",
     filename: "quantum-krump-preprint-hi.pdf",
-    title: "मुख्य शोध मोनोग्राफ (हिन्दी संस्करण)",
+    title: "मुख्य शोध मोनोग्राफ (हिन्दी संस्करण · 52 पृष्ठ)",
     abstract:
       "हम Quantum Krump प्रस्तुत करते हैं — लॉस एंजेलिस के Krump स्ट्रीट डांस, लाबान मूवमेंट एनालिसिस (LMA) और DisCoPy श्रेणी सिद्धांत के माध्यम से अध्यारोपण (superposition), उलझाव (entanglement) और व्यतिकरण (interference) सिखाने की शरीर-प्रथम कार्यशाला, 11th Quantum Dimension रंगमंच प्रस्तुति, Quantinuum Helios-1E-lite एमुलेटर सत्यापन (99.41% युगल निष्ठा, 0 भौतिक QPU शॉट्स) तथा Motion2MixamoRig / KrumpRobot ह्यूमनॉइड फिजिकल AI प्रणाली।"
   },
@@ -357,9 +357,9 @@ const PAPER_DOCS = {
 };
 
 function initPreprintAndModals() {
-  const PDFJS_CDN = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174";
+  const PDFJS_CDN = "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174";
   if (window.pdfjsLib) {
-    window.pdfjsLib.GlobalWorkerOptions.workerSrc = `${PDFJS_CDN}/pdf.worker.min.js`;
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = "assets/vendor/pdf.worker.min.js";
   }
 
   // Figure Lightbox
@@ -803,14 +803,31 @@ function initPreprintAndModals() {
   });
 
   // 10-Language Monograph Selector
+  const BCP47_LANG = {
+    en: "en",
+    fr: "fr",
+    de: "de",
+    nl: "nl",
+    ja: "ja",
+    ko: "ko",
+    zh: "zh-Hans",
+    fil: "tl",
+    hi: "hi",
+    ta: "ta"
+  };
+
   if (container && titleEl && absEl && dlBtn) {
     const syncLangUI = (reloadPdf = true) => {
       const item = PREPRINTS[activeLang] || PREPRINTS.en;
+      const bcp = BCP47_LANG[activeLang] || activeLang;
       titleEl.textContent = item.title;
+      titleEl.setAttribute("lang", bcp);
       absEl.textContent = item.abstract;
+      absEl.setAttribute("lang", bcp);
       dlBtn.setAttribute("href", item.file);
       dlBtn.setAttribute("download", item.filename);
       dlBtn.textContent = `⬇ Download ${item.label} PDF`;
+      dlBtn.setAttribute("lang", bcp);
       if (tabMonograph) {
         tabMonograph.textContent = `📘 Master Monograph (${activeLang.toUpperCase()})`;
       }
@@ -829,6 +846,7 @@ function initPreprintAndModals() {
       btn.type = "button";
       btn.className = "lang-btn";
       btn.dataset.lang = code;
+      btn.setAttribute("lang", BCP47_LANG[code] || code);
       btn.textContent = info.label;
       btn.addEventListener("click", () => {
         activeLang = code;
@@ -1469,7 +1487,7 @@ function initBenchmarkCharts() {
     trigger: "axis",
     backgroundColor: "rgba(11, 21, 23, 0.96)",
     borderColor: "rgba(45, 212, 191, 0.45)",
-    textStyle: { color: "#eef7f5", fontFamily: "Barlow, sans-serif", fontSize: 12 }
+    textStyle: { color: "#eef7f5", fontFamily: "IBM Plex Sans, sans-serif", fontSize: 12 }
   };
   const saveTool = {
     right: 6,
