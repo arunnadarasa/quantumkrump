@@ -38,14 +38,16 @@
 </head>
 <body>
 
-  <!-- Sticky Navigation -->
+  <!-- Sticky Navigation with Top Progress Indicator & Scroll-Spy -->
   <header class="site-nav">
+    <div id="scroll-progress" class="scroll-progress"></div>
     <div class="site-nav-inner">
       <a href="#top" class="brand">
         <span class="brand-mark">QK</span>
         <span>Quantum Krump</span>
       </a>
-      <nav class="nav-links" aria-label="Primary sections">
+
+      <nav id="primary-nav" class="nav-links" aria-label="Primary sections">
         <a href="#papers">Papers (10 Langs)</a>
         <a href="#interactive">Bloch &amp; LMA</a>
         <a href="#category">DisCoPy &amp; Helios</a>
@@ -55,11 +57,16 @@
         <a href="#census">Receipts</a>
         <a href="#cite">Cite</a>
       </nav>
+
+      <div class="mobile-nav-actions">
+        <a class="btn btn-primary btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">⬇ PDF</a>
+        <button id="menu-toggle" type="button" class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Sections</button>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
   <main id="top">
+    <!-- Hero -->
     <section class="hero">
       <div class="container">
         <div class="hero-badges">
@@ -91,37 +98,58 @@
           </div>
         </div>
 
-        <div class="cta-cluster">
-          <a class="btn btn-primary" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">
-            ⬇ Master Monograph (55 pp. PDF)
-          </a>
-          <a class="btn" href="downloads/quantum-krump-pedagogy-paper.pdf" download="quantum-krump-pedagogy-paper.pdf">
-            ⬇ Pedagogy Companion (15 pp.)
-          </a>
-          <a class="btn btn-amber" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">
-            ⬇ KrumpRobot Physical AI Paper (11 pp.)
-          </a>
-          <a class="btn" href="https://huggingface.co/spaces/socialprescribing/quantumkrump" target="_blank" rel="noopener">
-            🤗 QKMLM Space
-          </a>
-          <a class="btn" href="https://huggingface.co/spaces/socialprescribing/KrumpRobot" target="_blank" rel="noopener">
-            🤖 KrumpRobot Space
-          </a>
-          <a class="btn" href="https://play.guppylang.org/" target="_blank" rel="noopener">
-            ⚡ Guppy Playpond
-          </a>
-          <a class="btn" href="https://github.com/arunnadarasa/quantumkrump" target="_blank" rel="noopener">
-            ★ GitHub Repo
-          </a>
+        <!-- Scannable 3-Track Audience Entry Cards -->
+        <div class="tracks-grid" aria-label="Research Tracks">
+          <div class="track-card">
+            <div>
+              <div class="track-role">Track 01 · Full Archival Reference</div>
+              <div class="track-title">55-Page Master Monograph</div>
+              <p class="track-desc">Complete curriculum, DisCoPy proofs, Helios-1E-lite emulation, and 4-Act staging in 10 languages.</p>
+            </div>
+            <div class="track-actions">
+              <button type="button" class="btn btn-primary btn-sm" data-preview-pdf="downloads/quantum-krump-preprint.pdf" data-preview-title="Master Monograph (English · 55 Pages)">👁 Preview</button>
+              <a class="btn btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">⬇ PDF</a>
+              <a class="btn btn-ghost btn-sm" href="#papers">10 Languages →</a>
+            </div>
+          </div>
+
+          <div class="track-card">
+            <div>
+              <div class="track-role">Track 02 · Educators &amp; Choreographers</div>
+              <div class="track-title">15-Page Pedagogy Paper</div>
+              <p class="track-desc">90-minute classroom delivery, Bloch Kinesphere drills, 12-item concept inventory &amp; safeguarding.</p>
+            </div>
+            <div class="track-actions">
+              <button type="button" class="btn btn-sm" style="border-color:var(--signal);color:var(--signal)" data-preview-pdf="downloads/quantum-krump-pedagogy-paper.pdf" data-preview-title="Embodied Pedagogy Companion (15 Pages)">👁 Preview</button>
+              <a class="btn btn-sm" href="downloads/quantum-krump-pedagogy-paper.pdf" download="quantum-krump-pedagogy-paper.pdf">⬇ PDF</a>
+              <a class="btn btn-ghost btn-sm" href="#interactive">Try 3D Bloch →</a>
+            </div>
+          </div>
+
+          <div class="track-card amber-track">
+            <div>
+              <div class="track-role">Track 03 · Standalone Robotics &amp; Vision</div>
+              <div class="track-title">11-Page KrumpRobot Paper</div>
+              <p class="track-desc">Zero quantum circuits: monocular 3D recovery, rest-relative Kabsch retargeting &amp; causal GRU control.</p>
+            </div>
+            <div class="track-actions">
+              <button type="button" class="btn btn-amber btn-sm" data-preview-pdf="downloads/krumprobot-physical-ai-paper.pdf" data-preview-title="KrumpRobot Physical AI Paper (11 Pages)">👁 Preview</button>
+              <a class="btn btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">⬇ PDF</a>
+              <a class="btn btn-ghost btn-sm" href="#krumprobot">1:38 Studio →</a>
+            </div>
+          </div>
         </div>
 
-        <div class="honesty-banner" role="note">
-          <div>
-            <strong>Epistemic Demarcation &amp; Reproducibility Pledge:</strong>
-            Movement is a <em>pedagogical and structural isomorphism</em>—human bodies and humanoid robots obey classical Newtonian mechanics (<var>ħ</var> → 0) and do not exhibit microscopic quantum coherence.
-          </div>
-          <div style="color:var(--ink-muted)">
-            All trapped-ion benchmarks were executed on the cloud-hosted <strong>Quantinuum Nexus <code>Helios-1E-lite</code></strong> noisy stabilizer/state-vector emulator (2,048 total shots across sealed job receipts; <strong>0 physical QPU hardware shots claimed</strong>). Classical G4 state-vector simulation completes our 2–10 qubit circuits in <code>0.33 µs</code>, establishing an explicit anti-hype baseline.
+        <!-- Secondary Live Cloud Sandboxes Bar -->
+        <div class="sandbox-bar">
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.06em">
+            Interactive Cloud Environments:
+          </span>
+          <div class="sandbox-links">
+            <a class="btn btn-sm" href="https://huggingface.co/spaces/socialprescribing/quantumkrump" target="_blank" rel="noopener">🤗 QKMLM Space ↗</a>
+            <a class="btn btn-amber btn-sm" href="https://huggingface.co/spaces/socialprescribing/KrumpRobot" target="_blank" rel="noopener">🤖 KrumpRobot 3D Space ↗</a>
+            <a class="btn btn-sm" href="https://play.guppylang.org/" target="_blank" rel="noopener">⚡ Guppy Playpond ↗</a>
+            <a class="btn btn-sm" href="https://github.com/arunnadarasa/quantumkrump" target="_blank" rel="noopener">★ GitHub Repo ↗</a>
           </div>
         </div>
 
@@ -136,7 +164,7 @@
           </div>
           <div class="metric-box">
             <div class="metric-val">98.60%</div>
-            <div class="metric-lbl">QKMLM 4-Qubit VQC Hold-Out Test Accuracy (Modal Cloud)</div>
+            <div class="metric-lbl">QKMLM 4-Qubit VQC Hold-Out Test Accuracy (Modal)</div>
           </div>
           <div class="metric-box">
             <div class="metric-val amber">8.765×10⁻¹¹</div>
@@ -150,6 +178,11 @@
             <div class="metric-val ember">2.70 ms</div>
             <div class="metric-lbl">1.01M-Param Causal GRU Inference Latency (370 Hz)</div>
           </div>
+        </div>
+
+        <div class="honesty-banner" role="note">
+          <strong>Epistemic Demarcation &amp; Anti-Hype Baseline:</strong>
+          Movement is a <em>pedagogical and structural isomorphism</em>—human bodies and humanoid robots obey classical Newtonian mechanics (<var>ħ</var> → 0) and do not exhibit microscopic quantum coherence. All trapped-ion circuits ran on the cloud <strong>Quantinuum Nexus <code>Helios-1E-lite</code></strong> noisy emulator (2,048 shots across sealed job receipts; <strong>0 physical QPU hardware shots claimed</strong>; classical G4 state-vector floor <code>0.33 µs</code>).
         </div>
       </div>
     </section>
@@ -179,9 +212,10 @@
                 <li><strong>Audit:</strong> 18 verified computational &amp; governance lanes</li>
               </ul>
             </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
-              <a class="btn btn-primary btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">⬇ English PDF (55 pp.)</a>
-              <a class="btn btn-sm" href="downloads/quantum-krump-preprint-v1.pdf" download="quantum-krump-preprint-v1.pdf">v1 Archival (7 pp.)</a>
+            <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
+              <button type="button" class="btn btn-primary btn-sm" data-preview-pdf="downloads/quantum-krump-preprint.pdf" data-preview-title="Master Monograph (English · 55 Pages)">👁 Preview PDF</button>
+              <a class="btn btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">⬇ English (55 pp.)</a>
+              <a class="btn btn-ghost btn-sm" href="downloads/quantum-krump-preprint-v1.pdf" download="quantum-krump-preprint-v1.pdf">v1 (7 pp.)</a>
             </div>
           </article>
 
@@ -199,10 +233,9 @@
                 <li><strong>Safeguarding:</strong> Trauma-informed somatic facilitation &amp; cultural lineage credit</li>
               </ul>
             </div>
-            <div>
-              <a class="btn btn-sm" style="border-color:var(--signal);color:var(--signal)" href="downloads/quantum-krump-pedagogy-paper.pdf" download="quantum-krump-pedagogy-paper.pdf">
-                ⬇ Download Pedagogy Paper (15 pp. PDF)
-              </a>
+            <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
+              <button type="button" class="btn btn-sm" style="border-color:var(--signal);color:var(--signal)" data-preview-pdf="downloads/quantum-krump-pedagogy-paper.pdf" data-preview-title="Embodied Pedagogy Companion (15 Pages)">👁 Preview PDF</button>
+              <a class="btn btn-sm" href="downloads/quantum-krump-pedagogy-paper.pdf" download="quantum-krump-pedagogy-paper.pdf">⬇ Download (15 pp.)</a>
             </div>
           </article>
 
@@ -220,10 +253,9 @@
                 <li><strong>Benchmarks:</strong> 8.765×10⁻¹¹ m FK, 2.32° geodesic error, 4.2 cm ZMP margin</li>
               </ul>
             </div>
-            <div>
-              <a class="btn btn-amber btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">
-                ⬇ Download KrumpRobot Paper (11 pp. PDF)
-              </a>
+            <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
+              <button type="button" class="btn btn-amber btn-sm" data-preview-pdf="downloads/krumprobot-physical-ai-paper.pdf" data-preview-title="KrumpRobot Physical AI Paper (11 Pages)">👁 Preview PDF</button>
+              <a class="btn btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">⬇ Download (11 pp.)</a>
             </div>
           </article>
         </div>
@@ -232,19 +264,22 @@
         <div class="lang-bar">
           <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.75rem">
             <div>
-              <span class="kicker" style="margin-bottom:0.2rem">Multilingual Open Science</span>
+              <span class="kicker" style="margin-bottom:0.2rem">Multilingual Open Science · Select Language</span>
               <h3 id="active-lang-title">Master Monograph (English · 55 Pages)</h3>
             </div>
-            <a id="active-lang-download" class="btn btn-primary btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">
-              ⬇ Download English PDF
-            </a>
+            <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
+              <button id="active-lang-preview" type="button" class="btn btn-sm">👁 Preview in Browser</button>
+              <a id="active-lang-download" class="btn btn-primary btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">
+                ⬇ Download English PDF
+              </a>
+            </div>
           </div>
 
           <div id="lang-pills" class="lang-pills" role="tablist" aria-label="Select monograph language"></div>
           <div id="active-lang-abstract" class="abstract-box"></div>
 
-          <div style="margin-top:0.85rem;display:flex;flex-wrap:wrap;gap:0.45rem 0.9rem;font-size:0.8rem">
-            <span style="color:var(--ink-dim)">Direct PDF mirrors:</span>
+          <div style="margin-top:0.8rem;display:flex;flex-wrap:wrap;gap:0.4rem 0.85rem;font-size:0.79rem">
+            <span style="color:var(--ink-dim)">Direct PDF links:</span>
             <a href="downloads/quantum-krump-preprint.pdf">EN</a>
             <a href="downloads/quantum-krump-preprint-fr.pdf">FR</a>
             <a href="downloads/quantum-krump-preprint-de.pdf">DE</a>
@@ -274,9 +309,9 @@
         <div class="two-col">
           <!-- Left: Interactive 3D Bloch Canvas -->
           <div class="panel">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.65rem">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:0.5rem;margin-bottom:0.6rem">
               <h3>3D Bloch Kinesphere Simulator</h3>
-              <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-muted)">Drag sphere to orbit</span>
+              <span style="font-family:var(--font-mono);font-size:0.73rem;color:var(--ink-muted)">Drag sphere to orbit</span>
             </div>
 
             <div id="bloch-canvas-wrap" class="bloch-canvas-wrap">
@@ -284,14 +319,15 @@
             </div>
 
             <div class="gate-grid" aria-label="Quantum Krump movement gates">
-              <button type="button" class="btn btn-sm" data-bloch-gate="H" title="Hadamard Gate">STOMP · H</button>
-              <button type="button" class="btn btn-sm" data-bloch-gate="X" title="Pauli-X Bit Flip">JAB · X</button>
-              <button type="button" class="btn btn-sm" data-bloch-gate="Z" title="Pauli-Z Phase Flip">CHEST POP · Z</button>
-              <button type="button" class="btn btn-sm" data-bloch-gate="RX" title="Continuous Rx(pi/2)">ARM SWING · Rx(π/2)</button>
-              <button type="button" class="btn btn-sm" data-bloch-gate="S" title="Phase S = Rz(pi/2)">BUCK HOP · S</button>
+              <button type="button" class="btn btn-sm" data-bloch-gate="H">STOMP · H</button>
+              <button type="button" class="btn btn-sm" data-bloch-gate="X">JAB · X</button>
+              <button type="button" class="btn btn-sm" data-bloch-gate="Z">CHEST POP · Z</button>
+              <button type="button" class="btn btn-sm" data-bloch-gate="RX">ARM SWING · Rx(π/2)</button>
+              <button type="button" class="btn btn-sm" data-bloch-gate="S">BUCK HOP · S</button>
               <button type="button" class="btn btn-amber btn-sm" data-bloch-gate="COLLAPSE">HIT! · Measure</button>
-              <button type="button" class="btn btn-sm" data-bloch-gate="RESET">Reset |0⟩</button>
+              <button type="button" class="btn btn-ghost btn-sm" data-bloch-gate="RESET">Reset |0⟩</button>
             </div>
+            <div id="bloch-gate-cue" class="gate-cue">Tap a Krump gate button above or drag sliders below to transform |ψ⟩ smoothly.</div>
 
             <div class="slider-row">
               <label for="theta-slider">Polar θ (Level)</label>
@@ -308,14 +344,14 @@
 
             <div class="prob-bars">
               <div>
-                <div style="display:flex;justify-content:space-between;font-size:0.78rem">
+                <div style="display:flex;justify-content:space-between;font-size:0.77rem">
                   <span>P(|0⟩ · LIVE)</span>
                   <strong id="p0-txt">75.0%</strong>
                 </div>
                 <div class="prob-bar-track"><div id="p0-fill" class="prob-bar-fill" style="width:75%"></div></div>
               </div>
               <div>
-                <div style="display:flex;justify-content:space-between;font-size:0.78rem">
+                <div style="display:flex;justify-content:space-between;font-size:0.77rem">
                   <span>P(|1⟩ · BUCK)</span>
                   <strong id="p1-txt">25.0%</strong>
                 </div>
@@ -327,18 +363,18 @@
           <!-- Right: LMA x Krump x Quantum Mapper -->
           <div class="panel">
             <h3>Laban Effort × Krump × Unitary Gate</h3>
-            <p style="margin:0.4rem 0 0;font-size:0.9rem;color:var(--ink-muted)">
-              Click any of the four primary Laban Effort Factors or eight Laban Basic Effort Actions below to inspect its biomechanical signature and compiled quantum operator under <code>F_DisCo : C_Krump → FHilb</code>.
+            <p style="margin:0.35rem 0 0;font-size:0.88rem;color:var(--ink-muted)">
+              Select any of the four Laban Effort Factors or eight Laban Basic Effort Actions to inspect its biomechanical signature and compiled operator under <code>F_DisCo : C_Krump → FHilb</code>.
             </p>
 
             <div id="lkq-list" class="lkq-list"></div>
 
-            <div style="margin-top:1.1rem">
-              <span class="kicker" style="margin-bottom:0.35rem">8 Laban Basic Effort Actions (Weight × Time × Space)</span>
+            <div style="margin-top:1.05rem">
+              <span class="kicker" style="margin-bottom:0.3rem">8 Laban Basic Effort Actions (Weight × Time × Space)</span>
               <div id="effort-chips" class="effort-actions-grid"></div>
             </div>
 
-            <div id="lkq-detail" class="abstract-box" style="margin-top:1rem;min-height:98px"></div>
+            <div id="lkq-detail" class="abstract-box" style="margin-top:0.95rem;min-height:96px"></div>
           </div>
         </div>
       </div>
@@ -358,17 +394,18 @@
         <div class="two-col">
           <!-- Left: Interactive SVG DisCoPy Stepper -->
           <div class="panel">
-            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem;margin-bottom:0.75rem">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem;margin-bottom:0.65rem">
               <h3>5-Layer Frobenius Duet Diagram</h3>
-              <div style="display:flex;gap:0.45rem">
-                <button id="discopy-next" type="button" class="btn btn-primary btn-sm">Step Layer →</button>
-                <button id="discopy-reset" type="button" class="btn btn-sm">Layer 1</button>
+              <div style="display:flex;gap:0.4rem">
+                <button id="discopy-autoplay" type="button" class="btn btn-sm">▶ Auto-Play</button>
+                <button id="discopy-next" type="button" class="btn btn-primary btn-sm">Next Layer →</button>
               </div>
             </div>
 
+            <div id="discopy-pills" class="step-pills" aria-label="Select string diagram layer"></div>
+
             <div class="discopy-svg-wrap">
-              <svg viewBox="0 0 420 320" width="100%" height="310" role="img" aria-label="Interactive 5-layer DisCoPy Frobenius Krump Duet string diagram">
-                <!-- Background Subtle Grid -->
+              <svg viewBox="0 0 420 320" width="100%" height="300" role="img" aria-label="Interactive 5-layer DisCoPy Frobenius Krump Duet string diagram">
                 <defs>
                   <linearGradient id="capGrad" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0%" stop-color="#38d6c4" />
@@ -376,44 +413,44 @@
                   </linearGradient>
                 </defs>
 
-                <!-- Layer 0: Cap eta_D (Bell initialization) -->
+                <!-- Layer 0: Cap eta_D -->
                 <g id="dc-layer-0" class="discopy-layer">
                   <path d="M 120 58 C 120 14, 300 14, 300 58" fill="none" stroke="url(#capGrad)" stroke-width="4" />
                   <circle cx="210" cy="25" r="6" fill="#38d6c4" />
                   <text x="210" y="13" fill="#eef7f5" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">η_D : Bell Cap |Φ+⟩</text>
-                  <text x="86" y="54" fill="#9db5b2" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="end">Dancer A</text>
-                  <text x="334" y="54" fill="#9db5b2" font-family="JetBrains Mono, monospace" font-size="10">Dancer B</text>
+                  <text x="86" y="54" fill="#9eb7b4" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="end">Dancer A</text>
+                  <text x="334" y="54" fill="#9eb7b4" font-family="JetBrains Mono, monospace" font-size="10">Dancer B</text>
                 </g>
 
-                <!-- Layer 1: Parallel Z @ X (CHEST POP (x) JAB) -->
+                <!-- Layer 1: Parallel Z @ X -->
                 <g id="dc-layer-1" class="discopy-layer">
                   <line x1="120" y1="58" x2="120" y2="115" stroke="#38d6c4" stroke-width="3" />
                   <line x1="300" y1="58" x2="300" y2="115" stroke="#f4ae42" stroke-width="3" />
-                  <rect x="66" y="72" width="108" height="32" rx="6" fill="#15272b" stroke="#38d6c4" stroke-width="2" />
+                  <rect x="66" y="72" width="108" height="32" rx="6" fill="#142529" stroke="#38d6c4" stroke-width="2" />
                   <text x="120" y="92" fill="#38d6c4" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" text-anchor="middle">CHEST POP · Z</text>
-                  <rect x="246" y="72" width="108" height="32" rx="6" fill="#15272b" stroke="#f4ae42" stroke-width="2" />
+                  <rect x="246" y="72" width="108" height="32" rx="6" fill="#142529" stroke="#f4ae42" stroke-width="2" />
                   <text x="300" y="92" fill="#f4ae42" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" text-anchor="middle">JAB · X</text>
                 </g>
 
-                <!-- Layer 2: Stage Swap sigma_{D,D} -->
+                <!-- Layer 2: Stage Swap -->
                 <g id="dc-layer-2" class="discopy-layer">
                   <path d="M 120 115 C 120 148, 300 142, 300 175" fill="none" stroke="#38d6c4" stroke-width="3" />
                   <path d="M 300 115 C 300 148, 120 142, 120 175" fill="none" stroke="#f4ae42" stroke-width="3" />
-                  <circle cx="210" cy="145" r="13" fill="#0c1719" stroke="#9db5b2" stroke-width="1.5" />
+                  <circle cx="210" cy="145" r="13" fill="#0b1517" stroke="#9eb7b4" stroke-width="1.5" />
                   <text x="210" y="149" fill="#eef7f5" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">σ</text>
                 </g>
 
-                <!-- Layer 3: Continuous Foil Rx(pi/2) @ Rz(pi/2) -->
+                <!-- Layer 3: Continuous Foil -->
                 <g id="dc-layer-3" class="discopy-layer">
                   <line x1="120" y1="175" x2="120" y2="236" stroke="#f4ae42" stroke-width="3" />
                   <line x1="300" y1="175" x2="300" y2="236" stroke="#38d6c4" stroke-width="3" />
-                  <rect x="58" y="188" width="124" height="32" rx="6" fill="#15272b" stroke="#f06a3b" stroke-width="2" />
+                  <rect x="58" y="188" width="124" height="32" rx="6" fill="#142529" stroke="#f06a3b" stroke-width="2" />
                   <text x="120" y="208" fill="#ff9a76" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" text-anchor="middle">ARM SWING · Rx</text>
-                  <rect x="238" y="188" width="124" height="32" rx="6" fill="#15272b" stroke="#a78bfa" stroke-width="2" />
+                  <rect x="238" y="188" width="124" height="32" rx="6" fill="#142529" stroke="#a78bfa" stroke-width="2" />
                   <text x="300" y="208" fill="#c4b5fd" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" text-anchor="middle">BUCK HOP · S</text>
                 </g>
 
-                <!-- Layer 4: Joint Climax Cup epsilon_D -->
+                <!-- Layer 4: Joint Climax Cup -->
                 <g id="dc-layer-4" class="discopy-layer">
                   <path d="M 120 236 C 120 286, 300 286, 300 236" fill="none" stroke="url(#capGrad)" stroke-width="4" />
                   <circle cx="210" cy="274" r="6" fill="#f4ae42" />
@@ -422,27 +459,27 @@
               </svg>
             </div>
 
-            <div class="ket-readout" style="margin-top:0.85rem">
+            <div class="ket-readout" style="margin-top:0.8rem">
               <div id="discopy-step-title" style="color:var(--signal);font-weight:700"></div>
-              <div id="discopy-step-circuit" style="margin-top:0.25rem;color:var(--amber)"></div>
+              <div id="discopy-step-circuit" style="margin-top:0.22rem;color:var(--amber)"></div>
             </div>
-            <p id="discopy-step-desc" style="margin:0.65rem 0 0;font-size:0.88rem;color:var(--ink-muted)"></p>
+            <p id="discopy-step-desc" style="margin:0.6rem 0 0;font-size:0.86rem;color:var(--ink-muted)"></p>
           </div>
 
           <!-- Right: Quantinuum Guppy Playpond + Sealed Emulator Receipts -->
           <div class="panel">
             <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem">
               <h3>10-Qubit Dynamic Guppy Playpond</h3>
-              <div style="display:flex;gap:0.45rem">
-                <button type="button" class="btn btn-sm" data-copy-target="guppy-code">Copy Guppy Code</button>
+              <div style="display:flex;gap:0.4rem">
+                <button type="button" class="btn btn-sm" data-copy-target="guppy-code">Copy Guppy</button>
                 <a class="btn btn-primary btn-sm" href="https://play.guppylang.org/" target="_blank" rel="noopener">Open Playpond ↗</a>
               </div>
             </div>
-            <p style="margin:0.45rem 0 0;font-size:0.88rem;color:var(--ink-muted)">
-              Compiles to Quantinuum <strong>HUGR</strong> in browser Pyodide (<code>guppylang v1.0.3+</code>) with mid-circuit hype-ancilla measurement (<code>measure(q8)</code>) and dynamic cross-dancer Bell branching:
+            <p style="margin:0.4rem 0 0;font-size:0.86rem;color:var(--ink-muted)">
+              Compiles to Quantinuum <strong>HUGR</strong> in browser Pyodide (<code>guppylang v1.0.3+</code>) with mid-circuit hype-ancilla measurement (<code>measure(q8)</code>) and conditional Bell branching:
             </p>
 
-            <pre id="guppy-code" class="code-block" style="max-height:275px">from guppylang import guppy
+            <pre id="guppy-code" class="code-block" style="max-height:280px">from guppylang import guppy
 from guppylang.std.quantum import qubit, measure, h, z, ry, rz, cx, t, angle
 from guppylang.std.builtins import output
 
@@ -464,22 +501,22 @@ def main() -> None:
     hype_active = measure(q8).read()
 
     if hype_active:
-        z(q2); z(q6)          # Thoracic CHEST POP phase kick
+        z(q2); z(q6)           # Thoracic CHEST POP phase kick
         cx(q0, q4); cx(q1, q5) # Cross-dancer Bell lock
 
     output("hype", hype_active)
     output("q0", measure(q0).read())
     output("q4", measure(q4).read())</pre>
 
-            <div style="margin-top:0.85rem;display:flex;flex-wrap:wrap;gap:0.45rem">
-              <a class="btn btn-sm" href="receipts/quantum_krump_10q_dynamic_playpond.py" download>⬇ QuEST 10q Script (.py)</a>
-              <a class="btn btn-sm" href="receipts/quantum_krump_stim_stabilizer_playpond.py" download>⬇ Stim 24q Stabilizer (.py)</a>
-              <a class="btn btn-sm" href="receipts/quantum_krump_coinflip_debugger_playpond.py" download>⬇ Coinflip Debugger (.py)</a>
+            <div style="margin-top:0.8rem;display:flex;flex-wrap:wrap;gap:0.4rem">
+              <a class="btn btn-sm" href="receipts/quantum_krump_10q_dynamic_playpond.py" download>⬇ QuEST 10q (.py)</a>
+              <a class="btn btn-sm" href="receipts/quantum_krump_stim_stabilizer_playpond.py" download>⬇ Stim 24q (.py)</a>
+              <a class="btn btn-sm" href="receipts/quantum_krump_coinflip_debugger_playpond.py" download>⬇ Coinflip (.py)</a>
             </div>
 
-            <div class="abstract-box" style="margin-top:0.9rem;font-size:0.84rem">
+            <div class="abstract-box" style="margin-top:0.85rem;font-size:0.83rem">
               <strong style="color:var(--signal)">Sealed Nexus <code>Helios-1E-lite</code> Job Receipts:</strong><br />
-              • <strong>5-Step Interference Ladder</strong> (<a href="receipts/nexus_helios_krump_live_ladder_receipt_20261015.json"><code>d43f26d9</code></a>, 5×256 = 1,280 shots): Constructive <code>P(|1⟩)=0.9961</code>, Destructive <code>P(|0⟩)=1.0000</code>, fit <code>R² = 0.9942</code>, blinded gap <code>Δ_blinded = 0.0009</code>.<br />
+              • <strong>5-Step Interference Ladder</strong> (<a href="receipts/nexus_helios_krump_live_ladder_receipt_20261015.json"><code>d43f26d9</code></a>, 1,280 shots): Constructive <code>P(|1⟩)=0.9961</code>, Destructive <code>P(|0⟩)=1.0000</code>, <code>R² = 0.9942</code>.<br />
               • <strong>Frobenius Duet Uncompute</strong> (<a href="receipts/nexus_helios_krump_live_duet_receipt_20261015.json"><code>a411dac7</code></a>, 1,024 shots): <code>1,018 / 1,024</code> in <code>|01⟩</code> (<strong>99.41% fidelity</strong>).
             </div>
           </div>
@@ -498,61 +535,79 @@ def main() -> None:
         </p>
 
         <div class="robot-media-grid">
-          <!-- Left: Uncropped 4-Panel Synchronized Comparison Video + Skinned Mixamo Preview -->
+          <!-- Left: Multi-Mode Stage Switcher (4-Panel Sample / Full 1:38 Session / Skinned Y-Bot) -->
           <div>
+            <div class="media-tabs" role="tablist" aria-label="Select motion stage view">
+              <button type="button" class="media-tab active" data-video-mode="matrix4">⊞ 4-Panel Rig Matrix (10s Clip)</button>
+              <button type="button" class="media-tab" data-video-mode="full138">▶ Full 1:38 Session (Audio + 6-Phrase Sync)</button>
+              <button type="button" class="media-tab" data-video-mode="ybot">🦾 Skinned Y-Bot (10s Clip)</button>
+            </div>
+
             <div class="video-frame-4panel">
               <video id="compare-video" src="motion/compare.mp4" poster="motion/compare_preview.png" controls playsinline preload="metadata"></video>
-              <div style="margin-top:0.55rem;font-size:0.8rem;color:var(--ink-muted);text-align:center">
-                <strong>Uncropped 4-Panel Verification Matrix (812 × 1440 · 98.5 s · 2,955 frames):</strong>
-                Source Performer · 2D Keypoints · 3D MotionBERT Pose · Retargeted Mixamo Y-Bot
+              <div id="video-stage-caption" style="margin-top:0.55rem;font-size:0.79rem;color:var(--ink-muted);text-align:center">
+                Uncropped 4-Panel Verification Sample (812 × 1440 · 10.0 s clip): Source Performer · 2D Keypoints · 3D MotionBERT Pose · Retargeted Mixamo Y-Bot.
               </div>
             </div>
 
-            <div class="panel" style="margin-top:1rem;display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center">
-              <video src="motion/mixamo_character.mp4" poster="motion/mixamo_character_preview.png" controls loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;background:#000;object-fit:contain"></video>
-              <div>
-                <h4 style="font-size:1.1rem;text-transform:uppercase">Skinned Mixamo Y-Bot Render</h4>
-                <p style="margin:0.35rem 0 0.6rem;font-size:0.84rem;color:var(--ink-muted)">
-                  Rest-relative local quaternion retargeting (<code>R_local,j = R_rest,j^T · R_parent^T · R_world,j</code>) eliminates pelvis-tilt bleed and achieves <code>8.765 × 10⁻¹¹ m</code> forward-kinematics precision with <code>0.0%</code> ground penetration.
-                </p>
-                <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
-                  <a class="btn btn-amber btn-sm" href="https://huggingface.co/spaces/socialprescribing/KrumpRobot" target="_blank" rel="noopener">Launch KrumpRobot Space ↗</a>
-                  <a class="btn btn-sm" href="https://huggingface.co/socialprescribing/KrumpRobot" target="_blank" rel="noopener">Model Weights (HF) ↗</a>
-                </div>
+            <div class="panel" style="margin-top:0.9rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.75rem;padding:0.95rem 1.15rem">
+              <div style="font-size:0.84rem;color:var(--ink-muted)">
+                <strong style="color:var(--ink)">Interactive 3D WebGL Simulator (Full 98.5s Trajectory):</strong><br />
+                Inspect Unitree H1/G1 &amp; skinned Mixamo Y-Bot kinematics in real time.
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
+                <a class="btn btn-amber btn-sm" href="https://huggingface.co/spaces/socialprescribing/KrumpRobot" target="_blank" rel="noopener">Launch 3D Space ↗</a>
+                <a class="btn btn-sm" href="https://huggingface.co/socialprescribing/KrumpRobot" target="_blank" rel="noopener">HF Weights ↗</a>
               </div>
             </div>
           </div>
 
-          <!-- Right: 1:38 Audio Player + Interactive 6-Phrase Scrubber + Robotics Specs -->
+          <!-- Right: Dark-Themed 140 BPM Audio Player + Interactive 6-Phrase Scrubber -->
           <div class="panel">
-            <span class="pill pill-amber">58 Bars · 140 BPM · 98.5 Seconds</span>
-            <h3 style="margin-top:0.65rem">Interactive 6-Phrase Choreographic Scrubber</h3>
-            <p style="margin:0.35rem 0 0.5rem;font-size:0.88rem;color:var(--ink-muted)">
-              Click any phrase below to jump the synchronized 4-panel video (and soundtrack if playing) directly to that biomechanical regime:
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem">
+              <span class="pill pill-amber">58 Bars · 140 BPM · 98.5 Seconds</span>
+              <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--ink-muted)">Click any phrase to jump</span>
+            </div>
+
+            <h3 style="margin-top:0.6rem">140 BPM Soundtrack &amp; 6-Phrase Scrubber</h3>
+            <p style="margin:0.3rem 0 0.55rem;font-size:0.86rem;color:var(--ink-muted)">
+              Clicking any phrase switches the player to the full <code>1:38</code> session and jumps directly to that bar:
             </p>
 
-            <audio id="krump-audio" src="motion/krump_track.mp3" controls preload="metadata" style="width:100%;margin-top:0.25rem"></audio>
+            <!-- Hidden native audio element backing the sleek custom dark transport -->
+            <audio id="krump-audio" src="motion/krump_track.mp3" preload="metadata" hidden></audio>
+
+            <div class="dark-audio-player" role="region" aria-label="140 BPM Soundtrack Player">
+              <button id="audio-play-btn" type="button" class="audio-play-btn" aria-label="Play or pause 140 BPM soundtrack">▶</button>
+              <div class="audio-scrubber-col">
+                <input id="audio-seek" type="range" min="0" max="98.46" step="0.1" value="0" aria-label="Seek 1:38 soundtrack" />
+                <div class="audio-meta-row">
+                  <span><span id="beat-led" class="beat-led"></span>FL Studio 21 Master · 140 BPM</span>
+                  <span id="audio-time-readout">0:00 / 1:38</span>
+                </div>
+              </div>
+              <button id="audio-mute-btn" type="button" class="btn btn-ghost btn-sm" aria-label="Toggle mute">🔊</button>
+            </div>
 
             <div id="phrase-timeline" class="phrase-timeline"></div>
 
-            <div id="phrase-active-desc" class="abstract-box" style="margin-top:0.85rem;font-size:0.86rem"></div>
+            <div id="phrase-active-desc" class="abstract-box" style="margin-top:0.8rem;font-size:0.85rem"></div>
 
-            <div style="margin-top:1rem;display:grid;grid-template-columns:repeat(2,1fr);gap:0.65rem;font-size:0.82rem">
-              <div style="padding:0.65rem 0.8rem;border-radius:7px;background:rgba(12,23,25,0.7);border:1px solid var(--border)">
+            <div style="margin-top:0.9rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.6rem;font-size:0.8rem">
+              <div style="padding:0.6rem 0.75rem;border-radius:7px;background:rgba(11,21,23,0.7);border:1px solid var(--border)">
                 <strong style="color:var(--amber)">Jerk-Sensitive Loss</strong><br />
                 Preserves <strong>96.8%</strong> of peak chest-pop acceleration vs. 61.4% under L2 MSE.
               </div>
-              <div style="padding:0.65rem 0.8rem;border-radius:7px;background:rgba(12,23,25,0.7);border:1px solid var(--border)">
+              <div style="padding:0.6rem 0.75rem;border-radius:7px;background:rgba(11,21,23,0.7);border:1px solid var(--border)">
                 <strong style="color:var(--signal)">Bipedal &amp; Swarm Safety</strong><br />
                 ZMP margin <strong>4.2 cm</strong> (Unitree G1/H1); 4-robot TRMP clearance <strong>1.28 m</strong>.
               </div>
             </div>
 
-            <div style="margin-top:0.95rem;display:flex;flex-wrap:wrap;gap:0.5rem">
-              <a class="btn btn-amber btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">
-                ⬇ Standalone KrumpRobot Paper (11 pp. PDF)
-              </a>
-              <a class="btn btn-sm" href="receipts/krumprobot_receipt_20261018.json">View JSON Receipt</a>
+            <div style="margin-top:0.9rem;display:flex;flex-wrap:wrap;gap:0.45rem">
+              <button type="button" class="btn btn-amber btn-sm" data-preview-pdf="downloads/krumprobot-physical-ai-paper.pdf" data-preview-title="KrumpRobot Physical AI Paper (11 Pages)">👁 Preview Paper</button>
+              <a class="btn btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">⬇ PDF (11 pp.)</a>
+              <a class="btn btn-ghost btn-sm" href="receipts/krumprobot_receipt_20261018.json">JSON Receipt</a>
             </div>
           </div>
         </div>
@@ -562,35 +617,40 @@ def main() -> None:
     <!-- Section 5: Multi-Qubit Scaling Gallery -->
     <section id="benchmarks" class="band band-alt">
       <div class="container">
-        <p class="kicker">05 · Multi-Qubit Scaling &amp; Circuit Compression</p>
-        <h2>Modal Quantum Scientist &amp; Haiqu Compilation Benchmarks</h2>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:0.75rem">
+          <div>
+            <p class="kicker">05 · Multi-Qubit Scaling &amp; Circuit Compression</p>
+            <h2 style="margin-bottom:0">Modal Quantum Scientist &amp; Haiqu Benchmarks</h2>
+          </div>
+          <span style="font-family:var(--font-mono);font-size:0.74rem;color:var(--ink-muted)">🔍 Click any figure to zoom</span>
+        </div>
         <p class="lead">
-          Executed on Modal Cloud alongside Haiqu circuit-state compression and Sandia QUOPS volumetric protocols, contrasting Frobenius-structured Krump ansätze against unstructured hardware-efficient baselines from <code>N = 4</code> to <code>12</code> qubits.
+          Executed on Modal Cloud alongside Haiqu circuit-state compression and Sandia QUOPS volumetric protocols, contrasting Frobenius-structured Krump ansätze against unstructured hardware-efficient baselines across <code>n = 4..10</code> qubits (and 12-qubit metrological synchrony).
         </p>
 
         <div class="fig-grid">
           <figure class="fig-card">
-            <img src="figures/fig18_barren_plateaus.png" alt="Barren plateau gradient variance retention from N=4 to N=10 qubits" loading="lazy" />
+            <img src="figures/fig18_barren_plateaus.png" alt="Barren plateau gradient variance retention from n=4 to n=10 qubits" loading="lazy" />
             <figcaption>
-              <strong>Fig. A — Barren-Plateau Mitigation (N = 4..10 Qubits):</strong> Frobenius-structured Krump ansatz retains <strong>5.9× higher</strong> parameter-shift gradient variance at 10 qubits (decay slope −0.49 vs. −0.90 bits/qubit for unstructured random HEA).
+              <strong>Fig. A — Barren-Plateau Mitigation (n = 4..10 Qubits):</strong> Frobenius-structured Krump ansatz retains <strong>5.9× higher</strong> parameter-shift gradient variance at 10 qubits (decay slope −0.49 vs. −0.90 bits/qubit for unstructured Haar-random circuits).
             </figcaption>
           </figure>
           <figure class="fig-card">
             <img src="figures/fig19_entanglement_scaling.png" alt="Bipartite von Neumann entanglement entropy scaling" loading="lazy" />
             <figcaption>
-              <strong>Fig. B — Bipartite Entanglement Entropy S(ρ_A):</strong> Controlled linear entanglement growth reaching <code>2.89 bits</code> across the dancer–partner cut without chaotic Page-curve thermalization.
+              <strong>Fig. B — Bipartite Entanglement Entropy S(ρ_A):</strong> Controlled entanglement scaling across the 5 canonical Krump phenotypes without chaotic Page-curve thermalization.
             </figcaption>
           </figure>
           <figure class="fig-card">
             <img src="figures/fig20_quantum_fisher_info.png" alt="Quantum Fisher Information scaling vs standard quantum limit" loading="lazy" />
             <figcaption>
-              <strong>Fig. C — Quantum Fisher Information I_Q:</strong> Exceeds the unentangled Standard Quantum Limit (<code>I_Q = N</code>) up to <strong>3.33×</strong> (<code>I_Q = 40.0</code> at <code>N = 12</code> qubits) under phase-locked group synchrony.
+              <strong>Fig. C — Kinesthetic Quantum Metrology (F_Q):</strong> Benchmarks session-state Quantum Fisher Information between the unentangled Standard Quantum Limit (<code>SQL ∝ n</code>) and Heisenberg Limit (<code>n²</code>), reaching <code>I_Q = 40.0</code> (3.33× SQL) at 12-qubit group lock.
             </figcaption>
           </figure>
           <figure class="fig-card">
             <img src="figures/fig21_haiqu_compression_scaling.png" alt="Haiqu circuit depth compression scaling" loading="lazy" />
             <figcaption>
-              <strong>Fig. D — Haiqu Circuit-State Depth Compression:</strong> Compresses multi-phrase Krump circuits by <strong>85.7%</strong> in two-qubit gate depth while preserving state fidelity above <code>99.9%</code>.
+              <strong>Fig. D — Haiqu Circuit-State Depth Compression:</strong> Reduces two-qubit gate layer depth by <strong>82.8%–87.8%</strong> (mean <strong>85.7%</strong>) across <code>n = 4..10</code> qubits while preserving state fidelity above <code>99.9%</code>.
             </figcaption>
           </figure>
         </div>
@@ -610,28 +670,28 @@ def main() -> None:
           <div class="act-card">
             <span class="pill pill-signal">Act I · 00–15 min</span>
             <h3 style="margin-top:0.65rem">Superposition</h3>
-            <p style="font-size:0.88rem;color:var(--ink-muted);margin-top:0.45rem">
+            <p style="font-size:0.87rem;color:var(--ink-muted);margin:0.45rem 0 0">
               20 dancers emerge from zero-point stillness into breathing kinespheric spheres, holding simultaneous <em>LIVE</em> and <em>BUCK</em> potentials until percussive strobe freezes collapse subsets of the ensemble.
             </p>
           </div>
           <div class="act-card">
             <span class="pill pill-amber">Act II · 15–32 min</span>
             <h3 style="margin-top:0.65rem">Entanglement</h3>
-            <p style="font-size:0.88rem;color:var(--ink-muted);margin-top:0.45rem">
+            <p style="font-size:0.87rem;color:var(--ink-muted);margin:0.45rem 0 0">
               10 non-local Bell pairs routed across opposite stage quadrants via OpenJij QUBO ground-state scheduling (<code>E₀ = −7.3569</code>, zero spatial collisions), locking anti-correlated strikes without eye contact.
             </p>
           </div>
           <div class="act-card">
             <span class="pill pill-ember">Act III · 32–48 min</span>
             <h3 style="margin-top:0.65rem">Interference</h3>
-            <p style="font-size:0.88rem;color:var(--ink-muted);margin-top:0.45rem">
-              Traveling 140 BPM polyrhythmic waves cross at stage center: in-phase <code>CHEST POP</code> fronts amplify into collective elevation (<code>Δφ = 0</code>), while out-of-phase fronts cancel into sudden razor-sharp silence (<code>Δφ = π</code>).
+            <p style="font-size:0.87rem;color:var(--ink-muted);margin:0.45rem 0 0">
+              Traveling 140 BPM polyrhythmic waves cross at stage center: in-phase <code>CHEST POP</code> fronts amplify into collective elevation (<code>Δφ = 0</code>), while out-of-phase fronts cancel into razor-sharp silence (<code>Δφ = π</code>).
             </p>
           </div>
           <div class="act-card">
             <span class="pill">Act IV · 48–60 min</span>
             <h3 style="margin-top:0.65rem">The Measurement Cypher</h3>
-            <p style="font-size:0.88rem;color:var(--ink-muted);margin-top:0.45rem">
+            <p style="font-size:0.87rem;color:var(--ink-muted);margin:0.45rem 0 0">
               Traditional South Central LA Krump session ring honoring Tight Eyez, Big Mijo, Miss Prissy, and Lil C — where witness hype acts as mid-circuit referee measurement driving the final unison <em>Kill-Off</em>.
             </p>
           </div>
@@ -639,7 +699,7 @@ def main() -> None:
       </div>
     </section>
 
-    <!-- Section 7: 18-Row Multi-Platform Verification Census & JSON Receipts -->
+    <!-- Section 7: Multi-Platform Verification Census & JSON Receipts -->
     <section id="census" class="band band-alt">
       <div class="container">
         <p class="kicker">07 · Sealed Computational Provenance</p>
@@ -656,7 +716,7 @@ def main() -> None:
                 <th>Platform / Stack</th>
                 <th>Experiment / Formal Check</th>
                 <th>Key Verified Result</th>
-                <th>Artifact / Receipt</th>
+                <th>Receipt</th>
               </tr>
             </thead>
             <tbody>
@@ -722,50 +782,72 @@ def main() -> None:
       </div>
     </section>
 
-    <!-- Section 8: Open Ecosystem, ClawHub & Tabbed BibTeX -->
+    <!-- Section 8: Open Ecosystem, ClawHub & Zero-Overflow Tabbed BibTeX -->
     <section id="cite" class="band">
       <div class="container">
         <p class="kicker">08 · Open Ecosystem &amp; Academic Citation</p>
         <h2>Reproduce, Install Skill &amp; Cite</h2>
 
-        <div class="two-col">
-          <!-- Left: ClawHub + Live Deployments -->
+        <div class="two-col cite-grid">
+          <!-- Left: ClawHub Terminal + Structured Resource Cards -->
           <div class="panel">
             <h3>Agent Skill &amp; Live Cloud Artifacts</h3>
-            <p style="margin:0.45rem 0 0.75rem;font-size:0.9rem;color:var(--ink-muted)">
-              Install the open-source <code>quantumkrump</code> agent skill via ClawHub or explore the interactive Hugging Face Spaces and model repositories:
+            <p style="margin:0.4rem 0 0.75rem;font-size:0.88rem;color:var(--ink-muted)">
+              Install the open-source <code>quantumkrump</code> agent skill via ClawHub or launch the hosted Hugging Face Spaces and model repositories:
             </p>
 
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;padding:0.65rem 0.9rem;background:#081012;border:1px solid var(--border);border-radius:8px">
-              <code id="clawhub-cmd" style="font-family:var(--font-mono);color:var(--signal);font-size:0.86rem">npx clawhub@latest install quantumkrump</code>
+            <div class="terminal-box">
+              <code id="clawhub-cmd">npx clawhub@latest install quantumkrump</code>
               <button type="button" class="btn btn-sm" data-copy-target="clawhub-cmd">Copy</button>
             </div>
 
-            <div style="margin-top:1rem;display:grid;gap:0.55rem;font-size:0.88rem">
-              <a class="btn" style="justify-content:space-between" href="https://huggingface.co/spaces/socialprescribing/quantumkrump" target="_blank" rel="noopener">
-                <span>🤗 Hugging Face Space · <strong>socialprescribing/quantumkrump</strong> (QKMLM)</span>
-                <span>↗</span>
+            <div class="resource-list">
+              <a class="resource-card" href="https://huggingface.co/spaces/socialprescribing/quantumkrump" target="_blank" rel="noopener">
+                <span class="resource-icon">🤗</span>
+                <div>
+                  <div class="resource-title">Quantum Krump QKMLM Space</div>
+                  <div class="resource-slug">spaces/socialprescribing/quantumkrump</div>
+                </div>
+                <span class="resource-ext">↗</span>
               </a>
-              <a class="btn" style="justify-content:space-between" href="https://huggingface.co/spaces/socialprescribing/KrumpRobot" target="_blank" rel="noopener">
-                <span>🤖 Hugging Face Space · <strong>socialprescribing/KrumpRobot</strong> (Motion2MixamoRig)</span>
-                <span>↗</span>
+
+              <a class="resource-card" href="https://huggingface.co/spaces/socialprescribing/KrumpRobot" target="_blank" rel="noopener">
+                <span class="resource-icon">🤖</span>
+                <div>
+                  <div class="resource-title">KrumpRobot 3D Physical AI Studio</div>
+                  <div class="resource-slug">spaces/socialprescribing/KrumpRobot</div>
+                </div>
+                <span class="resource-ext">↗</span>
               </a>
-              <a class="btn" style="justify-content:space-between" href="https://huggingface.co/socialprescribing/quantum-krump-qkmlm" target="_blank" rel="noopener">
-                <span>📦 Model Hub · <strong>socialprescribing/quantum-krump-qkmlm</strong></span>
-                <span>↗</span>
+
+              <a class="resource-card" href="https://huggingface.co/socialprescribing/KrumpRobot" target="_blank" rel="noopener">
+                <span class="resource-icon">📦</span>
+                <div>
+                  <div class="resource-title">KrumpRobot Model Weights &amp; Preprint</div>
+                  <div class="resource-slug">socialprescribing/KrumpRobot</div>
+                </div>
+                <span class="resource-ext">↗</span>
               </a>
-              <a class="btn" style="justify-content:space-between" href="https://clawhub.ai/arunnadarasa/quantumkrump" target="_blank" rel="noopener">
-                <span>🦞 ClawHub Registry · <strong>arunnadarasa/quantumkrump</strong></span>
-                <span>↗</span>
+
+              <a class="resource-card" href="https://clawhub.ai/arunnadarasa/quantumkrump" target="_blank" rel="noopener">
+                <span class="resource-icon">🦞</span>
+                <div>
+                  <div class="resource-title">ClawHub Agent Skill Registry</div>
+                  <div class="resource-slug">clawhub.ai/arunnadarasa/quantumkrump</div>
+                </div>
+                <span class="resource-ext">↗</span>
               </a>
             </div>
           </div>
 
-          <!-- Right: Tabbed BibTeX -->
+          <!-- Right: Zero-Overflow Tabbed BibTeX -->
           <div class="panel">
             <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem">
               <h3>BibTeX Citations</h3>
-              <button id="copy-bibtex-btn" type="button" class="btn btn-primary btn-sm">Copy BibTeX</button>
+              <div style="display:flex;gap:0.4rem">
+                <button id="download-bibtex-btn" type="button" class="btn btn-sm">⬇ .bib</button>
+                <button id="copy-bibtex-btn" type="button" class="btn btn-primary btn-sm">Copy BibTeX</button>
+              </div>
             </div>
 
             <div class="lang-pills" style="margin-top:0.65rem">
@@ -774,7 +856,7 @@ def main() -> None:
               <button type="button" class="lang-btn" data-bib-tab="krumprobot">KrumpRobot Paper (11 pp.)</button>
             </div>
 
-            <pre id="bibtex-code" class="code-block"></pre>
+            <pre id="bibtex-code" class="code-block wrap-lines"></pre>
           </div>
         </div>
       </div>
@@ -787,7 +869,7 @@ def main() -> None:
         <strong style="color:var(--ink)">Quantum Krump &amp; KrumpRobot</strong> · Arun Nadarasa &amp; Dakota Simao (2025–2026)<br />
         <span>Rooted in gratitude to the pioneers of South Central Los Angeles Krump (Tight Eyez, Big Mijo, Miss Prissy, Lil C, and the global Krump family).</span>
       </div>
-      <div style="display:flex;gap:1rem;font-family:var(--font-mono);font-size:0.8rem">
+      <div style="display:flex;flex-wrap:wrap;gap:0.9rem;font-family:var(--font-mono);font-size:0.79rem">
         <a href="downloads/quantum-krump-preprint.pdf">Monograph PDF</a>
         <a href="downloads/quantum-krump-pedagogy-paper.pdf">Pedagogy PDF</a>
         <a href="downloads/krumprobot-physical-ai-paper.pdf">KrumpRobot PDF</a>
@@ -795,6 +877,39 @@ def main() -> None:
       </div>
     </div>
   </footer>
+
+  <!-- In-Page PDF Reader Modal -->
+  <div id="pdf-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="pdf-modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <strong id="pdf-modal-title" style="font-family:var(--font-display);font-size:1.25rem;text-transform:uppercase;letter-spacing:0.02em">PDF Preview</strong>
+        <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
+          <a id="pdf-modal-newtab" class="btn btn-sm" href="#" target="_blank" rel="noopener">Open in New Tab ↗</a>
+          <a id="pdf-modal-download" class="btn btn-primary btn-sm" href="#" download>⬇ Download PDF</a>
+          <button id="pdf-modal-close" type="button" class="btn btn-ghost btn-sm">✕ Close</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <iframe id="pdf-iframe" title="Research Paper PDF Reader" src="about:blank"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Figure Zoom Lightbox -->
+  <div id="img-lightbox" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Figure Zoom Lightbox">
+    <div class="lightbox-dialog">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem">
+        <span class="kicker" style="margin:0">High-Resolution Benchmark Figure</span>
+        <button id="lightbox-close" type="button" class="btn btn-ghost btn-sm">✕ Close</button>
+      </div>
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption" style="margin:0;font-size:0.86rem;color:var(--ink-muted)"></p>
+    </div>
+  </div>
+
+  <!-- Toast & Back-to-Top -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <button id="back-to-top" type="button" class="back-to-top" aria-label="Scroll back to top" title="Back to top">↑</button>
 
   <script type="module" src="assets/app.js"></script>
 </body>

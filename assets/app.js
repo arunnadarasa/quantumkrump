@@ -1,4 +1,4 @@
-// Quantum Krump — Academic Research & Project Showcase Interactive Module
+// Quantum Krump & KrumpRobot — Academic Research & Project Showcase UX Module
 
 const PREPRINTS = {
   en: {
@@ -83,6 +83,16 @@ const PREPRINTS = {
   }
 };
 
+const GATE_CUES = {
+  H: "STOMP · Hadamard H — Grounded strike (>3.8× BW) launches |0⟩ ↔ balanced equatorial superposition (|0⟩+|1⟩)/√2.",
+  X: "JAB · Pauli-X — Ballistic linear arm strike flips |0⟩ (LIVE) ↔ |1⟩ (BUCK) across the X axis.",
+  Z: "CHEST POP · Pauli-Z — Sudden thoracic expansion (sub-20 ms arrest) inverts azimuthal phase (+1 → −1).",
+  RX: "ARM SWING · Rx(π/2) — Centrifugal whip arc rotates state smoothly by 90° around the forward +X axis.",
+  S: "BUCK HOP · Phase S = Rz(π/2) — Grounded quarter-turn hop advances azimuthal facing φ by +90°.",
+  COLLAPSE: "HIT! · Projective Measurement — Audience/partner cue collapses |ψ⟩ probabilistically onto |0⟩ or |1⟩.",
+  RESET: "Reset |0⟩ — Return dancer to upright chest-lifted LIVE eigenstate (+Z north pole)."
+};
+
 const LKQ_DATA = [
   {
     factor: "Weight (Strong ↔ Light)",
@@ -127,31 +137,54 @@ const EFFORT_ACTIONS = {
 
 const DISCOPY_STEPS = [
   {
+    short: "1. η_D Cap",
     title: "Layer 1 · Entanglement Cap η_D : I → D ⊗ D",
     circuit: "Ket(0, 0) >> (H @ Id(1)) >> CX",
     desc: "From an empty silent stage I, two partners initialize a maximally entangled Bell state |Φ+⟩ = (|00⟩ + |11⟩)/√2 without visual cues."
   },
   {
+    short: "2. Z ⊗ X",
     title: "Layer 2 · Parallel Foundations (CHEST POP ⊗ JAB)",
     circuit: "Z @ X",
     desc: "Dancer A executes a sudden thoracic CHEST POP (Pauli Z) simultaneously while Dancer B fires a linear JAB (Pauli X), mapping |Φ+⟩ → (|01⟩ − |10⟩)/√2."
   },
   {
+    short: "3. σ Swap",
     title: "Layer 3 · Collision-Free Stage Crossing σ_{D,D}",
     circuit: "SWAP(0, 1)",
     desc: "Symmetric monoidal swap σ_{D,D} : D ⊗ D → D ⊗ D exchanges partner positions across the session circle (σ ∘ σ = id), preparing |Ψ−⟩ / |Ψ+⟩."
   },
   {
+    short: "4. Rx ⊗ S",
     title: "Layer 4 · Continuous Foil (ARM SWING ⊗ BUCK HOP)",
     circuit: "Rx(π/2) @ Rz(π/2)",
     desc: "Centrifugal ARM SWING (Rx(π/2)) on wire 0 composes in parallel with grounded BUCK HOP (S = Rz(π/2)) on wire 1, verified via bifunctorial interchange."
   },
   {
+    short: "5. ε_D Climax",
     title: "Layer 5 · Joint Climax Cup ε_D & Helios-1E-lite Readout",
     circuit: "CX >> (H @ Id(1)) >> Measure  [1,018 / 1,024 shots = 99.41%]",
     desc: "Uncomputing Layer 4 before the terminal Bell analyzer projects deterministically onto |01⟩, achieving 99.41% fidelity on Quantinuum Nexus Helios-1E-lite (Job a411dac7; 0 physical QPU shots)."
   }
 ];
+
+const VIDEO_MODES = {
+  full138: {
+    src: "motion/full_session_1m38.mp4",
+    poster: "motion/full_session_poster.jpg",
+    caption: "Full 1:38 Source Session (98.5 s · 2,955 frames @ 30 fps · 140 BPM Audio): Synchronized across all 6 choreographic phrases."
+  },
+  matrix4: {
+    src: "motion/compare.mp4",
+    poster: "motion/compare_preview.png",
+    caption: "Uncropped 4-Panel Verification Sample (812 × 1440 · 10.0 s clip): Source Performer · 2D Keypoints · 3D MotionBERT Pose · Retargeted Mixamo Y-Bot."
+  },
+  ybot: {
+    src: "motion/mixamo_character.mp4",
+    poster: "motion/mixamo_character_preview.png",
+    caption: "Skinned Mixamo Y-Bot Render (10.0 s clip): Rest-relative quaternion retargeting (8.765 × 10⁻¹¹ m FK precision, 0.0% ground penetration)."
+  }
+};
 
 const KRUMP_PHRASES = [
   { start: 0, end: 14, bars: "Bars 1–8", time: "0:00–0:14", name: "1. Session Intro", desc: "Grounded wide BUCK stance, 140 BPM baseline pelvis groove bounce, pre-strike torque buildup." },
@@ -189,12 +222,148 @@ const BIBTEX = {
 }`
 };
 
-// ── 1. Multilingual Preprint Selector ──
-function initPreprintSelector() {
+// ── Toast Helper ──
+let toastTimer = null;
+function showToast(msg) {
+  const el = document.getElementById("toast");
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
+}
+
+function fmtTime(sec) {
+  if (!Number.isFinite(sec) || sec < 0) return "0:00";
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${String(s).padStart(2, "0")}`;
+}
+
+// ── 0. Navigation, Scroll Progress, Scroll-Spy & Mobile Drawer ──
+function initNavigationUX() {
+  const progress = document.getElementById("scroll-progress");
+  const backTop = document.getElementById("back-to-top");
+  const menuBtn = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("primary-nav");
+  const links = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
+  const sections = links.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+
+  menuBtn?.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
+    menuBtn.textContent = isOpen ? "✕ Close" : "☰ Sections";
+  });
+
+  links.forEach((a) => {
+    a.addEventListener("click", () => {
+      navLinks?.classList.remove("open");
+      if (menuBtn) {
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰ Sections";
+      }
+    });
+  });
+
+  function onScroll() {
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docH > 0 ? Math.min(100, Math.max(0, (window.scrollY / docH) * 100)) : 0;
+    if (progress) progress.style.width = `${pct.toFixed(1)}%`;
+    if (backTop) backTop.classList.toggle("visible", window.scrollY > 520);
+
+    // Active section highlight
+    const probeY = window.scrollY + 130;
+    let currentId = "";
+    for (const sec of sections) {
+      if (sec.offsetTop <= probeY) currentId = `#${sec.id}`;
+    }
+    links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === currentId));
+  }
+
+  backTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
+// ── 1. Multilingual Preprint Selector + In-Page PDF Preview Modal ──
+function initPreprintAndModals() {
   const container = document.getElementById("lang-pills");
   const titleEl = document.getElementById("active-lang-title");
   const absEl = document.getElementById("active-lang-abstract");
   const dlBtn = document.getElementById("active-lang-download");
+  const prevBtn = document.getElementById("active-lang-preview");
+
+  const pdfModal = document.getElementById("pdf-modal");
+  const pdfIframe = document.getElementById("pdf-iframe");
+  const pdfModalTitle = document.getElementById("pdf-modal-title");
+  const pdfModalDl = document.getElementById("pdf-modal-download");
+  const pdfModalNewTab = document.getElementById("pdf-modal-newtab");
+  const pdfModalClose = document.getElementById("pdf-modal-close");
+
+  function openPdfPreview(url, title) {
+    if (!pdfModal || !pdfIframe) return;
+    pdfModalTitle.textContent = title;
+    pdfIframe.src = url;
+    pdfModalDl.href = url;
+    pdfModalNewTab.href = url;
+    pdfModal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePdfPreview() {
+    if (!pdfModal || !pdfIframe) return;
+    pdfModal.classList.remove("open");
+    pdfIframe.src = "about:blank";
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll("[data-preview-pdf]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openPdfPreview(btn.dataset.previewPdf, btn.dataset.previewTitle || "PDF Preview");
+    });
+  });
+
+  pdfModalClose?.addEventListener("click", closePdfPreview);
+  pdfModal?.addEventListener("click", (e) => {
+    if (e.target === pdfModal) closePdfPreview();
+  });
+
+  // Figure Lightbox
+  const imgModal = document.getElementById("img-lightbox");
+  const imgTarget = document.getElementById("lightbox-img");
+  const imgCap = document.getElementById("lightbox-caption");
+  const imgClose = document.getElementById("lightbox-close");
+
+  document.querySelectorAll(".fig-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const img = card.querySelector("img");
+      const cap = card.querySelector("figcaption");
+      if (!img || !imgModal) return;
+      imgTarget.src = img.src;
+      imgTarget.alt = img.alt;
+      imgCap.textContent = cap ? cap.textContent.trim() : img.alt;
+      imgModal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeLightbox() {
+    if (!imgModal) return;
+    imgModal.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+  imgClose?.addEventListener("click", closeLightbox);
+  imgModal?.addEventListener("click", (e) => {
+    if (e.target === imgModal) closeLightbox();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closePdfPreview();
+      closeLightbox();
+    }
+  });
+
   if (!container || !titleEl || !absEl || !dlBtn) return;
 
   let active = "en";
@@ -204,7 +373,10 @@ function initPreprintSelector() {
     absEl.textContent = item.abstract;
     dlBtn.setAttribute("href", item.file);
     dlBtn.setAttribute("download", item.filename);
-    dlBtn.innerHTML = `⬇ Download ${item.label} PDF`;
+    dlBtn.textContent = `⬇ Download ${item.label} PDF`;
+    if (prevBtn) {
+      prevBtn.onclick = () => openPdfPreview(item.file, item.title);
+    }
     container.querySelectorAll("button").forEach((b) => {
       b.classList.toggle("active", b.dataset.lang === active);
     });
@@ -225,7 +397,7 @@ function initPreprintSelector() {
   render();
 }
 
-// ── 2. Interactive 3D Bloch Kinesphere (Canvas 3D Renderer — Zero External Failure Points) ──
+// ── 2. Interactive 3D Bloch Kinesphere (With Smooth Animated Gate Transitions) ──
 function initBlochSphere() {
   const wrap = document.getElementById("bloch-canvas-wrap");
   const thetaSlider = document.getElementById("theta-slider");
@@ -233,6 +405,7 @@ function initBlochSphere() {
   const thetaVal = document.getElementById("theta-val");
   const phiVal = document.getElementById("phi-val");
   const ketEl = document.getElementById("ket-readout");
+  const cueEl = document.getElementById("bloch-gate-cue");
   const p0Fill = document.getElementById("p0-fill");
   const p1Fill = document.getElementById("p1-fill");
   const p0Txt = document.getElementById("p0-txt");
@@ -245,43 +418,33 @@ function initBlochSphere() {
   wrap.appendChild(canvas);
   const ctx = canvas.getContext("2d");
 
-  let theta = Math.PI / 3; // 60 deg
-  let phi = Math.PI / 4;   // 45 deg
+  let theta = Math.PI / 3;
+  let phi = Math.PI / 4;
   let yaw = -0.62;
-  let pitch = 0.34;
+  let pitch = 0.32;
   let dragging = false;
   let lastX = 0;
   let lastY = 0;
+  let animId = null;
 
   function resize() {
     const rect = wrap.getBoundingClientRect();
     const dpr = window.devicePixelRatio || 1;
-    canvas.width = Math.max(300, Math.floor(rect.width * dpr));
+    canvas.width = Math.max(280, Math.floor(rect.width * dpr));
     canvas.height = Math.max(260, Math.floor(rect.height * dpr));
     draw();
   }
 
   function project([x, y, z], cx, cy, R) {
-    // Bloch Z is vertical (+up = y_screen negative), X forward, Y right
-    // Convert Bloch (bx, by, bz) -> 3D viewer coords (vx=by, vy=bz, vz=bx)
-    const vx = y;
-    const vy = z;
-    const vz = x;
-
+    const vx = y, vy = z, vz = x;
     const cyaw = Math.cos(yaw), syaw = Math.sin(yaw);
     const x1 = vx * cyaw + vz * syaw;
     const z1 = -vx * syaw + vz * cyaw;
-
     const cp = Math.cos(pitch), sp = Math.sin(pitch);
     const y2 = vy * cp - z1 * sp;
     const z2 = vy * sp + z1 * cp;
-
     const persp = 3.6 / (3.6 - z2 * 0.55);
-    return {
-      sx: cx + x1 * R * persp,
-      sy: cy - y2 * R * persp,
-      depth: z2
-    };
+    return { sx: cx + x1 * R * persp, sy: cy - y2 * R * persp };
   }
 
   function updateReadout() {
@@ -299,7 +462,7 @@ function initBlochSphere() {
     const levelTag = p0 > 0.72 ? "LIVE (Up)" : p1 > 0.72 ? "BUCK (Low)" : "KRUMP (Mid Superposition)";
 
     if (ketEl) {
-      ketEl.textContent = `|ψ⟩ = ${c.toFixed(3)}|0⟩ + e^(i·${degP}°)·${s.toFixed(3)}|1⟩   ·   ${levelTag}`;
+      ketEl.textContent = `|ψ⟩ = ${c.toFixed(3)}|0⟩ + e^(i·${degP}°)·${s.toFixed(3)}|1⟩  ·  ${levelTag}`;
     }
     if (p0Fill) p0Fill.style.width = `${(p0 * 100).toFixed(1)}%`;
     if (p1Fill) p1Fill.style.width = `${(p1 * 100).toFixed(1)}%`;
@@ -331,22 +494,19 @@ function initBlochSphere() {
     ctx.clearRect(0, 0, w, h);
 
     const cx = w * 0.5;
-    const cy = h * 0.52;
-    const R = Math.min(w, h) * 0.33;
+    const cy = h * 0.55; // Slight offset so +Z label sits comfortably below overlay badge
+    const R = Math.min(w, h) * 0.31;
 
-    // Outer unit sphere silhouette
     ctx.beginPath();
     ctx.arc(cx, cy, R * 1.015, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(157, 181, 178, 0.25)";
+    ctx.strokeStyle = "rgba(158, 183, 180, 0.24)";
     ctx.lineWidth = 1.5 * dpr;
     ctx.stroke();
 
-    // Meridians & KRUMP Equator
     drawRing((a) => [Math.cos(a), Math.sin(a), 0], cx, cy, R, "rgba(56, 214, 196, 0.52)", false);
-    drawRing((a) => [Math.cos(a), 0, Math.sin(a)], cx, cy, R, "rgba(157, 181, 178, 0.2)", true);
-    drawRing((a) => [0, Math.cos(a), Math.sin(a)], cx, cy, R, "rgba(157, 181, 178, 0.2)", true);
+    drawRing((a) => [Math.cos(a), 0, Math.sin(a)], cx, cy, R, "rgba(158, 183, 180, 0.2)", true);
+    drawRing((a) => [0, Math.cos(a), Math.sin(a)], cx, cy, R, "rgba(158, 183, 180, 0.2)", true);
 
-    // Coordinate Axes
     const axes = [
       { from: [0, 0, -1], to: [0, 0, 1], labelPos: [0, 0, 1.18], negPos: [0, 0, -1.18], posTxt: "|0⟩ LIVE (+Z)", negTxt: "|1⟩ BUCK (-Z)", color: "rgba(238,247,245,0.55)" },
       { from: [-1, 0, 0], to: [1, 0, 0], labelPos: [1.22, 0, 0], negPos: [-1.22, 0, 0], posTxt: "|+⟩ Fwd (+X)", negTxt: "|−⟩ Back", color: "rgba(56,214,196,0.4)" },
@@ -375,7 +535,6 @@ function initBlochSphere() {
       ctx.fillText(ax.negTxt, np.sx, np.sy);
     });
 
-    // State vector |ψ⟩
     const bx = Math.sin(theta) * Math.cos(phi);
     const by = Math.sin(theta) * Math.sin(phi);
     const bz = Math.cos(theta);
@@ -384,7 +543,6 @@ function initBlochSphere() {
     const eqProj = project([bx, by, 0], cx, cy, R);
     const tip = project([bx, by, bz], cx, cy, R);
 
-    // Azimuthal shadow drop line
     ctx.save();
     ctx.setLineDash([3 * dpr, 3 * dpr]);
     ctx.beginPath();
@@ -396,7 +554,6 @@ function initBlochSphere() {
     ctx.stroke();
     ctx.restore();
 
-    // Main golden vector
     ctx.beginPath();
     ctx.moveTo(origin.sx, origin.sy);
     ctx.lineTo(tip.sx, tip.sy);
@@ -415,7 +572,27 @@ function initBlochSphere() {
     updateReadout();
   }
 
-  // Pointer orbit controls
+  function animateTo(targetTheta, targetPhi) {
+    cancelAnimationFrame(animId);
+    const sTheta = theta;
+    const sPhi = phi;
+    let dPhi = targetPhi - sPhi;
+    if (dPhi > Math.PI) dPhi -= Math.PI * 2;
+    if (dPhi < -Math.PI) dPhi += Math.PI * 2;
+    const t0 = performance.now();
+    const dur = 260;
+
+    function tick(now) {
+      const u = Math.min(1, (now - t0) / dur);
+      const ease = 1 - Math.pow(1 - u, 3);
+      theta = sTheta + (targetTheta - sTheta) * ease;
+      phi = (sPhi + dPhi * ease + Math.PI * 2) % (Math.PI * 2);
+      draw();
+      if (u < 1) animId = requestAnimationFrame(tick);
+    }
+    animId = requestAnimationFrame(tick);
+  }
+
   wrap.addEventListener("pointerdown", (e) => {
     dragging = true;
     lastX = e.clientX;
@@ -435,44 +612,43 @@ function initBlochSphere() {
   wrap.addEventListener("pointerup", () => { dragging = false; });
 
   thetaSlider?.addEventListener("input", (e) => {
+    cancelAnimationFrame(animId);
     theta = (Number(e.target.value) * Math.PI) / 180;
     draw();
   });
   phiSlider?.addEventListener("input", (e) => {
+    cancelAnimationFrame(animId);
     phi = (Number(e.target.value) * Math.PI) / 180;
     draw();
   });
 
-  // Quantum Krump Gate Presets acting on current Bloch vector (bx, by, bz)
   function applyBlochMatrix(fn) {
     const bx = Math.sin(theta) * Math.cos(phi);
     const by = Math.sin(theta) * Math.sin(phi);
     const bz = Math.cos(theta);
     const [nx, ny, nz] = fn(bx, by, bz);
-    const clampedZ = Math.max(-1, Math.min(1, nz));
-    theta = Math.acos(clampedZ);
-    if (Math.hypot(nx, ny) > 1e-5) {
-      phi = (Math.atan2(ny, nx) + Math.PI * 2) % (Math.PI * 2);
-    }
-    draw();
+    const nextTheta = Math.acos(Math.max(-1, Math.min(1, nz)));
+    const nextPhi = Math.hypot(nx, ny) > 1e-5 ? (Math.atan2(ny, nx) + Math.PI * 2) % (Math.PI * 2) : phi;
+    animateTo(nextTheta, nextPhi);
   }
 
-  document.querySelectorAll("[data-bloch-gate]").forEach((btn) => {
+  const gateButtons = document.querySelectorAll("[data-bloch-gate]");
+  gateButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const g = btn.dataset.blochGate;
-      if (g === "H") applyBlochMatrix((x, y, z) => [z, -y, x]); // STOMP · Hadamard
-      else if (g === "X") applyBlochMatrix((x, y, z) => [x, -y, -z]); // JAB · Pauli X
-      else if (g === "Z") applyBlochMatrix((x, y, z) => [-x, -y, z]); // CHEST POP · Pauli Z
-      else if (g === "RX") applyBlochMatrix((x, y, z) => [x, -z, y]); // ARM SWING · Rx(π/2)
-      else if (g === "S") applyBlochMatrix((x, y, z) => [-y, x, z]); // BUCK HOP · Rz(π/2)
+      gateButtons.forEach((b) => b.classList.toggle("active-gate", b === btn));
+      if (cueEl && GATE_CUES[g]) cueEl.textContent = GATE_CUES[g];
+
+      if (g === "H") applyBlochMatrix((x, y, z) => [z, -y, x]);
+      else if (g === "X") applyBlochMatrix((x, y, z) => [x, -y, -z]);
+      else if (g === "Z") applyBlochMatrix((x, y, z) => [-x, -y, z]);
+      else if (g === "RX") applyBlochMatrix((x, y, z) => [x, -z, y]);
+      else if (g === "S") applyBlochMatrix((x, y, z) => [-y, x, z]);
       else if (g === "COLLAPSE") {
         const p0 = Math.cos(theta / 2) ** 2;
-        theta = Math.random() < p0 ? 0 : Math.PI;
-        draw();
+        animateTo(Math.random() < p0 ? 0 : Math.PI, phi);
       } else if (g === "RESET") {
-        theta = 0;
-        phi = 0;
-        draw();
+        animateTo(0, 0);
       }
     });
   });
@@ -496,7 +672,7 @@ function initLkqMapper() {
     btn.innerHTML = `
       <span><strong>${row.factor.split(" ")[0]}</strong><br><small style="color:var(--ink-muted)">${row.factor}</small></span>
       <span class="lkq-move">${row.move}</span>
-      <span style="text-align:right;font-size:0.84rem;color:var(--signal)">${row.quantum}</span>
+      <span class="lkq-op" style="text-align:right;font-size:0.82rem;color:var(--signal)">${row.quantum}</span>
     `;
     btn.addEventListener("click", () => {
       activeIdx = idx;
@@ -515,6 +691,7 @@ function initLkqMapper() {
       chip.className = "effort-chip";
       chip.textContent = name;
       chip.addEventListener("click", () => {
+        listEl.querySelectorAll(".lkq-item").forEach((el) => el.classList.remove("active"));
         effortWrap.querySelectorAll(".effort-chip").forEach((c) => c.classList.toggle("active", c === chip));
         detailEl.textContent = text;
       });
@@ -523,22 +700,39 @@ function initLkqMapper() {
   }
 }
 
-// ── 4. DisCoPy String-Diagram Stepper ──
+// ── 4. DisCoPy String-Diagram Stepper (With Direct Layer Pills + Auto-Play) ──
 function initDiscopyStepper() {
   const nextBtn = document.getElementById("discopy-next");
-  const resetBtn = document.getElementById("discopy-reset");
+  const autoBtn = document.getElementById("discopy-autoplay");
+  const pillsWrap = document.getElementById("discopy-pills");
   const titleEl = document.getElementById("discopy-step-title");
   const circEl = document.getElementById("discopy-step-circuit");
   const descEl = document.getElementById("discopy-step-desc");
   if (!titleEl || !circEl || !descEl) return;
 
-  let step = 4; // Show full verified 5-layer diagram initially
+  let step = 4;
+  let autoTimer = null;
+
+  const pillBtns = DISCOPY_STEPS.map((s, idx) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "step-pill";
+    b.textContent = s.short;
+    b.addEventListener("click", () => {
+      stopAuto();
+      step = idx;
+      render();
+    });
+    pillsWrap?.appendChild(b);
+    return b;
+  });
 
   function render() {
     const info = DISCOPY_STEPS[step];
     titleEl.textContent = info.title;
     circEl.textContent = info.circuit;
     descEl.textContent = info.desc;
+    pillBtns.forEach((b, i) => b.classList.toggle("active", i === step));
     for (let i = 0; i < 5; i++) {
       const layer = document.getElementById(`dc-layer-${i}`);
       if (!layer) continue;
@@ -547,19 +741,40 @@ function initDiscopyStepper() {
     }
   }
 
+  function stopAuto() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+      if (autoBtn) autoBtn.textContent = "▶ Auto-Play";
+    }
+  }
+
   nextBtn?.addEventListener("click", () => {
+    stopAuto();
     step = (step + 1) % DISCOPY_STEPS.length;
     render();
   });
-  resetBtn?.addEventListener("click", () => {
-    step = 0;
-    render();
+
+  autoBtn?.addEventListener("click", () => {
+    if (autoTimer) {
+      stopAuto();
+    } else {
+      step = 0;
+      render();
+      autoBtn.textContent = "⏸ Pause";
+      autoTimer = setInterval(() => {
+        step = (step + 1) % DISCOPY_STEPS.length;
+        render();
+      }, 1900);
+    }
   });
+
   for (let i = 0; i < 5; i++) {
     const layer = document.getElementById(`dc-layer-${i}`);
     if (layer) {
       layer.style.cursor = "pointer";
       layer.addEventListener("click", () => {
+        stopAuto();
         step = i;
         render();
       });
@@ -568,14 +783,97 @@ function initDiscopyStepper() {
   render();
 }
 
-// ── 5. KrumpRobot 6-Phrase 1:38 Audio & Video Synchronizer ──
+// ── 5. KrumpRobot Multi-View Stage + Custom Dark 140 BPM Audio Scrubber ──
 function initKrumpRobotTimeline() {
   const wrap = document.getElementById("phrase-timeline");
   const video = document.getElementById("compare-video");
+  const videoCap = document.getElementById("video-stage-caption");
   const audio = document.getElementById("krump-audio");
   const descBox = document.getElementById("phrase-active-desc");
+
+  const playBtn = document.getElementById("audio-play-btn");
+  const seekSlider = document.getElementById("audio-seek");
+  const timeReadout = document.getElementById("audio-time-readout");
+  const beatLed = document.getElementById("beat-led");
+  const muteBtn = document.getElementById("audio-mute-btn");
   if (!wrap) return;
 
+  let activeMode = "matrix4";
+  const modeBtns = document.querySelectorAll("[data-video-mode]");
+
+  function setVideoMode(mode, seekTo = null, autoPlay = false) {
+    if (!VIDEO_MODES[mode] || !video) return;
+    const changed = activeMode !== mode;
+    activeMode = mode;
+    modeBtns.forEach((b) => b.classList.toggle("active", b.dataset.videoMode === mode));
+    if (videoCap) videoCap.textContent = VIDEO_MODES[mode].caption;
+
+    if (changed) {
+      video.src = VIDEO_MODES[mode].src;
+      video.poster = VIDEO_MODES[mode].poster;
+      video.load();
+    }
+
+    const applySeek = () => {
+      if (seekTo !== null) {
+        video.currentTime = Math.min(seekTo, video.duration || seekTo);
+      }
+      if (autoPlay) {
+        // Pause standalone soundtrack if full138 video (which has master audio) plays
+        if (mode === "full138" && audio && !audio.paused) audio.pause();
+        video.play().catch(() => {});
+      }
+    };
+
+    if (changed && seekTo !== null) {
+      video.addEventListener("loadedmetadata", applySeek, { once: true });
+    } else {
+      applySeek();
+    }
+  }
+
+  modeBtns.forEach((b) => {
+    b.addEventListener("click", () => setVideoMode(b.dataset.videoMode, null, false));
+  });
+
+  // Custom Dark Audio Player Controls
+  playBtn?.addEventListener("click", () => {
+    if (!audio) return;
+    if (audio.paused) {
+      if (activeMode === "full138" && video && !video.paused) video.pause();
+      audio.play().catch(() => {});
+    } else {
+      audio.pause();
+    }
+  });
+
+  audio?.addEventListener("play", () => {
+    if (playBtn) playBtn.textContent = "⏸";
+    beatLed?.classList.add("playing");
+  });
+  audio?.addEventListener("pause", () => {
+    if (playBtn) playBtn.textContent = "▶";
+    beatLed?.classList.remove("playing");
+  });
+  audio?.addEventListener("ended", () => {
+    if (playBtn) playBtn.textContent = "▶";
+    beatLed?.classList.remove("playing");
+  });
+
+  seekSlider?.addEventListener("input", (e) => {
+    const val = Number(e.target.value);
+    if (audio) audio.currentTime = val;
+    if (activeMode === "full138" && video) video.currentTime = val;
+    syncByTime(val);
+  });
+
+  muteBtn?.addEventListener("click", () => {
+    if (!audio) return;
+    audio.muted = !audio.muted;
+    muteBtn.textContent = audio.muted ? "🔇" : "🔊";
+  });
+
+  // 6-Phrase Timeline Buttons
   const buttons = KRUMP_PHRASES.map((p, idx) => {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -586,12 +884,12 @@ function initKrumpRobotTimeline() {
       <span class="phrase-bars">${p.bars}</span>
     `;
     btn.addEventListener("click", () => {
-      if (video) {
-        video.currentTime = p.start;
-        video.play().catch(() => {});
-      }
-      if (audio && !audio.paused) {
+      // Switch to full 1:38 video automatically so phrases 2..6 (0:14..1:38) play seamlessly!
+      setVideoMode("full138", p.start, true);
+      if (audio) {
         audio.currentTime = p.start;
+        if (seekSlider) seekSlider.value = String(p.start);
+        if (timeReadout) timeReadout.textContent = `${fmtTime(p.start)} / 1:38`;
       }
       setActive(idx);
     });
@@ -611,14 +909,31 @@ function initKrumpRobotTimeline() {
     const idx = KRUMP_PHRASES.findIndex((p) => t >= p.start && t < p.end);
     if (idx !== -1) setActive(idx);
   }
-  video?.addEventListener("timeupdate", () => syncByTime(video.currentTime));
-  audio?.addEventListener("timeupdate", () => syncByTime(audio.currentTime));
+
+  video?.addEventListener("timeupdate", () => {
+    if (activeMode === "full138") {
+      syncByTime(video.currentTime);
+      if (audio?.paused) {
+        if (seekSlider) seekSlider.value = String(video.currentTime);
+        if (timeReadout) timeReadout.textContent = `${fmtTime(video.currentTime)} / 1:38`;
+      }
+    }
+  });
+
+  audio?.addEventListener("timeupdate", () => {
+    const cur = audio.currentTime;
+    const dur = audio.duration || 98.46;
+    if (seekSlider) seekSlider.value = String(cur);
+    if (timeReadout) timeReadout.textContent = `${fmtTime(cur)} / ${fmtTime(dur)}`;
+    syncByTime(cur);
+  });
 }
 
-// ── 6. BibTeX Tabs & Copy Utilities ──
+// ── 6. BibTeX Tabs, Download .bib & Copy Utilities ──
 function initBibtexAndCopy() {
   const pre = document.getElementById("bibtex-code");
   const copyBibBtn = document.getElementById("copy-bibtex-btn");
+  const dlBibBtn = document.getElementById("download-bibtex-btn");
   let activeKey = "monograph";
 
   document.querySelectorAll("[data-bib-tab]").forEach((btn) => {
@@ -633,10 +948,19 @@ function initBibtexAndCopy() {
   copyBibBtn?.addEventListener("click", async () => {
     try {
       await navigator.clipboard.writeText(BIBTEX[activeKey]);
-      const prev = copyBibBtn.textContent;
-      copyBibBtn.textContent = "✓ Copied BibTeX!";
-      setTimeout(() => { copyBibBtn.textContent = prev; }, 1800);
+      showToast(`✓ Copied ${activeKey} BibTeX to clipboard`);
     } catch {}
+  });
+
+  dlBibBtn?.addEventListener("click", () => {
+    const blob = new Blob([BIBTEX[activeKey] + "\n"], { type: "application/x-bibtex;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `quantum-krump-${activeKey}.bib`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast(`⬇ Downloaded quantum-krump-${activeKey}.bib`);
   });
 
   document.querySelectorAll("[data-copy-target]").forEach((btn) => {
@@ -645,16 +969,15 @@ function initBibtexAndCopy() {
       if (!target) return;
       try {
         await navigator.clipboard.writeText(target.textContent.trim());
-        const prev = btn.textContent;
-        btn.textContent = "✓ Copied!";
-        setTimeout(() => { btn.textContent = prev; }, 1800);
+        showToast("✓ Copied to clipboard");
       } catch {}
     });
   });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initPreprintSelector();
+  initNavigationUX();
+  initPreprintAndModals();
   initBlochSphere();
   initLkqMapper();
   initDiscopyStepper();
