@@ -197,14 +197,14 @@
         <h2>Focused Standalone Papers &amp; 10-Language Master Monograph</h2>
         <p class="lead">
           To serve distinct peer-review communities without thematic dilution, the project is organized into a comprehensive
-          <strong>57-page Master Reference Monograph</strong> (translated natively into 10 languages) alongside three self-contained, venue-targeted standalone preprints.
+          <strong>58-page Master Reference Monograph</strong> (translated natively into 10 languages) alongside three self-contained, venue-targeted standalone preprints.
         </p>
 
         <div class="papers-grid">
           <!-- Card 1: Master Monograph -->
           <article class="paper-card featured">
             <div>
-              <span class="pill pill-signal">Master Reference · 57 Pages · 10 Languages</span>
+              <span class="pill pill-signal">Master Reference · 58 Pages · 10 Languages</span>
               <h3 style="margin-top:0.75rem">Quantum Krump: Full Monograph</h3>
               <p>
                 Complete archival reference uniting the 90-minute workshop curriculum, Laban × Krump × Bloch sphere geometry, DisCoPy Frobenius theorems, <em>11th Quantum Dimension</em> 4-Act staging, Quantinuum <code>Helios-1E-lite</code> &amp; Modal multi-qubit scaling, AlphaGenome 2 somatic verification, classical ablations, and Physical AI appendices.
@@ -212,12 +212,12 @@
               <ul class="paper-meta-list">
                 <li><strong>Authors:</strong> Arun Nadarasa &amp; Dakota Simao</li>
                 <li><strong>Languages:</strong> EN, FR, DE, NL, JA, KO, ZH, FIL, HI, TA</li>
-                <li><strong>Audit:</strong> 21 verified computational, ablation &amp; governance lanes</li>
+                <li><strong>Audit:</strong> 22 verified computational, ablation &amp; governance lanes</li>
               </ul>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
               <button type="button" class="btn btn-primary btn-sm" data-open-doc="monograph">📖 Read in Panel</button>
-              <a class="btn btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">⬇ English (57 pp.)</a>
+              <a class="btn btn-sm" href="downloads/quantum-krump-preprint.pdf" download="quantum-krump-preprint.pdf">⬇ English (58 pp.)</a>
               <button type="button" class="btn btn-ghost btn-sm" data-open-doc="v1">v1 (7 pp.)</button>
             </div>
           </article>
@@ -265,20 +265,20 @@
           <!-- Card 4: Standalone KrumpRobot Paper -->
           <article class="paper-card robotics">
             <div>
-              <span class="pill pill-amber">Standalone Robotics / Vision · 12 Pages</span>
+              <span class="pill pill-amber">Standalone Robotics / Vision · 15 Pages</span>
               <h3 style="margin-top:0.75rem">KrumpRobot Physical AI Paper</h3>
               <p>
-                Pure computer vision, biomechanics, and humanoid locomotion paper (<strong>zero quantum circuits</strong>) targeting <em>IEEE RA-L</em>, <em>ICRA</em>, and <em>SIGGRAPH</em>. Formulates high-jerk monocular 3D motion recovery and phase-conditioned neural retargeting.
+                Pure computer vision, biomechanics, and closed-loop humanoid control paper (<strong>zero quantum circuits</strong>) targeting <em>IEEE RA-L</em>, <em>ICRA</em>, and <em>SIGGRAPH</em>. Pairs monocular 3D recovery and causal GRU control with 1,000 Hz floating-base <code>MuJoCo 4.0.1</code> Unitree G1 contact verification.
               </p>
               <ul class="paper-meta-list">
                 <li><strong>Author:</strong> Arun Nadarasa</li>
-                <li><strong>Pipeline:</strong> Motion2MixamoRig (2,953 frames @ 30 fps) → 1.01M-param Causal GRU</li>
-                <li><strong>Benchmarks:</strong> 8.765×10⁻¹¹ FK, 2.32° in-seq / 80–20 split diagnostic, 4.2 cm ZMP</li>
+                <li><strong>Pipeline:</strong> Motion2MixamoRig (2,953 frames) → 1.01M GRU → MuJoCo 4.0.1 Unitree G1 WBC</li>
+                <li><strong>Benchmarks:</strong> 5/5 primitive survival (vs. 0/5 open-loop), 60s endurance, 0.52° neural RMSE</li>
               </ul>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
               <button type="button" class="btn btn-amber btn-sm" data-open-doc="krumprobot">📖 Read in Panel</button>
-              <a class="btn btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">⬇ Download (12 pp.)</a>
+              <a class="btn btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">⬇ Download (15 pp.)</a>
             </div>
           </article>
         </div>
@@ -288,7 +288,7 @@
           <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.75rem">
             <div>
               <span class="kicker" style="margin-bottom:0.2rem">Multilingual Open Science · Select Language</span>
-              <h3 id="active-lang-title">Master Monograph (English · 57 Pages)</h3>
+              <h3 id="active-lang-title">Master Monograph (English · 58 Pages)</h3>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:0.45rem">
               <button id="active-lang-preview" type="button" class="btn btn-sm">📖 Jump to Preview Panel ↓</button>
@@ -321,10 +321,10 @@
           <!-- Top Document Switcher Bar -->
           <div class="reader-doc-tabs">
             <div class="reader-doc-pills" role="tablist" aria-label="Choose paper to read">
-              <button type="button" class="reader-doc-btn active" data-reader-doc="monograph" id="tab-doc-monograph">📘 Master Monograph (EN · 57 pp.)</button>
+              <button type="button" class="reader-doc-btn active" data-reader-doc="monograph" id="tab-doc-monograph">📘 Master Monograph (EN · 58 pp.)</button>
               <button type="button" class="reader-doc-btn" data-reader-doc="category">📐 Functorial Krump ACT (14 pp.)</button>
               <button type="button" class="reader-doc-btn" data-reader-doc="pedagogy">🎓 Pedagogy Paper (15 pp.)</button>
-              <button type="button" class="reader-doc-btn amber-doc" data-reader-doc="krumprobot">🤖 KrumpRobot Paper (12 pp.)</button>
+              <button type="button" class="reader-doc-btn amber-doc" data-reader-doc="krumprobot">🤖 KrumpRobot Paper (15 pp.)</button>
               <button type="button" class="reader-doc-btn" data-reader-doc="v1">📜 Archival v1 (7 pp.)</button>
             </div>
             <div class="reader-controls-group">
@@ -677,15 +677,16 @@ def main() -> None:
                 Preserves <strong>96.8%</strong> of peak chest-pop acceleration vs. 61.4% under L2 MSE.
               </div>
               <div style="padding:0.6rem 0.75rem;border-radius:7px;background:rgba(11,21,23,0.7);border:1px solid var(--border)">
-                <strong style="color:var(--signal)">Bipedal &amp; Swarm Safety</strong><br />
-                ZMP margin <strong>4.2 cm</strong> (Unitree G1/H1); 4-robot TRMP clearance <strong>1.28 m</strong>.
+                <strong style="color:var(--signal)">MuJoCo 4.0.1 Unitree G1 WBC</strong><br />
+                1,000 Hz unpinned 29-DoF G1: <strong>5/5</strong> phrases survived, <strong>60s</strong> endurance, <strong>0.52°</strong> neural RMSE.
               </div>
             </div>
 
             <div style="margin-top:0.9rem;display:flex;flex-wrap:wrap;gap:0.45rem">
               <button type="button" class="btn btn-amber btn-sm" data-open-doc="krumprobot">📖 Read in Preview Panel</button>
-              <a class="btn btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">⬇ PDF (12 pp.)</a>
-              <a class="btn btn-ghost btn-sm" href="receipts/krumprobot_receipt_20261018.json">JSON Receipt</a>
+              <a class="btn btn-sm" href="downloads/krumprobot-physical-ai-paper.pdf" download="krumprobot-physical-ai-paper.pdf">⬇ PDF (15 pp.)</a>
+              <a class="btn btn-ghost btn-sm" href="receipts/krumprobot_mujoco_closed_loop_receipt_20261112.json">MuJoCo Receipt</a>
+              <a class="btn btn-ghost btn-sm" href="receipts/krumprobot_receipt_20261018.json">Policy Receipt</a>
             </div>
           </div>
         </div>
@@ -884,8 +885,8 @@ def main() -> None:
               <tr>
                 <td><code>K309</code></td>
                 <td>Universal Knowledge Graph (JSON-LD)</td>
-                <td>10-domain ontological schema connecting pedagogy, DisCoPy, Helios, KrumpRobot &amp; ablations</td>
-                <td><code>90</code> semantic nodes · <code>152</code> directed relations · <code>0</code> dangling edges (<code>v2.0.0</code>)</td>
+                <td>10-domain ontological schema connecting pedagogy, DisCoPy, Helios, KrumpRobot &amp; MuJoCo WBC</td>
+                <td><code>92</code> semantic nodes · <code>156</code> directed relations · <code>0</code> dangling edges (<code>v2.0.0</code>)</td>
                 <td><a href="receipts/quantum_krump_kg.json"><span class="badge-pass">JSON-LD v2.0</span></a></td>
               </tr>
               <tr>
@@ -902,6 +903,13 @@ def main() -> None:
                 <td><code>MYH1 2,307×</code> vs motor neuron; <code>MYHAS 5.94×</code> fast/slow; <code>ΔΦ = 3.1376 rad</code></td>
                 <td><a href="receipts/alphagenome2_somatic_empirical_20261111.json"><span class="badge-pass">JSON Empirical</span></a></td>
               </tr>
+              <tr>
+                <td><code>K312</code></td>
+                <td>MuJoCo 4.0.1 + <code>mujoco_menagerie</code> G1</td>
+                <td>Closed-loop 1,000 Hz floating-base Unitree G1 WBC: 3-controller ablation, 60s endurance &amp; 2-G1 session</td>
+                <td><code>5/5</code> survived (vs. <code>0/5</code> open-loop); <code>5.40°</code> RMSE; <code>+58.7%</code> jerk; <code>60s</code> PASS; <code>0.52°</code> neural</td>
+                <td><a href="receipts/krumprobot_mujoco_closed_loop_receipt_20261112.json"><span class="badge-pass">JSON 33388a82</span></a></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -916,16 +924,16 @@ def main() -> None:
             <p class="kicker">08 · Universal Multi-Domain Ontology · v2.0.0</p>
             <h2>Interactive Knowledge Graph Explorer</h2>
             <p class="lead">
-              Explore all <strong>90 semantic entities</strong> and <strong>152 directed ontological relations</strong> across
+              Explore all <strong>92 semantic entities</strong> and <strong>156 directed ontological relations</strong> across
               10 domains — unifying Laban Movement Analysis, South Central LA Krump foundations, anatomical Bloch-kinesphere biomechanics,
-              DisCoPy Frobenius string diagrams, Quantinuum <code>Helios-1E-lite</code> emulation, <code>KrumpRobot</code> Physical AI, and classical ablation floors.
+              DisCoPy Frobenius string diagrams, Quantinuum <code>Helios-1E-lite</code> emulation, <code>KrumpRobot</code> MuJoCo 4.0.1 Physical AI, and classical ablation floors.
             </p>
           </div>
           <div class="kg-toolbar-actions">
             <button type="button" id="kg-layout-toggle" class="btn btn-sm">⇄ Layout: Force</button>
             <button type="button" id="kg-reset-btn" class="btn btn-sm">↺ Reset View</button>
             <button type="button" id="kg-mermaid-btn" class="btn btn-sm">⧉ Copy Mermaid</button>
-            <a class="btn btn-primary btn-sm" href="receipts/quantum_krump_kg.json" download="quantum_krump_kg.json">⬇ JSON-LD (83 KB)</a>
+            <a class="btn btn-primary btn-sm" href="receipts/quantum_krump_kg.json" download="quantum_krump_kg.json">⬇ JSON-LD (85 KB)</a>
           </div>
         </div>
 
@@ -1051,10 +1059,10 @@ def main() -> None:
             </div>
 
             <div class="lang-pills" style="margin-top:0.65rem">
-              <button type="button" class="lang-btn active" data-bib-tab="monograph">Master Monograph (57 pp.)</button>
+              <button type="button" class="lang-btn active" data-bib-tab="monograph">Master Monograph (58 pp.)</button>
               <button type="button" class="lang-btn" data-bib-tab="category">Functorial Krump ACT (14 pp.)</button>
               <button type="button" class="lang-btn" data-bib-tab="pedagogy">Pedagogy Paper (15 pp.)</button>
-              <button type="button" class="lang-btn" data-bib-tab="krumprobot">KrumpRobot Paper (12 pp.)</button>
+              <button type="button" class="lang-btn" data-bib-tab="krumprobot">KrumpRobot Paper (15 pp.)</button>
             </div>
 
             <pre id="bibtex-code" class="code-block wrap-lines"></pre>

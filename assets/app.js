@@ -5,9 +5,9 @@ const PREPRINTS = {
     label: "English",
     file: "downloads/quantum-krump-preprint.pdf",
     filename: "quantum-krump-preprint.pdf",
-    title: "Master Monograph (English · 57 Pages)",
+    title: "Master Monograph (English · 58 Pages)",
     abstract:
-      "We present Quantum Krump, a body-first movement curriculum, categorical formalism, theatrical staging framework, and Physical AI research ecosystem introducing superposition, entanglement, and relative phase interference through South Central Los Angeles Krump street dance, Laban Movement Analysis (LMA), and DisCoPy Frobenius monoidal string diagrams. Validated across 19 computational and ablation lanes including Quantinuum Nexus Helios-1E-lite emulation (2,048 emulator shots; 0 physical QPU shots claimed; 99.41% Clifford duet fidelity), OpenJij QUBO stage routing (E0 = -7.3569), Modal 10-qubit barren-plateau mitigation (5.89x variance retention), QKMLM variational classification (98.60% test accuracy alongside matched classical MLP ablations), Motion2MixamoRig 3D recovery (8.765e-11 FK precision), and KrumpRobot 1.01M-parameter causal GRU humanoid control (2.32 deg in-sequence error, 2.70 ms latency)."
+      "We present Quantum Krump, a body-first movement curriculum, categorical formalism, theatrical staging framework, and Physical AI research ecosystem introducing superposition, entanglement, and relative phase interference through South Central Los Angeles Krump street dance, Laban Movement Analysis (LMA), and DisCoPy Frobenius monoidal string diagrams. Validated across 22 computational and ablation lanes including Quantinuum Nexus Helios-1E-lite emulation (2,048 emulator shots; 0 physical QPU shots claimed; 99.41% Clifford duet fidelity), OpenJij QUBO stage routing (E0 = -7.3569), Modal 10-qubit barren-plateau mitigation (5.89x variance retention), AlphaGenome 2 somatic verification, QKMLM variational classification (98.60% test accuracy alongside matched classical MLP ablations), Motion2MixamoRig 3D recovery (8.765e-11 FK precision), and KrumpRobot 1.01M-parameter causal GRU + 1,000 Hz MuJoCo 4.0.1 floating-base Unitree G1 whole-body control (5/5 primitive survival, 60s endurance, 0.52 deg neural rollout RMSE)."
   },
   fr: {
     label: "Français",
@@ -221,11 +221,11 @@ const BIBTEX = {
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-pedagogy-paper.pdf}
 }`,
   krumprobot: `@article{nadarasa2026krumprobot,
-  title   = {KrumpRobot: High-Jerk Expressive Humanoid Dance Generation via Monocular 3D Motion Recovery, Rest-Relative Retargeting, and Phase-Conditioned Neural Control},
+  title   = {KrumpRobot: High-Jerk Expressive Humanoid Dance Generation via Monocular 3D Motion Recovery, Rest-Relative Retargeting, Phase-Conditioned Neural Control, and Closed-Loop MuJoCo Contact Dynamics},
   author  = {Nadarasa, Arun},
   year    = {2026},
   month   = {November},
-  note    = {12-page Standalone Physical AI \\& Humanoid Robotics Preprint},
+  note    = {15-page Standalone Physical AI \\& Humanoid Robotics Preprint},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/krumprobot-physical-ai-paper.pdf}
 }`
 };
@@ -357,12 +357,13 @@ const PAPER_DOCS = {
     file: "downloads/krumprobot-physical-ai-paper.pdf",
     filename: "krumprobot-physical-ai-paper.pdf",
     bookmarks: [
-      { label: "p.1 Intro", page: 1 },
-      { label: "p.3 3D Recovery & Kabsch", page: 3 },
-      { label: "p.4 Causal GRU Policy", page: 4 },
-      { label: "p.7 Bipedal ZMP & Swarm", page: 7 },
-      { label: "p.8 WebGL & Sim-to-Real", page: 8 },
-      { label: "p.9 Conclusion", page: 9 }
+      { label: "p.1 Intro & Abstract", page: 1 },
+      { label: "p.4 3D Recovery & Rig", page: 4 },
+      { label: "p.6 Causal GRU Policy", page: 6 },
+      { label: "p.9 MuJoCo 4.0.1 G1 WBC", page: 9 },
+      { label: "p.11 Ablation Fig & Results", page: 11 },
+      { label: "p.13 Sim-to-Real & Conclusion", page: 13 },
+      { label: "p.14 References", page: 14 }
     ]
   },
   v1: {
@@ -448,7 +449,7 @@ function initPreprintAndModals() {
   let activeDoc = "monograph";
   let zoomFactor = 1.0;
   let currentPdfDoc = null;
-  let currentNumPages = 57;
+  let currentNumPages = 58;
   let currentPage = 1;
   let activeBookmarks = [];
   let pageObserver = null;

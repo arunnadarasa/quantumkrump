@@ -14,12 +14,12 @@
     "author": "Arun Nadarasa & Dakota Simao (Twin Bad Liks / Jr Outrage)",
     "federation": "Angels of Krump Movement Federation",
     "acknowledgment": "This work was supported in part by complimentary access to Google Antigravity and Gemini 4 Argon to accelerate scientific workflows.",
-    "created_at": "2026-11-11T22:16:26.551779+00:00",
+    "created_at": "2026-11-12T21:38:28.370929+00:00",
     "license": "CC-BY-4.0 / Apache-2.0",
     "repository": "https://arunnadarasa.github.io/quantumkrump/",
     "stats": {
-      "nodes_count": 90,
-      "edges_count": 152,
+      "nodes_count": 92,
+      "edges_count": 156,
       "domains_count": 10
     }
   },
@@ -602,8 +602,18 @@
       "domain": "biophysical_somatics",
       "category": "Robotics Neural Motion Policy",
       "formula": "\\hat{\\mathbf{q}}_{t+1}, \\hat{F}_z, \\mathbf{p}_{\\text{ZMP}} = \\pi_{\\theta}(\\mathbf{s}_{t-K:t}, c, \\phi_{\\text{BPM}})",
-      "description": "1.01M-parameter phase-conditioned causal GRU movement policy trained on Modal Cloud from Arun Nadarasa's live Krump performance (socialprescribing/KrumpRobot on Hugging Face Hub & Space; 12-page standalone preprint, p50 latency 2.70 ms, full-sequence tracking 2.32 deg, 96.8% peak acceleration retention, zero quantum circuitry).",
+      "description": "1.01M-parameter phase-conditioned causal GRU movement policy trained on Modal Cloud from Arun Nadarasa's live Krump performance (socialprescribing/KrumpRobot on Hugging Face Hub & Space; 15-page standalone preprint, p50 latency 2.70 ms, full-sequence tracking 2.32 deg, MuJoCo 4.0.1 closed-loop Unitree G1 tracking 0.52 deg upper RMSE, zero quantum circuitry).",
       "x": 380,
+      "y": 800
+    },
+    {
+      "id": "node_mujoco_closed_loop_g1",
+      "name": "MuJoCo 4.0.1 Closed-Loop Unitree G1 WBC (ClosedLoop-KrumpWBC)",
+      "domain": "biophysical_somatics",
+      "category": "Floating-Base Contact-Dynamics Verification",
+      "formula": "\\Delta q_{\\text{ank},p} = +\\delta_x + u_{\\text{CoP}}, \\; \\Delta q_{\\text{hip},p} = -\\delta_x + u_{\\text{IMU}}, \\; 1{,}000\\text{ Hz}",
+      "description": "Closed-loop 1,000 Hz rigid-body contact dynamics verification in MuJoCo 4.0.1 on Google DeepMind mujoco_menagerie's unpinned 6-DoF floating-base Unitree G1 (29 actuated DoF, 33.34 kg, mu=0.6, hardware torque saturation enforced): 5/5 primitive survival vs. 0/5 open-loop collapse, +58.7% preserved thoracic jerk over minimum-jerk filtering, 60.0s continuous endurance (4.46x BW), 0.52 deg neural rollout tracking, and 0-collision 2-humanoid shared-world execution.",
+      "x": 450,
       "y": 800
     },
     {
@@ -808,11 +818,11 @@
     },
     {
       "id": "node_three_paper_suite",
-      "name": "Three-Paper Multilingual Publication Suite (10 Languages)",
+      "name": "Multilingual Monograph & Focused Companion Suite (10 Languages)",
       "domain": "empirical_pedagogy",
       "category": "Open-Access Publications",
-      "formula": "\\text{Monograph (56 pp. } \\times 10 \\text{ langs)} \\oplus \\text{Pedagogy (15 pp.)} \\oplus \\text{KrumpRobot (12 pp.)}",
-      "description": "Open-access publication architecture comprising the 56-page Master Reference Monograph natively typeset across EN, FR, DE, NL, FIL, JA, KO, ZH, HI, and TA, paired with the 15-page Embodied Pedagogy Companion and 12-page Standalone KrumpRobot Physical AI Preprint.",
+      "formula": "\\text{Monograph (58 pp. } \\times 10 \\text{ langs)} \\oplus \\text{Pedagogy (15 pp.)} \\oplus \\text{KrumpRobot (15 pp.)} \\oplus \\text{Cat. Choreo. (8 pp.)}",
+      "description": "Open-access publication architecture comprising the 58-page Master Reference Monograph natively typeset across EN, FR, DE, NL, FIL, JA, KO, ZH, HI, and TA, paired with the 15-page Embodied Pedagogy Companion, 15-page Standalone KrumpRobot Physical AI Preprint, and 8-page Categorical Choreography Journal Preprint.",
       "x": 250,
       "y": 840
     },
@@ -952,9 +962,19 @@
       "domain": "epistemic_governance",
       "category": "Open Science Hub & Interactive Visualizer",
       "formula": "\\text{HF}_{\\text{Space}}(\\text{socialprescribing/quantumkrump}) \\cup \\text{HF}_{\\text{ModelHub}}(\\text{KrumpRobot})",
-      "description": "Interactive Hugging Face static WebGL Spaces and Model Hub repositories (socialprescribing/quantumkrump and socialprescribing/KrumpRobot) hosting QKMLM checkpoints, KrumpRobot weights, 12/15/56-page preprints, and sealed ablation receipts.",
+      "description": "Interactive Hugging Face static WebGL Spaces and Model Hub repositories (socialprescribing/quantumkrump and socialprescribing/KrumpRobot) hosting QKMLM checkpoints, KrumpRobot weights, MuJoCo 4.0.1 Unitree G1 receipts, 8/15/58-page preprints, and sealed ablation receipts.",
       "x": 760,
       "y": 540
+    },
+    {
+      "id": "node_gate_mujoco_closed_loop",
+      "name": "Audit Gate G_MuJoCo_ClosedLoop",
+      "domain": "epistemic_governance",
+      "category": "Epistemic Gate",
+      "formula": "\\text{Surv}_{\\text{5-prim}} = 100\\% \\land t_{\\text{endure}} = 60.0\\text{ s} \\land \\text{Collisions}_{2\\times\\text{G1}} = 0",
+      "description": "Deterministic closed-loop floating-base MuJoCo 4.0.1 contact-dynamics audit gate (krumprobot_mujoco_closed_loop_receipt_20261112.json) verifying 1,000 Hz unpinned Unitree G1 balance across all 5 Krump primitives, 60.0s endurance, 10.0s neural rollout tracking, and 2-humanoid zero-collision execution.",
+      "x": 720,
+      "y": 770
     },
     {
       "id": "node_research_portal",
@@ -1998,7 +2018,35 @@
       "source": "node_three_paper_suite",
       "target": "node_krumprobot",
       "relation": "DOCUMENTS_ROBOTICS",
-      "label": "12-Page Standalone Preprint"
+      "label": "15-Page Standalone Preprint"
+    },
+    {
+      "id": "e_mujoco_krumprobot",
+      "source": "node_mujoco_closed_loop_g1",
+      "target": "node_krumprobot",
+      "relation": "EXECUTES_CLOSED_LOOP",
+      "label": "0.52 deg Neural Rollout Tracking"
+    },
+    {
+      "id": "e_mujoco_unitree",
+      "source": "node_mujoco_closed_loop_g1",
+      "target": "node_unitree_unifolm",
+      "relation": "SIMULATES_HARDWARE",
+      "label": "29-DoF Unitree G1 MJCF"
+    },
+    {
+      "id": "e_mujoco_mpc",
+      "source": "node_mujoco_closed_loop_g1",
+      "target": "node_humanoid_mpc_robotics",
+      "relation": "VERIFIES_CONTACT_SOLVER",
+      "label": "1 kHz Floating-Base CoP & GRF"
+    },
+    {
+      "id": "e_gate_mujoco_wbc",
+      "source": "node_gate_mujoco_closed_loop",
+      "target": "node_mujoco_closed_loop_g1",
+      "relation": "AUDITS_CLOSED_LOOP",
+      "label": "5/5 Survival & 60s Endurance"
     },
     {
       "id": "e_papers_pedagogy",
