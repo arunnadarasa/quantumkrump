@@ -5,9 +5,9 @@ const PREPRINTS = {
     label: "English",
     file: "downloads/quantum-krump-preprint.pdf",
     filename: "quantum-krump-preprint.pdf",
-    title: "Master Monograph (English · 65 Pages)",
+    title: "Master Monograph (English · 64 Pages)",
     abstract:
-      "We present Quantum Krump, a body-first movement curriculum, categorical formalism, theatrical staging framework, and Physical AI research ecosystem introducing superposition, entanglement, and relative phase interference through South Central Los Angeles Krump street dance, Laban Movement Analysis (LMA), and DisCoPy Frobenius monoidal string diagrams. Validated across 27 computational, world-model, and governance lanes including Quantinuum Nexus Helios-1E-lite emulation (2,048 emulator shots; 0 physical QPU shots claimed; 99.41% Clifford duet fidelity), OpenJij QUBO stage routing (E0 = -7.3569), Modal 10-qubit barren-plateau mitigation (5.89x variance retention), TypeSafe Jev 1.14 4-Horizon Quantum Krump Advantage (64.6% 2Q gate cut, 1.78x noisy fidelity), Quantum Krump World Model QK-WM (4-bar Session Arena-WM + Learner-WM QISCIT POMDP; 56.23 us CPU floor; N = 0 human RCT subjects), AlphaGenome 2 somatic verification, and standalone KrumpRobot + Cartwheel Control + KR-WM-MPC 29-DoF Unitree G1 humanoid control (5/5 survival on mu = 0.12 ice + push vs. 3/5 naive, 0.9933 fall-hazard ROC-AUC)."
+      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams, and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 27 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), TypeSafe Jev 1.14 + QK-WM (64.6% 2Q cut; N = 0 human RCT subjects), and standalone KrumpRobot + KR-WM-MPC Unitree G1 control (5/5 survival on μ = 0.12 ice + push)."
   },
   fr: {
     label: "Français",
@@ -15,7 +15,7 @@ const PREPRINTS = {
     filename: "quantum-krump-preprint-fr.pdf",
     title: "Monographie de référence (Français · 51 Pages)",
     abstract:
-      "Nous présentons Quantum Krump, un atelier pédagogique incarné par le corps, un cadre formel DisCoPy en catégories monoïdales dagger-compactes de Frobenius, la création théâtrale 11th Quantum Dimension (1 heure, 20 danseurs, avec Dakota Simao) et la chaîne Physical AI Motion2MixamoRig / KrumpRobot. Validation complète sur l'émulateur Quantinuum Nexus Helios-1E-lite (2 048 tirs d'émulateur ; 0 tir physique QPU revendiqué ; fidélité de duo 99,41%), ordonnancement QUBO OpenJij (E0 = -7,3569), classificateur QKMLM sur Modal Cloud (98,60%) et contrôle humanoïde temps réel (erreur géodésique 2,32°, latence 2,70 ms)."
+      "Quantum Krump enseigne la superposition, l'intrication et l'interférence par le Krump, l'analyse Laban (LMA), les diagrammes de Frobenius DisCoPy et la pièce 11th Quantum Dimension (Dakota Simao). Validé sur l'émulateur Quantinuum Helios-1E-lite (fidélité 99,41 % ; 0 tir QPU physique), QUBO OpenJij (E0 = -7,3569) et le contrôleur humanoïde KrumpRobot (2,32°, 2,70 ms)."
   },
   de: {
     label: "Deutsch",
@@ -23,7 +23,7 @@ const PREPRINTS = {
     filename: "quantum-krump-preprint-de.pdf",
     title: "Referenzmonografie (Deutsch · 56 Seiten)",
     abstract:
-      "Wir präsentieren Quantum Krump: ein körperbasiertes Lehr- und Forschungsökosystem, das Superposition, Verschränkung und Phaseninterferenz durch Krump Street Dance, Laban-Bewegungsanalyse (LMA) und angewandte Kategorientheorie (DisCoPy Frobenius-Stringdiagramme) vermittelt — einschließlich der einstündigen Bühnenproduktion 11th Quantum Dimension, verifizierter Quantinuum-Helios-1E-lite-Emulation (2.048 Emulator-Shots, 0 physische QPU-Shots, 99,41% Duett-Fidelität) sowie Motion2MixamoRig & KrumpRobot Physical AI."
+      "Quantum Krump vermittelt Superposition, Verschränkung und Phaseninterferenz durch Krump Street Dance, Laban-Bewegungsanalyse (LMA), DisCoPy-Frobenius-Diagramme und das Bühnenwerk 11th Quantum Dimension. Verifiziert auf dem Quantinuum-Helios-1E-lite-Emulator (99,41 % Duett-Fidelität; 0 physische QPU-Shots) sowie durch die humanoide Steuerung KrumpRobot."
   },
   nl: {
     label: "Nederlands",
@@ -31,7 +31,7 @@ const PREPRINTS = {
     filename: "quantum-krump-preprint-nl.pdf",
     title: "Referentiemonografie (Nederlands · 55 Pagina's)",
     abstract:
-      "Wij presenteren Quantum Krump, een belichaamd onderwijscurriculum, DisCoPy-categorische formalisering, het 60-minuten theaterwerk 11th Quantum Dimension met Dakota Simao, en het Motion2MixamoRig / KrumpRobot Physical AI-raamwerk — gevalideerd over 18 computationele benchmarks waaronder Quantinuum Nexus Helios-1E-lite-emulatie (99,41% duetgetrouwheid; 0 fysieke QPU-shots) en Modal Cloud."
+      "Quantum Krump onderwijst superpositie, verstrengeling en fase-interferentie via Krump, Laban Movement Analysis (LMA), DisCoPy-Frobenius-diagrammen en het theaterwerk 11th Quantum Dimension met Dakota Simao. Gevalideerd op Quantinuum Helios-1E-lite (99,41 % duetgetrouwheid; 0 fysieke QPU-shots) en KrumpRobot Physical AI."
   },
   ja: {
     label: "日本語",
@@ -39,7 +39,7 @@ const PREPRINTS = {
     filename: "quantum-krump-preprint-ja.pdf",
     title: "マスター学術モノグラフ（日本語版・全62頁）",
     abstract:
-      "本研究は、サウス・セントラル・ロサンゼルス発祥のストリートダンス「Krump」、ラバン動作解析（LMA）、および応用圏論（DisCoPyフロベニウス弦図）を通じて重ね合わせ・量子もつれ・位相干渉を体現する『Quantum Krump』を提示する。Dakota Simaoとの60分舞台作品『11th Quantum Dimension』、Quantinuum Helios-1E-liteエミュレータ検証（2,048ショット、実機QPU 0ショット明記、デュエット忠実度99.41%）、Modal Cloud上のQKMLMおよび単眼3D復元・ヒューマノイド制御モデルKrumpRobot（測地線誤差2.32°、推論遅延2.70 ms）を統合する。"
+      "『Quantum Krump』は、Krumpストリートダンス、ラバン動作解析（LMA）、DisCoPyフロベニウス弦図、舞台作品『11th Quantum Dimension』を通じて重ね合わせ・量子もつれ・位相干渉を体現する。Quantinuum Helios-1E-liteエミュレータ（忠実度99.41%、実機QPU 0ショット）およびKrumpRobotヒューマノイド制御（誤差2.32°、遅延2.70 ms）で検証済み。"
   },
   ko: {
     label: "한국어",
@@ -47,7 +47,7 @@ const PREPRINTS = {
     filename: "quantum-krump-preprint-ko.pdf",
     title: "마스터 학술 모노그래프 (한국어판 · 53쪽)",
     abstract:
-      "본 논문은 크럼프(Krump) 스트리트 댄스, 라반 동작 분석(LMA), DisCoPy 프로베니우스 모노이달 범주론을 결합하여 중첩·얽힘·위상 간섭을 교육하는 신체화 프레임워크 『Quantum Krump』를 제시한다. 다코타 시마오와의 60분 무대 작품 『제11 양자 차원』, Quantinuum Helios-1E-lite 에뮬레이터 검증(2,048샷, 물리 QPU 0샷 명시, 99.41% 충실도), Modal 기반 QKMLM 및 휴머노이드 제어 정책 KrumpRobot(오차 2.32°, 지연 2.70 ms)의 전 과정을 검증한다."
+      "『Quantum Krump』는 크럼프 스트리트 댄스, 라반 동작 분석(LMA), DisCoPy 프로베니우스 범주론과 무대 작품 『11th Quantum Dimension』으로 중첩·얽힘·위상 간섭을 교육한다. Quantinuum Helios-1E-lite 에뮬레이터(충실도 99.41%, 물리 QPU 0샷)와 KrumpRobot 휴머노이드 제어(오차 2.32°, 지연 2.70 ms)로 검증되었다."
   },
   zh: {
     label: "中文",
@@ -55,7 +55,7 @@ const PREPRINTS = {
     filename: "quantum-krump-preprint-zh.pdf",
     title: "完整学术专著预印本（中文版 · 50 页）",
     abstract:
-      "本文提出《量子克朗普》(Quantum Krump)，结合洛杉矶南区街舞 Krump、拉班动作分析 (LMA) 与应用范畴论 (DisCoPy 弗罗贝尼乌斯弦图)，具身化讲授量子叠加、纠缠与相位干涉。体系涵盖与 Dakota Simao 共创的 60 分钟剧场作品《第 11 量子维度》、Quantinuum Helios-1E-lite 模拟器验证（2,048 次模拟采样，明确声明 0 次真实物理 QPU 采样，双人舞保真度 99.41%）、Modal 云端 10 量子比特贫瘠高原缓解（5.9× 方差保持）以及 Motion2MixamoRig 与 KrumpRobot 具身人形机器人控制策略（测地误差 2.32°，中位延迟 2.70 ms）。"
+      "《量子克朗普》(Quantum Krump) 结合 Krump 街舞、拉班动作分析 (LMA)、DisCoPy 弗罗贝尼乌斯弦图与剧场作品《第 11 量子维度》，具身化讲授叠加、纠缠与干涉。已在 Quantinuum Helios-1E-lite 模拟器（保真度 99.41%，0 次物理 QPU 采样）与 KrumpRobot 人形控制策略（误差 2.32°，延迟 2.70 ms）上完成验证。"
   },
   fil: {
     label: "Filipino",
@@ -63,7 +63,7 @@ const PREPRINTS = {
     filename: "quantum-krump-preprint-fil.pdf",
     title: "Master Preprint Monograph (Filipino · 58 Pahina)",
     abstract:
-      "Inilalahad namin ang Quantum Krump, isang body-first na kurikulum, pormalismong kategoryal sa DisCoPy, produksyong pang-entablado na 11th Quantum Dimension kasama si Dakota Simao, at Physical AI pipeline para sa Motion2MixamoRig at KrumpRobot — napatunayan sa Quantinuum Nexus Helios-1E-lite emulator (2,048 shots; 0 pisikal na QPU shots; 99.41% duet fidelity) at Modal Cloud."
+      "Itinuturo ng Quantum Krump ang superposition, entanglement, at interference sa pamamagitan ng Krump, Laban Movement Analysis, DisCoPy Frobenius diagrams, at 11th Quantum Dimension kasama si Dakota Simao. Napatunayan sa Quantinuum Helios-1E-lite emulator (99.41% fidelity; 0 pisikal na QPU shots) at KrumpRobot Physical AI."
   },
   hi: {
     label: "हिन्दी",
@@ -71,7 +71,7 @@ const PREPRINTS = {
     filename: "quantum-krump-preprint-hi.pdf",
     title: "मुख्य शोध मोनोग्राफ (हिन्दी संस्करण · 52 पृष्ठ)",
     abstract:
-      "हम Quantum Krump प्रस्तुत करते हैं — लॉस एंजेलिस के Krump स्ट्रीट डांस, लाबान मूवमेंट एनालिसिस (LMA) और DisCoPy श्रेणी सिद्धांत के माध्यम से अध्यारोपण (superposition), उलझाव (entanglement) और व्यतिकरण (interference) सिखाने की शरीर-प्रथम कार्यशाला, 11th Quantum Dimension रंगमंच प्रस्तुति, Quantinuum Helios-1E-lite एमुलेटर सत्यापन (99.41% युगल निष्ठा, 0 भौतिक QPU शॉट्स) तथा Motion2MixamoRig / KrumpRobot ह्यूमनॉइड फिजिकल AI प्रणाली।"
+      "Quantum Krump लॉस एंजेलिस के Krump स्ट्रीट डांस, लाबान मूवमेंट एनालिसिस (LMA), DisCoPy श्रेणी सिद्धांत और 11th Quantum Dimension रंगमंच कृति के माध्यम से अध्यारोपण, उलझाव और व्यतिकरण सिखाता है। Quantinuum Helios-1E-lite एमुलेटर (99.41% युगल निष्ठा; 0 भौतिक QPU शॉट्स) व KrumpRobot फिजिकल AI पर सत्यापित।"
   },
   ta: {
     label: "தமிழ்",
@@ -79,7 +79,7 @@ const PREPRINTS = {
     filename: "quantum-krump-preprint-ta.pdf",
     title: "முதன்மை ஆராய்ச்சி நூல் (தமிழ் பதிப்பு · 62 பக்கங்கள்)",
     abstract:
-      "தெற்கு லாஸ் ஏஞ்சல்ஸின் Krump நடனம், லாபன் இயக்கப் பகுப்பாய்வு (LMA), மற்றும் DisCoPy வகைமைக் கோட்பாட்டின் வழி மேற்பொருந்துதல், பிணைப்பு, குறுக்கீடு ஆகியவற்றை உடல்வழி கற்பிக்கும் Quantum Krump கட்டமைப்பை வழங்குகிறோம் — இதில் டகோடா சிமாவோ (Twin Bad Liks / Jr Outrage) உடனான 11th Quantum Dimension நாடக ஆக்கம், Quantinuum Helios-1E-lite எமுலேட்டர் சரிபார்ப்பு (99.41% இரட்டையர் துல்லியம்; 0 இயற்பியல் QPU shots), மற்றும் KrumpRobot மனிதஉருவ Physical AI ஆகியவை அடங்கும்."
+      "Quantum Krump என்பது Krump நடனம், லாபன் இயக்கப் பகுப்பாய்வு (LMA), DisCoPy வகைமைக் கோட்பாடு மற்றும் 11th Quantum Dimension நாடக ஆக்கத்தின் வழி மேற்பொருந்துதல், பிணைப்பு, குறுக்கீடு ஆகியவற்றைக் கற்பிக்கிறது. Quantinuum Helios-1E-lite எமுலேட்டர் (99.41% துல்லியம்; 0 இயற்பியல் QPU shots) மற்றும் KrumpRobot Physical AI மூலம் சரிபார்க்கப்பட்டது."
   }
 };
 
@@ -201,7 +201,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {65-page Master Reference Monograph in 10 languages; Quantinuum Nexus Helios-1E-lite, DisCoPy, TypeSafe Jev 1.14, QK-WM, AlphaGenome 2, Modal Cloud, and KrumpRobot},
+  note    = {64-page Master Reference Monograph in 10 languages; Quantinuum Nexus Helios-1E-lite, DisCoPy, TypeSafe Jev 1.14, QK-WM, AlphaGenome 2, Modal Cloud, and KrumpRobot},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-preprint.pdf}
 }`,
   category: `@article{nadarasa2026functorialkrump,
@@ -448,7 +448,7 @@ function initPreprintAndModals() {
   let activeDoc = "monograph";
   let zoomFactor = 1.0;
   let currentPdfDoc = null;
-  let currentNumPages = 65;
+  let currentNumPages = 64;
   let currentPage = 1;
   let activeBookmarks = [];
   let pageObserver = null;
@@ -1766,18 +1766,28 @@ function initBenchmarkCharts() {
 }
 
 /* ============================================================================
-   8. Universal Multi-Domain Knowledge Graph Explorer (Apache ECharts · v2.0.0)
+   8. Universal Multi-Domain Knowledge Graph Explorer (Apache ECharts · v2.1.0)
    ============================================================================ */
 function initKnowledgeGraph() {
   const chartEl = document.getElementById("echart-kg");
   if (!chartEl || !window.echarts) return;
 
+  const layoutRoot = document.getElementById("kg-layout-root");
   const searchInput = document.getElementById("kg-search");
+  const searchClear = document.getElementById("kg-search-clear");
   const countBadge = document.getElementById("kg-count-badge");
   const pillsWrap = document.getElementById("kg-domain-pills");
+  const spotlightChips = document.querySelectorAll("[data-kg-pick]");
   const layoutBtn = document.getElementById("kg-layout-toggle");
+  const egoBtn = document.getElementById("kg-ego-toggle");
   const resetBtn = document.getElementById("kg-reset-btn");
   const mermaidBtn = document.getElementById("kg-mermaid-btn");
+
+  const zoomInBtn = document.getElementById("kg-zoom-in");
+  const zoomOutBtn = document.getElementById("kg-zoom-out");
+  const zoomFitBtn = document.getElementById("kg-zoom-fit");
+  const fullscreenBtn = document.getElementById("kg-fullscreen-btn");
+  const backBtn = document.getElementById("kg-back-btn");
 
   const domainEl = document.getElementById("kg-node-domain");
   const catEl = document.getElementById("kg-node-cat");
@@ -1791,20 +1801,41 @@ function initKnowledgeGraph() {
   const inListEl = document.getElementById("kg-in-list");
 
   const chart = window.echarts.init(chartEl, null, { renderer: "canvas" });
+  const LAYOUT_CYCLE = [
+    { key: "none", label: "⇄ Layout: Sector Map" },
+    { key: "force", label: "⇄ Layout: Force Physics" },
+    { key: "circular", label: "⇄ Layout: Circular Ring" }
+  ];
+
   let kg = null;
   let nodeById = new Map();
   let degreeById = new Map();
   let activeDomain = "all";
   let searchQuery = "";
-  let layoutMode = "force"; // "force" | "none"
-  let selectedId = "node_krumprobot";
+  let layoutIdx = 0; // Default to clean radial Sector Map (zero physics jitter!)
+  let egoOnly = false;
+  let zoomScale = 1.05;
+  let selectedId = "node_krwm_mpc";
+  const historyStack = [];
 
-  function selectNode(nodeId) {
+  function syncSpotlightChips() {
+    spotlightChips.forEach((chip) => {
+      chip.classList.toggle("active", chip.dataset.kgPick === selectedId);
+    });
+  }
+
+  function selectNode(nodeId, pushHistory = true) {
     const n = nodeById.get(nodeId);
     if (!n || !kg) return;
+    if (pushHistory && selectedId && selectedId !== n.id && nodeById.has(selectedId)) {
+      historyStack.push(selectedId);
+      if (historyStack.length > 24) historyStack.shift();
+    }
     selectedId = n.id;
-    const domMeta = kg.domains[n.domain] || { name: n.domain, color: "#2dd4bf" };
+    syncSpotlightChips();
+    if (backBtn) backBtn.style.display = historyStack.length ? "inline-block" : "none";
 
+    const domMeta = kg.domains[n.domain] || { name: n.domain, color: "#2dd4bf" };
     if (domainEl) {
       domainEl.textContent = domMeta.name;
       domainEl.style.borderColor = domMeta.color;
@@ -1844,6 +1875,7 @@ function initKnowledgeGraph() {
         const left = document.createElement("span");
         const verb = document.createElement("span");
         verb.className = "kg-rel-verb";
+        verb.style.color = isOutgoing ? "#38d6c4" : "#f4ae42";
         verb.textContent = isOutgoing ? `${edge.relation} → ` : `← ${edge.relation} `;
         const nameSpan = document.createElement("strong");
         nameSpan.textContent = peer.name;
@@ -1858,7 +1890,6 @@ function initKnowledgeGraph() {
         btn.appendChild(left);
         btn.appendChild(dot);
         btn.addEventListener("click", () => {
-          // Ensure target node is visible if currently filtered out
           if (activeDomain !== "all" && peer.domain !== activeDomain) {
             activeDomain = "all";
             pillsWrap?.querySelectorAll("[data-kg-domain]").forEach((b) => {
@@ -1868,8 +1899,9 @@ function initKnowledgeGraph() {
           if (searchQuery) {
             searchQuery = "";
             if (searchInput) searchInput.value = "";
+            searchClear?.classList.remove("visible");
           }
-          selectNode(peer.id);
+          selectNode(peer.id, true);
           renderGraph();
         });
         container.appendChild(btn);
@@ -1881,7 +1913,19 @@ function initKnowledgeGraph() {
   }
 
   function getFilteredSubgraph() {
-    if (!kg) return { nodes: [], edges: [] };
+    if (!kg) return { nodes: [], edges: [], neighborIds: new Set() };
+    const neighborIds = new Set([selectedId]);
+    kg.edges.forEach((e) => {
+      if (e.source === selectedId) neighborIds.add(e.target);
+      if (e.target === selectedId) neighborIds.add(e.source);
+    });
+
+    if (egoOnly) {
+      const nodes = kg.nodes.filter((n) => neighborIds.has(n.id));
+      const edges = kg.edges.filter((e) => neighborIds.has(e.source) && neighborIds.has(e.target));
+      return { nodes, edges, neighborIds };
+    }
+
     const q = searchQuery.trim().toLowerCase();
     const matchedIds = new Set();
 
@@ -1896,7 +1940,6 @@ function initKnowledgeGraph() {
       if (hay.includes(q)) matchedIds.add(n.id);
     });
 
-    // When filtering by domain or search, include 1-hop neighbors when <= 25 seed matches so context stays connected
     if ((activeDomain !== "all" || q) && matchedIds.size > 0 && matchedIds.size <= 25) {
       const seeds = new Set(matchedIds);
       kg.edges.forEach((e) => {
@@ -1907,14 +1950,17 @@ function initKnowledgeGraph() {
 
     const nodes = kg.nodes.filter((n) => matchedIds.has(n.id));
     const edges = kg.edges.filter((e) => matchedIds.has(e.source) && matchedIds.has(e.target));
-    return { nodes, edges };
+    return { nodes, edges, neighborIds };
   }
 
   function renderGraph() {
     if (!kg) return;
-    const { nodes, edges } = getFilteredSubgraph();
+    const layoutMode = LAYOUT_CYCLE[layoutIdx].key;
+    const { nodes, edges, neighborIds } = getFilteredSubgraph();
     if (countBadge) {
-      countBadge.textContent = `${nodes.length} / ${kg.nodes.length} nodes · ${edges.length} edges`;
+      countBadge.textContent = egoOnly
+        ? `1-Hop Ego: ${nodes.length} nodes · ${edges.length} edges`
+        : `${nodes.length} / ${kg.nodes.length} nodes · ${edges.length} edges`;
     }
 
     const domainKeys = Object.keys(kg.domains);
@@ -1923,12 +1969,16 @@ function initKnowledgeGraph() {
       itemStyle: { color: kg.domains[k].color }
     }));
     const catIdxByKey = new Map(domainKeys.map((k, idx) => [k, idx]));
-    const showAllLabels = nodes.length <= 36;
+    const showAllLabels = nodes.length <= 30 || egoOnly;
+    const hasSelectionInView = nodes.some((n) => n.id === selectedId);
 
     const seriesNodes = nodes.map((n) => {
       const deg = degreeById.get(n.id) || 1;
       const isSelected = n.id === selectedId;
+      const isNeighbor = neighborIds.has(n.id);
       const domColor = kg.domains[n.domain]?.color || "#2dd4bf";
+      const dimmed = hasSelectionInView && !egoOnly && !isNeighbor && nodes.length > 35;
+
       return {
         id: n.id,
         name: n.name,
@@ -1936,80 +1986,106 @@ function initKnowledgeGraph() {
         value: deg,
         x: layoutMode === "none" ? n.x : undefined,
         y: layoutMode === "none" ? n.y : undefined,
-        symbolSize: isSelected ? Math.max(26, 15 + Math.min(20, deg * 2.1)) : 12 + Math.min(20, deg * 1.9),
+        symbolSize: isSelected
+          ? Math.max(30, 17 + Math.min(20, deg * 2.1))
+          : isNeighbor
+            ? 15 + Math.min(18, deg * 1.8)
+            : 10 + Math.min(16, deg * 1.6),
         itemStyle: {
           color: domColor,
-          borderColor: isSelected ? "#ffffff" : "rgba(238, 247, 245, 0.35)",
-          borderWidth: isSelected ? 2.8 : 1.1,
-          shadowBlur: isSelected ? 18 : 6,
+          opacity: dimmed ? 0.28 : 1.0,
+          borderColor: isSelected ? "#ffffff" : isNeighbor ? "#eef7f5" : "rgba(238, 247, 245, 0.28)",
+          borderWidth: isSelected ? 3.0 : isNeighbor ? 1.8 : 1.0,
+          shadowBlur: isSelected ? 22 : isNeighbor ? 10 : 0,
           shadowColor: isSelected ? "#ffffff" : domColor
         },
         label: {
-          show: isSelected || showAllLabels || deg >= 5,
+          show: isSelected || isNeighbor || showAllLabels || deg >= 6,
           position: "right",
-          color: isSelected ? "#ffffff" : "#d8ebe8",
-          fontSize: isSelected ? 11.5 : 10,
-          fontWeight: isSelected ? 700 : 500,
+          color: isSelected ? "#ffffff" : isNeighbor ? "#eef7f5" : "#b8d0cd",
+          fontSize: isSelected ? 12 : isNeighbor ? 10.8 : 9.8,
+          fontWeight: isSelected ? 700 : isNeighbor ? 600 : 500,
           fontFamily: "IBM Plex Sans, sans-serif",
-          backgroundColor: "rgba(7, 16, 18, 0.72)",
-          padding: [2, 4],
-          borderRadius: 3
+          backgroundColor: isSelected ? "rgba(6, 18, 20, 0.92)" : "rgba(7, 16, 18, 0.78)",
+          borderColor: isSelected ? "#38d6c4" : "transparent",
+          borderWidth: isSelected ? 1 : 0,
+          padding: [2.5, 5],
+          borderRadius: 4
         }
       };
     });
 
-    const seriesLinks = edges.map((e) => ({
-      source: e.source,
-      target: e.target,
-      value: e.relation,
-      edgeLabel: e.label || e.relation,
-      lineStyle: {
-        color: e.source === selectedId || e.target === selectedId ? "#f4ae42" : "rgba(158, 183, 180, 0.28)",
-        width: e.source === selectedId || e.target === selectedId ? 2.1 : 1.15,
-        curveness: 0.16
-      }
-    }));
+    const seriesLinks = edges.map((e) => {
+      const isOut = e.source === selectedId;
+      const isIn = e.target === selectedId;
+      const isIncident = isOut || isIn;
+      return {
+        source: e.source,
+        target: e.target,
+        value: e.relation,
+        edgeLabel: e.label || e.relation,
+        label: {
+          show: egoOnly && isIncident,
+          formatter: e.relation,
+          color: isOut ? "#38d6c4" : "#f4ae42",
+          fontSize: 9.5,
+          fontFamily: "JetBrains Mono, monospace",
+          backgroundColor: "rgba(7, 16, 18, 0.85)",
+          padding: [1, 4],
+          borderRadius: 3
+        },
+        lineStyle: {
+          color: isOut ? "#38d6c4" : isIn ? "#f4ae42" : "rgba(158, 183, 180, 0.14)",
+          opacity: isIncident ? 0.96 : egoOnly ? 0.45 : 0.42,
+          width: isIncident ? 2.4 : 1.05,
+          curveness: layoutMode === "circular" ? 0.26 : 0.16
+        }
+      };
+    });
 
     chart.setOption(
       {
         backgroundColor: "transparent",
         tooltip: {
-          backgroundColor: "rgba(9, 18, 20, 0.95)",
-          borderColor: "rgba(45, 212, 191, 0.42)",
+          backgroundColor: "rgba(9, 18, 20, 0.96)",
+          borderColor: "rgba(56, 214, 196, 0.45)",
           textStyle: { color: "#eef7f5", fontSize: 12, fontFamily: "IBM Plex Sans, sans-serif" },
           formatter: (params) => {
             if (params.dataType === "edge") {
               const src = nodeById.get(params.data.source)?.name || params.data.source;
               const tgt = nodeById.get(params.data.target)?.name || params.data.target;
-              return `<div style="max-width:300px"><strong>${src}</strong> → <strong>${tgt}</strong><br/><span style="color:#2dd4bf;font-family:JetBrains Mono,monospace;font-size:11px">${params.data.value}</span> · ${params.data.edgeLabel}</div>`;
+              return `<div style="max-width:310px"><strong>${src}</strong> → <strong>${tgt}</strong><br/><span style="color:#38d6c4;font-family:JetBrains Mono,monospace;font-size:11px">${params.data.value}</span> · ${params.data.edgeLabel}</div>`;
             }
             const raw = nodeById.get(params.data.id);
             if (!raw) return params.name;
             const dom = kg.domains[raw.domain]?.name || raw.domain;
-            return `<div style="max-width:310px;white-space:normal"><strong>${raw.name}</strong><br/><span style="color:#f4ae42;font-size:11px">${dom} · ${raw.category}</span><br/><code style="font-size:10.5px;color:#2dd4bf">${raw.formula || ""}</code></div>`;
+            return `<div style="max-width:320px;white-space:normal"><strong>${raw.name}</strong><br/><span style="color:#f4ae42;font-size:11px">${dom} · ${raw.category}</span><br/><code style="font-size:10.5px;color:#38d6c4">${raw.formula || ""}</code><br/><span style="font-size:11px;color:#9eb7b4">Click to inspect · ${degreeById.get(raw.id) || 0} relations</span></div>`;
           }
         },
         series: [
           {
             type: "graph",
-            layout: layoutMode,
+            layout: egoOnly && layoutMode === "none" ? "force" : layoutMode,
+            zoom: zoomScale,
             roam: true,
-            draggable: layoutMode === "force",
+            draggable: layoutMode === "force" || egoOnly,
             categories,
             data: seriesNodes,
             links: seriesLinks,
             edgeSymbol: ["none", "arrow"],
-            edgeSymbolSize: [0, 7],
+            edgeSymbolSize: [0, 7.5],
+            circular: { rotateLabel: false },
+            labelLayout: { hideOverlap: true },
             force: {
-              repulsion: 250,
-              edgeLength: [52, 125],
-              gravity: 0.13,
-              friction: 0.62,
+              repulsion: egoOnly ? 520 : 420,
+              edgeLength: egoOnly ? [95, 165] : [72, 155],
+              gravity: 0.11,
+              friction: 0.56,
               layoutAnimation: true
             },
             emphasis: {
               focus: "adjacency",
-              lineStyle: { width: 2.6, color: "#2dd4bf" },
+              lineStyle: { width: 2.8, color: "#38d6c4", opacity: 1 },
               label: { show: true, fontSize: 11.5, fontWeight: 700, color: "#ffffff" }
             }
           }
@@ -2021,7 +2097,7 @@ function initKnowledgeGraph() {
 
   chart.on("click", (params) => {
     if (params.dataType === "node" && params.data?.id) {
-      selectNode(params.data.id);
+      selectNode(params.data.id, true);
       renderGraph();
     }
   });
@@ -2037,8 +2113,9 @@ function initKnowledgeGraph() {
         degreeById.set(e.target, (degreeById.get(e.target) || 0) + 1);
       });
 
-      // Populate domain filter pills
       if (pillsWrap) {
+        const allBtn = pillsWrap.querySelector("[data-kg-domain='all']");
+        if (allBtn) allBtn.textContent = `All 10 Domains (${kg.nodes.length})`;
         const countsByDom = {};
         kg.nodes.forEach((n) => {
           countsByDom[n.domain] = (countsByDom[n.domain] || 0) + 1;
@@ -2059,6 +2136,11 @@ function initKnowledgeGraph() {
         pillsWrap.querySelectorAll("[data-kg-domain]").forEach((btn) => {
           btn.addEventListener("click", () => {
             activeDomain = btn.dataset.kgDomain || "all";
+            egoOnly = false;
+            if (egoBtn) {
+              egoBtn.textContent = "◎ 1-Hop Focus: Off";
+              egoBtn.classList.remove("btn-primary");
+            }
             pillsWrap.querySelectorAll("[data-kg-domain]").forEach((b) => {
               b.classList.toggle("active", b === btn);
             });
@@ -2067,32 +2149,130 @@ function initKnowledgeGraph() {
         });
       }
 
-      selectNode(nodeById.has("node_krumprobot") ? "node_krumprobot" : kg.nodes[0].id);
+      const startNode = nodeById.has("node_krwm_mpc")
+        ? "node_krwm_mpc"
+        : nodeById.has("node_krumprobot")
+          ? "node_krumprobot"
+          : kg.nodes[0].id;
+      selectNode(startNode, false);
       renderGraph();
     })
     .catch(() => {
       if (countBadge) countBadge.textContent = "Offline fallback";
     });
 
+  spotlightChips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const targetId = chip.dataset.kgPick;
+      if (!targetId || !nodeById.has(targetId)) return;
+      if (activeDomain !== "all") {
+        activeDomain = "all";
+        pillsWrap?.querySelectorAll("[data-kg-domain]").forEach((b) => {
+          b.classList.toggle("active", b.dataset.kgDomain === "all");
+        });
+      }
+      selectNode(targetId, true);
+      renderGraph();
+    });
+  });
+
+  backBtn?.addEventListener("click", () => {
+    const prev = historyStack.pop();
+    if (prev && nodeById.has(prev)) {
+      selectNode(prev, false);
+      renderGraph();
+    }
+  });
+
   searchInput?.addEventListener("input", () => {
     searchQuery = searchInput.value || "";
+    searchClear?.classList.toggle("visible", searchQuery.length > 0);
+    if (searchQuery && egoOnly) {
+      egoOnly = false;
+      if (egoBtn) {
+        egoBtn.textContent = "◎ 1-Hop Focus: Off";
+        egoBtn.classList.remove("btn-primary");
+      }
+    }
+    renderGraph();
+  });
+
+  searchClear?.addEventListener("click", () => {
+    searchQuery = "";
+    if (searchInput) {
+      searchInput.value = "";
+      searchInput.focus();
+    }
+    searchClear.classList.remove("visible");
     renderGraph();
   });
 
   layoutBtn?.addEventListener("click", () => {
-    layoutMode = layoutMode === "force" ? "none" : "force";
-    layoutBtn.textContent = layoutMode === "force" ? "⇄ Layout: Force" : "⇄ Layout: Coordinates";
+    layoutIdx = (layoutIdx + 1) % LAYOUT_CYCLE.length;
+    layoutBtn.textContent = LAYOUT_CYCLE[layoutIdx].label;
     renderGraph();
+  });
+
+  egoBtn?.addEventListener("click", () => {
+    egoOnly = !egoOnly;
+    egoBtn.textContent = egoOnly ? "◎ 1-Hop Focus: On" : "◎ 1-Hop Focus: Off";
+    egoBtn.classList.toggle("btn-primary", egoOnly);
+    renderGraph();
+  });
+
+  zoomInBtn?.addEventListener("click", () => {
+    zoomScale = Math.min(2.8, +(zoomScale * 1.25).toFixed(2));
+    renderGraph();
+  });
+
+  zoomOutBtn?.addEventListener("click", () => {
+    zoomScale = Math.max(0.45, +(zoomScale / 1.25).toFixed(2));
+    renderGraph();
+  });
+
+  zoomFitBtn?.addEventListener("click", () => {
+    zoomScale = 1.05;
+    renderGraph();
+  });
+
+  function setKgFullscreen(enable) {
+    if (!layoutRoot) return;
+    layoutRoot.classList.toggle("fullscreen", enable);
+    if (fullscreenBtn) {
+      fullscreenBtn.textContent = enable ? "✕ Exit" : "⛶ Expand";
+      fullscreenBtn.classList.toggle("active", enable);
+    }
+    document.body.style.overflow = enable ? "hidden" : "";
+    requestAnimationFrame(() => chart.resize());
+  }
+
+  fullscreenBtn?.addEventListener("click", () => {
+    setKgFullscreen(!layoutRoot?.classList.contains("fullscreen"));
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && layoutRoot?.classList.contains("fullscreen")) {
+      setKgFullscreen(false);
+    }
   });
 
   resetBtn?.addEventListener("click", () => {
     activeDomain = "all";
     searchQuery = "";
+    egoOnly = false;
+    layoutIdx = 0;
+    zoomScale = 1.05;
     if (searchInput) searchInput.value = "";
+    searchClear?.classList.remove("visible");
+    if (layoutBtn) layoutBtn.textContent = LAYOUT_CYCLE[0].label;
+    if (egoBtn) {
+      egoBtn.textContent = "◎ 1-Hop Focus: Off";
+      egoBtn.classList.remove("btn-primary");
+    }
     pillsWrap?.querySelectorAll("[data-kg-domain]").forEach((b) => {
       b.classList.toggle("active", b.dataset.kgDomain === "all");
     });
-    selectNode("node_krumprobot");
+    selectNode(nodeById.has("node_krwm_mpc") ? "node_krwm_mpc" : "node_krumprobot", false);
     renderGraph();
   });
 
@@ -2110,7 +2290,7 @@ function initKnowledgeGraph() {
     try {
       await navigator.clipboard.writeText(lines.join("\n"));
       const orig = mermaidBtn.textContent;
-      mermaidBtn.textContent = "✓ Copied Mermaid!";
+      mermaidBtn.textContent = "✓ Copied!";
       setTimeout(() => {
         mermaidBtn.textContent = orig;
       }, 1800);
@@ -2418,6 +2598,312 @@ function initWorldModels() {
   }
 }
 
+function initWorldModelCharts() {
+  const grid = document.getElementById("wm-fig-grid");
+  const btnInter = document.getElementById("btn-wm-interactive");
+  const btnStatic = document.getElementById("btn-wm-static");
+  if (!grid || !window.echarts) return;
+
+  const cards = Array.from(grid.querySelectorAll(".fig-card"));
+  const instances = [];
+
+  const setMode = (interactive) => {
+    cards.forEach((c) => c.classList.toggle("interactive-mode", interactive));
+    btnInter?.classList.toggle("btn-primary", interactive);
+    btnInter?.classList.toggle("btn-ghost", !interactive);
+    btnStatic?.classList.toggle("btn-primary", !interactive);
+    btnStatic?.classList.toggle("btn-ghost", interactive);
+    if (interactive) {
+      requestAnimationFrame(() => instances.forEach((ch) => ch.resize()));
+    }
+  };
+
+  btnInter?.addEventListener("click", () => setMode(true));
+  btnStatic?.addEventListener("click", () => setMode(false));
+
+  const baseTooltip = {
+    trigger: "axis",
+    backgroundColor: "rgba(9, 18, 20, 0.96)",
+    borderColor: "rgba(56, 214, 196, 0.42)",
+    textStyle: { color: "#eef7f5", fontSize: 12, fontFamily: "IBM Plex Sans, sans-serif" }
+  };
+  const baseTextStyle = { color: "#9eb7b4", fontFamily: "IBM Plex Sans, sans-serif", fontSize: 11 };
+
+  // 1. QK-WM: Learner-WM Mastery Floor & Arena-WM Collective QFI
+  const elQk = document.getElementById("echart-wm-qkwm");
+  if (elQk) {
+    const ch = window.echarts.init(elQk, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 6, left: 10, textStyle: { color: "#eef7f5", fontSize: 11 }, itemWidth: 12, itemGap: 10 },
+      grid: { top: 46, right: 50, bottom: 38, left: 48 },
+      xAxis: {
+        type: "category",
+        data: ["Passive Slides", "Fixed Linear", "Myopic (H=1)", "QK-WM (Ours)"],
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        axisLabel: { color: "#d8ebe8", fontSize: 10.5 }
+      },
+      yAxis: [
+        {
+          type: "value",
+          name: "QISCIT Mastery (%)",
+          min: 0,
+          max: 100,
+          nameLocation: "middle",
+          nameGap: 36,
+          splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+        },
+        {
+          type: "value",
+          name: "Mean QFI (F_Q)",
+          min: 0,
+          max: 14,
+          nameLocation: "middle",
+          nameGap: 34,
+          splitLine: { show: false }
+        }
+      ],
+      series: [
+        {
+          name: "Weakest-Concept Floor (%)",
+          type: "bar",
+          barWidth: "24%",
+          itemStyle: { color: "#38d6c4", borderRadius: [4, 4, 0, 0] },
+          label: { show: true, position: "top", color: "#38d6c4", fontSize: 10, formatter: "{c}%" },
+          data: [35.3, 56.0, 75.2, 75.0]
+        },
+        {
+          name: "Mean Post-Mastery (%)",
+          type: "bar",
+          barWidth: "24%",
+          itemStyle: { color: "rgba(167, 139, 250, 0.78)", borderRadius: [4, 4, 0, 0] },
+          data: [65.8, 83.0, 88.0, 87.7]
+        },
+        {
+          name: "Session QFI (F_Q)",
+          type: "line",
+          yAxisIndex: 1,
+          symbol: "circle",
+          symbolSize: 8,
+          lineStyle: { width: 2.6, color: "#f4ae42" },
+          itemStyle: { color: "#f4ae42" },
+          data: [null, 2.0, 6.0, 11.0]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // 2. KR-WM-MPC: Slippery Ice (mu=0.12) + Push Survival Time & Nominal RMSE
+  const elKr = document.getElementById("echart-wm-krwm");
+  if (elKr) {
+    const ch = window.echarts.init(elKr, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 6, left: 10, textStyle: { color: "#eef7f5", fontSize: 11 }, itemWidth: 12, itemGap: 10 },
+      grid: { top: 46, right: 50, bottom: 38, left: 48 },
+      xAxis: {
+        type: "category",
+        data: ["STOMP", "JAB", "ARM SWING", "CHEST POP", "KILL-OFF"],
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        axisLabel: { color: "#d8ebe8", fontSize: 10.5 }
+      },
+      yAxis: [
+        {
+          type: "value",
+          name: "Ice+Push Survival (s)",
+          min: 0,
+          max: 5.5,
+          nameLocation: "middle",
+          nameGap: 36,
+          splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+        },
+        {
+          type: "value",
+          name: "Nominal RMSE (°)",
+          min: 2.5,
+          max: 6.5,
+          nameLocation: "middle",
+          nameGap: 36,
+          splitLine: { show: false }
+        }
+      ],
+      series: [
+        {
+          name: "KR-WM-MPC Ice Survival (s)",
+          type: "bar",
+          barWidth: "24%",
+          itemStyle: { color: "#38d6c4", borderRadius: [4, 4, 0, 0] },
+          data: [4.98, 4.98, 4.98, 4.98, 4.98]
+        },
+        {
+          name: "Naive-HighGain Ice Survival (s)",
+          type: "bar",
+          barWidth: "24%",
+          data: [
+            { value: 4.38, itemStyle: { color: "#f06a3b", borderRadius: [4, 4, 0, 0] }, label: { show: true, position: "top", color: "#ff9a76", fontSize: 9.5, formatter: "FALL 4.38s" } },
+            { value: 4.98, itemStyle: { color: "rgba(158,183,180,0.42)", borderRadius: [4, 4, 0, 0] } },
+            { value: 4.98, itemStyle: { color: "rgba(158,183,180,0.42)", borderRadius: [4, 4, 0, 0] } },
+            { value: 3.32, itemStyle: { color: "#f06a3b", borderRadius: [4, 4, 0, 0] }, label: { show: true, position: "top", color: "#ff9a76", fontSize: 9.5, formatter: "FALL 3.32s" } },
+            { value: 4.98, itemStyle: { color: "rgba(158,183,180,0.42)", borderRadius: [4, 4, 0, 0] } }
+          ]
+        },
+        {
+          name: "KR-WM-MPC Nominal RMSE (°)",
+          type: "line",
+          yAxisIndex: 1,
+          symbol: "circle",
+          symbolSize: 7,
+          lineStyle: { width: 2.5, color: "#f4ae42" },
+          itemStyle: { color: "#f4ae42" },
+          data: [4.51, 4.52, 3.51, 4.57, 5.29]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // 3. Cartwheel Control: Zero-Shot 29-DoF G1 MPJPE & Goal OOD Shift
+  const elCw = document.getElementById("echart-wm-cartwheel");
+  if (elCw) {
+    const ch = window.echarts.init(elCw, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 6, left: 10, textStyle: { color: "#eef7f5", fontSize: 11 }, itemWidth: 12, itemGap: 10 },
+      grid: { top: 46, right: 50, bottom: 40, left: 48 },
+      xAxis: {
+        type: "category",
+        data: ["Walk", "Jazz", "STOMP", "JAB", "SWING", "POP", "KILL-OFF", "GRU→RL"],
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        axisLabel: { color: "#d8ebe8", fontSize: 10 }
+      },
+      yAxis: [
+        {
+          type: "value",
+          name: "Body MPJPE (mm)",
+          min: 0,
+          max: 48,
+          nameLocation: "middle",
+          nameGap: 36,
+          splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+        },
+        {
+          type: "value",
+          name: "OOD Shift (z)",
+          min: 0,
+          max: 1.8,
+          nameLocation: "middle",
+          nameGap: 34,
+          splitLine: { show: false }
+        }
+      ],
+      series: [
+        {
+          name: "Root-Relative MPJPE (mm)",
+          type: "bar",
+          barWidth: "42%",
+          data: [
+            { value: 13.9, itemStyle: { color: "rgba(158,183,180,0.48)", borderRadius: [4, 4, 0, 0] } },
+            { value: 14.7, itemStyle: { color: "rgba(158,183,180,0.48)", borderRadius: [4, 4, 0, 0] } },
+            { value: 28.3, itemStyle: { color: "#38d6c4", borderRadius: [4, 4, 0, 0] } },
+            { value: 34.6, itemStyle: { color: "#38d6c4", borderRadius: [4, 4, 0, 0] } },
+            { value: 26.7, itemStyle: { color: "#38d6c4", borderRadius: [4, 4, 0, 0] } },
+            { value: 30.5, itemStyle: { color: "#38d6c4", borderRadius: [4, 4, 0, 0] } },
+            { value: 42.4, itemStyle: { color: "#38d6c4", borderRadius: [4, 4, 0, 0] } },
+            { value: 15.0, itemStyle: { color: "#f4ae42", borderRadius: [4, 4, 0, 0] }, label: { show: true, position: "top", color: "#f4ae42", fontSize: 9.5, formatter: "15.0" } }
+          ]
+        },
+        {
+          name: "Latent Goal OOD Shift (r=0.88)",
+          type: "line",
+          yAxisIndex: 1,
+          symbol: "circle",
+          symbolSize: 7,
+          lineStyle: { width: 2.3, color: "#f06a3b" },
+          itemStyle: { color: "#f06a3b" },
+          data: [0.42, 0.58, 1.12, 1.38, 1.05, 1.24, 1.56, 0.64]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // 4. Jev 1.14: 10-Use-Case 4-Horizon Advantage Gate Scores
+  const elJev = document.getElementById("echart-wm-jev");
+  if (elJev) {
+    const ch = window.echarts.init(elJev, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: {
+        ...baseTooltip,
+        axisPointer: { type: "shadow" },
+        formatter: (params) => {
+          const p = params[0];
+          return `<strong>${p.name}</strong><br/>Primary Gate Metric: <strong style="color:#38d6c4">${p.value}%</strong><br/><span style="color:#9eb7b4;font-size:11px">${p.data.detail}</span>`;
+        }
+      },
+      grid: { top: 20, right: 44, bottom: 32, left: 132 },
+      xAxis: {
+        type: "value",
+        min: 50,
+        max: 105,
+        axisLabel: { formatter: "{value}%" },
+        splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+      },
+      yAxis: {
+        type: "category",
+        inverse: true,
+        axisLabel: { color: "#d8ebe8", fontSize: 10 },
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        data: [
+          "UC01 Trainability",
+          "UC02 2Q Depth Cut",
+          "UC03 Mid-Circuit",
+          "UC04 Stage QUBO",
+          "UC05 Autoresearch",
+          "UC06 Box → QFI",
+          "UC07 Battle Rubric",
+          "UC08 RCT Guard",
+          "UC09 KG Alignment",
+          "UC10 Epistemic Gate"
+        ]
+      },
+      series: [
+        {
+          type: "bar",
+          barWidth: "58%",
+          label: { show: true, position: "right", color: "#eef7f5", fontSize: 9.5, formatter: "{c}%" },
+          data: [
+            { value: 100.0, itemStyle: { color: "#38d6c4", borderRadius: [0, 4, 4, 0] }, detail: "110.2× higher 10q gradient variance retention vs. Haar random" },
+            { value: 87.5, itemStyle: { color: "#f4ae42", borderRadius: [0, 4, 4, 0] }, detail: "64.6% 2Q gate cut & 1.78× noisy state fidelity retention" },
+            { value: 87.5, itemStyle: { color: "#f4ae42", borderRadius: [0, 4, 4, 0] }, detail: "Dynamic hype-ancilla reuse saves qubits with verified branch parity" },
+            { value: 100.0, itemStyle: { color: "#38d6c4", borderRadius: [0, 4, 4, 0] }, detail: "100% zero-collision warm-started Session stage QUBO" },
+            { value: 100.0, itemStyle: { color: "#a78bfa", borderRadius: [0, 4, 4, 0] }, detail: "16-feature Jev Autoresearch lifts 4q VQC CV accuracy 77.5% → 100%" },
+            { value: 100.0, itemStyle: { color: "#a78bfa", borderRadius: [0, 4, 4, 0] }, detail: "Multimodal stage Box localization → collective QFI F_Q = 3.33× SQL" },
+            { value: 98.5, itemStyle: { color: "#38d6c4", borderRadius: [0, 4, 4, 0] }, detail: "r = +0.9854 alignment with deterministic Session judging rubric" },
+            { value: 100.0, itemStyle: { color: "#2dd4bf", borderRadius: [0, 4, 4, 0] }, detail: "100% Companion Noul Bio-Woo abstention on QISCIT student inputs" },
+            { value: 100.0, itemStyle: { color: "#2dd4bf", borderRadius: [0, 4, 4, 0] }, detail: "100% cross-domain ontology link consistency" },
+            { value: 100.0, itemStyle: { color: "#2dd4bf", borderRadius: [0, 4, 4, 0] }, detail: "10/10 languages pass anti-hype & classical-floor disclosure" }
+          ]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  if (window.ResizeObserver && instances.length) {
+    const ro = new ResizeObserver(() => instances.forEach((ch) => ch.resize()));
+    ro.observe(grid);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNavigationUX();
   initPreprintAndModals();
@@ -2426,6 +2912,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDiscopyStepper();
   initKrumpRobotTimeline();
   initWorldModels();
+  initWorldModelCharts();
   initBenchmarkCharts();
   initKnowledgeGraph();
   initBibtexAndCopy();
