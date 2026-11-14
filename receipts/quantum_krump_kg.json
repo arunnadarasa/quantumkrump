@@ -152,7 +152,7 @@
       "domain": "quantum_information",
       "category": "Dynamical Phase",
       "formula": "|\\psi_n(t)\\rangle = e^{-i E_n t / \\hbar}|E_n\\rangle, \\; \\Delta\\omega = \\frac{\\Delta E}{\\hbar}",
-      "description": "Schr\u00f6dinger dynamical phase accumulation mapping the 140-150 BPM Krump metric lattice to quantum relative phase evolution and destructive/constructive polyrhythmic interference.",
+      "description": "Schrödinger dynamical phase accumulation mapping the 140-150 BPM Krump metric lattice to quantum relative phase evolution and destructive/constructive polyrhythmic interference.",
       "x": 600.0,
       "y": 51.0
     },
@@ -268,7 +268,7 @@
     },
     {
       "id": "node_krump_levels",
-      "name": "Spatial Levels: LIVE \u00b7 KRUMP \u00b7 BUCK",
+      "name": "Spatial Levels: LIVE · KRUMP · BUCK",
       "domain": "krump_dance",
       "category": "Spatial Grammar",
       "formula": "\\text{LIVE} \\cong |0\\rangle, \\; \\text{KRUMP} \\cong |+\\rangle, \\; \\text{BUCK} \\cong |1\\rangle",
@@ -562,7 +562,7 @@
       "domain": "biophysical_somatics",
       "category": "Humanoid Robotics Foundation Models",
       "formula": "\\pi_{\\text{UniFoLM}}(\\mathbf{a}_{t:t+H} \\mid \\mathbf{o}_t, \\mathbf{w}_t, \\ell_{\\text{prompt}})",
-      "description": "Unitree Robotics Universal Foundation Models for World-Model-Action (UniFoLM-WMA), World-Language-Action (UniFoLM-WLA), and Vision-Language-Action (UniFoLM-VLA) targeting Unitree H1 (360 N\u00b7m) and Unitree G1 humanoid platforms for 28-DoF whole-body Krump action horizons.",
+      "description": "Unitree Robotics Universal Foundation Models for World-Model-Action (UniFoLM-WMA), World-Language-Action (UniFoLM-WLA), and Vision-Language-Action (UniFoLM-VLA) targeting Unitree H1 (360 N·m) and Unitree G1 humanoid platforms for 28-DoF whole-body Krump action horizons.",
       "x": 290.5,
       "y": 681.3
     },
@@ -2141,84 +2141,98 @@
       "label": "Automated Reproducibility"
     },
     {
+      "id": "e_001",
       "source": "node_gov_typesafe_jev",
       "target": "node_jev_advantage_suite",
       "relation": "powers",
       "label": "calibrates 10-lane System One suite"
     },
     {
+      "id": "e_002",
       "source": "node_jev_advantage_suite",
       "target": "node_qkwm_arena",
       "relation": "routes",
       "label": "100% option-order invariant Session call-outs"
     },
     {
+      "id": "e_003",
       "source": "node_jev_advantage_suite",
       "target": "node_qkwm_learner",
       "relation": "diagnoses",
       "label": "0.9245 AUROC 4-concept QISCIT sensor"
     },
     {
+      "id": "e_004",
       "source": "node_qkwm_arena",
       "target": "node_cat_functor_disco",
       "relation": "compiles_via",
       "label": "4-bar DisCoPy unitary lookahead"
     },
     {
+      "id": "e_005",
       "source": "node_qkwm_arena",
       "target": "node_stage_qubo",
       "relation": "schedules_via",
       "label": "0-collision OpenJij 5x4 stage paths"
     },
     {
+      "id": "e_006",
       "source": "node_qkwm_arena",
       "target": "node_hw_cpu_floor",
       "relation": "bounded_by",
       "label": "56.23 us exact n=6 CPU floor"
     },
     {
+      "id": "e_007",
       "source": "node_qkwm_learner",
       "target": "node_pedagogy_qiscit",
       "relation": "optimizes",
       "label": "+18.97 pp weakest-concept mastery floor"
     },
     {
+      "id": "e_008",
       "source": "node_qkwm_learner",
       "target": "node_gov_bounding",
       "relation": "enforces",
       "label": "100% Companion Noul Bio-Woo abstention"
     },
     {
+      "id": "e_009",
       "source": "node_krumprobot",
       "target": "node_cartwheel_g1",
       "relation": "drives",
       "label": "14.95 mm hierarchical GRU-to-RL tracking"
     },
     {
+      "id": "e_010",
       "source": "node_cartwheel_g1",
       "target": "node_mujoco_closed_loop_g1",
       "relation": "executes_on",
       "label": "50 Hz zero-shot 29-DoF stepping"
     },
     {
+      "id": "e_011",
       "source": "node_cartwheel_g1",
       "target": "node_krwm_mpc",
       "relation": "wrapped_by",
       "label": "6-candidate 50 Hz safety-gated MPC"
     },
     {
+      "id": "e_012",
       "source": "node_krwm_mpc",
       "target": "node_mujoco_closed_loop_g1",
       "relation": "stabilizes",
       "label": "5/5 survival on mu=0.12 ice + push"
     },
     {
+      "id": "e_013",
       "source": "node_krwm_mpc",
       "target": "node_krump_chest_pop",
       "relation": "regulates",
       "label": "throttles gamma_exp under 195 N push"
     },
     {
+      "id": "e_014",
       "source": "node_krwm_mpc",
       "target": "node_gate_mujoco_closed_loop",
       "relation": "verifies",
