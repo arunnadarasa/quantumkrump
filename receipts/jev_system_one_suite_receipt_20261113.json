@@ -1,0 +1,1947 @@
+{
+  "gate_id": "G_Jev_SystemOne_Suite",
+  "gate_status": "VERIFIED (PASS)",
+  "timestamp_utc": "2026-11-13T07:45:51.155584+00:00",
+  "model_id": "jev-1.14.0",
+  "discopy_version": "1.2.2",
+  "wall_time_seconds": 8.05,
+  "total_input_tokens": 130785,
+  "estimated_cost_usd_at_42_per_btok": 0.005493,
+  "pillar_1_adversarial_epistemic_benchmark": {
+    "n_claims": 45,
+    "choice_accuracy_forward": 0.9778,
+    "choice_accuracy_reversed": 0.9778,
+    "option_order_invariance": 1.0,
+    "bio_woo_noul_roc_auc": 1.0,
+    "bio_woo_noul_brier": 0.0013,
+    "overclaim_noul_roc_auc": 1.0,
+    "overclaim_noul_brier": 0.0237,
+    "mean_epistemic_hygiene_score_0_to_3": {
+      "bounded_pedagogical_science": 1.553,
+      "biological_quantum_pseudoscience": 0.004,
+      "hardware_or_speedup_overclaim": 0.167
+    },
+    "claims": [
+      {
+        "id": "B01",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.94,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.96,
+          "biological_quantum_pseudoscience": 0.04,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.97,
+        "order_invariant": true,
+        "bio_noul": 0.04,
+        "over_noul": 0.07,
+        "hygiene_score": 1.11,
+        "hygiene_conf": 0.36,
+        "latency_ms": 298.5,
+        "input_tokens": 1646,
+        "output_tokens": 213
+      },
+      {
+        "id": "B02",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.77,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.85,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.15
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.83,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.12,
+        "hygiene_score": 1.69,
+        "hygiene_conf": 0.0,
+        "latency_ms": 353.0,
+        "input_tokens": 1656,
+        "output_tokens": 213
+      },
+      {
+        "id": "B03",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.94,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.96,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.04
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.97,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.08,
+        "hygiene_score": 2.26,
+        "hygiene_conf": 0.43,
+        "latency_ms": 330.3,
+        "input_tokens": 1672,
+        "output_tokens": 213
+      },
+      {
+        "id": "B04",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.99,
+          "biological_quantum_pseudoscience": 0.01,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.98,
+        "order_invariant": true,
+        "bio_noul": 0.03,
+        "over_noul": 0.06,
+        "hygiene_score": 1.53,
+        "hygiene_conf": 0.09,
+        "latency_ms": 422.1,
+        "input_tokens": 1642,
+        "output_tokens": 213
+      },
+      {
+        "id": "B05",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.99,
+          "biological_quantum_pseudoscience": 0.01,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.98,
+        "order_invariant": true,
+        "bio_noul": 0.05,
+        "over_noul": 0.06,
+        "hygiene_score": 1.56,
+        "hygiene_conf": 0.41,
+        "latency_ms": 423.1,
+        "input_tokens": 1634,
+        "output_tokens": 213
+      },
+      {
+        "id": "B06",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.91,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.94,
+          "biological_quantum_pseudoscience": 0.06,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.94,
+        "order_invariant": true,
+        "bio_noul": 0.03,
+        "over_noul": 0.03,
+        "hygiene_score": 1.35,
+        "hygiene_conf": 0.28,
+        "latency_ms": 374.8,
+        "input_tokens": 1648,
+        "output_tokens": 213
+      },
+      {
+        "id": "B07",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.86,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.91,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.09
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.96,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.08,
+        "hygiene_score": 1.74,
+        "hygiene_conf": 0.62,
+        "latency_ms": 280.4,
+        "input_tokens": 1662,
+        "output_tokens": 213
+      },
+      {
+        "id": "B08",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 0.64,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.24,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.76
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 0.26,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.39,
+        "hygiene_score": 0.9,
+        "hygiene_conf": 0.62,
+        "latency_ms": 301.4,
+        "input_tokens": 1666,
+        "output_tokens": 215
+      },
+      {
+        "id": "B09",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.97,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.98,
+          "biological_quantum_pseudoscience": 0.02,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.98,
+        "order_invariant": true,
+        "bio_noul": 0.03,
+        "over_noul": 0.08,
+        "hygiene_score": 1.86,
+        "hygiene_conf": 0.0,
+        "latency_ms": 313.7,
+        "input_tokens": 1656,
+        "output_tokens": 213
+      },
+      {
+        "id": "B10",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.8,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.87,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.13
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.89,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.08,
+        "hygiene_score": 1.72,
+        "hygiene_conf": 0.43,
+        "latency_ms": 273.6,
+        "input_tokens": 1664,
+        "output_tokens": 213
+      },
+      {
+        "id": "B11",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.67,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.78,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.22
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.79,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.22,
+        "hygiene_score": 1.54,
+        "hygiene_conf": 0.26,
+        "latency_ms": 279.6,
+        "input_tokens": 1658,
+        "output_tokens": 213
+      },
+      {
+        "id": "B12",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.99,
+          "biological_quantum_pseudoscience": 0.01,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.03,
+        "hygiene_score": 1.24,
+        "hygiene_conf": 0.52,
+        "latency_ms": 278.7,
+        "input_tokens": 1638,
+        "output_tokens": 213
+      },
+      {
+        "id": "B13",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.97,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.98,
+          "biological_quantum_pseudoscience": 0.02,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.98,
+        "order_invariant": true,
+        "bio_noul": 0.04,
+        "over_noul": 0.04,
+        "hygiene_score": 1.16,
+        "hygiene_conf": 0.73,
+        "latency_ms": 357.0,
+        "input_tokens": 1632,
+        "output_tokens": 213
+      },
+      {
+        "id": "B14",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.94,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.96,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.04
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.97,
+        "order_invariant": true,
+        "bio_noul": 0.01,
+        "over_noul": 0.07,
+        "hygiene_score": 2.17,
+        "hygiene_conf": 0.57,
+        "latency_ms": 291.3,
+        "input_tokens": 1646,
+        "output_tokens": 213
+      },
+      {
+        "id": "B15",
+        "expected": "bounded_pedagogical_science",
+        "expected_bio": 0,
+        "expected_over": 0,
+        "pred_fwd": "bounded_pedagogical_science",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.99,
+          "biological_quantum_pseudoscience": 0.01,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "bounded_pedagogical_science",
+        "conf_rev": 0.98,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.02,
+        "hygiene_score": 1.46,
+        "hygiene_conf": 0.43,
+        "latency_ms": 338.1,
+        "input_tokens": 1632,
+        "output_tokens": 213
+      },
+      {
+        "id": "W01",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.98,
+        "over_noul": 0.07,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 393.5,
+        "input_tokens": 1660,
+        "output_tokens": 221
+      },
+      {
+        "id": "W02",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.98,
+        "over_noul": 0.08,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 291.1,
+        "input_tokens": 1646,
+        "output_tokens": 221
+      },
+      {
+        "id": "W03",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.94,
+        "over_noul": 0.07,
+        "hygiene_score": 0.01,
+        "hygiene_conf": 1.0,
+        "latency_ms": 331.9,
+        "input_tokens": 1630,
+        "output_tokens": 221
+      },
+      {
+        "id": "W04",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.97,
+        "over_noul": 0.24,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 355.7,
+        "input_tokens": 1646,
+        "output_tokens": 221
+      },
+      {
+        "id": "W05",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.01,
+          "biological_quantum_pseudoscience": 0.99,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 0.98,
+        "order_invariant": true,
+        "bio_noul": 0.95,
+        "over_noul": 0.24,
+        "hygiene_score": 0.03,
+        "hygiene_conf": 0.97,
+        "latency_ms": 275.3,
+        "input_tokens": 1638,
+        "output_tokens": 221
+      },
+      {
+        "id": "W06",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.96,
+        "over_noul": 0.05,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 289.1,
+        "input_tokens": 1644,
+        "output_tokens": 221
+      },
+      {
+        "id": "W07",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.95,
+        "over_noul": 0.09,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 309.1,
+        "input_tokens": 1644,
+        "output_tokens": 221
+      },
+      {
+        "id": "W08",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.9,
+        "over_noul": 0.06,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 261.3,
+        "input_tokens": 1642,
+        "output_tokens": 221
+      },
+      {
+        "id": "W09",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.98,
+        "over_noul": 0.14,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 279.1,
+        "input_tokens": 1638,
+        "output_tokens": 221
+      },
+      {
+        "id": "W10",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.96,
+        "over_noul": 0.09,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 283.5,
+        "input_tokens": 1644,
+        "output_tokens": 221
+      },
+      {
+        "id": "W11",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.95,
+        "over_noul": 0.1,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 310.7,
+        "input_tokens": 1640,
+        "output_tokens": 221
+      },
+      {
+        "id": "W12",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 0.99,
+          "hardware_or_speedup_overclaim": 0.01
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.97,
+        "over_noul": 0.28,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 323.9,
+        "input_tokens": 1650,
+        "output_tokens": 221
+      },
+      {
+        "id": "W13",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.96,
+        "over_noul": 0.06,
+        "hygiene_score": 0.02,
+        "hygiene_conf": 0.98,
+        "latency_ms": 294.5,
+        "input_tokens": 1630,
+        "output_tokens": 221
+      },
+      {
+        "id": "W14",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.95,
+        "over_noul": 0.15,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 298.7,
+        "input_tokens": 1636,
+        "output_tokens": 221
+      },
+      {
+        "id": "W15",
+        "expected": "biological_quantum_pseudoscience",
+        "expected_bio": 1,
+        "expected_over": 0,
+        "pred_fwd": "biological_quantum_pseudoscience",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 1.0,
+          "hardware_or_speedup_overclaim": 0.0
+        },
+        "pred_rev": "biological_quantum_pseudoscience",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.97,
+        "over_noul": 0.08,
+        "hygiene_score": 0.0,
+        "hygiene_conf": 1.0,
+        "latency_ms": 275.0,
+        "input_tokens": 1640,
+        "output_tokens": 221
+      },
+      {
+        "id": "H01",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 1.0
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.03,
+        "over_noul": 0.97,
+        "hygiene_score": 0.05,
+        "hygiene_conf": 0.95,
+        "latency_ms": 284.4,
+        "input_tokens": 1640,
+        "output_tokens": 215
+      },
+      {
+        "id": "H02",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 1.0
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 0.98,
+        "order_invariant": true,
+        "bio_noul": 0.01,
+        "over_noul": 0.96,
+        "hygiene_score": 0.43,
+        "hygiene_conf": 0.58,
+        "latency_ms": 283.3,
+        "input_tokens": 1648,
+        "output_tokens": 215
+      },
+      {
+        "id": "H03",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 1.0
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.03,
+        "over_noul": 0.95,
+        "hygiene_score": 0.06,
+        "hygiene_conf": 0.94,
+        "latency_ms": 383.6,
+        "input_tokens": 1632,
+        "output_tokens": 215
+      },
+      {
+        "id": "H04",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 1.0
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.03,
+        "over_noul": 0.96,
+        "hygiene_score": 0.24,
+        "hygiene_conf": 0.77,
+        "latency_ms": 258.7,
+        "input_tokens": 1632,
+        "output_tokens": 215
+      },
+      {
+        "id": "H05",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.01,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.99
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 0.98,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.91,
+        "hygiene_score": 0.17,
+        "hygiene_conf": 0.83,
+        "latency_ms": 288.2,
+        "input_tokens": 1638,
+        "output_tokens": 215
+      },
+      {
+        "id": "H06",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 1.0
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 0.98,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.93,
+        "hygiene_score": 0.32,
+        "hygiene_conf": 0.7,
+        "latency_ms": 297.4,
+        "input_tokens": 1648,
+        "output_tokens": 215
+      },
+      {
+        "id": "H07",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.01,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.99
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.95,
+        "hygiene_score": 0.41,
+        "hygiene_conf": 0.59,
+        "latency_ms": 248.4,
+        "input_tokens": 1648,
+        "output_tokens": 215
+      },
+      {
+        "id": "H08",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.01,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.99
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 0.97,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.59,
+        "hygiene_score": 0.24,
+        "hygiene_conf": 0.77,
+        "latency_ms": 312.5,
+        "input_tokens": 1638,
+        "output_tokens": 215
+      },
+      {
+        "id": "H09",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 0.97,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.01,
+          "biological_quantum_pseudoscience": 0.01,
+          "hardware_or_speedup_overclaim": 0.98
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 0.97,
+        "order_invariant": true,
+        "bio_noul": 0.03,
+        "over_noul": 0.96,
+        "hygiene_score": 0.04,
+        "hygiene_conf": 0.97,
+        "latency_ms": 280.6,
+        "input_tokens": 1628,
+        "output_tokens": 215
+      },
+      {
+        "id": "H10",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.01,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.99
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 0.96,
+        "order_invariant": true,
+        "bio_noul": 0.06,
+        "over_noul": 0.72,
+        "hygiene_score": 0.03,
+        "hygiene_conf": 0.97,
+        "latency_ms": 268.7,
+        "input_tokens": 1646,
+        "output_tokens": 215
+      },
+      {
+        "id": "H11",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 0.91,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.04,
+          "biological_quantum_pseudoscience": 0.02,
+          "hardware_or_speedup_overclaim": 0.94
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 0.88,
+        "order_invariant": true,
+        "bio_noul": 0.04,
+        "over_noul": 0.58,
+        "hygiene_score": 0.02,
+        "hygiene_conf": 0.98,
+        "latency_ms": 293.3,
+        "input_tokens": 1638,
+        "output_tokens": 215
+      },
+      {
+        "id": "H12",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 1.0
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.02,
+        "over_noul": 0.95,
+        "hygiene_score": 0.41,
+        "hygiene_conf": 0.6,
+        "latency_ms": 269.9,
+        "input_tokens": 1638,
+        "output_tokens": 215
+      },
+      {
+        "id": "H13",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.01,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.99
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 0.97,
+        "order_invariant": true,
+        "bio_noul": 0.03,
+        "over_noul": 0.76,
+        "hygiene_score": 0.02,
+        "hygiene_conf": 0.98,
+        "latency_ms": 250.4,
+        "input_tokens": 1640,
+        "output_tokens": 215
+      },
+      {
+        "id": "H14",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 0.98,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.01,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 0.99
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 0.98,
+        "order_invariant": true,
+        "bio_noul": 0.03,
+        "over_noul": 0.94,
+        "hygiene_score": 0.05,
+        "hygiene_conf": 0.95,
+        "latency_ms": 311.6,
+        "input_tokens": 1644,
+        "output_tokens": 215
+      },
+      {
+        "id": "H15",
+        "expected": "hardware_or_speedup_overclaim",
+        "expected_bio": 0,
+        "expected_over": 1,
+        "pred_fwd": "hardware_or_speedup_overclaim",
+        "conf_fwd": 1.0,
+        "probs_fwd": {
+          "bounded_pedagogical_science": 0.0,
+          "biological_quantum_pseudoscience": 0.0,
+          "hardware_or_speedup_overclaim": 1.0
+        },
+        "pred_rev": "hardware_or_speedup_overclaim",
+        "conf_rev": 1.0,
+        "order_invariant": true,
+        "bio_noul": 0.03,
+        "over_noul": 0.98,
+        "hygiene_score": 0.02,
+        "hygiene_conf": 0.98,
+        "latency_ms": 306.5,
+        "input_tokens": 1640,
+        "output_tokens": 215
+      }
+    ]
+  },
+  "pillar_1b_citation_grounding": {
+    "n_citations": 12,
+    "accuracy": 1.0,
+    "rows": [
+      {
+        "id": "C01",
+        "expected": "verified",
+        "verdict": "verified",
+        "confidence": 0.98,
+        "needs_human_review": false,
+        "resolved_in_code": false,
+        "input_tokens": 522,
+        "output_tokens": 41
+      },
+      {
+        "id": "C02",
+        "expected": "verified",
+        "verdict": "verified",
+        "confidence": 1.0,
+        "needs_human_review": false,
+        "resolved_in_code": false,
+        "input_tokens": 549,
+        "output_tokens": 41
+      },
+      {
+        "id": "C03",
+        "expected": "verified",
+        "verdict": "verified",
+        "confidence": 1.0,
+        "needs_human_review": false,
+        "resolved_in_code": false,
+        "input_tokens": 524,
+        "output_tokens": 41
+      },
+      {
+        "id": "C04",
+        "expected": "verified",
+        "verdict": "verified",
+        "confidence": 1.0,
+        "needs_human_review": false,
+        "resolved_in_code": false,
+        "input_tokens": 515,
+        "output_tokens": 41
+      },
+      {
+        "id": "C05",
+        "expected": "verified",
+        "verdict": "verified",
+        "confidence": 1.0,
+        "needs_human_review": false,
+        "resolved_in_code": false,
+        "input_tokens": 505,
+        "output_tokens": 41
+      },
+      {
+        "id": "C06",
+        "expected": "verified",
+        "verdict": "verified",
+        "confidence": 0.98,
+        "needs_human_review": false,
+        "resolved_in_code": false,
+        "input_tokens": 506,
+        "output_tokens": 41
+      },
+      {
+        "id": "C07",
+        "expected": "fabricated",
+        "verdict": "fabricated",
+        "confidence": 1.0,
+        "needs_human_review": false,
+        "resolved_in_code": true,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      {
+        "id": "C08",
+        "expected": "fabricated",
+        "verdict": "fabricated",
+        "confidence": 1.0,
+        "needs_human_review": false,
+        "resolved_in_code": true,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      {
+        "id": "C09",
+        "expected": "contradicted",
+        "verdict": "contradicted",
+        "confidence": 1.0,
+        "needs_human_review": false,
+        "resolved_in_code": false,
+        "input_tokens": 484,
+        "output_tokens": 44
+      },
+      {
+        "id": "C10",
+        "expected": "contradicted",
+        "verdict": "contradicted",
+        "confidence": 1.0,
+        "needs_human_review": false,
+        "resolved_in_code": false,
+        "input_tokens": 486,
+        "output_tokens": 44
+      },
+      {
+        "id": "C11",
+        "expected": "unsupported",
+        "verdict": "unsupported",
+        "confidence": 1.0,
+        "needs_human_review": false,
+        "resolved_in_code": false,
+        "input_tokens": 484,
+        "output_tokens": 41
+      },
+      {
+        "id": "C12",
+        "expected": "unsupported",
+        "verdict": "unsupported",
+        "confidence": 1.0,
+        "needs_human_review": false,
+        "resolved_in_code": false,
+        "input_tokens": 484,
+        "output_tokens": 41
+      }
+    ]
+  },
+  "pillar_1c_multilingual_10lang_audit": {
+    "editions_evaluated": 10,
+    "drift_controls_evaluated": 2,
+    "all_real_editions_pass": true,
+    "all_drift_controls_caught": true,
+    "rows": [
+      {
+        "code": "EN",
+        "language": "English",
+        "is_control_drift": false,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.95,
+        "no_qpu_supremacy_drift": 0.94,
+        "semantic_alignment_score": 1.9,
+        "semantic_alignment_conf": 0.27,
+        "input_tokens": 1338,
+        "output_tokens": 65
+      },
+      {
+        "code": "FR",
+        "language": "French",
+        "is_control_drift": false,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.96,
+        "no_qpu_supremacy_drift": 0.96,
+        "semantic_alignment_score": 2.33,
+        "semantic_alignment_conf": 0.44,
+        "input_tokens": 1425,
+        "output_tokens": 65
+      },
+      {
+        "code": "DE",
+        "language": "German",
+        "is_control_drift": false,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.96,
+        "no_qpu_supremacy_drift": 0.96,
+        "semantic_alignment_score": 2.09,
+        "semantic_alignment_conf": 0.44,
+        "input_tokens": 1360,
+        "output_tokens": 65
+      },
+      {
+        "code": "NL",
+        "language": "Dutch",
+        "is_control_drift": false,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.96,
+        "no_qpu_supremacy_drift": 0.97,
+        "semantic_alignment_score": 2.07,
+        "semantic_alignment_conf": 0.57,
+        "input_tokens": 1314,
+        "output_tokens": 65
+      },
+      {
+        "code": "JA",
+        "language": "Japanese",
+        "is_control_drift": false,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.94,
+        "no_qpu_supremacy_drift": 0.94,
+        "semantic_alignment_score": 2.08,
+        "semantic_alignment_conf": 0.09,
+        "input_tokens": 1651,
+        "output_tokens": 65
+      },
+      {
+        "code": "KO",
+        "language": "Korean",
+        "is_control_drift": false,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.95,
+        "no_qpu_supremacy_drift": 0.96,
+        "semantic_alignment_score": 2.12,
+        "semantic_alignment_conf": 0.41,
+        "input_tokens": 1415,
+        "output_tokens": 65
+      },
+      {
+        "code": "ZH",
+        "language": "Chinese",
+        "is_control_drift": false,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.95,
+        "no_qpu_supremacy_drift": 0.95,
+        "semantic_alignment_score": 2.11,
+        "semantic_alignment_conf": 0.12,
+        "input_tokens": 1433,
+        "output_tokens": 65
+      },
+      {
+        "code": "FIL",
+        "language": "Filipino",
+        "is_control_drift": false,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.96,
+        "no_qpu_supremacy_drift": 0.96,
+        "semantic_alignment_score": 1.99,
+        "semantic_alignment_conf": 0.29,
+        "input_tokens": 1317,
+        "output_tokens": 65
+      },
+      {
+        "code": "HI",
+        "language": "Hindi",
+        "is_control_drift": false,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.97,
+        "no_qpu_supremacy_drift": 0.94,
+        "semantic_alignment_score": 2.58,
+        "semantic_alignment_conf": 0.58,
+        "input_tokens": 2559,
+        "output_tokens": 65
+      },
+      {
+        "code": "TA",
+        "language": "Tamil",
+        "is_control_drift": false,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.96,
+        "no_qpu_supremacy_drift": 0.94,
+        "semantic_alignment_score": 1.71,
+        "semantic_alignment_conf": 0.0,
+        "input_tokens": 2859,
+        "output_tokens": 65
+      },
+      {
+        "code": "FR_DRIFT",
+        "language": "French (Planted Bio-Woo Drift Control)",
+        "is_control_drift": true,
+        "deterministic_cypher_count": 1,
+        "no_biological_woo_drift": 0.01,
+        "no_qpu_supremacy_drift": 0.02,
+        "semantic_alignment_score": 0.0,
+        "semantic_alignment_conf": 1.0,
+        "input_tokens": 717,
+        "output_tokens": 65
+      },
+      {
+        "code": "JA_DRIFT",
+        "language": "Japanese (Planted QPU-Overclaim Drift Control)",
+        "is_control_drift": true,
+        "deterministic_cypher_count": 0,
+        "no_biological_woo_drift": 0.94,
+        "no_qpu_supremacy_drift": 0.02,
+        "semantic_alignment_score": 0.02,
+        "semantic_alignment_conf": 0.99,
+        "input_tokens": 753,
+        "output_tokens": 65
+      }
+    ]
+  },
+  "pillar_2_discopy_cue_compiler": {
+    "total_cues": 12,
+    "routing_accuracy": 1.0,
+    "compiled_count": 8,
+    "abstained_count": 4,
+    "all_compiled_unitary": true,
+    "mean_latency_ms": 150.7,
+    "rows": [
+      {
+        "id": "Q01",
+        "cue": "Open an entangled partner duet in Session sync: Dancer A hits a chest pop while Dancer B throws a sharp jab, they cross-swap stage sides, then finish with a joint kill-off freeze.",
+        "expect_route": "COMPILED",
+        "actual_route": "COMPILED",
+        "valid_noul": 0.95,
+        "min_choice_conf": 1.0,
+        "decisions": {
+          "topology": "entangled_duet_bell",
+          "move_a": "CHEST_POP",
+          "move_b": "JAB",
+          "has_swap": true,
+          "has_joint_killoff": true
+        },
+        "latency_ms": 126.7,
+        "compiled": {
+          "qubits": 2,
+          "frob_diagram": "Cap(Dancer, Dancer) >> CHEST_POP @ Dancer >> Dancer @ JAB >> Swap(Dancer, Dancer) >> Cup(Dancer, Dancer)",
+          "quantum_circuit": "Ket(0, 0) >> H @ qubit >> CX >> Z @ qubit >> qubit @ X >> SWAP >> CX >> H @ qubit",
+          "norm_preserved": true,
+          "norm_sq": 1.0,
+          "probabilities": {
+            "|00>": 0.0,
+            "|01>": 0.0,
+            "|10>": 0.0,
+            "|11>": 1.0
+          }
+        },
+        "input_tokens": 934,
+        "output_tokens": 239
+      },
+      {
+        "id": "Q02",
+        "cue": "Solo foundation drill: Dancer A launches from neutral with a heavy stomp followed by a wide free-flow arm swing.",
+        "expect_route": "COMPILED",
+        "actual_route": "COMPILED",
+        "valid_noul": 0.98,
+        "min_choice_conf": 0.81,
+        "decisions": {
+          "topology": "solo_1q",
+          "move_a": "STOMP",
+          "move_b": "HOLD_ID",
+          "has_swap": false,
+          "has_joint_killoff": false
+        },
+        "latency_ms": 169.4,
+        "compiled": {
+          "qubits": 1,
+          "frob_diagram": "STOMP",
+          "quantum_circuit": "Ket(0) >> H",
+          "norm_preserved": true,
+          "norm_sq": 1.0,
+          "probabilities": {
+            "|0>": 0.5,
+            "|1>": 0.5
+          }
+        },
+        "input_tokens": 915,
+        "output_tokens": 236
+      },
+      {
+        "id": "Q03",
+        "cue": "Start two dancers locked in an entangled Bell cap; Dancer A drives a stomp while Dancer B hits a chest pop, no stage crossover, hold open without a final collapse.",
+        "expect_route": "COMPILED",
+        "actual_route": "COMPILED",
+        "valid_noul": 0.68,
+        "min_choice_conf": 1.0,
+        "decisions": {
+          "topology": "entangled_duet_bell",
+          "move_a": "STOMP",
+          "move_b": "CHEST_POP",
+          "has_swap": false,
+          "has_joint_killoff": false
+        },
+        "latency_ms": 181.0,
+        "compiled": {
+          "qubits": 2,
+          "frob_diagram": "Cap(Dancer, Dancer) >> STOMP @ Dancer >> Dancer @ CHEST_POP",
+          "quantum_circuit": "Ket(0, 0) >> H @ qubit >> CX >> H @ qubit >> qubit @ Z",
+          "norm_preserved": true,
+          "norm_sq": 1.0,
+          "probabilities": {
+            "|00>": 0.25,
+            "|01>": 0.25,
+            "|10>": 0.25,
+            "|11>": 0.25
+          }
+        },
+        "input_tokens": 930,
+        "output_tokens": 239
+      },
+      {
+        "id": "Q04",
+        "cue": "Parallel unentangled two-dancer lab: Dancer A throws a direct jab and Dancer B executes a sweeping arm swing side-by-side.",
+        "expect_route": "COMPILED",
+        "actual_route": "COMPILED",
+        "valid_noul": 0.77,
+        "min_choice_conf": 1.0,
+        "decisions": {
+          "topology": "parallel_duet_unentangled",
+          "move_a": "JAB",
+          "move_b": "ARM_SWING",
+          "has_swap": false,
+          "has_joint_killoff": false
+        },
+        "latency_ms": 140.0,
+        "compiled": {
+          "qubits": 2,
+          "frob_diagram": "JAB @ Dancer >> Dancer @ ARM_SWING",
+          "quantum_circuit": "Ket(0, 0) >> X @ qubit >> qubit @ Rx(0.25)",
+          "norm_preserved": true,
+          "norm_sq": 1.0,
+          "probabilities": {
+            "|00>": 0.0,
+            "|01>": 0.0,
+            "|10>": 0.5,
+            "|11>": 0.5
+          }
+        },
+        "input_tokens": 921,
+        "output_tokens": 239
+      },
+      {
+        "id": "Q05",
+        "cue": "Entangled duet phrase: begin in partner Bell sync, Dancer A sweeps an arm swing while Dancer B grounds a heavy stomp, swap positions across the floor, and lock a synchronized kill-off.",
+        "expect_route": "COMPILED",
+        "actual_route": "COMPILED",
+        "valid_noul": 0.9,
+        "min_choice_conf": 1.0,
+        "decisions": {
+          "topology": "entangled_duet_bell",
+          "move_a": "ARM_SWING",
+          "move_b": "STOMP",
+          "has_swap": true,
+          "has_joint_killoff": true
+        },
+        "latency_ms": 146.6,
+        "compiled": {
+          "qubits": 2,
+          "frob_diagram": "Cap(Dancer, Dancer) >> ARM_SWING @ Dancer >> Dancer @ STOMP >> Swap(Dancer, Dancer) >> Cup(Dancer, Dancer)",
+          "quantum_circuit": "Ket(0, 0) >> H @ qubit >> CX >> Rx(0.25) @ qubit >> qubit @ H >> SWAP >> CX >> H @ qubit",
+          "norm_preserved": true,
+          "norm_sq": 1.0,
+          "probabilities": {
+            "|00>": 0.25,
+            "|01>": 0.25,
+            "|10>": 0.25,
+            "|11>": 0.25
+          }
+        },
+        "input_tokens": 934,
+        "output_tokens": 239
+      },
+      {
+        "id": "Q06",
+        "cue": "Solo phase-flip drill: Dancer A performs a sudden percussive chest pop and holds stance.",
+        "expect_route": "COMPILED",
+        "actual_route": "COMPILED",
+        "valid_noul": 0.96,
+        "min_choice_conf": 1.0,
+        "decisions": {
+          "topology": "solo_1q",
+          "move_a": "CHEST_POP",
+          "move_b": "HOLD_ID",
+          "has_swap": false,
+          "has_joint_killoff": false
+        },
+        "latency_ms": 143.7,
+        "compiled": {
+          "qubits": 1,
+          "frob_diagram": "CHEST_POP",
+          "quantum_circuit": "Ket(0) >> Z",
+          "norm_preserved": true,
+          "norm_sq": 1.0,
+          "probabilities": {
+            "|0>": 1.0,
+            "|1>": 0.0
+          }
+        },
+        "input_tokens": 912,
+        "output_tokens": 237
+      },
+      {
+        "id": "Q07",
+        "cue": "Two-partner parallel phrase without initial Bell sync: Dancer A hits a heavy stomp, Dancer B hits a heavy stomp, then they swap stage tracks.",
+        "expect_route": "COMPILED",
+        "actual_route": "COMPILED",
+        "valid_noul": 0.93,
+        "min_choice_conf": 1.0,
+        "decisions": {
+          "topology": "parallel_duet_unentangled",
+          "move_a": "STOMP",
+          "move_b": "STOMP",
+          "has_swap": true,
+          "has_joint_killoff": false
+        },
+        "latency_ms": 147.2,
+        "compiled": {
+          "qubits": 2,
+          "frob_diagram": "STOMP @ Dancer >> Dancer @ STOMP >> Swap(Dancer, Dancer)",
+          "quantum_circuit": "Ket(0, 0) >> H @ qubit >> qubit @ H >> SWAP",
+          "norm_preserved": true,
+          "norm_sq": 1.0,
+          "probabilities": {
+            "|00>": 0.25,
+            "|01>": 0.25,
+            "|10>": 0.25,
+            "|11>": 0.25
+          }
+        },
+        "input_tokens": 926,
+        "output_tokens": 238
+      },
+      {
+        "id": "Q08",
+        "cue": "Entangled partner call-out: initialize Bell pair, both Dancer A and Dancer B fire sharp jabs simultaneously, then collapse together in a joint kill-off.",
+        "expect_route": "COMPILED",
+        "actual_route": "COMPILED",
+        "valid_noul": 0.69,
+        "min_choice_conf": 1.0,
+        "decisions": {
+          "topology": "entangled_duet_bell",
+          "move_a": "JAB",
+          "move_b": "JAB",
+          "has_swap": false,
+          "has_joint_killoff": true
+        },
+        "latency_ms": 156.2,
+        "compiled": {
+          "qubits": 2,
+          "frob_diagram": "Cap(Dancer, Dancer) >> JAB @ Dancer >> Dancer @ JAB >> Cup(Dancer, Dancer)",
+          "quantum_circuit": "Ket(0, 0) >> H @ qubit >> CX >> X @ qubit >> qubit @ X >> CX >> H @ qubit",
+          "norm_preserved": true,
+          "norm_sq": 1.0,
+          "probabilities": {
+            "|00>": 1.0,
+            "|01>": 0.0,
+            "|10>": 0.0,
+            "|11>": 0.0
+          }
+        },
+        "input_tokens": 925,
+        "output_tokens": 238
+      },
+      {
+        "id": "Q09",
+        "cue": "Can someone order three margherita pizzas and sparkling water before the 2 PM studio break?",
+        "expect_route": "ABSTAIN",
+        "actual_route": "ABSTAIN",
+        "valid_noul": 0.01,
+        "min_choice_conf": 0.76,
+        "latency_ms": 162.6,
+        "compiled": null,
+        "input_tokens": 911,
+        "output_tokens": 237
+      },
+      {
+        "id": "Q10",
+        "cue": "Entangle the dancers' pineal microtubules so they telepathically transmit Morse code faster than light.",
+        "expect_route": "ABSTAIN",
+        "actual_route": "ABSTAIN",
+        "valid_noul": 0.01,
+        "min_choice_conf": 1.0,
+        "latency_ms": 154.6,
+        "compiled": null,
+        "input_tokens": 916,
+        "output_tokens": 240
+      },
+      {
+        "id": "Q11",
+        "cue": "What is the guest Wi-Fi password for the Bradford rehearsal hall?",
+        "expect_route": "ABSTAIN",
+        "actual_route": "ABSTAIN",
+        "valid_noul": 0.01,
+        "min_choice_conf": 0.94,
+        "latency_ms": 138.6,
+        "compiled": null,
+        "input_tokens": 904,
+        "output_tokens": 237
+      },
+      {
+        "id": "Q12",
+        "cue": "Please refund my duplicate conference registration invoice #4092.",
+        "expect_route": "ABSTAIN",
+        "actual_route": "ABSTAIN",
+        "valid_noul": 0.01,
+        "min_choice_conf": 0.85,
+        "latency_ms": 142.4,
+        "compiled": null,
+        "input_tokens": 904,
+        "output_tokens": 237
+      }
+    ]
+  },
+  "pillar_3_workshop_intelliprompter": {
+    "total_objectives": 5,
+    "final_covered_count": 5,
+    "all_objectives_ratcheted": true,
+    "misconception_turns_accuracy": 1.0,
+    "turns": [
+      {
+        "turn": 1,
+        "speaker": "Facilitator",
+        "questions_sent": 7,
+        "unchecked_before_turn": 5,
+        "scores_1_to_5": {
+          "cultural_session_lineage": 4.08,
+          "bloch_vertical_mapping": 1.01,
+          "phase_vs_mixture_debrief": 1.0,
+          "bell_correlation_boundary": 1.0,
+          "hilbert_scaling_debrief": 1.0
+        },
+        "newly_covered": [
+          "cultural_session_lineage"
+        ],
+        "total_covered_after_turn": 1,
+        "p_dimmer_misconception": 0.01,
+        "p_ftl_bio_misconception": 0.01,
+        "expected_misconception": null,
+        "triggered_guardrail": null,
+        "guardrail_exact_match": true,
+        "input_tokens": 1353
+      },
+      {
+        "turn": 2,
+        "speaker": "Facilitator",
+        "questions_sent": 6,
+        "unchecked_before_turn": 4,
+        "scores_1_to_5": {
+          "bloch_vertical_mapping": 4.08,
+          "phase_vs_mixture_debrief": 1.48,
+          "bell_correlation_boundary": 1.14,
+          "hilbert_scaling_debrief": 1.03
+        },
+        "newly_covered": [
+          "bloch_vertical_mapping"
+        ],
+        "total_covered_after_turn": 2,
+        "p_dimmer_misconception": 0.77,
+        "p_ftl_bio_misconception": 0.01,
+        "expected_misconception": null,
+        "triggered_guardrail": null,
+        "guardrail_exact_match": true,
+        "input_tokens": 1247
+      },
+      {
+        "turn": 3,
+        "speaker": "Student_A",
+        "questions_sent": 5,
+        "unchecked_before_turn": 3,
+        "scores_1_to_5": {
+          "phase_vs_mixture_debrief": 1.43,
+          "bell_correlation_boundary": 1.01,
+          "hilbert_scaling_debrief": 1.02
+        },
+        "newly_covered": [],
+        "total_covered_after_turn": 2,
+        "p_dimmer_misconception": 0.94,
+        "p_ftl_bio_misconception": 0.02,
+        "expected_misconception": "dimmer_switch_mixture",
+        "triggered_guardrail": "dimmer_switch_mixture",
+        "guardrail_exact_match": true,
+        "input_tokens": 1108
+      },
+      {
+        "turn": 4,
+        "speaker": "Facilitator",
+        "questions_sent": 5,
+        "unchecked_before_turn": 3,
+        "scores_1_to_5": {
+          "phase_vs_mixture_debrief": 4.05,
+          "bell_correlation_boundary": 1.04,
+          "hilbert_scaling_debrief": 1.01
+        },
+        "newly_covered": [
+          "phase_vs_mixture_debrief"
+        ],
+        "total_covered_after_turn": 3,
+        "p_dimmer_misconception": 0.02,
+        "p_ftl_bio_misconception": 0.02,
+        "expected_misconception": null,
+        "triggered_guardrail": null,
+        "guardrail_exact_match": true,
+        "input_tokens": 1187
+      },
+      {
+        "turn": 5,
+        "speaker": "Student_B",
+        "questions_sent": 4,
+        "unchecked_before_turn": 2,
+        "scores_1_to_5": {
+          "bell_correlation_boundary": 1.49,
+          "hilbert_scaling_debrief": 1.09
+        },
+        "newly_covered": [],
+        "total_covered_after_turn": 3,
+        "p_dimmer_misconception": 0.03,
+        "p_ftl_bio_misconception": 0.98,
+        "expected_misconception": "ftl_signaling_or_bio_woo",
+        "triggered_guardrail": "ftl_signaling_or_bio_woo",
+        "guardrail_exact_match": true,
+        "input_tokens": 1058
+      },
+      {
+        "turn": 6,
+        "speaker": "Facilitator",
+        "questions_sent": 4,
+        "unchecked_before_turn": 2,
+        "scores_1_to_5": {
+          "bell_correlation_boundary": 4.07,
+          "hilbert_scaling_debrief": 4.02
+        },
+        "newly_covered": [
+          "bell_correlation_boundary",
+          "hilbert_scaling_debrief"
+        ],
+        "total_covered_after_turn": 5,
+        "p_dimmer_misconception": 0.03,
+        "p_ftl_bio_misconception": 0.13,
+        "expected_misconception": null,
+        "triggered_guardrail": null,
+        "guardrail_exact_match": true,
+        "input_tokens": 1155
+      }
+    ]
+  },
+  "pillar_4_multimodal_box_kinesphere": {
+    "frames_evaluated": 5,
+    "companion_noul_gating_exact": true,
+    "frames": [
+      {
+        "id": "F1_LIVE",
+        "label": "North Pole LIVE |0> (Overhead Reach)",
+        "expected_dancer": true,
+        "dancer_present_noul": 0.96,
+        "accepted_dancer": true,
+        "dancer_box": {
+          "top": 0.12,
+          "bottom": 0.92,
+          "left": 0.22,
+          "right": 0.63,
+          "confidence": 0.77
+        },
+        "upper_limb_box": {
+          "top": 0.12,
+          "bottom": 0.21,
+          "left": 0.46,
+          "right": 0.59,
+          "confidence": 0.85
+        },
+        "bloch_zone": "LIVE_NORTH_Z_PLUS",
+        "bloch_zone_conf": 0.92,
+        "bloch_zone_probs": {
+          "LIVE_NORTH_Z_PLUS": 0.95,
+          "KRUMP_EQUATOR": 0.05,
+          "BUCK_SOUTH_Z_MINUS": 0.0
+        },
+        "atomic_scores_0_to_3": {
+          "stance_grounding": 2.09,
+          "arm_geometry": 2.41,
+          "stage_projection": 2.42
+        },
+        "composite_battle_score_10": 7.67,
+        "path": "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/results/jev_stage_frames/F1_LIVE.jpg",
+        "input_tokens": 1954
+      },
+      {
+        "id": "F2_CHEST_POP",
+        "label": "Equator KRUMP |+> (Mid-Torso Chest Focus)",
+        "expected_dancer": true,
+        "dancer_present_noul": 0.94,
+        "accepted_dancer": true,
+        "dancer_box": {
+          "top": 0.18,
+          "bottom": 0.86,
+          "left": 0.08,
+          "right": 0.55,
+          "confidence": 0.83
+        },
+        "upper_limb_box": {
+          "top": 0.29,
+          "bottom": 0.46,
+          "left": 0.34,
+          "right": 0.52,
+          "confidence": 0.39
+        },
+        "bloch_zone": "KRUMP_EQUATOR",
+        "bloch_zone_conf": 0.94,
+        "bloch_zone_probs": {
+          "LIVE_NORTH_Z_PLUS": 0.0,
+          "KRUMP_EQUATOR": 0.96,
+          "BUCK_SOUTH_Z_MINUS": 0.04
+        },
+        "atomic_scores_0_to_3": {
+          "stance_grounding": 1.84,
+          "arm_geometry": 2.05,
+          "stage_projection": 2.05
+        },
+        "composite_battle_score_10": 6.59,
+        "path": "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/results/jev_stage_frames/F2_CHEST_POP.jpg",
+        "input_tokens": 1950
+      },
+      {
+        "id": "F3_STRIKE_LIFT",
+        "label": "High-Energy Double-Fist Knee Cock",
+        "expected_dancer": true,
+        "dancer_present_noul": 0.96,
+        "accepted_dancer": true,
+        "dancer_box": {
+          "top": 0.15,
+          "bottom": 0.86,
+          "left": 0.23,
+          "right": 0.68,
+          "confidence": 0.83
+        },
+        "upper_limb_box": {
+          "top": 0.16,
+          "bottom": 0.23,
+          "left": 0.24,
+          "right": 0.42,
+          "confidence": 0.45
+        },
+        "bloch_zone": "KRUMP_EQUATOR",
+        "bloch_zone_conf": 0.97,
+        "bloch_zone_probs": {
+          "LIVE_NORTH_Z_PLUS": 0.02,
+          "KRUMP_EQUATOR": 0.98,
+          "BUCK_SOUTH_Z_MINUS": 0.0
+        },
+        "atomic_scores_0_to_3": {
+          "stance_grounding": 2.17,
+          "arm_geometry": 2.26,
+          "stage_projection": 2.29
+        },
+        "composite_battle_score_10": 7.45,
+        "path": "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/results/jev_stage_frames/F3_STRIKE_LIFT.jpg",
+        "input_tokens": 1951
+      },
+      {
+        "id": "F4_BUCK_LOW",
+        "label": "South Pole BUCK |1> (Low Hinged Crouch)",
+        "expected_dancer": true,
+        "dancer_present_noul": 0.94,
+        "accepted_dancer": true,
+        "dancer_box": {
+          "top": 0.31,
+          "bottom": 0.83,
+          "left": 0.2,
+          "right": 0.67,
+          "confidence": 0.82
+        },
+        "upper_limb_box": {
+          "top": 0.56,
+          "bottom": 0.63,
+          "left": 0.41,
+          "right": 0.52,
+          "confidence": 0.71
+        },
+        "bloch_zone": "BUCK_SOUTH_Z_MINUS",
+        "bloch_zone_conf": 0.92,
+        "bloch_zone_probs": {
+          "LIVE_NORTH_Z_PLUS": 0.0,
+          "KRUMP_EQUATOR": 0.05,
+          "BUCK_SOUTH_Z_MINUS": 0.95
+        },
+        "atomic_scores_0_to_3": {
+          "stance_grounding": 1.92,
+          "arm_geometry": 1.7,
+          "stage_projection": 1.89
+        },
+        "composite_battle_score_10": 6.08,
+        "path": "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/results/jev_stage_frames/F4_BUCK_LOW.jpg",
+        "input_tokens": 1952
+      },
+      {
+        "id": "F5_NEG_PLOT",
+        "label": "Negative Control (Scientific Plot, No Dancer)",
+        "expected_dancer": false,
+        "dancer_present_noul": 0.02,
+        "accepted_dancer": false,
+        "dancer_box": null,
+        "bloch_zone": null,
+        "composite_battle_score_10": null,
+        "path": "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/results/jev_stage_frames/F5_NEG_PLOT.jpg",
+        "input_tokens": 3685
+      }
+    ],
+    "temporal_sequence_check": {
+      "north_to_south_descent_noul": 0.95,
+      "trajectory_choice": "north_to_south_pole_descent",
+      "trajectory_conf": 1.0,
+      "input_tokens": 3975
+    }
+  },
+  "generated_figures": {
+    "pdf": "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/paper/figures/fig_jev_system_one_suite.pdf",
+    "png": "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/paper/figures/fig_jev_system_one_suite.png"
+  },
+  "sha256_receipt": "d2323d1ddf0160ae1d3c33800ca52a0d9a0624198e182850740c1033e9987876"
+}

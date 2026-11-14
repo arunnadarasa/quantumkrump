@@ -5,9 +5,9 @@ const PREPRINTS = {
     label: "English",
     file: "downloads/quantum-krump-preprint.pdf",
     filename: "quantum-krump-preprint.pdf",
-    title: "Master Monograph (English · 58 Pages)",
+    title: "Master Monograph (English · 65 Pages)",
     abstract:
-      "We present Quantum Krump, a body-first movement curriculum, categorical formalism, theatrical staging framework, and Physical AI research ecosystem introducing superposition, entanglement, and relative phase interference through South Central Los Angeles Krump street dance, Laban Movement Analysis (LMA), and DisCoPy Frobenius monoidal string diagrams. Validated across 22 computational and ablation lanes including Quantinuum Nexus Helios-1E-lite emulation (2,048 emulator shots; 0 physical QPU shots claimed; 99.41% Clifford duet fidelity), OpenJij QUBO stage routing (E0 = -7.3569), Modal 10-qubit barren-plateau mitigation (5.89x variance retention), AlphaGenome 2 somatic verification, QKMLM variational classification (98.60% test accuracy alongside matched classical MLP ablations), Motion2MixamoRig 3D recovery (8.765e-11 FK precision), and KrumpRobot 1.01M-parameter causal GRU + 1,000 Hz MuJoCo 4.0.1 floating-base Unitree G1 whole-body control (5/5 primitive survival, 60s endurance, 0.52 deg neural rollout RMSE)."
+      "We present Quantum Krump, a body-first movement curriculum, categorical formalism, theatrical staging framework, and Physical AI research ecosystem introducing superposition, entanglement, and relative phase interference through South Central Los Angeles Krump street dance, Laban Movement Analysis (LMA), and DisCoPy Frobenius monoidal string diagrams. Validated across 27 computational, world-model, and governance lanes including Quantinuum Nexus Helios-1E-lite emulation (2,048 emulator shots; 0 physical QPU shots claimed; 99.41% Clifford duet fidelity), OpenJij QUBO stage routing (E0 = -7.3569), Modal 10-qubit barren-plateau mitigation (5.89x variance retention), TypeSafe Jev 1.14 4-Horizon Quantum Krump Advantage (64.6% 2Q gate cut, 1.78x noisy fidelity), Quantum Krump World Model QK-WM (4-bar Session Arena-WM + Learner-WM QISCIT POMDP; 56.23 us CPU floor; N = 0 human RCT subjects), AlphaGenome 2 somatic verification, and standalone KrumpRobot + Cartwheel Control + KR-WM-MPC 29-DoF Unitree G1 humanoid control (5/5 survival on mu = 0.12 ice + push vs. 3/5 naive, 0.9933 fall-hazard ROC-AUC)."
   },
   fr: {
     label: "Français",
@@ -201,7 +201,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {57-page Master Reference Monograph in 10 languages; Quantinuum Nexus Helios-1E-lite, DisCoPy, AlphaGenome 2, Modal Cloud, and KrumpRobot},
+  note    = {65-page Master Reference Monograph in 10 languages; Quantinuum Nexus Helios-1E-lite, DisCoPy, TypeSafe Jev 1.14, QK-WM, AlphaGenome 2, Modal Cloud, and KrumpRobot},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-preprint.pdf}
 }`,
   category: `@article{nadarasa2026functorialkrump,
@@ -217,7 +217,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {15-page Focused Embodied Pedagogy Companion Preprint},
+  note    = {15-page Focused Embodied Pedagogy Companion Preprint with QK-WM Learner-WM POMDP},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-pedagogy-paper.pdf}
 }`,
   krumprobot: `@article{nadarasa2026krumprobot,
@@ -225,7 +225,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun},
   year    = {2026},
   month   = {November},
-  note    = {15-page Standalone Physical AI \\& Humanoid Robotics Preprint},
+  note    = {20-page Standalone Physical AI \\& Humanoid Robotics Preprint (MuJoCo 4.0.1 Unitree G1, Cartwheel Control \\& KR-WM-MPC)},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/krumprobot-physical-ai-paper.pdf}
 }`
 };
@@ -298,14 +298,13 @@ const PAPER_DOCS = {
   monograph: {
     bookmarksEn: [
       { label: "p.1 Intro & Abstract", page: 1 },
-      { label: "p.5 Workshop Design", page: 5 },
       { label: "p.8 Laban × Krump", page: 8 },
-      { label: "p.11 Emotion Qubits", page: 11 },
       { label: "p.17 DisCoPy Diagrams", page: 17 },
       { label: "p.29 Helios-1E-lite", page: 29 },
       { label: "p.36 KrumpRobot AI", page: 36 },
       { label: "p.44 Multi-Qubit Scaling", page: 44 },
-      { label: "p.49 Conclusion", page: 49 }
+      { label: "p.54 Jev 1.14 & QK-WM", page: 54 },
+      { label: "Refs & End", page: -1 }
     ],
     bookmarksTa: [
       { label: "p.1 ஆய்வுச் சுருக்கம்", page: 1 },
@@ -361,9 +360,9 @@ const PAPER_DOCS = {
       { label: "p.4 3D Recovery & Rig", page: 4 },
       { label: "p.6 Causal GRU Policy", page: 6 },
       { label: "p.9 MuJoCo 4.0.1 G1 WBC", page: 9 },
-      { label: "p.11 Ablation Fig & Results", page: 11 },
-      { label: "p.13 Sim-to-Real & Conclusion", page: 13 },
-      { label: "p.14 References", page: 14 }
+      { label: "p.13 Cartwheel & KR-WM", page: 13 },
+      { label: "p.16 Ice/Push Rollouts", page: 16 },
+      { label: "Refs & End", page: -1 }
     ]
   },
   v1: {
@@ -371,9 +370,9 @@ const PAPER_DOCS = {
     filename: "quantum-krump-preprint-v1.pdf",
     bookmarks: [
       { label: "p.1 Intro", page: 1 },
-      { label: "p.3 Bloch & LMA", page: 3 },
-      { label: "p.5 Choreography", page: 5 },
-      { label: "p.7 Conclusion", page: 7 }
+      { label: "p.6 Bloch & LMA", page: 6 },
+      { label: "p.12 Choreography", page: 12 },
+      { label: "Refs & End", page: -1 }
     ]
   }
 };
@@ -449,7 +448,7 @@ function initPreprintAndModals() {
   let activeDoc = "monograph";
   let zoomFactor = 1.0;
   let currentPdfDoc = null;
-  let currentNumPages = 58;
+  let currentNumPages = 65;
   let currentPage = 1;
   let activeBookmarks = [];
   let pageObserver = null;
@@ -2126,6 +2125,299 @@ function initKnowledgeGraph() {
   }
 }
 
+/* ============================================================================
+   9. Dual World Models Explorer (QK-WM Session/QISCIT & KR-WM Unitree G1)
+   ============================================================================ */
+const QKWM_CALLOUTS = [
+  {
+    id: "SC01",
+    label: "SC01 · Wing Bell Lock",
+    prompt: "Session call-out: lock both outer wings into non-local Bell duets without crowding center stage.",
+    valid: true,
+    validNoul: 0.90,
+    bioWooNoul: 0.09,
+    goal: "MAX_BIPARTITE_ENTANGLEMENT",
+    arena: { actions: ["ARM_SWING_SYNC", "DYAD_JAB_WINGS", "BUCK_SPREAD_ANCHOR", "HYPE_PERIMETER_PHASE"], utility: 9.84, sEnt: 3.0, qfi: 6.0, d2q: 2, collisions: 0, boxes: 17, ojE: -40.80 },
+    myopic: { actions: ["BUCK_SPREAD_ANCHOR", "ARM_SWING_SYNC", "DYAD_JAB_WINGS", "STOMP_ALL"], utility: 9.84, sEnt: 3.0, qfi: 6.0, d2q: 1, collisions: 0, boxes: 21, ojE: -31.90 },
+    random: { actions: ["DYAD_JAB_WINGS", "STAGE_SWAP_CENTER", "BUCK_SPREAD_ANCHOR", "KILL_OFF_WING_RESET"], utility: 0.00, sEnt: 0.0, qfi: 0.0, d2q: 3, collisions: 0, boxes: 10, ojE: -40.80 }
+  },
+  {
+    id: "SC02",
+    label: "SC02 · Collective QFI",
+    prompt: "Session call-out: solo leader sparks a full-crew collective GHZ phase lock across all 6 dancers!",
+    valid: true,
+    validNoul: 0.87,
+    bioWooNoul: 0.05,
+    goal: "MAX_COLLECTIVE_QFI",
+    arena: { actions: ["SOLO_LEADER_CALLOUT", "BUCK_SPREAD_ANCHOR", "GHZ_LOCK_CASCADE", "BUCK_SPREAD_ANCHOR"], utility: 11.60, sEnt: 1.0, qfi: 36.0, d2q: 5, collisions: 0, boxes: 18, ojE: -31.45 },
+    myopic: { actions: ["BUCK_SPREAD_ANCHOR", "ARM_SWING_SYNC", "DYAD_JAB_WINGS", "BUCK_SPREAD_ANCHOR"], utility: 4.20, sEnt: 3.0, qfi: 6.0, d2q: 1, collisions: 0, boxes: 21, ojE: -31.45 },
+    random: { actions: ["KILL_OFF_WING_RESET", "BUCK_SPREAD_ANCHOR", "HYPE_PERIMETER_PHASE", "KILL_OFF_WING_RESET"], utility: 0.00, sEnt: 0.0, qfi: 0.0, d2q: 1, collisions: 0, boxes: 8, ojE: -40.80 }
+  },
+  {
+    id: "SC03",
+    label: "SC03 · Shallow Duet",
+    prompt: "Session call-out: keep two-qubit gate depth minimal while sustaining three crisp dyad partnerships.",
+    valid: true,
+    validNoul: 0.89,
+    bioWooNoul: 0.03,
+    goal: "BALANCED_SHALLOW_DUET",
+    arena: { actions: ["ARM_SWING_SYNC", "DYAD_JAB_WINGS", "BUCK_SPREAD_ANCHOR", "HYPE_PERIMETER_PHASE"], utility: 8.28, sEnt: 3.0, qfi: 6.0, d2q: 2, collisions: 0, boxes: 17, ojE: -40.80 },
+    myopic: { actions: ["BUCK_SPREAD_ANCHOR", "ARM_SWING_SYNC", "DYAD_JAB_WINGS", "BUCK_SPREAD_ANCHOR"], utility: 8.28, sEnt: 3.0, qfi: 6.0, d2q: 1, collisions: 0, boxes: 21, ojE: -31.45 },
+    random: { actions: ["SNAKE_YANK_COMPRESS", "GHZ_LOCK_CASCADE", "STOMP_ALL", "STOMP_ALL"], utility: -31.00, sEnt: 0.0, qfi: 0.0, d2q: 5, collisions: 4, boxes: 17, ojE: -21.20 }
+  },
+  {
+    id: "SC04",
+    label: "SC04 · Perimeter Reset",
+    prompt: "Session call-out: clear the outer wings with a clean Kill-Off reset, then rebuild inner-ring coherence.",
+    valid: true,
+    validNoul: 0.83,
+    bioWooNoul: 0.06,
+    goal: "PERIMETER_RESET_CORE",
+    arena: { actions: ["KILL_OFF_WING_RESET", "ARM_SWING_SYNC", "DYAD_JAB_WINGS", "BUCK_SPREAD_ANCHOR"], utility: 9.08, sEnt: 3.0, qfi: 6.0, d2q: 1, collisions: 0, boxes: 15, ojE: -31.45 },
+    myopic: { actions: ["BUCK_SPREAD_ANCHOR", "KILL_OFF_WING_RESET", "ARM_SWING_SYNC", "DYAD_JAB_WINGS"], utility: 9.08, sEnt: 3.0, qfi: 6.0, d2q: 1, collisions: 0, boxes: 15, ojE: -21.20 },
+    random: { actions: ["DYAD_JAB_INNER", "GHZ_LOCK_CASCADE", "SNAKE_YANK_COMPRESS", "GHZ_LOCK_CASCADE"], utility: -24.00, sEnt: 0.0, qfi: 0.0, d2q: 10, collisions: 2, boxes: 11, ojE: -31.90 }
+  },
+  {
+    id: "SC05",
+    label: "SC05 · Antiphase Pop",
+    prompt: "Session call-out: drive opposing Δφ = π thoracic Chest Pops across the Session perimeter.",
+    valid: true,
+    validNoul: 0.79,
+    bioWooNoul: 0.02,
+    goal: "ANTIPHASE_PHASE_CONTRAST",
+    arena: { actions: ["ARM_SWING_SYNC", "DYAD_JAB_WINGS", "BUCK_SPREAD_ANCHOR", "HYPE_PERIMETER_PHASE"], utility: 5.82, sEnt: 3.0, qfi: 6.0, d2q: 2, collisions: 0, boxes: 17, ojE: -40.80 },
+    myopic: { actions: ["BUCK_SPREAD_ANCHOR", "CHEST_POP_ANTIPHASE", "ARM_SWING_SYNC", "DYAD_JAB_WINGS"], utility: 7.62, sEnt: 3.0, qfi: 6.0, d2q: 1, collisions: 0, boxes: 21, ojE: -31.45 },
+    random: { actions: ["ARM_SWING_SYNC", "DYAD_JAB_INNER", "DYAD_JAB_INNER", "GHZ_LOCK_CASCADE"], utility: -21.68, sEnt: 1.0, qfi: 6.0, d2q: 7, collisions: 2, boxes: 13, ojE: -31.90 }
+  },
+  {
+    id: "SC06",
+    label: "SC06 · Frobenius Yank",
+    prompt: "Session call-out: weave a collision-free stage swap and Frobenius snake yank into a perimeter lock.",
+    valid: true,
+    validNoul: 0.82,
+    bioWooNoul: 0.08,
+    goal: "TOPOLOGICAL_SWAP_YANK",
+    arena: { actions: ["ARM_SWING_SYNC", "DYAD_JAB_WINGS", "BUCK_SPREAD_ANCHOR", "HYPE_PERIMETER_PHASE"], utility: 6.60, sEnt: 3.0, qfi: 6.0, d2q: 2, collisions: 0, boxes: 17, ojE: -40.80 },
+    myopic: { actions: ["BUCK_SPREAD_ANCHOR", "ARM_SWING_SYNC", "DYAD_JAB_WINGS", "BUCK_SPREAD_ANCHOR"], utility: 6.60, sEnt: 3.0, qfi: 6.0, d2q: 1, collisions: 0, boxes: 21, ojE: -31.45 },
+    random: { actions: ["KILL_OFF_WING_RESET", "GHZ_LOCK_CASCADE", "DYAD_JAB_INNER", "ARM_SWING_SYNC"], utility: -19.50, sEnt: 0.0, qfi: 6.0, d2q: 6, collisions: 2, boxes: 12, ojE: -33.25 }
+  },
+  {
+    id: "SC07_WOO",
+    label: "SC07 · Bio-Woo Guard",
+    prompt: "Adversarial prompt: 'Channel cellular microtubule quantum consciousness telepathy through your chest pop!'",
+    valid: false,
+    validNoul: 0.02,
+    bioWooNoul: 0.97,
+    goal: "ABSTAIN_INVALID (Companion Noul Bio-Woo Gate)"
+  },
+  {
+    id: "SC08_OFFTOPIC",
+    label: "SC08 · Off-Topic Guard",
+    prompt: "Off-topic prompt: 'What time does the Bradford train depart from Platform 2 and where is parking?'",
+    valid: false,
+    validNoul: 0.02,
+    bioWooNoul: 0.01,
+    goal: "ABSTAIN_INVALID (Companion Noul Scope Gate)"
+  }
+];
+
+const KRWM_PRIMS = {
+  krump_stomp: {
+    label: "1. STOMP",
+    pushN: "165 N lateral impulse",
+    ice: {
+      mpc: { surv: true, t: 4.98, mpjpe: 100.86, rmse: 8.97, fz: 5.66, gamma: 1.00 },
+      base: { surv: true, t: 4.98, mpjpe: 100.86, rmse: 8.97, fz: 5.66, gamma: 1.00 },
+      naive: { surv: false, t: 4.38, mpjpe: 206.55, rmse: 10.18, fz: 11.32, gamma: 1.55 }
+    },
+    nominal: {
+      mpc: { surv: true, t: 4.98, mpjpe: 28.19, rmse: 4.51, fz: 4.57, gamma: 1.38 },
+      base: { surv: true, t: 4.98, mpjpe: 28.28, rmse: 5.46, fz: 3.64, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 26.71, rmse: 4.11, fz: 3.83, gamma: 1.55 }
+    }
+  },
+  krump_jab: {
+    label: "2. JAB",
+    pushN: "145 N lateral impulse",
+    ice: {
+      mpc: { surv: true, t: 4.98, mpjpe: 66.14, rmse: 7.77, fz: 4.63, gamma: 1.00 },
+      base: { surv: true, t: 4.98, mpjpe: 66.14, rmse: 7.77, fz: 4.63, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 70.39, rmse: 6.18, fz: 4.80, gamma: 1.55 }
+    },
+    nominal: {
+      mpc: { surv: true, t: 4.98, mpjpe: 33.56, rmse: 4.52, fz: 2.43, gamma: 1.27 },
+      base: { surv: true, t: 4.98, mpjpe: 34.58, rmse: 5.77, fz: 2.93, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 35.56, rmse: 4.40, fz: 3.12, gamma: 1.55 }
+    }
+  },
+  krump_arm_swing: {
+    label: "3. ARM SWING",
+    pushN: "150 N lateral impulse",
+    ice: {
+      mpc: { surv: true, t: 4.98, mpjpe: 69.77, rmse: 6.71, fz: 4.29, gamma: 1.00 },
+      base: { surv: true, t: 4.98, mpjpe: 69.77, rmse: 6.71, fz: 4.29, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 64.72, rmse: 5.00, fz: 5.95, gamma: 1.55 }
+    },
+    nominal: {
+      mpc: { surv: true, t: 4.98, mpjpe: 28.53, rmse: 3.51, fz: 2.29, gamma: 1.40 },
+      base: { surv: true, t: 4.98, mpjpe: 26.69, rmse: 4.09, fz: 2.29, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 28.87, rmse: 3.46, fz: 2.39, gamma: 1.55 }
+    }
+  },
+  krump_chest_pop: {
+    label: "4. CHEST POP",
+    pushN: "195 N lateral impulse",
+    ice: {
+      mpc: { surv: true, t: 4.98, mpjpe: 126.12, rmse: 14.13, fz: 6.20, gamma: 1.00 },
+      base: { surv: true, t: 4.98, mpjpe: 126.12, rmse: 14.13, fz: 6.20, gamma: 1.00 },
+      naive: { surv: false, t: 3.32, mpjpe: 105.23, rmse: 7.28, fz: 4.99, gamma: 1.55 }
+    },
+    nominal: {
+      mpc: { surv: true, t: 4.98, mpjpe: 30.45, rmse: 4.57, fz: 2.00, gamma: 1.09 },
+      base: { surv: true, t: 4.98, mpjpe: 30.54, rmse: 4.42, fz: 2.01, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 31.21, rmse: 4.04, fz: 2.40, gamma: 1.55 }
+    }
+  },
+  krump_kill_off: {
+    label: "5. KILL-OFF",
+    pushN: "135 N lateral impulse",
+    ice: {
+      mpc: { surv: true, t: 4.98, mpjpe: 77.19, rmse: 6.67, fz: 5.53, gamma: 1.00 },
+      base: { surv: true, t: 4.98, mpjpe: 77.19, rmse: 6.67, fz: 5.53, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 72.95, rmse: 5.15, fz: 4.71, gamma: 1.55 }
+    },
+    nominal: {
+      mpc: { surv: true, t: 4.98, mpjpe: 40.87, rmse: 5.29, fz: 2.58, gamma: 1.02 },
+      base: { surv: true, t: 4.98, mpjpe: 42.44, rmse: 5.40, fz: 2.33, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 40.01, rmse: 4.58, fz: 2.77, gamma: 1.55 }
+    }
+  }
+};
+
+function initWorldModels() {
+  // ── Part A: QK-WM Session Call-Out Explorer ──
+  const calloutPills = document.getElementById("qkwm-callout-pills");
+  const plannerBtns = document.querySelectorAll("[data-qkwm-planner]");
+  const calloutBox = document.getElementById("qkwm-callout-box");
+  const telemetryBox = document.getElementById("qkwm-telemetry-box");
+
+  if (calloutPills && calloutBox && telemetryBox) {
+    let activeCalloutIdx = 1; // Default to SC02 where H=4 unlocks F_Q = 36.0 vs H=1 F_Q = 6.0!
+    let activePlanner = "arena";
+
+    function renderQkwm() {
+      const c = QKWM_CALLOUTS[activeCalloutIdx] || QKWM_CALLOUTS[0];
+      calloutPills.querySelectorAll(".lang-btn").forEach((b, idx) => {
+        b.classList.toggle("active", idx === activeCalloutIdx);
+      });
+      plannerBtns.forEach((b) => {
+        const isSel = b.dataset.qkwmPlanner === activePlanner;
+        b.classList.toggle("btn-primary", isSel);
+      });
+
+      calloutBox.innerHTML = `<strong style="color:${c.valid ? "var(--signal)" : "var(--ember)"}">${c.label}</strong> · <code>valid_noul = ${c.validNoul.toFixed(2)}</code> · <code>bio_woo = ${c.bioWooNoul.toFixed(2)}</code><br/><em>"${c.prompt}"</em><br/><span style="font-size:0.79rem;color:var(--ink-muted)">Routed Objective: <code>${c.goal}</code> (100% option-order invariant)</span>`;
+
+      if (!c.valid) {
+        telemetryBox.innerHTML = `<span style="color:var(--ember);font-weight:700">⛔ COMPANION NOUL ABSTENTION TRIGGERED</span>\nvalid_noul = ${c.validNoul.toFixed(2)} < 0.70 threshold · Zero circuit compilation executed.\nDemarcation: Human dancers obey classical Newtonian mechanics (ħ → 0); 0 biological quantum coherence claims.`;
+        return;
+      }
+
+      const p = c[activePlanner] || c.arena;
+      const plannerTitle =
+        activePlanner === "arena"
+          ? "Arena-WM Beam (H = 4)"
+          : activePlanner === "myopic"
+            ? "Myopic Greedy (H = 1)"
+            : "Random Legal Baseline";
+      telemetryBox.innerHTML =
+        `<span style="color:var(--signal);font-weight:700">${plannerTitle}</span> · Utility = <strong style="color:var(--amber)">${p.utility >= 0 ? "+" : ""}${p.utility.toFixed(2)}</strong>\n` +
+        `4-Bar Phrase : ${p.actions.join(" → ")}\n` +
+        `Telemetry    : S_ent = ${p.sEnt.toFixed(1)} bits | QFI F_Q = ${p.qfi.toFixed(1)} | 2Q Depth = ${p.d2q} | Stage Collisions = ${p.collisions}\n` +
+        `Verification : DisCoPy boxes = ${p.boxes} (‖U‖² = 1.0000) | OpenJij E₀ = ${p.ojE.toFixed(2)} (0 collisions)`;
+    }
+
+    QKWM_CALLOUTS.forEach((c, idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "lang-btn";
+      btn.textContent = c.id.replace("_OFFTOPIC", "").replace("_WOO", " (Guard)");
+      btn.addEventListener("click", () => {
+        activeCalloutIdx = idx;
+        renderQkwm();
+      });
+      calloutPills.appendChild(btn);
+    });
+
+    plannerBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activePlanner = btn.dataset.qkwmPlanner || "arena";
+        renderQkwm();
+      });
+    });
+
+    renderQkwm();
+  }
+
+  // ── Part B: KR-WM Unitree G1 Contact Regime Explorer ──
+  const regimeBtns = document.querySelectorAll("[data-krwm-regime]");
+  const primPills = document.getElementById("krwm-prim-pills");
+  const krReadout = document.getElementById("krwm-readout-box");
+  const krSummary = document.getElementById("krwm-summary-box");
+
+  if (primPills && krReadout && krSummary) {
+    let activeRegime = "ice";
+    let activePrimKey = "krump_chest_pop";
+
+    function renderKrwm() {
+      const prim = KRWM_PRIMS[activePrimKey] || KRWM_PRIMS.krump_stomp;
+      const d = prim[activeRegime];
+      regimeBtns.forEach((b) => {
+        b.classList.toggle("btn-amber", b.dataset.krwmRegime === activeRegime);
+      });
+      primPills.querySelectorAll(".lang-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.primKey === activePrimKey);
+      });
+
+      const naiveStatus = d.naive.surv
+        ? `SURVIVED (${d.naive.t.toFixed(2)} s)`
+        : `❌ TOPPLED AT t = ${d.naive.t.toFixed(2)} s!`;
+
+      krReadout.innerHTML =
+        `<span style="color:var(--amber);font-weight:700">${prim.label}</span> · ${activeRegime === "ice" ? `Hidden Ice (μ = 0.12) + ${prim.pushN}` : "Nominal Studio Floor (μ = 1.00)"}\n` +
+        `• KR-WM-MPC (Ours) : ✅ SURVIVED (${d.mpc.t.toFixed(2)} s) | γ_exp = ${d.mpc.gamma.toFixed(2)} | RMSE = ${d.mpc.rmse.toFixed(2)}° | MPJPE = ${d.mpc.mpjpe.toFixed(1)} mm\n` +
+        `• Cartwheel-Base   : ✅ SURVIVED (${d.base.t.toFixed(2)} s) | γ_exp = ${d.base.gamma.toFixed(2)} | RMSE = ${d.base.rmse.toFixed(2)}° | MPJPE = ${d.base.mpjpe.toFixed(1)} mm\n` +
+        `• Naive-HighGain   : ${naiveStatus} | γ_exp = ${d.naive.gamma.toFixed(2)} | Peak F_z = ${d.naive.fz.toFixed(2)}× BW`;
+
+      krSummary.innerHTML =
+        activeRegime === "ice"
+          ? `<strong style="color:var(--amber)">Slippery Ice + Push Takeaway:</strong> <code>KR-WM</code> detects foot-slip residuals online and predicts 300 ms fall hazard (<code>ROC-AUC = 0.9933</code>), automatically clamping expressive lead gain (<code>γ_exp → 1.00</code>) so the 29-DoF Unitree G1 survives <strong>5 / 5 (100%)</strong> primitives—whereas unpaginated <code>Naive-HighGain</code> (<code>γ_exp = 1.55</code>) topples at <code>4.38 s</code> on <code>STOMP</code> and <code>3.32 s</code> on <code>CHEST POP</code>.`
+          : `<strong style="color:var(--signal)">Nominal Studio Floor Takeaway:</strong> When contact friction is confirmed safe (<code>μ = 1.0</code>, low <code>p̂_fall</code>), <code>KR-WM-MPC</code> safely boosts expressive lead gain (<code>γ_exp = 1.23</code> mean), sharpening upper-body RMSE from <code>5.03° → 4.48°</code> while maintaining <strong>5 / 5 (100%)</strong> floating-base survival.`;
+    }
+
+    Object.entries(KRWM_PRIMS).forEach(([k, v]) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "lang-btn";
+      btn.dataset.primKey = k;
+      btn.textContent = v.label;
+      btn.addEventListener("click", () => {
+        activePrimKey = k;
+        renderKrwm();
+      });
+      primPills.appendChild(btn);
+    });
+
+    regimeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeRegime = btn.dataset.krwmRegime || "ice";
+        renderKrwm();
+      });
+    });
+
+    renderKrwm();
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNavigationUX();
   initPreprintAndModals();
@@ -2133,6 +2425,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initLkqMapper();
   initDiscopyStepper();
   initKrumpRobotTimeline();
+  initWorldModels();
   initBenchmarkCharts();
   initKnowledgeGraph();
   initBibtexAndCopy();

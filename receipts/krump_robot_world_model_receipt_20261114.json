@@ -1,0 +1,397 @@
+{
+  "benchmark": "Krump Robot World Model (KR-WM): Latent Contact- & Beat-Conditioned Dynamics and Safety-Gated Expressive MPC",
+  "audit_gate": "G_Krump_Robot_World_Model",
+  "status": "VERIFIED (PASS)",
+  "timestamp_utc": "2026-11-14T07:45:00Z",
+  "simulator_and_hardware_target": {
+    "engine": "MuJoCo 4.0.1",
+    "robot": "Unitree G1 (29-DoF floating-base with stock rubber hands)",
+    "policy_backbone": "Cartwheel Control 50 Hz RL + KR-WM 50 Hz 6-Candidate Shooting MPC",
+    "host_platform": "Darwin arm64"
+  },
+  "heldout_temporal_split_evaluation": {
+    "n_train_windows": 22184,
+    "n_heldout_windows": 5470,
+    "trainable_parameters": 973386,
+    "training_wall_clock_s": 157.51,
+    "dx_r2": 0.1876,
+    "fz_r2": 0.2129,
+    "torque_util_r2": 0.4585,
+    "mpjpe_r2": 0.8076,
+    "mu_r2": 0.4043,
+    "fall_roc_auc": 0.9933,
+    "fall_brier": 0.0082,
+    "infer_ms_p50": 1.226,
+    "infer_ms_p99": 1.283
+  },
+  "nominal_floor_mu_1_0_summary": {
+    "cartwheel_base": {
+      "phrases_survived": "5/5",
+      "survival_rate_pct": 100.0,
+      "mean_mpjpe_mm": 32.51,
+      "mean_upper_body_rmse_deg": 5.03,
+      "mean_p99_torso_jerk_rads3": 3151.8,
+      "mean_gamma_exp": 1.0
+    },
+    "naive_highgain": {
+      "phrases_survived": "5/5",
+      "survival_rate_pct": 100.0,
+      "mean_mpjpe_mm": 32.47,
+      "mean_upper_body_rmse_deg": 4.12,
+      "mean_p99_torso_jerk_rads3": 4199.4,
+      "mean_gamma_exp": 1.55
+    },
+    "kr_wm_mpc": {
+      "phrases_survived": "5/5",
+      "survival_rate_pct": 100.0,
+      "mean_mpjpe_mm": 32.32,
+      "mean_upper_body_rmse_deg": 4.48,
+      "mean_p99_torso_jerk_rads3": 3363.7,
+      "mean_gamma_exp": 1.23
+    }
+  },
+  "nominal_floor_per_primitive": {
+    "cartwheel_base": {
+      "krump_stomp": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 28.28,
+        "upper_body_rmse_deg": 5.46,
+        "peak_fz_bw": 3.64,
+        "p99_torso_jerk_rads3": 3697.4,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_jab": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 34.58,
+        "upper_body_rmse_deg": 5.77,
+        "peak_fz_bw": 2.93,
+        "p99_torso_jerk_rads3": 2936.6,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_arm_swing": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 26.69,
+        "upper_body_rmse_deg": 4.09,
+        "peak_fz_bw": 2.29,
+        "p99_torso_jerk_rads3": 2516.5,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_chest_pop": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 30.54,
+        "upper_body_rmse_deg": 4.42,
+        "peak_fz_bw": 2.01,
+        "p99_torso_jerk_rads3": 3260.8,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_kill_off": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 42.44,
+        "upper_body_rmse_deg": 5.4,
+        "peak_fz_bw": 2.33,
+        "p99_torso_jerk_rads3": 3347.5,
+        "mean_gamma_exp": 1.0
+      }
+    },
+    "naive_highgain": {
+      "krump_stomp": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 26.71,
+        "upper_body_rmse_deg": 4.11,
+        "peak_fz_bw": 3.83,
+        "p99_torso_jerk_rads3": 4899.9,
+        "mean_gamma_exp": 1.55
+      },
+      "krump_jab": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 35.56,
+        "upper_body_rmse_deg": 4.4,
+        "peak_fz_bw": 3.12,
+        "p99_torso_jerk_rads3": 4150.3,
+        "mean_gamma_exp": 1.55
+      },
+      "krump_arm_swing": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 28.87,
+        "upper_body_rmse_deg": 3.46,
+        "peak_fz_bw": 2.39,
+        "p99_torso_jerk_rads3": 3209.4,
+        "mean_gamma_exp": 1.55
+      },
+      "krump_chest_pop": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 31.21,
+        "upper_body_rmse_deg": 4.04,
+        "peak_fz_bw": 2.4,
+        "p99_torso_jerk_rads3": 3928.1,
+        "mean_gamma_exp": 1.55
+      },
+      "krump_kill_off": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 40.01,
+        "upper_body_rmse_deg": 4.58,
+        "peak_fz_bw": 2.77,
+        "p99_torso_jerk_rads3": 4809.4,
+        "mean_gamma_exp": 1.55
+      }
+    },
+    "kr_wm_mpc": {
+      "krump_stomp": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 28.19,
+        "upper_body_rmse_deg": 4.51,
+        "peak_fz_bw": 4.57,
+        "p99_torso_jerk_rads3": 4788.2,
+        "mean_gamma_exp": 1.38
+      },
+      "krump_jab": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 33.56,
+        "upper_body_rmse_deg": 4.52,
+        "peak_fz_bw": 2.43,
+        "p99_torso_jerk_rads3": 3332.3,
+        "mean_gamma_exp": 1.269
+      },
+      "krump_arm_swing": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 28.53,
+        "upper_body_rmse_deg": 3.51,
+        "peak_fz_bw": 2.29,
+        "p99_torso_jerk_rads3": 2598.5,
+        "mean_gamma_exp": 1.4
+      },
+      "krump_chest_pop": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 30.45,
+        "upper_body_rmse_deg": 4.57,
+        "peak_fz_bw": 2.0,
+        "p99_torso_jerk_rads3": 3097.6,
+        "mean_gamma_exp": 1.085
+      },
+      "krump_kill_off": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 40.87,
+        "upper_body_rmse_deg": 5.29,
+        "peak_fz_bw": 2.58,
+        "p99_torso_jerk_rads3": 3001.7,
+        "mean_gamma_exp": 1.018
+      }
+    }
+  },
+  "adversarial_ice_push_mu_0_12_summary": {
+    "cartwheel_base": {
+      "phrases_survived": "5/5",
+      "survival_rate_pct": 100.0,
+      "mean_mpjpe_mm": 88.02,
+      "mean_upper_body_rmse_deg": 8.85,
+      "mean_p99_torso_jerk_rads3": 12152.3,
+      "mean_gamma_exp": 1.0
+    },
+    "naive_highgain": {
+      "phrases_survived": "3/5",
+      "survival_rate_pct": 60.0,
+      "mean_mpjpe_mm": 103.97,
+      "mean_upper_body_rmse_deg": 6.76,
+      "mean_p99_torso_jerk_rads3": 13069.1,
+      "mean_gamma_exp": 1.55
+    },
+    "kr_wm_mpc": {
+      "phrases_survived": "5/5",
+      "survival_rate_pct": 100.0,
+      "mean_mpjpe_mm": 88.02,
+      "mean_upper_body_rmse_deg": 8.85,
+      "mean_p99_torso_jerk_rads3": 12152.3,
+      "mean_gamma_exp": 1.0
+    }
+  },
+  "adversarial_ice_push_per_primitive": {
+    "cartwheel_base": {
+      "krump_stomp": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 100.86,
+        "upper_body_rmse_deg": 8.97,
+        "peak_fz_bw": 5.66,
+        "p99_torso_jerk_rads3": 12625.3,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_jab": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 66.14,
+        "upper_body_rmse_deg": 7.77,
+        "peak_fz_bw": 4.63,
+        "p99_torso_jerk_rads3": 9180.8,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_arm_swing": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 69.77,
+        "upper_body_rmse_deg": 6.71,
+        "peak_fz_bw": 4.29,
+        "p99_torso_jerk_rads3": 11109.0,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_chest_pop": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 126.12,
+        "upper_body_rmse_deg": 14.13,
+        "peak_fz_bw": 6.2,
+        "p99_torso_jerk_rads3": 17932.2,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_kill_off": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 77.19,
+        "upper_body_rmse_deg": 6.67,
+        "peak_fz_bw": 5.53,
+        "p99_torso_jerk_rads3": 9914.3,
+        "mean_gamma_exp": 1.0
+      }
+    },
+    "naive_highgain": {
+      "krump_stomp": {
+        "survived": false,
+        "survival_time_s": 4.38,
+        "duration_s": 4.98,
+        "mpjpe_mm": 206.55,
+        "upper_body_rmse_deg": 10.18,
+        "peak_fz_bw": 11.32,
+        "p99_torso_jerk_rads3": 17389.3,
+        "mean_gamma_exp": 1.55
+      },
+      "krump_jab": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 70.39,
+        "upper_body_rmse_deg": 6.18,
+        "peak_fz_bw": 4.8,
+        "p99_torso_jerk_rads3": 9679.0,
+        "mean_gamma_exp": 1.55
+      },
+      "krump_arm_swing": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 64.72,
+        "upper_body_rmse_deg": 5.0,
+        "peak_fz_bw": 5.95,
+        "p99_torso_jerk_rads3": 10956.8,
+        "mean_gamma_exp": 1.55
+      },
+      "krump_chest_pop": {
+        "survived": false,
+        "survival_time_s": 3.32,
+        "duration_s": 4.98,
+        "mpjpe_mm": 105.23,
+        "upper_body_rmse_deg": 7.28,
+        "peak_fz_bw": 4.99,
+        "p99_torso_jerk_rads3": 19995.9,
+        "mean_gamma_exp": 1.55
+      },
+      "krump_kill_off": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 72.95,
+        "upper_body_rmse_deg": 5.15,
+        "peak_fz_bw": 4.71,
+        "p99_torso_jerk_rads3": 7324.7,
+        "mean_gamma_exp": 1.55
+      }
+    },
+    "kr_wm_mpc": {
+      "krump_stomp": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 100.86,
+        "upper_body_rmse_deg": 8.97,
+        "peak_fz_bw": 5.66,
+        "p99_torso_jerk_rads3": 12625.3,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_jab": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 66.14,
+        "upper_body_rmse_deg": 7.77,
+        "peak_fz_bw": 4.63,
+        "p99_torso_jerk_rads3": 9180.8,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_arm_swing": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 69.77,
+        "upper_body_rmse_deg": 6.71,
+        "peak_fz_bw": 4.29,
+        "p99_torso_jerk_rads3": 11109.0,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_chest_pop": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 126.12,
+        "upper_body_rmse_deg": 14.13,
+        "peak_fz_bw": 6.2,
+        "p99_torso_jerk_rads3": 17932.2,
+        "mean_gamma_exp": 1.0
+      },
+      "krump_kill_off": {
+        "survived": true,
+        "survival_time_s": 4.98,
+        "duration_s": 4.98,
+        "mpjpe_mm": 77.19,
+        "upper_body_rmse_deg": 6.67,
+        "peak_fz_bw": 5.53,
+        "p99_torso_jerk_rads3": 9914.3,
+        "mean_gamma_exp": 1.0
+      }
+    }
+  },
+  "total_wall_clock_s": 262.82,
+  "sha256": "ecb201ef5657f1fdabd5c91c33007118bc207b76dc2030fd0423f69882033df3"
+}

@@ -1,0 +1,1614 @@
+{
+  "gate_id": "Gate_G_Jev_10_Quantum_Krump_Advantage_Roadmap",
+  "status": "VERIFIED (10/10 PASS)",
+  "timestamp_utc": "2026-11-13T08:43:37.435736+00:00",
+  "pinned_model_id": "jev-1.14.0",
+  "scope_governance": {
+    "non_commercial_open_science": true,
+    "cultural_terminology": "Strictly 'Session' (0 occurrences of prohibited breaking term in positive outputs)",
+    "biological_quantum_coherence_claimed": false,
+    "physical_qpu_shots_claimed": 0,
+    "krumprobot_standalone_quantum_free": true
+  },
+  "four_horizon_advantage_taxonomy": {
+    "Horizon_I_Immediate_Somatic_Psychometric": [
+      "UC07",
+      "UC08"
+    ],
+    "Horizon_II_Structural_Compiler_Dynamic_Circuit": [
+      "UC01",
+      "UC02",
+      "UC03"
+    ],
+    "Horizon_III_Quantum_FeatureMap_Metrology": [
+      "UC05",
+      "UC06"
+    ],
+    "Horizon_IV_Combinatorial_Crossover_Epistemic_Governance": [
+      "UC04",
+      "UC09",
+      "UC10"
+    ]
+  },
+  "telemetry": {
+    "total_api_requests": 144,
+    "total_input_tokens": 134571,
+    "output_token_cost_usd": 0.0,
+    "total_estimated_cost_usd": 0.005652,
+    "median_request_latency_ms": 143.78,
+    "total_suite_wall_time_s": 15.573,
+    "by_use_case": {
+      "UC01": {
+        "calls": 10,
+        "input_tokens": 6467,
+        "median_latency_ms": 177.63
+      },
+      "UC02": {
+        "calls": 8,
+        "input_tokens": 4363,
+        "median_latency_ms": 154.19
+      },
+      "UC03": {
+        "calls": 8,
+        "input_tokens": 4735,
+        "median_latency_ms": 123.77
+      },
+      "UC04": {
+        "calls": 6,
+        "input_tokens": 6455,
+        "median_latency_ms": 202.98
+      },
+      "UC05": {
+        "calls": 40,
+        "input_tokens": 31601,
+        "median_latency_ms": 139.6
+      },
+      "UC06": {
+        "calls": 6,
+        "input_tokens": 13245,
+        "median_latency_ms": 262.84
+      },
+      "UC07": {
+        "calls": 12,
+        "input_tokens": 9405,
+        "median_latency_ms": 143.19
+      },
+      "UC08": {
+        "calls": 8,
+        "input_tokens": 8083,
+        "median_latency_ms": 136.98
+      },
+      "UC09": {
+        "calls": 18,
+        "input_tokens": 20851,
+        "median_latency_ms": 141.52
+      },
+      "UC10": {
+        "calls": 28,
+        "input_tokens": 29366,
+        "median_latency_ms": 143.9
+      }
+    }
+  },
+  "figures": [
+    "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/paper/figures/fig_jev_10_advantage_roadmap.pdf",
+    "/Users/openclaw/.gemini/antigravity/scratch/quantumworkshop/paper/figures/fig_jev_10_advantage_roadmap.png"
+  ],
+  "use_cases": {
+    "UC01": {
+      "uc_id": "UC01",
+      "horizon": "Horizon II \u2014 Structural Trainability Advantage",
+      "title": "Session Call-Out -> Barren-Plateau-Free Planar Frobenius Router",
+      "routing_accuracy": 1.0,
+      "scaling_curve": [
+        {
+          "n_qubits": 4,
+          "hilbert_dim": 16,
+          "var_planar_frobenius": 0.074466,
+          "var_global_scramble": 0.029566,
+          "trainability_advantage_ratio": 2.52
+        },
+        {
+          "n_qubits": 6,
+          "hilbert_dim": 64,
+          "var_planar_frobenius": 0.082698,
+          "var_global_scramble": 0.007153,
+          "trainability_advantage_ratio": 11.56
+        },
+        {
+          "n_qubits": 8,
+          "hilbert_dim": 256,
+          "var_planar_frobenius": 0.05222,
+          "var_global_scramble": 0.002231,
+          "trainability_advantage_ratio": 23.4
+        },
+        {
+          "n_qubits": 10,
+          "hilbert_dim": 1024,
+          "var_planar_frobenius": 0.058655,
+          "var_global_scramble": 0.000491,
+          "trainability_advantage_ratio": 119.34
+        }
+      ],
+      "advantage_headline": "119.34x empirical gradient variance retention at n=10 qubits (100.0% Jev routing accuracy)",
+      "gate_passed": true,
+      "items": [
+        {
+          "id": "A01",
+          "valid_noul": 0.87,
+          "pred_topology": "planar_frobenius_ladder",
+          "expected_topology": "planar_frobenius_ladder",
+          "pred_gen": "STOMP",
+          "expected_gen": "STOMP",
+          "correct": true
+        },
+        {
+          "id": "A02",
+          "valid_noul": 0.96,
+          "pred_topology": "planar_frobenius_ladder",
+          "expected_topology": "planar_frobenius_ladder",
+          "pred_gen": "CHEST_POP",
+          "expected_gen": "CHEST_POP",
+          "correct": true
+        },
+        {
+          "id": "A03",
+          "valid_noul": 0.96,
+          "pred_topology": "planar_frobenius_ladder",
+          "expected_topology": "planar_frobenius_ladder",
+          "pred_gen": "ARM_SWING",
+          "expected_gen": "ARM_SWING",
+          "correct": true
+        },
+        {
+          "id": "A04",
+          "valid_noul": 0.97,
+          "pred_topology": "dyadic_bell_pair",
+          "expected_topology": "dyadic_bell_pair",
+          "pred_gen": "JAB",
+          "expected_gen": "JAB",
+          "correct": true
+        },
+        {
+          "id": "A05",
+          "valid_noul": 0.88,
+          "pred_topology": "dyadic_bell_pair",
+          "expected_topology": "dyadic_bell_pair",
+          "pred_gen": "CHEST_POP",
+          "expected_gen": "CHEST_POP",
+          "correct": true
+        },
+        {
+          "id": "A06",
+          "valid_noul": 0.97,
+          "pred_topology": "planar_frobenius_ladder",
+          "expected_topology": "planar_frobenius_ladder",
+          "pred_gen": "JAB",
+          "expected_gen": "JAB",
+          "correct": true
+        },
+        {
+          "id": "A07",
+          "valid_noul": 0.84,
+          "pred_topology": "global_random_scramble",
+          "expected_topology": "global_random_scramble",
+          "pred_gen": "ARM_SWING",
+          "expected_gen": "ARM_SWING",
+          "correct": true
+        },
+        {
+          "id": "A08",
+          "valid_noul": 0.72,
+          "pred_topology": "global_random_scramble",
+          "expected_topology": "global_random_scramble",
+          "pred_gen": "STOMP",
+          "expected_gen": "STOMP",
+          "correct": true
+        },
+        {
+          "id": "A09",
+          "valid_noul": 0.01,
+          "pred_topology": "ABSTAIN",
+          "expected_topology": "ABSTAIN",
+          "pred_gen": "ABSTAIN",
+          "expected_gen": "ABSTAIN",
+          "correct": true
+        },
+        {
+          "id": "A10",
+          "valid_noul": 0.01,
+          "pred_topology": "ABSTAIN",
+          "expected_topology": "ABSTAIN",
+          "pred_gen": "ABSTAIN",
+          "expected_gen": "ABSTAIN",
+          "correct": true
+        }
+      ],
+      "wall_time_s": 2.207
+    },
+    "UC02": {
+      "uc_id": "UC02",
+      "horizon": "Horizon II \u2014 Compiler & Gate-Depth Advantage",
+      "title": "Choreographic Symmetry Screen -> Evaluator-Guided Gate-Depth Compressor",
+      "classification_accuracy": 1.0,
+      "mean_symmetric_depth_reduction_pct": 87.7,
+      "min_process_fidelity": 1.0,
+      "advantage_headline": "87.7% mean 2Q gate-depth compression on symmetric phrases (F_proc = 1.000000)",
+      "gate_passed": true,
+      "items": [
+        {
+          "id": "S01",
+          "pred_class": "dagger_palindromic_uncompute",
+          "expected_class": "dagger_palindromic_uncompute",
+          "correct": true,
+          "confidence": 1.0,
+          "raw_2q_depth": 24,
+          "compressed_2q_depth": 2,
+          "depth_reduction_pct": 91.67,
+          "process_fidelity": 1.0
+        },
+        {
+          "id": "S02",
+          "pred_class": "dagger_palindromic_uncompute",
+          "expected_class": "dagger_palindromic_uncompute",
+          "correct": true,
+          "confidence": 1.0,
+          "raw_2q_depth": 24,
+          "compressed_2q_depth": 2,
+          "depth_reduction_pct": 91.67,
+          "process_fidelity": 1.0
+        },
+        {
+          "id": "S03",
+          "pred_class": "su2_flow_conserving",
+          "expected_class": "su2_flow_conserving",
+          "correct": true,
+          "confidence": 1.0,
+          "raw_2q_depth": 21,
+          "compressed_2q_depth": 3,
+          "depth_reduction_pct": 85.71,
+          "process_fidelity": 1.0
+        },
+        {
+          "id": "S04",
+          "pred_class": "su2_flow_conserving",
+          "expected_class": "su2_flow_conserving",
+          "correct": true,
+          "confidence": 1.0,
+          "raw_2q_depth": 21,
+          "compressed_2q_depth": 3,
+          "depth_reduction_pct": 85.71,
+          "process_fidelity": 1.0
+        },
+        {
+          "id": "S05",
+          "pred_class": "pauli_clifford_frame",
+          "expected_class": "pauli_clifford_frame",
+          "correct": true,
+          "confidence": 1.0,
+          "raw_2q_depth": 14,
+          "compressed_2q_depth": 2,
+          "depth_reduction_pct": 85.71,
+          "process_fidelity": 1.0
+        },
+        {
+          "id": "S06",
+          "pred_class": "pauli_clifford_frame",
+          "expected_class": "pauli_clifford_frame",
+          "correct": true,
+          "confidence": 1.0,
+          "raw_2q_depth": 14,
+          "compressed_2q_depth": 2,
+          "depth_reduction_pct": 85.71,
+          "process_fidelity": 1.0
+        },
+        {
+          "id": "S07",
+          "pred_class": "irreducible_non_clifford",
+          "expected_class": "irreducible_non_clifford",
+          "correct": true,
+          "confidence": 1.0,
+          "raw_2q_depth": 16,
+          "compressed_2q_depth": 16,
+          "depth_reduction_pct": 0.0,
+          "process_fidelity": 1.0
+        },
+        {
+          "id": "S08",
+          "pred_class": "irreducible_non_clifford",
+          "expected_class": "irreducible_non_clifford",
+          "correct": true,
+          "confidence": 1.0,
+          "raw_2q_depth": 16,
+          "compressed_2q_depth": 16,
+          "depth_reduction_pct": 0.0,
+          "process_fidelity": 1.0
+        }
+      ],
+      "wall_time_s": 0.312
+    },
+    "UC03": {
+      "uc_id": "UC03",
+      "horizon": "Horizon II \u2014 Dynamic Circuit Qubit-Saving Advantage",
+      "title": "Live Session MC Call-Out -> Mid-Circuit Feedforward & Qubit-Reuse Compiler",
+      "policy_routing_accuracy": 0.875,
+      "noiseless_stinespring_trace_distance": 0.0,
+      "qubit_reuse_scaling": [
+        {
+          "tournament_rounds": 2,
+          "dynamic_qubits": 2,
+          "static_deferred_qubits": 3,
+          "qubit_reduction_pct": 33.3,
+          "noisy_fidelity_dynamic": 0.9914,
+          "noisy_fidelity_static": 0.9897
+        },
+        {
+          "tournament_rounds": 4,
+          "dynamic_qubits": 2,
+          "static_deferred_qubits": 5,
+          "qubit_reduction_pct": 60.0,
+          "noisy_fidelity_dynamic": 0.9829,
+          "noisy_fidelity_static": 0.967
+        },
+        {
+          "tournament_rounds": 6,
+          "dynamic_qubits": 2,
+          "static_deferred_qubits": 7,
+          "qubit_reduction_pct": 71.4,
+          "noisy_fidelity_dynamic": 0.9745,
+          "noisy_fidelity_static": 0.9328
+        },
+        {
+          "tournament_rounds": 8,
+          "dynamic_qubits": 2,
+          "static_deferred_qubits": 9,
+          "qubit_reduction_pct": 77.8,
+          "noisy_fidelity_dynamic": 0.9662,
+          "noisy_fidelity_static": 0.8883
+        }
+      ],
+      "advantage_headline": "60.0% physical qubit reduction at L=4 rounds (77.8% at L=8; trace diff 1.1e-16)",
+      "gate_passed": true,
+      "items": [
+        {
+          "id": "D01",
+          "valid_noul": 0.98,
+          "arrest_score_0_3": 2.99,
+          "pred_policy": "mid_circuit_killoff_reset",
+          "expected_policy": "mid_circuit_killoff_reset",
+          "correct": true
+        },
+        {
+          "id": "D02",
+          "valid_noul": 0.77,
+          "arrest_score_0_3": 2.99,
+          "pred_policy": "mid_circuit_killoff_reset",
+          "expected_policy": "mid_circuit_killoff_reset",
+          "correct": true
+        },
+        {
+          "id": "D03",
+          "valid_noul": 0.92,
+          "arrest_score_0_3": 1.78,
+          "pred_policy": "conditional_phase_feedforward",
+          "expected_policy": "conditional_phase_feedforward",
+          "correct": true
+        },
+        {
+          "id": "D04",
+          "valid_noul": 0.88,
+          "arrest_score_0_3": 1.81,
+          "pred_policy": "conditional_phase_feedforward",
+          "expected_policy": "conditional_phase_feedforward",
+          "correct": true
+        },
+        {
+          "id": "D05",
+          "valid_noul": 0.98,
+          "arrest_score_0_3": 0.01,
+          "pred_policy": "coherent_groove_continue",
+          "expected_policy": "coherent_groove_continue",
+          "correct": true
+        },
+        {
+          "id": "D06",
+          "valid_noul": 0.3,
+          "arrest_score_0_3": 0.01,
+          "pred_policy": "ABSTAIN",
+          "expected_policy": "coherent_groove_continue",
+          "correct": false
+        },
+        {
+          "id": "D07",
+          "valid_noul": 0.91,
+          "arrest_score_0_3": 2.94,
+          "pred_policy": "mid_circuit_killoff_reset",
+          "expected_policy": "mid_circuit_killoff_reset",
+          "correct": true
+        },
+        {
+          "id": "D08",
+          "valid_noul": 0.01,
+          "arrest_score_0_3": 0.29,
+          "pred_policy": "ABSTAIN",
+          "expected_policy": "ABSTAIN",
+          "correct": true
+        }
+      ],
+      "wall_time_s": 0.277
+    },
+    "UC04": {
+      "uc_id": "UC04",
+      "horizon": "Horizon IV \u2014 Combinatorial HUBO/QUOPS Crossover Frontier",
+      "title": "Stage-Director Brief -> Pre-Parsed OpenJij QUBO & QUOPS Crossover Analyzer",
+      "preparsed_extraction_accuracy": 1.0,
+      "collision_free_satisfaction_rate": 1.0,
+      "mean_openjij_cpu_ms": 398.95,
+      "hubo_quops_crossover_table": [
+        {
+          "n_dancers": 2,
+          "native_hubo_qubits": 320,
+          "quadratized_qubo_vars": 1090,
+          "hubo_var_compression_ratio": 3.41,
+          "estimated_quops_volume": 614400,
+          "regime": "Classical CPU Dominates (<0.2s SA)"
+        },
+        {
+          "n_dancers": 4,
+          "native_hubo_qubits": 640,
+          "quadratized_qubo_vars": 5260,
+          "hubo_var_compression_ratio": 8.22,
+          "estimated_quops_volume": 2457600,
+          "regime": "Fault-Tolerant HUBO Crossover Candidate (Q >= 2e6)"
+        },
+        {
+          "n_dancers": 8,
+          "native_hubo_qubits": 1280,
+          "quadratized_qubo_vars": 22840,
+          "hubo_var_compression_ratio": 17.84,
+          "estimated_quops_volume": 9830400,
+          "regime": "Fault-Tolerant HUBO Crossover Candidate (Q >= 2e6)"
+        },
+        {
+          "n_dancers": 16,
+          "native_hubo_qubits": 2560,
+          "quadratized_qubo_vars": 94960,
+          "hubo_var_compression_ratio": 37.09,
+          "estimated_quops_volume": 39321600,
+          "regime": "Fault-Tolerant HUBO Crossover Candidate (Q >= 2e6)"
+        },
+        {
+          "n_dancers": 32,
+          "native_hubo_qubits": 5120,
+          "quadratized_qubo_vars": 387040,
+          "hubo_var_compression_ratio": 75.59,
+          "estimated_quops_volume": 157286400,
+          "regime": "Fault-Tolerant HUBO Crossover Candidate (Q >= 2e6)"
+        }
+      ],
+      "advantage_headline": "100.0% pre-parsed anchor accuracy, 0 collisions on CPU today; 75.59x HUBO-vs-QUBO variable compression at D=32 (Q >= 2e6 frontier)",
+      "gate_passed": true,
+      "items": [
+        {
+          "id": "Q01",
+          "candidate_spans_found": [
+            "(1, 3)",
+            "(0, 0)",
+            "(4, 3)"
+          ],
+          "extracted_anchors": {
+            "d1_start": "(0, 0)",
+            "d1_end": "(4, 3)",
+            "d2_start": "(4, 3)",
+            "d2_end": "(0, 0)"
+          },
+          "extraction_exact": true,
+          "swap_tier_pred": 1.99,
+          "collisions": 0,
+          "endpoints_satisfied": true,
+          "openjij_cpu_ms": 480.28,
+          "traj_d1": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "traj_d2": [
+            [
+              4,
+              3
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "Q02",
+          "candidate_spans_found": [
+            "(2, 0)",
+            "(0, 1)",
+            "(4, 1)",
+            "(0, 2)",
+            "(4, 2)"
+          ],
+          "extracted_anchors": {
+            "d1_start": "(0, 1)",
+            "d1_end": "(4, 1)",
+            "d2_start": "(0, 2)",
+            "d2_end": "(4, 2)"
+          },
+          "extraction_exact": true,
+          "swap_tier_pred": 1.0,
+          "collisions": 0,
+          "endpoints_satisfied": true,
+          "openjij_cpu_ms": 380.21,
+          "traj_d1": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "traj_d2": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ]
+          ]
+        },
+        {
+          "id": "Q03",
+          "candidate_spans_found": [
+            "(4, 0)",
+            "(0, 3)",
+            "(4, 3)",
+            "(0, 0)",
+            "(3, 1)"
+          ],
+          "extracted_anchors": {
+            "d1_start": "(4, 0)",
+            "d1_end": "(0, 3)",
+            "d2_start": "(4, 3)",
+            "d2_end": "(0, 0)"
+          },
+          "extraction_exact": true,
+          "swap_tier_pred": 1.99,
+          "collisions": 0,
+          "endpoints_satisfied": true,
+          "openjij_cpu_ms": 428.17,
+          "traj_d1": [
+            [
+              4,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "traj_d2": [
+            [
+              4,
+              3
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "Q04",
+          "candidate_spans_found": [
+            "(4, 2)",
+            "(2, 0)",
+            "(2, 3)"
+          ],
+          "extracted_anchors": {
+            "d1_start": "(2, 0)",
+            "d1_end": "(2, 3)",
+            "d2_start": "(2, 3)",
+            "d2_end": "(2, 0)"
+          },
+          "extraction_exact": true,
+          "swap_tier_pred": 1.99,
+          "collisions": 0,
+          "endpoints_satisfied": true,
+          "openjij_cpu_ms": 366.13,
+          "traj_d1": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "traj_d2": [
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "Q05",
+          "candidate_spans_found": [
+            "(0, 3)",
+            "(1, 0)",
+            "(3, 2)",
+            "(3, 3)",
+            "(1, 1)"
+          ],
+          "extracted_anchors": {
+            "d1_start": "(1, 0)",
+            "d1_end": "(3, 2)",
+            "d2_start": "(3, 3)",
+            "d2_end": "(1, 1)"
+          },
+          "extraction_exact": true,
+          "swap_tier_pred": 1.0,
+          "collisions": 0,
+          "endpoints_satisfied": true,
+          "openjij_cpu_ms": 391.18,
+          "traj_d1": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "traj_d2": [
+            [
+              3,
+              3
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "id": "Q06",
+          "candidate_spans_found": [
+            "(2, 2)",
+            "(0, 2)",
+            "(4, 0)",
+            "(4, 1)",
+            "(0, 3)"
+          ],
+          "extracted_anchors": {
+            "d1_start": "(0, 2)",
+            "d1_end": "(4, 0)",
+            "d2_start": "(4, 1)",
+            "d2_end": "(0, 3)"
+          },
+          "extraction_exact": true,
+          "swap_tier_pred": 1.99,
+          "collisions": 0,
+          "endpoints_satisfied": true,
+          "openjij_cpu_ms": 347.74,
+          "traj_d1": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "traj_d2": [
+            [
+              4,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        }
+      ],
+      "wall_time_s": 0.618
+    },
+    "UC05": {
+      "uc_id": "UC05",
+      "horizon": "Horizon III \u2014 Semantic-to-Quantum Feature-Map Benchmark",
+      "title": "Autoresearch Feature Discovery -> 4-Qubit QKMLM Frobenius VQC vs Classical CV",
+      "n_battle_descriptions": 40,
+      "lexical_keyword_leaks": 0,
+      "ablation_5fold_cv": [
+        {
+          "model": "Raw Text TF-IDF + LogisticRegression (No Jev)",
+          "cv5_accuracy": 0.775,
+          "multiclass_brier": 0.6536,
+          "parameters": "325 linear weights"
+        },
+        {
+          "model": "Jev Autoresearch (10 Qs) + LogisticRegression",
+          "cv5_accuracy": 1.0,
+          "multiclass_brier": 0.0435,
+          "parameters": "55 linear weights"
+        },
+        {
+          "model": "Jev Autoresearch (10 Qs) + GradientBoosting",
+          "cv5_accuracy": 1.0,
+          "multiclass_brier": 0.0,
+          "parameters": "400 shallow trees"
+        },
+        {
+          "model": "Jev Autoresearch (10 Qs) + 4-Qubit Frobenius VQC (QKMLM)",
+          "cv5_accuracy": 1.0,
+          "multiclass_brier": 0.0179,
+          "parameters": "24 quantum angles + 45 readout (69 total)"
+        }
+      ],
+      "vqc_lift_over_raw_tfidf_pct_pts": 22.5,
+      "advantage_headline": "Jev+4Q Frobenius VQC hits 100.0% 5-fold CV (+22.5 pts over raw TF-IDF; honest parity with 100.0% classical LR)",
+      "gate_passed": true,
+      "wall_time_s": 7.686
+    },
+    "UC06": {
+      "uc_id": "UC06",
+      "horizon": "Horizon III \u2014 Multimodal Metrological Phase-Sensing Advantage",
+      "title": "Stage Keyframe Box Localization -> Multi-Qubit Phase-Encoding & QFI (F_Q)",
+      "companion_noul_gate_accuracy": 1.0,
+      "mean_extracted_bloch_theta_rad": 0.7381,
+      "qfi_scaling_curve": [
+        {
+          "n_qubits": 2,
+          "f_q_separable_sql": 2.0,
+          "f_q_ghz_noiseless": 4.0,
+          "f_q_ghz_helios_dephasing": 3.921,
+          "f_q_ghz_high_noise_rolloff": 2.992,
+          "helios_gain_over_sql": 1.96
+        },
+        {
+          "n_qubits": 4,
+          "f_q_separable_sql": 4.0,
+          "f_q_ghz_noiseless": 16.0,
+          "f_q_ghz_helios_dephasing": 15.371,
+          "f_q_ghz_high_noise_rolloff": 8.953,
+          "helios_gain_over_sql": 3.84
+        },
+        {
+          "n_qubits": 6,
+          "f_q_separable_sql": 6.0,
+          "f_q_ghz_noiseless": 36.0,
+          "f_q_ghz_helios_dephasing": 33.898,
+          "f_q_ghz_high_noise_rolloff": 15.069,
+          "helios_gain_over_sql": 5.65
+        },
+        {
+          "n_qubits": 8,
+          "f_q_separable_sql": 8.0,
+          "f_q_ghz_noiseless": 64.0,
+          "f_q_ghz_helios_dephasing": 59.068,
+          "f_q_ghz_high_noise_rolloff": 20.04,
+          "helios_gain_over_sql": 7.38
+        },
+        {
+          "n_qubits": 10,
+          "f_q_separable_sql": 10.0,
+          "f_q_ghz_noiseless": 100.0,
+          "f_q_ghz_helios_dephasing": 90.461,
+          "f_q_ghz_high_noise_rolloff": 23.424,
+          "helios_gain_over_sql": 9.05
+        },
+        {
+          "n_qubits": 12,
+          "f_q_separable_sql": 12.0,
+          "f_q_ghz_noiseless": 144.0,
+          "f_q_ghz_helios_dephasing": 127.678,
+          "f_q_ghz_high_noise_rolloff": 25.232,
+          "helios_gain_over_sql": 10.64
+        }
+      ],
+      "advantage_headline": "100% multimodal Box dancer gating; 7.38x Heisenberg QFI gain over SQL at n=8 under Helios dephasing",
+      "gate_passed": true,
+      "frames": [
+        {
+          "id": "F1_LIVE",
+          "dancer_present_noul": 0.98,
+          "gate_correct": true,
+          "bloch_zone": "LIVE_NORTH",
+          "dancer_box": [
+            0.12,
+            0.92,
+            0.22,
+            0.63
+          ],
+          "derived_bloch_theta_rad": 0.216
+        },
+        {
+          "id": "F2_CHEST_POP",
+          "dancer_present_noul": 0.96,
+          "gate_correct": true,
+          "bloch_zone": "KRUMP_EQUATOR",
+          "dancer_box": [
+            0.18,
+            0.86,
+            0.09,
+            0.54
+          ],
+          "derived_bloch_theta_rad": 0.8778
+        },
+        {
+          "id": "F3_STRIKE_LIFT",
+          "dancer_present_noul": 0.98,
+          "gate_correct": true,
+          "bloch_zone": "KRUMP_EQUATOR",
+          "dancer_box": [
+            0.16,
+            0.87,
+            0.23,
+            0.68
+          ],
+          "derived_bloch_theta_rad": 0.177
+        },
+        {
+          "id": "F4_BUCK_LOW",
+          "dancer_present_noul": 0.96,
+          "gate_correct": true,
+          "bloch_zone": "KRUMP_EQUATOR",
+          "dancer_box": [
+            0.31,
+            0.83,
+            0.2,
+            0.67
+          ],
+          "derived_bloch_theta_rad": 1.7218
+        },
+        {
+          "id": "F6_DUAL_RIG",
+          "dancer_present_noul": 0.99,
+          "gate_correct": true,
+          "bloch_zone": "LIVE_NORTH",
+          "dancer_box": [
+            0.11,
+            0.47,
+            0.15,
+            0.41
+          ],
+          "derived_bloch_theta_rad": 0.6981
+        },
+        {
+          "id": "F5_NEG_PLOT",
+          "dancer_present_noul": 0.01,
+          "gate_correct": true,
+          "bloch_zone": "ABSTAIN_NO_DANCER",
+          "dancer_box": null,
+          "derived_bloch_theta_rad": null
+        }
+      ],
+      "wall_time_s": 0.443
+    },
+    "UC07": {
+      "uc_id": "UC07",
+      "horizon": "Horizon I \u2014 Blinded Psychometric & Inter-Rater Advantage",
+      "title": "3-Round Session Battle Rubric Judge with Self-Consistency & Big Homie Escalation",
+      "escalation_routing_accuracy": 1.0,
+      "clear_dossier_spearman_rho": 1.0,
+      "self_consistency_mean_std_10pt": 0.04675,
+      "advantage_headline": "Spearman rho = 1.00 with human rubric, 0.0468-pt repeat SD, 100% ambiguous-log escalation",
+      "gate_passed": true,
+      "dossiers": [
+        {
+          "id": "BTL_01",
+          "score_10": 9.583,
+          "human_ref_10": 9.4,
+          "evidence_complete_noul": 0.81,
+          "escalated_to_big_homie": false,
+          "expected_ambiguous": false
+        },
+        {
+          "id": "BTL_02",
+          "score_10": 6.42,
+          "human_ref_10": 7.6,
+          "evidence_complete_noul": 0.81,
+          "escalated_to_big_homie": false,
+          "expected_ambiguous": false
+        },
+        {
+          "id": "BTL_03",
+          "score_10": 3.403,
+          "human_ref_10": 4.2,
+          "evidence_complete_noul": 0.79,
+          "escalated_to_big_homie": false,
+          "expected_ambiguous": false
+        },
+        {
+          "id": "BTL_04",
+          "score_10": 0.297,
+          "human_ref_10": 1.4,
+          "evidence_complete_noul": 0.78,
+          "escalated_to_big_homie": false,
+          "expected_ambiguous": false
+        },
+        {
+          "id": "BTL_05",
+          "score_10": 0.163,
+          "human_ref_10": 5.5,
+          "evidence_complete_noul": 0.02,
+          "escalated_to_big_homie": true,
+          "expected_ambiguous": true
+        },
+        {
+          "id": "BTL_06",
+          "score_10": 0.317,
+          "human_ref_10": 6.0,
+          "evidence_complete_noul": 0.02,
+          "escalated_to_big_homie": true,
+          "expected_ambiguous": true
+        }
+      ],
+      "wall_time_s": 0.364
+    },
+    "UC08": {
+      "uc_id": "UC08",
+      "horizon": "Horizon I \u2014 Empirical Pedagogical Advantage (QISCIT Hake Gain)",
+      "title": "Live 90-Min Classroom Quantum Intelliprompter & RCT Power Engine",
+      "misconception_trigger_accuracy": 1.0,
+      "modules_mastered": "4/4",
+      "question_ratchet_savings_pct": 21.88,
+      "rct_simulation_n60": {
+        "mean_hake_g_passive_slides": 0.231,
+        "mean_hake_g_embodied_jev": 0.52,
+        "statistical_power_alpha_05": 1.0
+      },
+      "advantage_headline": "100% accuracy across 6 QISCIT traps, 21.9% question pruning, >99% RCT power (projected Hake g = 0.52 vs 0.23)",
+      "gate_passed": true,
+      "turns": [
+        {
+          "turn": 1,
+          "speaker": "Facilitator",
+          "active_questions_sent": 8,
+          "newly_mastered": [
+            "mod_lineage_bloch"
+          ],
+          "max_trap_noul": 0.15,
+          "intervention_triggered": false,
+          "expected_trap": false,
+          "correct": true
+        },
+        {
+          "turn": 2,
+          "speaker": "Student",
+          "active_questions_sent": 7,
+          "newly_mastered": [],
+          "max_trap_noul": 0.82,
+          "intervention_triggered": true,
+          "expected_trap": true,
+          "correct": true
+        },
+        {
+          "turn": 3,
+          "speaker": "Facilitator",
+          "active_questions_sent": 7,
+          "newly_mastered": [
+            "mod_phase_interference"
+          ],
+          "max_trap_noul": 0.06,
+          "intervention_triggered": false,
+          "expected_trap": false,
+          "correct": true
+        },
+        {
+          "turn": 4,
+          "speaker": "Student",
+          "active_questions_sent": 6,
+          "newly_mastered": [],
+          "max_trap_noul": 0.91,
+          "intervention_triggered": true,
+          "expected_trap": true,
+          "correct": true
+        },
+        {
+          "turn": 5,
+          "speaker": "Student",
+          "active_questions_sent": 6,
+          "newly_mastered": [],
+          "max_trap_noul": 0.77,
+          "intervention_triggered": true,
+          "expected_trap": true,
+          "correct": true
+        },
+        {
+          "turn": 6,
+          "speaker": "Facilitator",
+          "active_questions_sent": 6,
+          "newly_mastered": [
+            "mod_classical_bio_no_ftl"
+          ],
+          "max_trap_noul": 0.05,
+          "intervention_triggered": false,
+          "expected_trap": false,
+          "correct": true
+        },
+        {
+          "turn": 7,
+          "speaker": "Student",
+          "active_questions_sent": 5,
+          "newly_mastered": [],
+          "max_trap_noul": 0.8,
+          "intervention_triggered": true,
+          "expected_trap": true,
+          "correct": true
+        },
+        {
+          "turn": 8,
+          "speaker": "Facilitator",
+          "active_questions_sent": 5,
+          "newly_mastered": [
+            "mod_hilbert_exponential"
+          ],
+          "max_trap_noul": 0.04,
+          "intervention_triggered": false,
+          "expected_trap": false,
+          "correct": true
+        }
+      ],
+      "wall_time_s": 1.486
+    },
+    "UC09": {
+      "uc_id": "UC09",
+      "horizon": "Horizon IV \u2014 Knowledge Graph Cross-Domain Integrity Advantage",
+      "title": "Quantum Krump Knowledge Graph Entity Alignment (Score + 3 Diagnostic Nouls)",
+      "kg_v2_baseline": {
+        "nodes": 92,
+        "edges": 156
+      },
+      "three_way_alignment_accuracy": 0.9444,
+      "auto_merge_precision": 1.0,
+      "false_pseudoscience_merges": 0,
+      "advantage_headline": "0 pseudoscientific/wrong-lineage KG merges (100.0% auto-merge precision across 92-node v2.0.0 KG)",
+      "gate_passed": true,
+      "pairs": [
+        {
+          "id": "KG01",
+          "expected_level": 2,
+          "pred_level": 2,
+          "raw_score_0_2": 1.99,
+          "diagnostic_flags": [],
+          "correct": true
+        },
+        {
+          "id": "KG02",
+          "expected_level": 2,
+          "pred_level": 2,
+          "raw_score_0_2": 1.98,
+          "diagnostic_flags": [],
+          "correct": true
+        },
+        {
+          "id": "KG03",
+          "expected_level": 2,
+          "pred_level": 2,
+          "raw_score_0_2": 1.99,
+          "diagnostic_flags": [],
+          "correct": true
+        },
+        {
+          "id": "KG04",
+          "expected_level": 2,
+          "pred_level": 2,
+          "raw_score_0_2": 1.99,
+          "diagnostic_flags": [],
+          "correct": true
+        },
+        {
+          "id": "KG05",
+          "expected_level": 2,
+          "pred_level": 2,
+          "raw_score_0_2": 1.96,
+          "diagnostic_flags": [],
+          "correct": true
+        },
+        {
+          "id": "KG06",
+          "expected_level": 2,
+          "pred_level": 2,
+          "raw_score_0_2": 1.58,
+          "diagnostic_flags": [],
+          "correct": true
+        },
+        {
+          "id": "KG07",
+          "expected_level": 1,
+          "pred_level": 1,
+          "raw_score_0_2": 0.94,
+          "diagnostic_flags": [
+            "arity_mismatch"
+          ],
+          "correct": true
+        },
+        {
+          "id": "KG08",
+          "expected_level": 1,
+          "pred_level": 1,
+          "raw_score_0_2": 0.8,
+          "diagnostic_flags": [
+            "arity_mismatch"
+          ],
+          "correct": true
+        },
+        {
+          "id": "KG09",
+          "expected_level": 1,
+          "pred_level": 1,
+          "raw_score_0_2": 0.99,
+          "diagnostic_flags": [
+            "arity_mismatch"
+          ],
+          "correct": true
+        },
+        {
+          "id": "KG10",
+          "expected_level": 1,
+          "pred_level": 1,
+          "raw_score_0_2": 0.97,
+          "diagnostic_flags": [],
+          "correct": true
+        },
+        {
+          "id": "KG11",
+          "expected_level": 1,
+          "pred_level": 1,
+          "raw_score_0_2": 1.0,
+          "diagnostic_flags": [
+            "arity_mismatch"
+          ],
+          "correct": true
+        },
+        {
+          "id": "KG12",
+          "expected_level": 1,
+          "pred_level": 0,
+          "raw_score_0_2": 0.12,
+          "diagnostic_flags": [
+            "arity_mismatch"
+          ],
+          "correct": false
+        },
+        {
+          "id": "KG13",
+          "expected_level": 0,
+          "pred_level": 0,
+          "raw_score_0_2": 0.0,
+          "diagnostic_flags": [
+            "bio_or_scope_hazard"
+          ],
+          "correct": true
+        },
+        {
+          "id": "KG14",
+          "expected_level": 0,
+          "pred_level": 0,
+          "raw_score_0_2": 0.01,
+          "diagnostic_flags": [
+            "arity_mismatch",
+            "lineage_violation"
+          ],
+          "correct": true
+        },
+        {
+          "id": "KG15",
+          "expected_level": 0,
+          "pred_level": 0,
+          "raw_score_0_2": 0.03,
+          "diagnostic_flags": [
+            "bio_or_scope_hazard"
+          ],
+          "correct": true
+        },
+        {
+          "id": "KG16",
+          "expected_level": 0,
+          "pred_level": 0,
+          "raw_score_0_2": 0.0,
+          "diagnostic_flags": [
+            "arity_mismatch"
+          ],
+          "correct": true
+        },
+        {
+          "id": "KG17",
+          "expected_level": 0,
+          "pred_level": 0,
+          "raw_score_0_2": 0.01,
+          "diagnostic_flags": [
+            "arity_mismatch",
+            "bio_or_scope_hazard"
+          ],
+          "correct": true
+        },
+        {
+          "id": "KG18",
+          "expected_level": 0,
+          "pred_level": 0,
+          "raw_score_0_2": 0.02,
+          "diagnostic_flags": [
+            "arity_mismatch",
+            "bio_or_scope_hazard"
+          ],
+          "correct": true
+        }
+      ],
+      "wall_time_s": 0.477
+    },
+    "UC10": {
+      "uc_id": "UC10",
+      "horizon": "Horizon IV \u2014 Automated Epistemic & CI Release Governance",
+      "title": "Advantage Claim-to-Receipt Gate, Option-Order Invariance & Cultural Screen",
+      "release_gate_accuracy": 1.0,
+      "option_order_invariance": 1.0,
+      "overclaim_roc_auc": 1.0,
+      "traps_blocked": "8/8",
+      "advantage_headline": "100.0% CI gate accuracy, 100% option-order invariance, 8/8 overclaim traps blocked (ROC-AUC 1.0000)",
+      "gate_passed": true,
+      "statements": [
+        {
+          "id": "R01",
+          "pred_fwd": "verified_bounded_advantage",
+          "pred_rev": "verified_bounded_advantage",
+          "order_invariant": true,
+          "overclaim_noul": 0.06,
+          "expected": "verified_bounded_advantage",
+          "correct": true
+        },
+        {
+          "id": "R02",
+          "pred_fwd": "verified_bounded_advantage",
+          "pred_rev": "verified_bounded_advantage",
+          "order_invariant": true,
+          "overclaim_noul": 0.07,
+          "expected": "verified_bounded_advantage",
+          "correct": true
+        },
+        {
+          "id": "R03",
+          "pred_fwd": "verified_bounded_advantage",
+          "pred_rev": "verified_bounded_advantage",
+          "order_invariant": true,
+          "overclaim_noul": 0.17,
+          "expected": "verified_bounded_advantage",
+          "correct": true
+        },
+        {
+          "id": "R04",
+          "pred_fwd": "verified_bounded_advantage",
+          "pred_rev": "verified_bounded_advantage",
+          "order_invariant": true,
+          "overclaim_noul": 0.04,
+          "expected": "verified_bounded_advantage",
+          "correct": true
+        },
+        {
+          "id": "R05",
+          "pred_fwd": "verified_bounded_advantage",
+          "pred_rev": "verified_bounded_advantage",
+          "order_invariant": true,
+          "overclaim_noul": 0.06,
+          "expected": "verified_bounded_advantage",
+          "correct": true
+        },
+        {
+          "id": "R06",
+          "pred_fwd": "verified_bounded_advantage",
+          "pred_rev": "verified_bounded_advantage",
+          "order_invariant": true,
+          "overclaim_noul": 0.1,
+          "expected": "verified_bounded_advantage",
+          "correct": true
+        },
+        {
+          "id": "R07",
+          "pred_fwd": "verified_bounded_advantage",
+          "pred_rev": "verified_bounded_advantage",
+          "order_invariant": true,
+          "overclaim_noul": 0.05,
+          "expected": "verified_bounded_advantage",
+          "correct": true
+        },
+        {
+          "id": "R08",
+          "pred_fwd": "verified_bounded_advantage",
+          "pred_rev": "verified_bounded_advantage",
+          "order_invariant": true,
+          "overclaim_noul": 0.08,
+          "expected": "verified_bounded_advantage",
+          "correct": true
+        },
+        {
+          "id": "R09",
+          "pred_fwd": "blocked_fabricated_receipt_quote",
+          "pred_rev": "blocked_fabricated_receipt_quote",
+          "order_invariant": true,
+          "overclaim_noul": 1.0,
+          "expected": "blocked_fabricated_receipt_quote",
+          "correct": true
+        },
+        {
+          "id": "R10",
+          "pred_fwd": "blocked_fabricated_receipt_quote",
+          "pred_rev": "blocked_fabricated_receipt_quote",
+          "order_invariant": true,
+          "overclaim_noul": 1.0,
+          "expected": "blocked_fabricated_receipt_quote",
+          "correct": true
+        },
+        {
+          "id": "R11",
+          "pred_fwd": "overclaimed_quantum_supremacy",
+          "pred_rev": "overclaimed_quantum_supremacy",
+          "order_invariant": true,
+          "overclaim_noul": 0.98,
+          "expected": "overclaimed_quantum_supremacy",
+          "correct": true
+        },
+        {
+          "id": "R12",
+          "pred_fwd": "overclaimed_quantum_supremacy",
+          "pred_rev": "overclaimed_quantum_supremacy",
+          "order_invariant": true,
+          "overclaim_noul": 0.95,
+          "expected": "overclaimed_quantum_supremacy",
+          "correct": true
+        },
+        {
+          "id": "R13",
+          "pred_fwd": "overclaimed_quantum_supremacy",
+          "pred_rev": "overclaimed_quantum_supremacy",
+          "order_invariant": true,
+          "overclaim_noul": 0.95,
+          "expected": "overclaimed_quantum_supremacy",
+          "correct": true
+        },
+        {
+          "id": "R14",
+          "pred_fwd": "biological_or_cultural_drift",
+          "pred_rev": "biological_or_cultural_drift",
+          "order_invariant": true,
+          "overclaim_noul": 0.96,
+          "expected": "biological_or_cultural_drift",
+          "correct": true
+        },
+        {
+          "id": "R15",
+          "pred_fwd": "biological_or_cultural_drift",
+          "pred_rev": "biological_or_cultural_drift",
+          "order_invariant": true,
+          "overclaim_noul": 1.0,
+          "expected": "biological_or_cultural_drift",
+          "correct": true
+        },
+        {
+          "id": "R16",
+          "pred_fwd": "overclaimed_quantum_supremacy",
+          "pred_rev": "overclaimed_quantum_supremacy",
+          "order_invariant": true,
+          "overclaim_noul": 0.97,
+          "expected": "overclaimed_quantum_supremacy",
+          "correct": true
+        }
+      ],
+      "wall_time_s": 0.839
+    }
+  },
+  "sha256_seal": "cfbb0942cbb1a4c8de89d596299d4a1a78914b6654d6008a28e4f1432da6b2b9"
+}

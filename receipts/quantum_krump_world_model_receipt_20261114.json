@@ -1,0 +1,920 @@
+{
+  "benchmark": "Quantum Krump World Model (QK-WM): Dual-Kernel Categorical Session Arena & Embodied QISCIT Belief POMDP",
+  "audit_gate": "G_Quantum_Krump_World_Model",
+  "status": "VERIFIED (PASS)",
+  "timestamp_utc": "2026-11-14T07:55:00Z",
+  "system_one_telemetry": {
+    "pinned_model": "jev-1.14.0",
+    "total_live_api_calls": 28,
+    "total_input_tokens": 18182,
+    "estimated_cost_usd": 0.000764,
+    "latency_ms_p50": 161.6,
+    "latency_ms_p95": 279.7
+  },
+  "hardware_and_epistemic_disclosure": {
+    "physical_qpu_shots": 0,
+    "quantum_execution_tier": "Exact Statevector + DisCoPy 1.2.2 + OpenJij 0.12.2 SASampler",
+    "classical_floor_n6_us": 56.23,
+    "human_subjects_rct_count": 0,
+    "biological_quantum_coherence_claims": 0,
+    "host_platform": "Darwin arm64"
+  },
+  "kernel_a_arena_world_model": {
+    "surrogate_evaluation": {
+      "n_train_transitions": 2240,
+      "n_heldout_transitions": 560,
+      "trainable_parameters": 186949,
+      "training_wall_clock_s": 5.328,
+      "heldout_state_delta_r2": 0.7329,
+      "heldout_entanglement_r2": 0.9095,
+      "heldout_qfi_r2": 0.8582,
+      "heldout_depth2q_r2": 0.9307,
+      "heldout_collision_r2": 0.608,
+      "classical_floor_n6_exact_us": 56.23,
+      "arena_wm_batched_per_transition_us": 2.24,
+      "statevector_svd_scaling_n": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ],
+      "statevector_svd_scaling_us": [
+        17.79,
+        20.37,
+        28.71,
+        68.62,
+        203.06,
+        11231.06
+      ]
+    },
+    "callout_routing_and_beam_lookahead": {
+      "jev_routing_accuracy_pct": 100.0,
+      "jev_option_order_invariance_pct": 100.0,
+      "callout_routing_details": [
+        {
+          "id": "SC01",
+          "expected_valid": true,
+          "routed_valid": true,
+          "valid_noul": 0.9,
+          "bio_woo_noul": 0.09,
+          "expected_goal": "MAX_BIPARTITE_ENTANGLEMENT",
+          "routed_goal": "MAX_BIPARTITE_ENTANGLEMENT",
+          "option_order_invariant": true,
+          "correct": true
+        },
+        {
+          "id": "SC02",
+          "expected_valid": true,
+          "routed_valid": true,
+          "valid_noul": 0.87,
+          "bio_woo_noul": 0.05,
+          "expected_goal": "MAX_COLLECTIVE_QFI",
+          "routed_goal": "MAX_COLLECTIVE_QFI",
+          "option_order_invariant": true,
+          "correct": true
+        },
+        {
+          "id": "SC03",
+          "expected_valid": true,
+          "routed_valid": true,
+          "valid_noul": 0.89,
+          "bio_woo_noul": 0.03,
+          "expected_goal": "BALANCED_SHALLOW_DUET",
+          "routed_goal": "BALANCED_SHALLOW_DUET",
+          "option_order_invariant": true,
+          "correct": true
+        },
+        {
+          "id": "SC04",
+          "expected_valid": true,
+          "routed_valid": true,
+          "valid_noul": 0.83,
+          "bio_woo_noul": 0.06,
+          "expected_goal": "PERIMETER_RESET_CORE",
+          "routed_goal": "PERIMETER_RESET_CORE",
+          "option_order_invariant": true,
+          "correct": true
+        },
+        {
+          "id": "SC05",
+          "expected_valid": true,
+          "routed_valid": true,
+          "valid_noul": 0.79,
+          "bio_woo_noul": 0.02,
+          "expected_goal": "ANTIPHASE_PHASE_CONTRAST",
+          "routed_goal": "ANTIPHASE_PHASE_CONTRAST",
+          "option_order_invariant": true,
+          "correct": true
+        },
+        {
+          "id": "SC06",
+          "expected_valid": true,
+          "routed_valid": true,
+          "valid_noul": 0.82,
+          "bio_woo_noul": 0.08,
+          "expected_goal": "TOPOLOGICAL_SWAP_YANK",
+          "routed_goal": "TOPOLOGICAL_SWAP_YANK",
+          "option_order_invariant": true,
+          "correct": true
+        },
+        {
+          "id": "SC07_WOO",
+          "expected_valid": false,
+          "routed_valid": false,
+          "valid_noul": 0.02,
+          "bio_woo_noul": 0.97,
+          "expected_goal": "ABSTAIN_INVALID",
+          "routed_goal": "ABSTAIN_INVALID",
+          "option_order_invariant": true,
+          "correct": true
+        },
+        {
+          "id": "SC08_OFFTOPIC",
+          "expected_valid": false,
+          "routed_valid": false,
+          "valid_noul": 0.02,
+          "bio_woo_noul": 0.01,
+          "expected_goal": "ABSTAIN_INVALID",
+          "routed_goal": "ABSTAIN_INVALID",
+          "option_order_invariant": true,
+          "correct": true
+        }
+      ],
+      "planner_summary": {
+        "random_legal": {
+          "mean_utility": -16.03,
+          "mean_entanglement_bits": 0.1667,
+          "mean_qfi": 2.0,
+          "mean_d2q": 5.33,
+          "collision_free_rate_pct": 33.3,
+          "discopy_unitary_verified": true,
+          "openjij_zero_collision_verified": true
+        },
+        "myopic_greedy_h1": {
+          "mean_utility": 7.6033,
+          "mean_entanglement_bits": 3.0,
+          "mean_qfi": 6.0,
+          "mean_d2q": 1.0,
+          "collision_free_rate_pct": 100.0,
+          "discopy_unitary_verified": true,
+          "openjij_zero_collision_verified": true
+        },
+        "arena_wm_beam_h4": {
+          "mean_utility": 8.5367,
+          "mean_entanglement_bits": 2.6667,
+          "mean_qfi": 11.0,
+          "mean_d2q": 2.33,
+          "collision_free_rate_pct": 100.0,
+          "discopy_unitary_verified": true,
+          "openjij_zero_collision_verified": true
+        }
+      },
+      "per_callout_phrases": {
+        "random_legal": {
+          "SC01": {
+            "actions": [
+              "DYAD_JAB_WINGS",
+              "STAGE_SWAP_CENTER",
+              "BUCK_SPREAD_ANCHOR",
+              "KILL_OFF_WING_RESET"
+            ],
+            "utility": 0.0,
+            "s_ent_bits": 0.0,
+            "f_q": 0.0,
+            "d2q_cum": 3,
+            "stage_collisions": 0,
+            "discopy_boxes": 10,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -40.8
+          },
+          "SC02": {
+            "actions": [
+              "KILL_OFF_WING_RESET",
+              "BUCK_SPREAD_ANCHOR",
+              "HYPE_PERIMETER_PHASE",
+              "KILL_OFF_WING_RESET"
+            ],
+            "utility": 0.0,
+            "s_ent_bits": 0.0,
+            "f_q": 0.0,
+            "d2q_cum": 1,
+            "stage_collisions": 0,
+            "discopy_boxes": 8,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -40.8
+          },
+          "SC03": {
+            "actions": [
+              "SNAKE_YANK_COMPRESS",
+              "GHZ_LOCK_CASCADE",
+              "STOMP_ALL",
+              "STOMP_ALL"
+            ],
+            "utility": -31.0,
+            "s_ent_bits": 0.0,
+            "f_q": 0.0,
+            "d2q_cum": 5,
+            "stage_collisions": 4,
+            "discopy_boxes": 17,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -21.2
+          },
+          "SC04": {
+            "actions": [
+              "DYAD_JAB_INNER",
+              "GHZ_LOCK_CASCADE",
+              "SNAKE_YANK_COMPRESS",
+              "GHZ_LOCK_CASCADE"
+            ],
+            "utility": -24.0,
+            "s_ent_bits": 0.0,
+            "f_q": 0.0,
+            "d2q_cum": 10,
+            "stage_collisions": 2,
+            "discopy_boxes": 11,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -31.9
+          },
+          "SC05": {
+            "actions": [
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_INNER",
+              "DYAD_JAB_INNER",
+              "GHZ_LOCK_CASCADE"
+            ],
+            "utility": -21.68,
+            "s_ent_bits": 1.0,
+            "f_q": 6.0,
+            "d2q_cum": 7,
+            "stage_collisions": 2,
+            "discopy_boxes": 13,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -31.9
+          },
+          "SC06": {
+            "actions": [
+              "KILL_OFF_WING_RESET",
+              "GHZ_LOCK_CASCADE",
+              "DYAD_JAB_INNER",
+              "ARM_SWING_SYNC"
+            ],
+            "utility": -19.5,
+            "s_ent_bits": 0.0,
+            "f_q": 6.0,
+            "d2q_cum": 6,
+            "stage_collisions": 2,
+            "discopy_boxes": 12,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -33.25
+          }
+        },
+        "myopic_greedy_h1": {
+          "SC01": {
+            "actions": [
+              "BUCK_SPREAD_ANCHOR",
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS",
+              "STOMP_ALL"
+            ],
+            "utility": 9.84,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 1,
+            "stage_collisions": 0,
+            "discopy_boxes": 21,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -31.9
+          },
+          "SC02": {
+            "actions": [
+              "BUCK_SPREAD_ANCHOR",
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS",
+              "BUCK_SPREAD_ANCHOR"
+            ],
+            "utility": 4.2,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 1,
+            "stage_collisions": 0,
+            "discopy_boxes": 21,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -31.45
+          },
+          "SC03": {
+            "actions": [
+              "BUCK_SPREAD_ANCHOR",
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS",
+              "BUCK_SPREAD_ANCHOR"
+            ],
+            "utility": 8.28,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 1,
+            "stage_collisions": 0,
+            "discopy_boxes": 21,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -31.45
+          },
+          "SC04": {
+            "actions": [
+              "BUCK_SPREAD_ANCHOR",
+              "KILL_OFF_WING_RESET",
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS"
+            ],
+            "utility": 9.08,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 1,
+            "stage_collisions": 0,
+            "discopy_boxes": 15,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -21.2
+          },
+          "SC05": {
+            "actions": [
+              "BUCK_SPREAD_ANCHOR",
+              "CHEST_POP_ANTIPHASE",
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS"
+            ],
+            "utility": 7.62,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 1,
+            "stage_collisions": 0,
+            "discopy_boxes": 21,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -31.45
+          },
+          "SC06": {
+            "actions": [
+              "BUCK_SPREAD_ANCHOR",
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS",
+              "BUCK_SPREAD_ANCHOR"
+            ],
+            "utility": 6.6,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 1,
+            "stage_collisions": 0,
+            "discopy_boxes": 21,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -31.45
+          }
+        },
+        "arena_wm_beam_h4": {
+          "SC01": {
+            "actions": [
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS",
+              "BUCK_SPREAD_ANCHOR",
+              "HYPE_PERIMETER_PHASE"
+            ],
+            "utility": 9.84,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 2,
+            "stage_collisions": 0,
+            "discopy_boxes": 17,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -40.8
+          },
+          "SC02": {
+            "actions": [
+              "SOLO_LEADER_CALLOUT",
+              "BUCK_SPREAD_ANCHOR",
+              "GHZ_LOCK_CASCADE",
+              "BUCK_SPREAD_ANCHOR"
+            ],
+            "utility": 11.6,
+            "s_ent_bits": 1.0,
+            "f_q": 36.0,
+            "d2q_cum": 5,
+            "stage_collisions": 0,
+            "discopy_boxes": 18,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -31.45
+          },
+          "SC03": {
+            "actions": [
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS",
+              "BUCK_SPREAD_ANCHOR",
+              "HYPE_PERIMETER_PHASE"
+            ],
+            "utility": 8.28,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 2,
+            "stage_collisions": 0,
+            "discopy_boxes": 17,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -40.8
+          },
+          "SC04": {
+            "actions": [
+              "KILL_OFF_WING_RESET",
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS",
+              "BUCK_SPREAD_ANCHOR"
+            ],
+            "utility": 9.08,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 1,
+            "stage_collisions": 0,
+            "discopy_boxes": 15,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -31.45
+          },
+          "SC05": {
+            "actions": [
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS",
+              "BUCK_SPREAD_ANCHOR",
+              "HYPE_PERIMETER_PHASE"
+            ],
+            "utility": 5.82,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 2,
+            "stage_collisions": 0,
+            "discopy_boxes": 17,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -40.8
+          },
+          "SC06": {
+            "actions": [
+              "ARM_SWING_SYNC",
+              "DYAD_JAB_WINGS",
+              "BUCK_SPREAD_ANCHOR",
+              "HYPE_PERIMETER_PHASE"
+            ],
+            "utility": 6.6,
+            "s_ent_bits": 3.0,
+            "f_q": 6.0,
+            "d2q_cum": 2,
+            "stage_collisions": 0,
+            "discopy_boxes": 17,
+            "discopy_norm_sq": 1.0,
+            "openjij_collisions": 0,
+            "openjij_energy": -40.8
+          }
+        }
+      }
+    }
+  },
+  "kernel_b_learner_world_model": {
+    "epistemic_demarcation": "SIMULATED_POMDP_CURRICULUM_BENCHMARK_ONLY (N = 0 human RCT subjects claimed)",
+    "jev_utterance_gate_accuracy_pct": 100.0,
+    "jev_4concept_misconception_roc_auc": 0.9245,
+    "jev_4concept_misconception_brier": 0.1521,
+    "jev_bio_woo_roc_auc": 1.0,
+    "utterance_observations": [
+      {
+        "id": "ST01",
+        "valid_qis_true": true,
+        "valid_qis_pred": true,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.01,
+        "misconception_probs": [
+          0.85,
+          0.46,
+          0.09,
+          0.05
+        ],
+        "inferred_b0": [
+          0.248,
+          0.5288,
+          0.7952,
+          0.824
+        ],
+        "true_weak_concepts": [
+          0
+        ]
+      },
+      {
+        "id": "ST02",
+        "valid_qis_true": true,
+        "valid_qis_pred": true,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.02,
+        "misconception_probs": [
+          0.67,
+          0.88,
+          0.57,
+          0.32
+        ],
+        "inferred_b0": [
+          0.3776,
+          0.2264,
+          0.4496,
+          0.6296
+        ],
+        "true_weak_concepts": [
+          1
+        ]
+      },
+      {
+        "id": "ST03",
+        "valid_qis_true": true,
+        "valid_qis_pred": true,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.06,
+        "misconception_probs": [
+          0.32,
+          0.46,
+          0.85,
+          0.04
+        ],
+        "inferred_b0": [
+          0.6296,
+          0.5288,
+          0.248,
+          0.8312
+        ],
+        "true_weak_concepts": [
+          2
+        ]
+      },
+      {
+        "id": "ST04",
+        "valid_qis_true": true,
+        "valid_qis_pred": true,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.02,
+        "misconception_probs": [
+          0.87,
+          0.47,
+          0.47,
+          0.92
+        ],
+        "inferred_b0": [
+          0.2336,
+          0.5216,
+          0.5216,
+          0.1976
+        ],
+        "true_weak_concepts": [
+          3
+        ]
+      },
+      {
+        "id": "ST05",
+        "valid_qis_true": true,
+        "valid_qis_pred": true,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.02,
+        "misconception_probs": [
+          0.91,
+          0.83,
+          0.31,
+          0.84
+        ],
+        "inferred_b0": [
+          0.2048,
+          0.2624,
+          0.6368,
+          0.2552
+        ],
+        "true_weak_concepts": [
+          0,
+          3
+        ]
+      },
+      {
+        "id": "ST06",
+        "valid_qis_true": true,
+        "valid_qis_pred": true,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.05,
+        "misconception_probs": [
+          0.65,
+          0.87,
+          0.94,
+          0.23
+        ],
+        "inferred_b0": [
+          0.392,
+          0.2336,
+          0.1832,
+          0.6944
+        ],
+        "true_weak_concepts": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": "ST07",
+        "valid_qis_true": true,
+        "valid_qis_pred": true,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.03,
+        "misconception_probs": [
+          0.48,
+          0.89,
+          0.31,
+          0.13
+        ],
+        "inferred_b0": [
+          0.5144,
+          0.2192,
+          0.6368,
+          0.7664
+        ],
+        "true_weak_concepts": [
+          1
+        ]
+      },
+      {
+        "id": "ST08",
+        "valid_qis_true": true,
+        "valid_qis_pred": true,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.04,
+        "misconception_probs": [
+          0.88,
+          0.47,
+          0.31,
+          0.89
+        ],
+        "inferred_b0": [
+          0.2264,
+          0.5216,
+          0.6368,
+          0.2192
+        ],
+        "true_weak_concepts": [
+          0,
+          3
+        ]
+      },
+      {
+        "id": "ST09",
+        "valid_qis_true": true,
+        "valid_qis_pred": true,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.06,
+        "misconception_probs": [
+          0.3,
+          0.59,
+          0.9,
+          0.1
+        ],
+        "inferred_b0": [
+          0.644,
+          0.4352,
+          0.212,
+          0.788
+        ],
+        "true_weak_concepts": [
+          2,
+          3
+        ]
+      },
+      {
+        "id": "ST10",
+        "valid_qis_true": true,
+        "valid_qis_pred": true,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.07,
+        "misconception_probs": [
+          0.16,
+          0.13,
+          0.3,
+          0.04
+        ],
+        "inferred_b0": [
+          0.7448,
+          0.7664,
+          0.644,
+          0.8312
+        ],
+        "true_weak_concepts": []
+      },
+      {
+        "id": "ST11_WOO",
+        "valid_qis_true": false,
+        "valid_qis_pred": false,
+        "bio_woo_true": true,
+        "bio_woo_prob": 0.8,
+        "misconception_probs": [
+          0.19,
+          0.29,
+          0.47,
+          0.03
+        ],
+        "inferred_b0": [
+          0.7232,
+          0.6512,
+          0.5216,
+          0.8384
+        ],
+        "true_weak_concepts": [
+          0,
+          2
+        ]
+      },
+      {
+        "id": "ST12_LOGISTICS",
+        "valid_qis_true": false,
+        "valid_qis_pred": false,
+        "bio_woo_true": false,
+        "bio_woo_prob": 0.01,
+        "misconception_probs": [
+          0.05,
+          0.11,
+          0.03,
+          0.02
+        ],
+        "inferred_b0": [
+          0.824,
+          0.7808,
+          0.8384,
+          0.8456
+        ],
+        "true_weak_concepts": []
+      }
+    ],
+    "curriculum_summary": {
+      "passive_lecture_slides": {
+        "mean_post_mastery": 0.6582,
+        "mean_weakest_concept_floor": 0.3532,
+        "simulated_hake_g": 0.23,
+        "mastery_ge_0_70_rate_pct": 55.6
+      },
+      "fixed_linear_syllabus": {
+        "mean_post_mastery": 0.8298,
+        "mean_weakest_concept_floor": 0.56,
+        "simulated_hake_g": 0.6228,
+        "mastery_ge_0_70_rate_pct": 100.0
+      },
+      "myopic_1step_drill": {
+        "mean_post_mastery": 0.8804,
+        "mean_weakest_concept_floor": 0.7521,
+        "simulated_hake_g": 0.7346,
+        "mastery_ge_0_70_rate_pct": 100.0
+      },
+      "learner_wm_pomdp_h3": {
+        "mean_post_mastery": 0.8766,
+        "mean_weakest_concept_floor": 0.7497,
+        "simulated_hake_g": 0.7256,
+        "mastery_ge_0_70_rate_pct": 100.0
+      }
+    },
+    "per_student_trajectories": [
+      {
+        "student_id": "ST01",
+        "pre_mastery_mean": 0.625,
+        "pomdp_drills": [
+          "D0_Equatorial_Superposition_Contrast",
+          "D1_BasisSwitch_KillOff_Disturbance",
+          "D4_Compound_Interference_Bell_Lab"
+        ],
+        "post_mastery_lecture": 0.7113,
+        "post_mastery_linear": 0.865,
+        "post_mastery_myopic": 0.8838,
+        "post_mastery_learner_wm": 0.8838,
+        "min_concept_floor_learner_wm": 0.7616
+      },
+      {
+        "student_id": "ST02",
+        "pre_mastery_mean": 0.625,
+        "pomdp_drills": [
+          "D0_Equatorial_Superposition_Contrast",
+          "D1_BasisSwitch_KillOff_Disturbance",
+          "D4_Compound_Interference_Bell_Lab"
+        ],
+        "post_mastery_lecture": 0.7113,
+        "post_mastery_linear": 0.8997,
+        "post_mastery_myopic": 0.9231,
+        "post_mastery_learner_wm": 0.9109,
+        "min_concept_floor_learner_wm": 0.8975
+      },
+      {
+        "student_id": "ST03",
+        "pre_mastery_mean": 0.625,
+        "pomdp_drills": [
+          "D0_Equatorial_Superposition_Contrast",
+          "D1_BasisSwitch_KillOff_Disturbance",
+          "D2_DualBasis_Bell_Duet_NoFTL"
+        ],
+        "post_mastery_lecture": 0.7113,
+        "post_mastery_linear": 0.9031,
+        "post_mastery_myopic": 0.8996,
+        "post_mastery_learner_wm": 0.9031,
+        "min_concept_floor_learner_wm": 0.81
+      },
+      {
+        "student_id": "ST04",
+        "pre_mastery_mean": 0.625,
+        "pomdp_drills": [
+          "D0_Equatorial_Superposition_Contrast",
+          "D3_AntiPhase_ChestPop_Hadamard_Cancel",
+          "D4_Compound_Interference_Bell_Lab"
+        ],
+        "post_mastery_lecture": 0.7113,
+        "post_mastery_linear": 0.786,
+        "post_mastery_myopic": 0.9114,
+        "post_mastery_learner_wm": 0.9108,
+        "min_concept_floor_learner_wm": 0.8406
+      },
+      {
+        "student_id": "ST05",
+        "pre_mastery_mean": 0.47,
+        "pomdp_drills": [
+          "D0_Equatorial_Superposition_Contrast",
+          "D1_BasisSwitch_KillOff_Disturbance",
+          "D3_AntiPhase_ChestPop_Hadamard_Cancel"
+        ],
+        "post_mastery_lecture": 0.5919,
+        "post_mastery_linear": 0.7311,
+        "post_mastery_myopic": 0.8589,
+        "post_mastery_learner_wm": 0.8589,
+        "min_concept_floor_learner_wm": 0.7278
+      },
+      {
+        "student_id": "ST06",
+        "pre_mastery_mean": 0.47,
+        "pomdp_drills": [
+          "D0_Equatorial_Superposition_Contrast",
+          "D1_BasisSwitch_KillOff_Disturbance",
+          "D2_DualBasis_Bell_Duet_NoFTL"
+        ],
+        "post_mastery_lecture": 0.5919,
+        "post_mastery_linear": 0.8829,
+        "post_mastery_myopic": 0.886,
+        "post_mastery_learner_wm": 0.8829,
+        "min_concept_floor_learner_wm": 0.81
+      },
+      {
+        "student_id": "ST07",
+        "pre_mastery_mean": 0.625,
+        "pomdp_drills": [
+          "D0_Equatorial_Superposition_Contrast",
+          "D1_BasisSwitch_KillOff_Disturbance",
+          "D4_Compound_Interference_Bell_Lab"
+        ],
+        "post_mastery_lecture": 0.7113,
+        "post_mastery_linear": 0.8997,
+        "post_mastery_myopic": 0.9231,
+        "post_mastery_learner_wm": 0.9109,
+        "min_concept_floor_learner_wm": 0.8975
+      },
+      {
+        "student_id": "ST08",
+        "pre_mastery_mean": 0.47,
+        "pomdp_drills": [
+          "D0_Equatorial_Superposition_Contrast",
+          "D1_BasisSwitch_KillOff_Disturbance",
+          "D3_AntiPhase_ChestPop_Hadamard_Cancel"
+        ],
+        "post_mastery_lecture": 0.5919,
+        "post_mastery_linear": 0.7311,
+        "post_mastery_myopic": 0.8589,
+        "post_mastery_learner_wm": 0.8589,
+        "min_concept_floor_learner_wm": 0.7278
+      },
+      {
+        "student_id": "ST09",
+        "pre_mastery_mean": 0.47,
+        "pomdp_drills": [
+          "D1_BasisSwitch_KillOff_Disturbance",
+          "D0_Equatorial_Superposition_Contrast",
+          "D2_DualBasis_Bell_Duet_NoFTL"
+        ],
+        "post_mastery_lecture": 0.5919,
+        "post_mastery_linear": 0.7692,
+        "post_mastery_myopic": 0.7793,
+        "post_mastery_learner_wm": 0.7692,
+        "min_concept_floor_learner_wm": 0.2744
+      }
+    ]
+  },
+  "total_wall_clock_s": 9.94,
+  "sha256": "e1f7dcef8d0b6ed061ae8d86a0bfc8a68d232395b1c2868c142cb7d168c102df"
+}
