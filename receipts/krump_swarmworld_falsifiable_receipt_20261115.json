@@ -1,0 +1,1182 @@
+{
+  "lane_id": "K322",
+  "title": "Krump SwarmWorld: Falsifiable Stigmergic Evolution, Executable Controller Lineage, and Agent-Free Disturbance Resilience",
+  "reference_protocol": "Pal, Wang, and Buehler, SwarmWorld (MIT, arXiv:2608.26081)",
+  "timestamp_utc": "2026-11-15T12:30:00Z",
+  "gate_name": "Gate G_Krump_SwarmWorld_Falsifiable",
+  "gate_status": "VERIFIED (PASS)",
+  "gate_checks": {
+    "zero_role_prompts_enforced": true,
+    "pure_stigmergy_zero_cross_forks": true,
+    "shared_beats_isolated_on_portfolio_resilience": true,
+    "shared_beats_isolated_on_heldout_resilience": true,
+    "label_blind_phenotypes_emerged": true,
+    "mujoco_g1_portfolio_beats_isolated": true,
+    "discopy_circuit_replication_verified": true,
+    "live_jev_companion_noul_calibrated": true
+  },
+  "epistemic_demarcation": {
+    "assigned_role_prompts": 0,
+    "physical_robot_trials_claimed": 0,
+    "physical_qpu_shots_claimed": 0,
+    "human_subjects_claimed": 0,
+    "biological_quantum_coherence_claimed": false,
+    "bounded_swarm_advantage_disclosed": "Shared worlds outperform Best-of-N isolated search on Held-Out Disturbance Resilience, Portfolio Resilience, and Validated Inventions, while Best-of-N isolated search remains competitive or superior on single-peak Best Final Artifact."
+  },
+  "live_jev_1_14_deliberation_audit": {
+    "model_id": "jev-1.14.0",
+    "n_scenarios": 24,
+    "n_api_calls": 48,
+    "total_input_tokens": 27520,
+    "estimated_cost_usd": 0.001156,
+    "median_latency_ms": 162.29,
+    "routing_accuracy": 1.0,
+    "option_order_invariance": 1.0,
+    "companion_noul_roc_auc": 1.0,
+    "companion_noul_brier": 0.0276,
+    "per_scenario": [
+      {
+        "id": "S01",
+        "is_valid_gt": 1,
+        "expected": "EXPLORE_SURVEY",
+        "valid_noul": 0.9,
+        "routed_fwd": "EXPLORE_SURVEY",
+        "routed_rev": "EXPLORE_SURVEY",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 290.23,
+        "input_tokens": 1148
+      },
+      {
+        "id": "S02",
+        "is_valid_gt": 1,
+        "expected": "CALIBRATE_MATERIAL",
+        "valid_noul": 0.91,
+        "routed_fwd": "CALIBRATE_MATERIAL",
+        "routed_rev": "CALIBRATE_MATERIAL",
+        "confidence_fwd": 0.98,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 168.04,
+        "input_tokens": 1144
+      },
+      {
+        "id": "S03",
+        "is_valid_gt": 1,
+        "expected": "BUILD_INSTALL_STATION",
+        "valid_noul": 0.89,
+        "routed_fwd": "BUILD_INSTALL_STATION",
+        "routed_rev": "BUILD_INSTALL_STATION",
+        "confidence_fwd": 0.99,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 198.36,
+        "input_tokens": 1158
+      },
+      {
+        "id": "S04",
+        "is_valid_gt": 1,
+        "expected": "FORK_UPGRADE_CONTROLLER",
+        "valid_noul": 0.86,
+        "routed_fwd": "FORK_UPGRADE_CONTROLLER",
+        "routed_rev": "FORK_UPGRADE_CONTROLLER",
+        "confidence_fwd": 0.98,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 207.28,
+        "input_tokens": 1158
+      },
+      {
+        "id": "S05",
+        "is_valid_gt": 1,
+        "expected": "REPAIR_STATION",
+        "valid_noul": 0.7,
+        "routed_fwd": "REPAIR_STATION",
+        "routed_rev": "REPAIR_STATION",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 206.38,
+        "input_tokens": 1162
+      },
+      {
+        "id": "S06",
+        "is_valid_gt": 1,
+        "expected": "EXPLORE_SURVEY",
+        "valid_noul": 0.92,
+        "routed_fwd": "EXPLORE_SURVEY",
+        "routed_rev": "EXPLORE_SURVEY",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 174.8,
+        "input_tokens": 1154
+      },
+      {
+        "id": "S07",
+        "is_valid_gt": 1,
+        "expected": "CALIBRATE_MATERIAL",
+        "valid_noul": 0.9,
+        "routed_fwd": "CALIBRATE_MATERIAL",
+        "routed_rev": "CALIBRATE_MATERIAL",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 156.44,
+        "input_tokens": 1132
+      },
+      {
+        "id": "S08",
+        "is_valid_gt": 1,
+        "expected": "BUILD_INSTALL_STATION",
+        "valid_noul": 0.87,
+        "routed_fwd": "BUILD_INSTALL_STATION",
+        "routed_rev": "BUILD_INSTALL_STATION",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 182.68,
+        "input_tokens": 1160
+      },
+      {
+        "id": "S09",
+        "is_valid_gt": 1,
+        "expected": "FORK_UPGRADE_CONTROLLER",
+        "valid_noul": 0.67,
+        "routed_fwd": "FORK_UPGRADE_CONTROLLER",
+        "routed_rev": "FORK_UPGRADE_CONTROLLER",
+        "confidence_fwd": 0.91,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 132.34,
+        "input_tokens": 1154
+      },
+      {
+        "id": "S10",
+        "is_valid_gt": 1,
+        "expected": "REPAIR_STATION",
+        "valid_noul": 0.85,
+        "routed_fwd": "REPAIR_STATION",
+        "routed_rev": "REPAIR_STATION",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 133.99,
+        "input_tokens": 1158
+      },
+      {
+        "id": "S11",
+        "is_valid_gt": 1,
+        "expected": "EXPLORE_SURVEY",
+        "valid_noul": 0.77,
+        "routed_fwd": "EXPLORE_SURVEY",
+        "routed_rev": "EXPLORE_SURVEY",
+        "confidence_fwd": 0.98,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 163.63,
+        "input_tokens": 1152
+      },
+      {
+        "id": "S12",
+        "is_valid_gt": 1,
+        "expected": "CALIBRATE_MATERIAL",
+        "valid_noul": 0.92,
+        "routed_fwd": "CALIBRATE_MATERIAL",
+        "routed_rev": "CALIBRATE_MATERIAL",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 164.16,
+        "input_tokens": 1142
+      },
+      {
+        "id": "S13",
+        "is_valid_gt": 1,
+        "expected": "BUILD_INSTALL_STATION",
+        "valid_noul": 0.82,
+        "routed_fwd": "BUILD_INSTALL_STATION",
+        "routed_rev": "BUILD_INSTALL_STATION",
+        "confidence_fwd": 0.24,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 160.95,
+        "input_tokens": 1152
+      },
+      {
+        "id": "S14",
+        "is_valid_gt": 1,
+        "expected": "FORK_UPGRADE_CONTROLLER",
+        "valid_noul": 0.83,
+        "routed_fwd": "FORK_UPGRADE_CONTROLLER",
+        "routed_rev": "FORK_UPGRADE_CONTROLLER",
+        "confidence_fwd": 0.7,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 166.12,
+        "input_tokens": 1170
+      },
+      {
+        "id": "S15",
+        "is_valid_gt": 1,
+        "expected": "REPAIR_STATION",
+        "valid_noul": 0.82,
+        "routed_fwd": "REPAIR_STATION",
+        "routed_rev": "REPAIR_STATION",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 148.38,
+        "input_tokens": 1156
+      },
+      {
+        "id": "S16",
+        "is_valid_gt": 1,
+        "expected": "EXPLORE_SURVEY",
+        "valid_noul": 0.65,
+        "routed_fwd": "EXPLORE_SURVEY",
+        "routed_rev": "EXPLORE_SURVEY",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 139.32,
+        "input_tokens": 1142
+      },
+      {
+        "id": "S17",
+        "is_valid_gt": 1,
+        "expected": "CALIBRATE_MATERIAL",
+        "valid_noul": 0.91,
+        "routed_fwd": "CALIBRATE_MATERIAL",
+        "routed_rev": "CALIBRATE_MATERIAL",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 150.29,
+        "input_tokens": 1136
+      },
+      {
+        "id": "S18",
+        "is_valid_gt": 1,
+        "expected": "BUILD_INSTALL_STATION",
+        "valid_noul": 0.84,
+        "routed_fwd": "BUILD_INSTALL_STATION",
+        "routed_rev": "BUILD_INSTALL_STATION",
+        "confidence_fwd": 0.98,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 168.0,
+        "input_tokens": 1142
+      },
+      {
+        "id": "S19",
+        "is_valid_gt": 1,
+        "expected": "FORK_UPGRADE_CONTROLLER",
+        "valid_noul": 0.82,
+        "routed_fwd": "FORK_UPGRADE_CONTROLLER",
+        "routed_rev": "FORK_UPGRADE_CONTROLLER",
+        "confidence_fwd": 0.85,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 154.0,
+        "input_tokens": 1150
+      },
+      {
+        "id": "S20",
+        "is_valid_gt": 1,
+        "expected": "REPAIR_STATION",
+        "valid_noul": 0.88,
+        "routed_fwd": "REPAIR_STATION",
+        "routed_rev": "REPAIR_STATION",
+        "confidence_fwd": 1.0,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 150.68,
+        "input_tokens": 1148
+      },
+      {
+        "id": "N01",
+        "is_valid_gt": 0,
+        "expected": "ABSTAIN_INVALID",
+        "valid_noul": 0.03,
+        "routed_fwd": "ABSTAIN_INVALID",
+        "routed_rev": "ABSTAIN_INVALID",
+        "confidence_fwd": 0.79,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 138.89,
+        "input_tokens": 1140
+      },
+      {
+        "id": "N02",
+        "is_valid_gt": 0,
+        "expected": "ABSTAIN_INVALID",
+        "valid_noul": 0.03,
+        "routed_fwd": "ABSTAIN_INVALID",
+        "routed_rev": "ABSTAIN_INVALID",
+        "confidence_fwd": 0.77,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 173.49,
+        "input_tokens": 1132
+      },
+      {
+        "id": "N03",
+        "is_valid_gt": 0,
+        "expected": "ABSTAIN_INVALID",
+        "valid_noul": 0.02,
+        "routed_fwd": "ABSTAIN_INVALID",
+        "routed_rev": "ABSTAIN_INVALID",
+        "confidence_fwd": 0.7,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 141.85,
+        "input_tokens": 1110
+      },
+      {
+        "id": "N04",
+        "is_valid_gt": 0,
+        "expected": "ABSTAIN_INVALID",
+        "valid_noul": 0.03,
+        "routed_fwd": "ABSTAIN_INVALID",
+        "routed_rev": "ABSTAIN_INVALID",
+        "confidence_fwd": 0.91,
+        "order_invariant": true,
+        "correct_fwd": true,
+        "latency_ms": 155.4,
+        "input_tokens": 1120
+      }
+    ]
+  },
+  "study_1_population_scaling_400ticks": {
+    "24": {
+      "full_culture": {
+        "discovery_auc_mean": 0.7614,
+        "heldout_resilience_mean": 0.5253,
+        "heldout_resilience_std": 0.1413,
+        "portfolio_resilience_mean": 0.697,
+        "validated_inventions_mean": 23.0,
+        "best_final_artifact_mean": 0.7923,
+        "cross_agent_fork_frac_mean": 0.6461
+      },
+      "no_communication": {
+        "discovery_auc_mean": 0.7516,
+        "heldout_resilience_mean": 0.6316,
+        "heldout_resilience_std": 0.026,
+        "portfolio_resilience_mean": 0.8134,
+        "validated_inventions_mean": 25.5,
+        "best_final_artifact_mean": 0.7723,
+        "cross_agent_fork_frac_mean": 0.6165
+      },
+      "no_explicit_culture": {
+        "discovery_auc_mean": 0.7247,
+        "heldout_resilience_mean": 0.544,
+        "heldout_resilience_std": 0.0314,
+        "portfolio_resilience_mean": 0.7911,
+        "validated_inventions_mean": 27.5,
+        "best_final_artifact_mean": 0.7668,
+        "cross_agent_fork_frac_mean": 0.0
+      },
+      "isolated_best_of_n": {
+        "discovery_auc_mean": 0.7398,
+        "heldout_resilience_mean": 0.1772,
+        "heldout_resilience_std": 0.003,
+        "portfolio_resilience_mean": 0.2466,
+        "validated_inventions_mean": 6.75,
+        "best_final_artifact_mean": 0.7812,
+        "cross_agent_fork_frac_mean": 0.0
+      }
+    },
+    "48": {
+      "full_culture": {
+        "discovery_auc_mean": 0.7917,
+        "heldout_resilience_mean": 0.6505,
+        "heldout_resilience_std": 0.024,
+        "portfolio_resilience_mean": 0.835,
+        "validated_inventions_mean": 20.5,
+        "best_final_artifact_mean": 0.8158,
+        "cross_agent_fork_frac_mean": 0.8211
+      },
+      "no_communication": {
+        "discovery_auc_mean": 0.7671,
+        "heldout_resilience_mean": 0.6525,
+        "heldout_resilience_std": 0.0258,
+        "portfolio_resilience_mean": 0.8464,
+        "validated_inventions_mean": 29.0,
+        "best_final_artifact_mean": 0.8033,
+        "cross_agent_fork_frac_mean": 0.7316
+      },
+      "no_explicit_culture": {
+        "discovery_auc_mean": 0.7146,
+        "heldout_resilience_mean": 0.4835,
+        "heldout_resilience_std": 0.0456,
+        "portfolio_resilience_mean": 0.7482,
+        "validated_inventions_mean": 14.0,
+        "best_final_artifact_mean": 0.7396,
+        "cross_agent_fork_frac_mean": 0.0
+      },
+      "isolated_best_of_n": {
+        "discovery_auc_mean": 0.7448,
+        "heldout_resilience_mean": 0.1967,
+        "heldout_resilience_std": 0.028,
+        "portfolio_resilience_mean": 0.2748,
+        "validated_inventions_mean": 7.0,
+        "best_final_artifact_mean": 0.7822,
+        "cross_agent_fork_frac_mean": 0.0
+      }
+    },
+    "96": {
+      "full_culture": {
+        "discovery_auc_mean": 0.7894,
+        "heldout_resilience_mean": 0.6211,
+        "heldout_resilience_std": 0.0278,
+        "portfolio_resilience_mean": 0.7918,
+        "validated_inventions_mean": 18.0,
+        "best_final_artifact_mean": 0.8148,
+        "cross_agent_fork_frac_mean": 0.8986
+      },
+      "no_communication": {
+        "discovery_auc_mean": 0.7644,
+        "heldout_resilience_mean": 0.6482,
+        "heldout_resilience_std": 0.0121,
+        "portfolio_resilience_mean": 0.8194,
+        "validated_inventions_mean": 27.75,
+        "best_final_artifact_mean": 0.8051,
+        "cross_agent_fork_frac_mean": 0.8361
+      },
+      "no_explicit_culture": {
+        "discovery_auc_mean": 0.6789,
+        "heldout_resilience_mean": 0.3636,
+        "heldout_resilience_std": 0.0596,
+        "portfolio_resilience_mean": 0.6092,
+        "validated_inventions_mean": 3.0,
+        "best_final_artifact_mean": 0.7062,
+        "cross_agent_fork_frac_mean": 0.0
+      },
+      "isolated_best_of_n": {
+        "discovery_auc_mean": 0.7476,
+        "heldout_resilience_mean": 0.1969,
+        "heldout_resilience_std": 0.0279,
+        "portfolio_resilience_mean": 0.279,
+        "validated_inventions_mean": 7.0,
+        "best_final_artifact_mean": 0.7843,
+        "cross_agent_fork_frac_mean": 0.0
+      }
+    }
+  },
+  "study_2_long_horizon_1600ticks": {
+    "checkpoints": {
+      "200": {
+        "full_culture": {
+          "discovery_auc": 0.7659,
+          "best_artifact": 0.8157,
+          "heldout_resilience": 0.6572,
+          "portfolio_resilience": 0.8345,
+          "validated_inventions": 20.0
+        },
+        "no_communication": {
+          "discovery_auc": 0.7343,
+          "best_artifact": 0.7922,
+          "heldout_resilience": 0.6459,
+          "portfolio_resilience": 0.8312,
+          "validated_inventions": 23.75
+        },
+        "no_explicit_culture": {
+          "discovery_auc": 0.6847,
+          "best_artifact": 0.7359,
+          "heldout_resilience": 0.4164,
+          "portfolio_resilience": 0.6319,
+          "validated_inventions": 8.0
+        },
+        "isolated_best_of_n": {
+          "discovery_auc": 0.7115,
+          "best_artifact": 0.7844,
+          "heldout_resilience": 0.1897,
+          "portfolio_resilience": 0.2922,
+          "validated_inventions": 6.25
+        }
+      },
+      "400": {
+        "full_culture": {
+          "discovery_auc": 0.7917,
+          "best_artifact": 0.8196,
+          "heldout_resilience": 0.6505,
+          "portfolio_resilience": 0.835,
+          "validated_inventions": 20.5
+        },
+        "no_communication": {
+          "discovery_auc": 0.7671,
+          "best_artifact": 0.8047,
+          "heldout_resilience": 0.6525,
+          "portfolio_resilience": 0.8464,
+          "validated_inventions": 29.0
+        },
+        "no_explicit_culture": {
+          "discovery_auc": 0.7146,
+          "best_artifact": 0.7507,
+          "heldout_resilience": 0.4835,
+          "portfolio_resilience": 0.7482,
+          "validated_inventions": 14.0
+        },
+        "isolated_best_of_n": {
+          "discovery_auc": 0.7448,
+          "best_artifact": 0.7914,
+          "heldout_resilience": 0.1967,
+          "portfolio_resilience": 0.2748,
+          "validated_inventions": 7.0
+        }
+      },
+      "800": {
+        "full_culture": {
+          "discovery_auc": 0.8064,
+          "best_artifact": 0.8218,
+          "heldout_resilience": 0.6407,
+          "portfolio_resilience": 0.8361,
+          "validated_inventions": 20.5
+        },
+        "no_communication": {
+          "discovery_auc": 0.7896,
+          "best_artifact": 0.8174,
+          "heldout_resilience": 0.673,
+          "portfolio_resilience": 0.8555,
+          "validated_inventions": 31.25
+        },
+        "no_explicit_culture": {
+          "discovery_auc": 0.7404,
+          "best_artifact": 0.7802,
+          "heldout_resilience": 0.53,
+          "portfolio_resilience": 0.7994,
+          "validated_inventions": 23.0
+        },
+        "isolated_best_of_n": {
+          "discovery_auc": 0.7672,
+          "best_artifact": 0.8006,
+          "heldout_resilience": 0.1804,
+          "portfolio_resilience": 0.2595,
+          "validated_inventions": 7.75
+        }
+      },
+      "1200": {
+        "full_culture": {
+          "discovery_auc": 0.8115,
+          "best_artifact": 0.8218,
+          "heldout_resilience": 0.6566,
+          "portfolio_resilience": 0.8361,
+          "validated_inventions": 20.5
+        },
+        "no_communication": {
+          "discovery_auc": 0.7992,
+          "best_artifact": 0.8198,
+          "heldout_resilience": 0.6773,
+          "portfolio_resilience": 0.8586,
+          "validated_inventions": 31.5
+        },
+        "no_explicit_culture": {
+          "discovery_auc": 0.7563,
+          "best_artifact": 0.794,
+          "heldout_resilience": 0.5066,
+          "portfolio_resilience": 0.7848,
+          "validated_inventions": 27.5
+        },
+        "isolated_best_of_n": {
+          "discovery_auc": 0.7758,
+          "best_artifact": 0.8028,
+          "heldout_resilience": 0.1805,
+          "portfolio_resilience": 0.248,
+          "validated_inventions": 8.25
+        }
+      },
+      "1600": {
+        "full_culture": {
+          "discovery_auc": 0.8141,
+          "best_artifact": 0.8218,
+          "heldout_resilience": 0.6551,
+          "portfolio_resilience": 0.8362,
+          "validated_inventions": 20.5
+        },
+        "no_communication": {
+          "discovery_auc": 0.8044,
+          "best_artifact": 0.8198,
+          "heldout_resilience": 0.679,
+          "portfolio_resilience": 0.8584,
+          "validated_inventions": 31.75
+        },
+        "no_explicit_culture": {
+          "discovery_auc": 0.7661,
+          "best_artifact": 0.7955,
+          "heldout_resilience": 0.5409,
+          "portfolio_resilience": 0.7848,
+          "validated_inventions": 31.75
+        },
+        "isolated_best_of_n": {
+          "discovery_auc": 0.7809,
+          "best_artifact": 0.8053,
+          "heldout_resilience": 0.18,
+          "portfolio_resilience": 0.2518,
+          "validated_inventions": 8.5
+        }
+      }
+    },
+    "final_1600": {
+      "full_culture": {
+        "heldout_resilience_mean": 0.6551,
+        "portfolio_resilience_mean": 0.8362,
+        "validated_inventions_mean": 20.5,
+        "best_final_artifact_mean": 0.8156,
+        "multi_agent_artifact_frac": 1.0,
+        "cross_agent_fork_frac": 0.8382,
+        "max_fork_depth_mean": 21.0,
+        "noncreator_uptake_pct": 100.0,
+        "phys_obs_first_reuse_pct": 97.78,
+        "mean_path_length": 1252.77
+      },
+      "no_communication": {
+        "heldout_resilience_mean": 0.679,
+        "portfolio_resilience_mean": 0.8584,
+        "validated_inventions_mean": 31.75,
+        "best_final_artifact_mean": 0.8149,
+        "multi_agent_artifact_frac": 0.9783,
+        "cross_agent_fork_frac": 0.7632,
+        "max_fork_depth_mean": 23.5,
+        "noncreator_uptake_pct": 100.0,
+        "phys_obs_first_reuse_pct": 100.0,
+        "mean_path_length": 1739.19
+      },
+      "no_explicit_culture": {
+        "heldout_resilience_mean": 0.5409,
+        "portfolio_resilience_mean": 0.7848,
+        "validated_inventions_mean": 31.75,
+        "best_final_artifact_mean": 0.7797,
+        "multi_agent_artifact_frac": 0.6876,
+        "cross_agent_fork_frac": 0.0,
+        "max_fork_depth_mean": 15.5,
+        "noncreator_uptake_pct": 100.0,
+        "phys_obs_first_reuse_pct": 100.0,
+        "mean_path_length": 1918.66
+      },
+      "isolated_best_of_n": {
+        "heldout_resilience_mean": 0.18,
+        "portfolio_resilience_mean": 0.2518,
+        "validated_inventions_mean": 8.5,
+        "best_final_artifact_mean": 0.7925,
+        "multi_agent_artifact_frac": 0.0,
+        "cross_agent_fork_frac": 0.0,
+        "max_fork_depth_mean": 0.0,
+        "noncreator_uptake_pct": 0.0,
+        "phys_obs_first_reuse_pct": 0.0,
+        "mean_path_length": 0.0
+      }
+    }
+  },
+  "label_blind_behavioral_phenotyping": {
+    "n_trajectories": 576,
+    "n_features": 14,
+    "kmeans_k2_silhouette": 0.2629,
+    "kmeans_k4_silhouette": 0.2359,
+    "k4_min_cluster_fraction": 0.1094,
+    "pca_var_explained": [
+      0.3198,
+      0.1634
+    ],
+    "c1_station_centered_fraction": {
+      "full_culture": {
+        "mean": 1.0,
+        "std": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "no_communication": {
+        "mean": 0.9948,
+        "std": 0.009,
+        "per_seed": [
+          1.0,
+          0.9792,
+          1.0,
+          1.0
+        ]
+      },
+      "no_explicit_culture": {
+        "mean": 0.0573,
+        "std": 0.0372,
+        "per_seed": [
+          0.1042,
+          0.0208,
+          0.0208,
+          0.0833
+        ]
+      }
+    },
+    "full_minus_no_explicit_c1_pp_mean": 94.27
+  },
+  "bh_fdr_network_and_knockouts": {
+    "full_culture": {
+      "bh_validated_agent_pairs": 105.0,
+      "nodf_nestedness": 0.8952,
+      "mean_participation_coeff": 0.4374,
+      "knockout_50pct_random_artifact_survival_pct": 100.0,
+      "knockout_50pct_degree_hub_artifact_survival_pct": 100.0,
+      "knockout_50pct_broker_artifact_survival_pct": 100.0
+    },
+    "no_communication": {
+      "bh_validated_agent_pairs": 160.25,
+      "nodf_nestedness": 0.7443,
+      "mean_participation_coeff": 0.4285,
+      "knockout_50pct_random_artifact_survival_pct": 99.865,
+      "knockout_50pct_degree_hub_artifact_survival_pct": 100.0,
+      "knockout_50pct_broker_artifact_survival_pct": 100.0
+    },
+    "no_explicit_culture": {
+      "bh_validated_agent_pairs": 130.75,
+      "nodf_nestedness": 0.928,
+      "mean_participation_coeff": 0.5999,
+      "knockout_50pct_random_artifact_survival_pct": 100.0,
+      "knockout_50pct_degree_hub_artifact_survival_pct": 100.0,
+      "knockout_50pct_broker_artifact_survival_pct": 100.0
+    }
+  },
+  "study_3a_mujoco_g1_nonlinear_qdd_assay": {
+    "full_culture": {
+      "biomes_covered": "4/4",
+      "survival_pct": 75.0,
+      "schedules_survived": "6/8",
+      "mean_mpjpe_mm": 50.64,
+      "mean_upper_rmse_deg": 6.17,
+      "mean_chatter_hz": 9.12,
+      "max_stator_temp_c": 74.52,
+      "heldout_physical_resilience": 0.6604,
+      "per_schedule": [
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 39.02,
+          "upper_rmse_deg": 4.97,
+          "chatter_hz": 8.09,
+          "peak_temp_c": 56.21,
+          "schedule": "S1_Buck_HeavyPush",
+          "biome_covered": true,
+          "program_sha": "6745c14595372bdf"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 33.05,
+          "upper_rmse_deg": 5.63,
+          "chatter_hz": 8.75,
+          "peak_temp_c": 56.2,
+          "schedule": "S2_Krump_BacklashBurst",
+          "biome_covered": true,
+          "program_sha": "6456779e21ead1bd"
+        },
+        {
+          "survived": false,
+          "survival_frac": 0.9196,
+          "mpjpe_mm": 84.91,
+          "upper_rmse_deg": 6.96,
+          "chatter_hz": 8.61,
+          "peak_temp_c": 54.93,
+          "schedule": "S3_Live_IceSlip_012",
+          "biome_covered": true,
+          "program_sha": "b4d686822e69511e"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 37.59,
+          "upper_rmse_deg": 5.65,
+          "chatter_hz": 9.82,
+          "peak_temp_c": 59.74,
+          "schedule": "S4_Session_Delay20ms",
+          "biome_covered": true,
+          "program_sha": "cc483689f52fe306"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 44.62,
+          "upper_rmse_deg": 5.37,
+          "chatter_hz": 7.39,
+          "peak_temp_c": 74.52,
+          "schedule": "S5_Buck_ThermalSurge",
+          "biome_covered": true,
+          "program_sha": "6745c14595372bdf"
+        },
+        {
+          "survived": false,
+          "survival_frac": 0.7638,
+          "mpjpe_mm": 90.35,
+          "upper_rmse_deg": 9.46,
+          "chatter_hz": 9.95,
+          "peak_temp_c": 59.53,
+          "schedule": "S6_Live_IcePlusDelay",
+          "biome_covered": true,
+          "program_sha": "b4d686822e69511e"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 41.03,
+          "upper_rmse_deg": 6.53,
+          "chatter_hz": 8.64,
+          "peak_temp_c": 63.88,
+          "schedule": "S7_Krump_Tempo160_Backlash",
+          "biome_covered": true,
+          "program_sha": "6456779e21ead1bd"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 34.58,
+          "upper_rmse_deg": 4.82,
+          "chatter_hz": 11.67,
+          "peak_temp_c": 71.43,
+          "schedule": "S8_Session_Compound4Axis",
+          "biome_covered": true,
+          "program_sha": "cc483689f52fe306"
+        }
+      ]
+    },
+    "no_communication": {
+      "biomes_covered": "4/4",
+      "survival_pct": 75.0,
+      "schedules_survived": "6/8",
+      "mean_mpjpe_mm": 52.92,
+      "mean_upper_rmse_deg": 6.44,
+      "mean_chatter_hz": 8.99,
+      "max_stator_temp_c": 74.52,
+      "heldout_physical_resilience": 0.6571,
+      "per_schedule": [
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 39.02,
+          "upper_rmse_deg": 4.97,
+          "chatter_hz": 8.09,
+          "peak_temp_c": 56.21,
+          "schedule": "S1_Buck_HeavyPush",
+          "biome_covered": true,
+          "program_sha": "e71ec2581704e6c7"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 33.05,
+          "upper_rmse_deg": 5.63,
+          "chatter_hz": 8.75,
+          "peak_temp_c": 56.2,
+          "schedule": "S2_Krump_BacklashBurst",
+          "biome_covered": true,
+          "program_sha": "903273d0ec176121"
+        },
+        {
+          "survived": false,
+          "survival_frac": 0.8191,
+          "mpjpe_mm": 96.13,
+          "upper_rmse_deg": 9.36,
+          "chatter_hz": 8.1,
+          "peak_temp_c": 54.29,
+          "schedule": "S3_Live_IceSlip_012",
+          "biome_covered": true,
+          "program_sha": "3631526863a44cc9"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 37.02,
+          "upper_rmse_deg": 5.61,
+          "chatter_hz": 9.82,
+          "peak_temp_c": 59.8,
+          "schedule": "S4_Session_Delay20ms",
+          "biome_covered": true,
+          "program_sha": "2de73fd50e9fa6c4"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 44.62,
+          "upper_rmse_deg": 5.37,
+          "chatter_hz": 7.39,
+          "peak_temp_c": 74.52,
+          "schedule": "S5_Buck_ThermalSurge",
+          "biome_covered": true,
+          "program_sha": "e71ec2581704e6c7"
+        },
+        {
+          "survived": false,
+          "survival_frac": 0.8392,
+          "mpjpe_mm": 97.22,
+          "upper_rmse_deg": 9.23,
+          "chatter_hz": 9.62,
+          "peak_temp_c": 59.96,
+          "schedule": "S6_Live_IcePlusDelay",
+          "biome_covered": true,
+          "program_sha": "3631526863a44cc9"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 41.03,
+          "upper_rmse_deg": 6.53,
+          "chatter_hz": 8.64,
+          "peak_temp_c": 63.88,
+          "schedule": "S7_Krump_Tempo160_Backlash",
+          "biome_covered": true,
+          "program_sha": "903273d0ec176121"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 35.25,
+          "upper_rmse_deg": 4.81,
+          "chatter_hz": 11.48,
+          "peak_temp_c": 71.5,
+          "schedule": "S8_Session_Compound4Axis",
+          "biome_covered": true,
+          "program_sha": "2de73fd50e9fa6c4"
+        }
+      ]
+    },
+    "no_explicit_culture": {
+      "biomes_covered": "4/4",
+      "survival_pct": 87.5,
+      "schedules_survived": "7/8",
+      "mean_mpjpe_mm": 51.26,
+      "mean_upper_rmse_deg": 6.04,
+      "mean_chatter_hz": 8.79,
+      "max_stator_temp_c": 74.61,
+      "heldout_physical_resilience": 0.7065,
+      "per_schedule": [
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 39.49,
+          "upper_rmse_deg": 4.43,
+          "chatter_hz": 7.86,
+          "peak_temp_c": 55.93,
+          "schedule": "S1_Buck_HeavyPush",
+          "biome_covered": true,
+          "program_sha": "1ea7b4e7f200449c"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 32.78,
+          "upper_rmse_deg": 5.31,
+          "chatter_hz": 8.32,
+          "peak_temp_c": 56.73,
+          "schedule": "S2_Krump_BacklashBurst",
+          "biome_covered": true,
+          "program_sha": "56108d80f6c34f8a"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 94.0,
+          "upper_rmse_deg": 8.58,
+          "chatter_hz": 8.53,
+          "peak_temp_c": 55.2,
+          "schedule": "S3_Live_IceSlip_012",
+          "biome_covered": true,
+          "program_sha": "128ee762274206ff"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 37.77,
+          "upper_rmse_deg": 5.2,
+          "chatter_hz": 9.49,
+          "peak_temp_c": 59.94,
+          "schedule": "S4_Session_Delay20ms",
+          "biome_covered": true,
+          "program_sha": "e5d24952ce5c4230"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 43.32,
+          "upper_rmse_deg": 4.75,
+          "chatter_hz": 7.44,
+          "peak_temp_c": 74.61,
+          "schedule": "S5_Buck_ThermalSurge",
+          "biome_covered": true,
+          "program_sha": "1ea7b4e7f200449c"
+        },
+        {
+          "survived": false,
+          "survival_frac": 0.7487,
+          "mpjpe_mm": 85.41,
+          "upper_rmse_deg": 9.54,
+          "chatter_hz": 10.1,
+          "peak_temp_c": 58.83,
+          "schedule": "S6_Live_IcePlusDelay",
+          "biome_covered": true,
+          "program_sha": "128ee762274206ff"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 40.96,
+          "upper_rmse_deg": 5.82,
+          "chatter_hz": 8.62,
+          "peak_temp_c": 63.85,
+          "schedule": "S7_Krump_Tempo160_Backlash",
+          "biome_covered": true,
+          "program_sha": "56108d80f6c34f8a"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 36.36,
+          "upper_rmse_deg": 4.7,
+          "chatter_hz": 10.0,
+          "peak_temp_c": 71.22,
+          "schedule": "S8_Session_Compound4Axis",
+          "biome_covered": true,
+          "program_sha": "e5d24952ce5c4230"
+        }
+      ]
+    },
+    "isolated_best_of_n": {
+      "biomes_covered": "2/4",
+      "survival_pct": 100.0,
+      "schedules_survived": "8/8",
+      "mean_mpjpe_mm": 45.54,
+      "mean_upper_rmse_deg": 5.43,
+      "mean_chatter_hz": 8.81,
+      "max_stator_temp_c": 74.43,
+      "heldout_physical_resilience": 0.6445,
+      "per_schedule": [
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 38.43,
+          "upper_rmse_deg": 4.01,
+          "chatter_hz": 8.07,
+          "peak_temp_c": 56.69,
+          "schedule": "S1_Buck_HeavyPush",
+          "biome_covered": false,
+          "program_sha": "UNCOVERED_DEFAULT"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 30.93,
+          "upper_rmse_deg": 4.85,
+          "chatter_hz": 8.22,
+          "peak_temp_c": 56.79,
+          "schedule": "S2_Krump_BacklashBurst",
+          "biome_covered": false,
+          "program_sha": "UNCOVERED_DEFAULT"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 61.88,
+          "upper_rmse_deg": 5.92,
+          "chatter_hz": 8.58,
+          "peak_temp_c": 54.59,
+          "schedule": "S3_Live_IceSlip_012",
+          "biome_covered": true,
+          "program_sha": "55235f696fd868ff"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 37.34,
+          "upper_rmse_deg": 5.66,
+          "chatter_hz": 8.85,
+          "peak_temp_c": 59.75,
+          "schedule": "S4_Session_Delay20ms",
+          "biome_covered": true,
+          "program_sha": "9930431265cedc22"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 40.15,
+          "upper_rmse_deg": 4.77,
+          "chatter_hz": 8.36,
+          "peak_temp_c": 74.43,
+          "schedule": "S5_Buck_ThermalSurge",
+          "biome_covered": false,
+          "program_sha": "UNCOVERED_DEFAULT"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 77.27,
+          "upper_rmse_deg": 7.42,
+          "chatter_hz": 9.55,
+          "peak_temp_c": 60.37,
+          "schedule": "S6_Live_IcePlusDelay",
+          "biome_covered": true,
+          "program_sha": "55235f696fd868ff"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 40.37,
+          "upper_rmse_deg": 5.35,
+          "chatter_hz": 9.38,
+          "peak_temp_c": 63.88,
+          "schedule": "S7_Krump_Tempo160_Backlash",
+          "biome_covered": false,
+          "program_sha": "UNCOVERED_DEFAULT"
+        },
+        {
+          "survived": true,
+          "survival_frac": 1.0,
+          "mpjpe_mm": 37.96,
+          "upper_rmse_deg": 5.46,
+          "chatter_hz": 9.49,
+          "peak_temp_c": 71.51,
+          "schedule": "S8_Session_Compound4Axis",
+          "biome_covered": true,
+          "program_sha": "9930431265cedc22"
+        }
+      ]
+    }
+  },
+  "study_3b_discopy_circuit_replication": {
+    "full_culture": {
+      "heldout_resilience_mean": 0.7759,
+      "heldout_resilience_std": 0.0096,
+      "portfolio_resilience_mean": 0.9203,
+      "best_single_circuit_mean": 0.8864,
+      "validated_inventions_mean": 1.5
+    },
+    "no_communication": {
+      "heldout_resilience_mean": 0.7538,
+      "heldout_resilience_std": 0.0371,
+      "portfolio_resilience_mean": 0.8925,
+      "best_single_circuit_mean": 0.8865,
+      "validated_inventions_mean": 2.5
+    },
+    "no_explicit_culture": {
+      "heldout_resilience_mean": 0.6059,
+      "heldout_resilience_std": 0.0531,
+      "portfolio_resilience_mean": 0.7518,
+      "best_single_circuit_mean": 0.8318,
+      "validated_inventions_mean": 2.0
+    },
+    "isolated_best_of_n": {
+      "heldout_resilience_mean": 0.2517,
+      "heldout_resilience_std": 0.0203,
+      "portfolio_resilience_mean": 0.4763,
+      "best_single_circuit_mean": 0.8662,
+      "validated_inventions_mean": 2.25
+    }
+  },
+  "artifacts": {
+    "figure_1_pdf": "paper/figures/fig_krump_swarmworld_scaling_phenotypes.pdf",
+    "figure_1_png": "paper/figures/fig_krump_swarmworld_scaling_phenotypes.png",
+    "figure_2_pdf": "paper/figures/fig_krump_swarmworld_dual_substrates.pdf",
+    "figure_2_png": "paper/figures/fig_krump_swarmworld_dual_substrates.png"
+  },
+  "wall_clock_seconds": 141.87,
+  "sha256_seal": "daae37f39ebf6f4afcc3b755c033850555f3cd06f34fc665bb780cd9e62902d4"
+}

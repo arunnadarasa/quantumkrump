@@ -9,17 +9,17 @@
   },
   "metadata": {
     "name": "Quantum Krump Universal Knowledge Graph",
-    "version": "2.3.0",
-    "description": "Multi-domain interconnected knowledge graph unifying Laban Movement Analysis, Krump street dance, anatomical Bloch kinesphere biomechanics, DisCoPy applied category theory, Lean 4.35.0 machine-checked formal proofs, Quantinuum Helios-1E-lite trapped-ion emulation, Rosenberg-quadratized QUBO & HiGHS MILP / (w, k_T) classical complexity ceilings, biophysical neuromuscular grounding, Rhyme symbolic quantum execution, KrumpRobot Physical AI humanoid control, KrumpFlow-CFM SO(3) tangent flow matching & Unitree G1 nonlinear QDD actuator physics, 10-language publication suite, and 11th Quantum Dimension theatrical production.",
+    "version": "2.4.0",
+    "description": "Multi-domain interconnected knowledge graph unifying Laban Movement Analysis, Krump street dance, anatomical Bloch kinesphere biomechanics, DisCoPy applied category theory, Lean 4.35.0 machine-checked formal proofs, Quantinuum Helios-1E-lite trapped-ion emulation, Rosenberg-quadratized QUBO & HiGHS MILP / (w, k_T) classical complexity ceilings, falsifiable Krump SwarmWorld collective intelligence (arXiv:2608.26081 protocol), biophysical neuromuscular grounding, Rhyme symbolic quantum execution, KrumpRobot Physical AI humanoid control, KrumpFlow-CFM SO(3) tangent flow matching & Unitree G1 nonlinear QDD actuator physics, 10-language publication suite, and 11th Quantum Dimension theatrical production.",
     "author": "Arun Nadarasa & Dakota Simao (Twin Bad Liks / Jr Outrage)",
     "federation": "Angels of Krump Movement Federation",
     "acknowledgment": "This work was supported in part by complimentary access to Google Antigravity and Gemini 4 Argon to accelerate scientific workflows.",
-    "created_at": "2026-11-15T12:05:00.000000+00:00",
+    "created_at": "2026-11-15T13:34:00.000000+00:00",
     "license": "CC-BY-4.0 / Apache-2.0",
     "repository": "https://arunnadarasa.github.io/quantumkrump/",
     "stats": {
-      "nodes_count": 101,
-      "edges_count": 182,
+      "nodes_count": 102,
+      "edges_count": 186,
       "domains_count": 10
     }
   },
@@ -821,8 +821,8 @@
       "name": "Multilingual Monograph & Focused Companion Suite (10 Languages)",
       "domain": "empirical_pedagogy",
       "category": "Open-Access Publications",
-      "formula": "\\text{Monograph (66 pp. } \\times 10 \\text{ langs)} \\oplus \\text{Pedagogy (15 pp.)} \\oplus \\text{KrumpRobot (26 pp.)} \\oplus \\text{Cat. Choreo. (17 pp.)}",
-      "description": "Open-access publication architecture comprising the 66-page Master Reference Monograph natively typeset across EN, FR, DE, NL, FIL, JA, KO, ZH, HI, and TA, paired with the 15-page Embodied Pedagogy Companion, 26-page Standalone KrumpRobot Physical AI Preprint, and 17-page Categorical Choreography Journal Preprint.",
+      "formula": "\\text{Monograph (68 pp. } \\times 10\\text{)} \\oplus \\text{Pedagogy (15)} \\oplus \\text{KrumpRobot (26)} \\oplus \\text{Cat. (17)} \\oplus \\text{SwarmWorld (15)}",
+      "description": "Open-access publication architecture comprising the 68-page Master Reference Monograph natively typeset across EN, FR, DE, NL, FIL, JA, KO, ZH, HI, and TA, paired with four venue-targeted standalone preprints: Embodied Pedagogy (15 pp.), KrumpRobot Physical AI (26 pp.), Categorical Choreography (17 pp.), and Krump SwarmWorld Collective Intelligence (15 pp.).",
       "x": 406.0,
       "y": 285.7
     },
@@ -1085,6 +1085,16 @@
       "description": "Exact classical ceiling demarcation combining HiGHS branch-and-cut MILP across D=2..32 dancers (9.11 ms at D=2, 97.92 ms at D=20 with 0.00% LP gap, 36.5x-134.9x faster than OpenJij Penalty-QUBO vs. a sharp 69.61% LP integrality gap and >80x slowdown on frustrated Order-3 cubic Session HUBOs) with 64-bit symplectic Pauli backpropagation (n=48, k_T=16 in 24.18 ms) and min-fill treewidth tensor contraction (n=24, w=31 in 2.45 s), locating the 10^3 s classical bottleneck at simultaneous w >= 66 and k_T >= 45.",
       "x": 852.0,
       "y": 642.0
+    },
+    {
+      "id": "node_krump_swarmworld_falsifiable",
+      "name": "Krump SwarmWorld Falsifiable Collective Intelligence (Lane K322)",
+      "domain": "stage_optimization",
+      "category": "Falsifiable Collective Intelligence",
+      "formula": "\\bar{R}_{\\text{Full/NoComm}} = 0.655\\text{--}0.679 \\gg \\bar{R}_{\\text{BestOf48}} = 0.180\\;(3.77\\times), \\; Q_{\\max}^{\\text{BestOf48}} = 0.793",
+      "description": "Zero-hype falsifiable implementation of Pal, Wang, & Buehler (arXiv:2608.26081) across a 12x12 4-biome Session studio arena (0 role prompts, 100% condition-blind policy, live jev-1.14.0 24-state audit at 100% accuracy & 100% order invariance, Git-style SHA-256 SessionControllerAST Merkle lineage up to depth 23.5). Demonstrates 3.64x-3.77x agent-free held-out resilience over matched Best-of-N isolated search alongside candid single-peak parity (0.7925 vs 0.8156), N=96 pure-stigmergy crowding degradation (0.544 -> 0.364), +94.27 pp post-hoc builder/caretaker shift, 97.78%-100% physical-observation first reuse, 99.87%-100% BH-FDR knockout survival, and cross-substrate verification in 200 Hz MuJoCo 4.0.1 G1 QDD physics and DisCoPy 4-qubit Kraus circuits.",
+      "x": 598.0,
+      "y": 658.0
     }
   ],
   "edges": [
@@ -2361,6 +2371,34 @@
       "target": "node_hw_cpu_floor",
       "relation": "maps_complexity_frontier",
       "label": "n=48 symplectic Pauli + treewidth TN (w >= 66, k_T >= 45)"
+    },
+    {
+      "id": "e_027",
+      "source": "node_krump_swarmworld_falsifiable",
+      "target": "node_swarm_krump_world",
+      "relation": "falsifiably_upgrades",
+      "label": "0 role prompts + Merkle AST DAG + Best-of-N null (Lane K322)"
+    },
+    {
+      "id": "e_028",
+      "source": "node_krump_swarmworld_falsifiable",
+      "target": "node_qkwm_arena",
+      "relation": "replicates_across_substrates",
+      "label": "3.64x-3.77x held-out resilience & 4Q DisCoPy Kraus (0.776 vs 0.252)"
+    },
+    {
+      "id": "e_029",
+      "source": "node_gov_typesafe_jev",
+      "target": "node_krump_swarmworld_falsifiable",
+      "relation": "audits_deliberation",
+      "label": "Live jev-1.14.0 100% routing & 1.000 Companion Noul AUC"
+    },
+    {
+      "id": "e_030",
+      "source": "node_krump_swarmworld_falsifiable",
+      "target": "node_three_paper_suite",
+      "relation": "documented_in",
+      "label": "15-Page Standalone Krump SwarmWorld Preprint"
     }
   ]
 }

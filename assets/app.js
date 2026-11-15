@@ -5,9 +5,9 @@ const PREPRINTS = {
     label: "English",
     file: "downloads/quantum-krump-preprint.pdf",
     filename: "quantum-krump-preprint.pdf",
-    title: "Master Monograph (English · 66 Pages)",
+    title: "Master Monograph (English · 68 Pages)",
     abstract:
-      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams (machine-checked across 45/45 zero-sorry theorems in Lean 4.35.0), and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 31 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), exact HiGHS MILP & (w ≥ 66, k_T ≥ 45) classical ceilings, TypeSafe Jev 1.14 + QK-WM (64.6% 2Q cut; N = 0 human RCT subjects), and standalone KrumpRobot + KrumpFlow-CFM (2.20° held-out error) + Unitree G1 nonlinear QDD control (60.0 s thermal endurance @ 88.51°C)."
+      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams (machine-checked across 45/45 zero-sorry theorems in Lean 4.35.0), and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 32 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), exact HiGHS MILP & (w ≥ 66, k_T ≥ 45) classical ceilings, falsifiable Krump SwarmWorld collective evolution (3.64×–3.77× held-out resilience over matched Best-of-N), TypeSafe Jev 1.14 + QK-WM (N = 0 human RCT subjects), and standalone KrumpRobot + KrumpFlow-CFM (2.20° held-out error) + Unitree G1 nonlinear QDD control."
   },
   fr: {
     label: "Français",
@@ -201,7 +201,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {66-page Master Reference Monograph in 10 languages; Lean 4.35.0, Quantinuum Nexus Helios-1E-lite, HiGHS MILP \\& (w, k_T) Classical Ceiling, DisCoPy, TypeSafe Jev 1.14, QK-WM, AlphaGenome 2, Modal Cloud, and KrumpRobot},
+  note    = {68-page Master Reference Monograph in 10 languages; Lean 4.35.0, Quantinuum Nexus Helios-1E-lite, HiGHS MILP \\& (w, k_T) Classical Ceiling, Krump SwarmWorld, DisCoPy, TypeSafe Jev 1.14, QK-WM, AlphaGenome 2, Modal Cloud, and KrumpRobot},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-preprint.pdf}
 }`,
   category: `@article{nadarasa2026functorialkrump,
@@ -211,6 +211,14 @@ const BIBTEX = {
   month   = {November},
   note    = {17-page Standalone Applied Category Theory Preprint (Lean 4.35.0 45/45 zero-sorry formal proof, HiGHS MILP D=2..32 \\& 2D (w, k_T) Classical Ceiling)},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/categorical-krump-choreography-paper.pdf}
+}`,
+  swarmworld: `@article{nadarasa2026swarmworld,
+  title   = {Krump SwarmWorld: Falsifiable Stigmergic Evolution, Executable Controller Lineage, and Agent-Free Disturbance Resilience Across Embodied Session Collectives},
+  author  = {Nadarasa, Arun},
+  year    = {2026},
+  month   = {November},
+  note    = {15-page Standalone Collective Intelligence \\& Multi-Agent Systems Preprint (arXiv:2608.26081 Falsifiable Protocol, Acyclic SHA-256 Merkle AST Lineage, Live TypeSafe Jev 1.14 Audit, 200 Hz MuJoCo 4.0.1 Unitree G1 QDD \\& DisCoPy 4Q Kraus Verification)},
+  url     = {https://arunnadarasa.github.io/quantumkrump/downloads/krump-swarmworld-paper.pdf}
 }`,
   pedagogy: `@article{nadarasa2026pedagogy,
   title   = {Embodied Quantum Pedagogy through Krump Street Dance, Laban Movement Analysis, and String Diagrams},
@@ -339,6 +347,19 @@ const PAPER_DOCS = {
       { label: "p.16 References", page: 16 }
     ]
   },
+  swarmworld: {
+    file: "downloads/krump-swarmworld-paper.pdf",
+    filename: "krump-swarmworld-paper.pdf",
+    bookmarks: [
+      { label: "p.1 Intro & Abstract", page: 1 },
+      { label: "p.3 Arena & Merkle AST", page: 3 },
+      { label: "p.4 Ablations & Jev 1.14", page: 4 },
+      { label: "p.6 Scaling & Bounded Adv.", page: 6 },
+      { label: "p.7 Phenotypes & BH-FDR", page: 7 },
+      { label: "p.10 MuJoCo & DisCoPy", page: 10 },
+      { label: "p.13 References", page: 13 }
+    ]
+  },
   pedagogy: {
     file: "downloads/quantum-krump-pedagogy-paper.pdf",
     filename: "quantum-krump-pedagogy-paper.pdf",
@@ -450,7 +471,7 @@ function initPreprintAndModals() {
   let activeDoc = "monograph";
   let zoomFactor = 1.0;
   let currentPdfDoc = null;
-  let currentNumPages = 66;
+  let currentNumPages = 68;
   let currentPage = 1;
   let activeBookmarks = [];
   let pageObserver = null;
@@ -1817,7 +1838,7 @@ function initKnowledgeGraph() {
   let layoutIdx = 0; // Default to clean radial Sector Map (zero physics jitter!)
   let egoOnly = false;
   let zoomScale = 1.05;
-  let selectedId = "node_krumpflow_actuator";
+  let selectedId = "node_krump_swarmworld_falsifiable";
   const historyStack = [];
 
   function syncSpotlightChips() {
@@ -3145,6 +3166,66 @@ function initWorldModelCharts() {
           lineStyle: { width: 2.5, color: "#f4ae42" },
           itemStyle: { color: "#f4ae42" },
           data: [0.0, 0.18, 0.0, 0.0, 36.47, 69.61]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // 8. Krump SwarmWorld: Falsifiable Bounded Collective Advantage vs. Best-of-48 Isolated Null
+  const elSw = document.getElementById("echart-wm-swarmworld");
+  if (elSw) {
+    const ch = window.echarts.init(elSw, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 4, textStyle: { color: "#d8ebe8", fontSize: 9.8 }, itemWidth: 11, itemHeight: 8 },
+      grid: { top: 44, right: 20, bottom: 42, left: 46 },
+      xAxis: {
+        type: "category",
+        axisLabel: { color: "#d8ebe8", fontSize: 9.5, interval: 0 },
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        data: ["Full\nCulture", "No Comm\n(Silent)", "No Explicit\n(Pure Stig.)", "Best-of-48\nIsolated"]
+      },
+      yAxis: {
+        type: "value",
+        name: "Agent-Free Score",
+        min: 0,
+        max: 1.0,
+        nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+        splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+      },
+      series: [
+        {
+          name: "Held-Out Resilience (1600t)",
+          type: "bar",
+          barWidth: "20%",
+          itemStyle: { color: "#38d6c4", borderRadius: [3, 3, 0, 0] },
+          data: [0.6551, 0.6790, 0.5409, 0.1800]
+        },
+        {
+          name: "Biome Portfolio Coverage",
+          type: "bar",
+          barWidth: "20%",
+          itemStyle: { color: "#4e79a7", borderRadius: [3, 3, 0, 0] },
+          data: [0.8362, 0.8584, 0.7848, 0.2518]
+        },
+        {
+          name: "DisCoPy 4Q Kraus Resilience",
+          type: "bar",
+          barWidth: "20%",
+          itemStyle: { color: "#a78bfa", borderRadius: [3, 3, 0, 0] },
+          data: [0.7759, 0.7538, 0.6059, 0.2517]
+        },
+        {
+          name: "Single-Artifact Peak Q_max",
+          type: "line",
+          symbol: "circle",
+          symbolSize: 8,
+          lineStyle: { width: 2.5, type: "dashed", color: "#f4ae42" },
+          itemStyle: { color: "#f4ae42" },
+          data: [0.8156, 0.8149, 0.7797, 0.7925]
         }
       ]
     });
