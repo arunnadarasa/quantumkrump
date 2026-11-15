@@ -1,0 +1,179 @@
+{
+  "benchmark_name": "Jij Multi-Dancer Stage Scheduling QUBO Solver",
+  "timestamp_utc": "2026-10-18T10:52:55.630107+00:00",
+  "frameworks": {
+    "jijmodeling_version": "2.9.1",
+    "openjij_version": "0.11.6",
+    "dimod_version": "0.12.22"
+  },
+  "stage_geometry": {
+    "grid_rows": 5,
+    "grid_cols": 4,
+    "total_stage_cells": 20,
+    "time_beats": 6,
+    "num_dancers": 2,
+    "decision_variables": 240,
+    "quadratic_interactions": 5100
+  },
+  "solver_execution": {
+    "sampler": "openjij.SASampler (C++ accelerated)",
+    "num_reads": 500,
+    "num_sweeps": 2000,
+    "seed": null,
+    "solve_runtime_seconds": 1.3918,
+    "total_runtime_seconds": 1.3964,
+    "ground_state_energy": -7.1743
+  },
+  "choreographic_validation": {
+    "one_cell_per_dancer_per_beat": true,
+    "collision_count": 0,
+    "collision_rate_percent": 0.0,
+    "discontinuous_leaps": 0,
+    "contiguity_satisfaction_percent": 100.0,
+    "checkpoints_satisfied": true,
+    "checkpoint_score": "6/6 (100%)",
+    "total_choreographic_potential": 7.1743,
+    "constraint_violation_penalty": 0.0,
+    "status": "VERIFIED (PASS)"
+  },
+  "optimal_stage_trajectories": {
+    "dancer_0_lead": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        3
+      ]
+    ],
+    "dancer_1_partner": [
+      [
+        4,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "beat_by_beat_clearance": [
+      {
+        "beat": 0,
+        "dancer_0": [
+          0,
+          0
+        ],
+        "dancer_1": [
+          4,
+          3
+        ],
+        "manhattan_distance": 7,
+        "chebyshev_distance": 4,
+        "collision": false
+      },
+      {
+        "beat": 1,
+        "dancer_0": [
+          1,
+          1
+        ],
+        "dancer_1": [
+          3,
+          2
+        ],
+        "manhattan_distance": 3,
+        "chebyshev_distance": 2,
+        "collision": false
+      },
+      {
+        "beat": 2,
+        "dancer_0": [
+          2,
+          1
+        ],
+        "dancer_1": [
+          2,
+          2
+        ],
+        "manhattan_distance": 1,
+        "chebyshev_distance": 1,
+        "collision": false
+      },
+      {
+        "beat": 3,
+        "dancer_0": [
+          3,
+          1
+        ],
+        "dancer_1": [
+          2,
+          1
+        ],
+        "manhattan_distance": 1,
+        "chebyshev_distance": 1,
+        "collision": false
+      },
+      {
+        "beat": 4,
+        "dancer_0": [
+          3,
+          2
+        ],
+        "dancer_1": [
+          1,
+          1
+        ],
+        "manhattan_distance": 3,
+        "chebyshev_distance": 2,
+        "collision": false
+      },
+      {
+        "beat": 5,
+        "dancer_0": [
+          4,
+          3
+        ],
+        "dancer_1": [
+          0,
+          0
+        ],
+        "manhattan_distance": 7,
+        "chebyshev_distance": 4,
+        "collision": false
+      }
+    ]
+  }
+}

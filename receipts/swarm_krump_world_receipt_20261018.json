@@ -1,0 +1,176 @@
+{
+  "benchmark": "SwarmKrumpWorld_Stigmergy_and_Phenotypic_Quantum_Compilation",
+  "timestamp_utc": "2026-10-18T08:25:10Z",
+  "modal_execution_time_sec": 0.997,
+  "stigmergic_simulation": {
+    "n_agents": 50,
+    "n_ticks": 200,
+    "grid_size": [
+      6,
+      6
+    ],
+    "gamma_decay": 0.92,
+    "phenotypes": [
+      "Brawler",
+      "Flash",
+      "BigHomie",
+      "Flow",
+      "Hype"
+    ],
+    "final_phenotype_distribution": {
+      "Brawler": 5,
+      "Flash": 20,
+      "BigHomie": 7,
+      "Flow": 10,
+      "Hype": 8
+    },
+    "evolution_history": [
+      {
+        "tick": 0,
+        "counts": {
+          "Brawler": 11,
+          "Flash": 2,
+          "BigHomie": 13,
+          "Flow": 14,
+          "Hype": 10
+        }
+      },
+      {
+        "tick": 20,
+        "counts": {
+          "Brawler": 6,
+          "Flash": 10,
+          "BigHomie": 12,
+          "Flow": 13,
+          "Hype": 9
+        }
+      },
+      {
+        "tick": 40,
+        "counts": {
+          "Brawler": 5,
+          "Flash": 14,
+          "BigHomie": 5,
+          "Flow": 19,
+          "Hype": 7
+        }
+      },
+      {
+        "tick": 60,
+        "counts": {
+          "Brawler": 7,
+          "Flash": 11,
+          "BigHomie": 9,
+          "Flow": 15,
+          "Hype": 8
+        }
+      },
+      {
+        "tick": 80,
+        "counts": {
+          "Brawler": 4,
+          "Flash": 13,
+          "BigHomie": 6,
+          "Flow": 16,
+          "Hype": 11
+        }
+      },
+      {
+        "tick": 100,
+        "counts": {
+          "Brawler": 6,
+          "Flash": 9,
+          "BigHomie": 11,
+          "Flow": 16,
+          "Hype": 8
+        }
+      },
+      {
+        "tick": 120,
+        "counts": {
+          "Brawler": 5,
+          "Flash": 12,
+          "BigHomie": 10,
+          "Flow": 15,
+          "Hype": 8
+        }
+      },
+      {
+        "tick": 140,
+        "counts": {
+          "Brawler": 6,
+          "Flash": 10,
+          "BigHomie": 9,
+          "Flow": 18,
+          "Hype": 7
+        }
+      },
+      {
+        "tick": 160,
+        "counts": {
+          "Brawler": 5,
+          "Flash": 14,
+          "BigHomie": 8,
+          "Flow": 11,
+          "Hype": 12
+        }
+      },
+      {
+        "tick": 180,
+        "counts": {
+          "Brawler": 6,
+          "Flash": 13,
+          "BigHomie": 10,
+          "Flow": 12,
+          "Hype": 9
+        }
+      }
+    ],
+    "total_energy_deposited": 936.5,
+    "peak_ground_strain": 44.69
+  },
+  "openjij_qubo_stage_scheduling": {
+    "dancers": 4,
+    "beats": 6,
+    "stage_grid": [
+      5,
+      4
+    ],
+    "total_binary_vars": 480,
+    "ground_energy_E0": -350.0,
+    "collision_count": 0,
+    "collision_rate": "0.0%",
+    "status": "PASS"
+  },
+  "helios_trapped_ion_emulator": {
+    "job_type": "Phenotypic_Duet_Uncomputed_Analyzer",
+    "bell_state": "Phi_Plus",
+    "target_state": "01",
+    "theoretical_probability": 1.0,
+    "measured_fidelity": 0.9932,
+    "shots": 2048,
+    "status": "PASS"
+  },
+  "haiqu_compression": {
+    "raw_circuit_depth": 28,
+    "compressed_circuit_depth": 4,
+    "depth_reduction_pct": 85.71,
+    "fidelity_bound": 0.9994,
+    "status": "PASS"
+  },
+  "rhyme_symbolic_rhythm": {
+    "tempo_bpm_range": [
+      140.0,
+      150.0
+    ],
+    "measure_duration_sec": 1.6552,
+    "constructive_fidelity": 1.0,
+    "destructive_extinction": 0.0,
+    "status": "PASS"
+  },
+  "audit_gate_G_SwarmWorld": {
+    "verdict": "VERIFIED (PASS)",
+    "epistemic_bounding": "Strictly classical stigmergy; zero biological macroscopic coherence claimed",
+    "reproducibility": "Deterministic seed 20261018 verified on Modal Cloud"
+  }
+}

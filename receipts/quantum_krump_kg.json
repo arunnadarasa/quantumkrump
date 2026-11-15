@@ -9,17 +9,17 @@
   },
   "metadata": {
     "name": "Quantum Krump Universal Knowledge Graph",
-    "version": "2.4.0",
-    "description": "Multi-domain interconnected knowledge graph unifying Laban Movement Analysis, Krump street dance, anatomical Bloch kinesphere biomechanics, DisCoPy applied category theory, Lean 4.35.0 machine-checked formal proofs, Quantinuum Helios-1E-lite trapped-ion emulation, Rosenberg-quadratized QUBO & HiGHS MILP / (w, k_T) classical complexity ceilings, falsifiable Krump SwarmWorld collective intelligence (arXiv:2608.26081 protocol), biophysical neuromuscular grounding, Rhyme symbolic quantum execution, KrumpRobot Physical AI humanoid control, KrumpFlow-CFM SO(3) tangent flow matching & Unitree G1 nonlinear QDD actuator physics, 10-language publication suite, and 11th Quantum Dimension theatrical production.",
+    "version": "2.5.0",
+    "description": "Multi-domain interconnected knowledge graph unifying Laban Movement Analysis, Krump street dance, anatomical Bloch kinesphere biomechanics, DisCoPy applied category theory, Lean 4.35.0 machine-checked formal proofs, Quantinuum Helios-1E-lite trapped-ion emulation, Rosenberg-quadratized QUBO & HiGHS MILP / (w, k_T) classical complexity ceilings, falsifiable Krump SwarmWorld collective intelligence (arXiv:2608.26081 protocol), QK-WM-v2 conformal ACI curriculum belief & 64x64 CPTP Kraus open-system choreography, biophysical neuromuscular grounding, Rhyme symbolic quantum execution, KrumpRobot Physical AI humanoid control, KrumpFlow-CFM-v2 SO(3) consistency flow matching, Split-Chain Capture-Point CBF-QP, KR-WM-CEM horizon-6 ensemble planning & Unitree G1 nonlinear QDD actuator physics, 10-language publication suite, and 11th Quantum Dimension theatrical production.",
     "author": "Arun Nadarasa & Dakota Simao (Twin Bad Liks / Jr Outrage)",
     "federation": "Angels of Krump Movement Federation",
     "acknowledgment": "This work was supported in part by complimentary access to Google Antigravity and Gemini 4 Argon to accelerate scientific workflows.",
-    "created_at": "2026-11-15T13:34:00.000000+00:00",
+    "created_at": "2026-11-15T16:36:00.000000+00:00",
     "license": "CC-BY-4.0 / Apache-2.0",
     "repository": "https://arunnadarasa.github.io/quantumkrump/",
     "stats": {
-      "nodes_count": 102,
-      "edges_count": 186,
+      "nodes_count": 105,
+      "edges_count": 195,
       "domains_count": 10
     }
   },
@@ -821,8 +821,8 @@
       "name": "Multilingual Monograph & Focused Companion Suite (10 Languages)",
       "domain": "empirical_pedagogy",
       "category": "Open-Access Publications",
-      "formula": "\\text{Monograph (68 pp. } \\times 10\\text{)} \\oplus \\text{Pedagogy (15)} \\oplus \\text{KrumpRobot (26)} \\oplus \\text{Cat. (17)} \\oplus \\text{SwarmWorld (15)}",
-      "description": "Open-access publication architecture comprising the 68-page Master Reference Monograph natively typeset across EN, FR, DE, NL, FIL, JA, KO, ZH, HI, and TA, paired with four venue-targeted standalone preprints: Embodied Pedagogy (15 pp.), KrumpRobot Physical AI (26 pp.), Categorical Choreography (17 pp.), and Krump SwarmWorld Collective Intelligence (15 pp.).",
+      "formula": "\\text{Monograph (71 pp. } \\times 10\\text{)} \\oplus \\text{Pedagogy (16)} \\oplus \\text{KrumpRobot (29)} \\oplus \\text{Cat. (17)} \\oplus \\text{SwarmWorld (15)}",
+      "description": "Open-access publication architecture comprising the 71-page Master Reference Monograph natively typeset across EN, FR, DE, NL, FIL, JA, KO, ZH, HI, and TA, paired with four venue-targeted standalone preprints: Embodied Pedagogy (16 pp.), KrumpRobot Physical AI (29 pp.), Categorical Choreography (17 pp.), and Krump SwarmWorld Collective Intelligence (15 pp.).",
       "x": 406.0,
       "y": 285.7
     },
@@ -1095,6 +1095,36 @@
       "description": "Zero-hype falsifiable implementation of Pal, Wang, & Buehler (arXiv:2608.26081) across a 12x12 4-biome Session studio arena (0 role prompts, 100% condition-blind policy, live jev-1.14.0 24-state audit at 100% accuracy & 100% order invariance, Git-style SHA-256 SessionControllerAST Merkle lineage up to depth 23.5). Demonstrates 3.64x-3.77x agent-free held-out resilience over matched Best-of-N isolated search alongside candid single-peak parity (0.7925 vs 0.8156), N=96 pure-stigmergy crowding degradation (0.544 -> 0.364), +94.27 pp post-hoc builder/caretaker shift, 97.78%-100% physical-observation first reuse, 99.87%-100% BH-FDR knockout survival, and cross-substrate verification in 200 Hz MuJoCo 4.0.1 G1 QDD physics and DisCoPy 4-qubit Kraus circuits.",
       "x": 598.0,
       "y": 658.0
+    },
+    {
+      "id": "node_krumprobot_cbf_closedloop_cfm",
+      "name": "KrumpFlow-CFM-v2 & Split-Chain Capture-Point CBF-QP (Lane K323)",
+      "domain": "biophysical_somatics",
+      "category": "Generative Kinematics & Safety-Critical Control",
+      "formula": "\\Delta_{45\\text{-step}} = -27.05\\%, \\; \\text{Surv}_{\\text{CFM}\\to\\text{G1}} = 4/4, \\; \\text{Surv}_{\\text{S1..S8}} = 8/8\\;(4.021\\;\\mu\\text{s})",
+      "description": "Pure Physical AI multi-step rollout consistency SO(3) flow matching (KrumpFlow-CFM-v2: 2.22 deg 1-step error, -27.05% 1.5 s drift reduction across 5 seeds; 4/4 unseen 3.0 s generated phrases tracked on floating-base Unitree G1 in 200 Hz MuJoCo 4.0.1 QDD physics via Mixamo2G1KinematicBridge at 37.98 mm MPJPE, -31.7%) paired with a 4.021 us analytical KKT Split-Chain Capture-Point Control Barrier Function QP (6.90e-9 max L2 deviation vs SciPy SLSQP) achieving 8/8 (100%) survival across S1..S8 multi-hazard disturbances at 44.99 mm MPJPE and 74.36 C peak stator temperature (N=0 physical robot trials).",
+      "x": 512.0,
+      "y": 852.0
+    },
+    {
+      "id": "node_krwm_cem_mpc",
+      "name": "Ensemble Horizon-6 Cross-Entropy Method Planner (KR-WM-CEM)",
+      "domain": "biophysical_somatics",
+      "category": "Model-Based Humanoid Planning",
+      "formula": "H = 6, \\; M = 5, \\; \\text{AUROC}_{\\text{fall}} = 0.8591, \\; \\text{Surv}_{\\text{OOD}} = 19/20\\;(56.54\\text{ mm}, \\; 3.69\\text{ ms})",
+      "description": "Pure Physical AI 5-member heteroscedastic residual world-model ensemble with 2-iteration Cross-Entropy Method (CEM) trajectory optimization (H=6 steps / 120 ms, N=16 candidates) on the floating-base 29-DoF Unitree G1 in 200 Hz MuJoCo 4.0.1 contact physics. Achieves 0.8591 held-out 6-step fall ROC-AUC (0.0064 Brier score), 19/20 (95.0%) survival across 4 unseen OOD terrain disturbances (sloped ice, delayed random push, heavy payload + compliance, high-tempo uneven friction), and lowest MPJPE across all 4 regimes (56.54 mm mean) in 3.687 ms p50 CPU latency (N=0 physical robot trials).",
+      "x": 362.0,
+      "y": 818.0
+    },
+    {
+      "id": "node_qkwm_v2_conformal_kraus",
+      "name": "QK-WM-v2: Conformal ACI Learner-WM & CPTP Kraus Arena-WM (Lane K324)",
+      "domain": "empirical_pedagogy",
+      "category": "Distribution-Free & Open-System World Models",
+      "formula": "\\text{Cov}_{\\text{ACI}}(45\\%) = 88.67\\%, \\; F_Q^{\\text{SLD}} = 3.88\\;(29.1\\times), \\; E_{\\mathcal{N}} = 1.964\\text{ ebits}",
+      "description": "Second-generation Quantum Krump World Model pairing online Adaptive Conformal Inference (ACI) over live jev-1.14.0 studio utterance sensors (16 live API calls, 100% validity gating, 1.000 Bio-Woo ROC-AUC; maintaining 88.67% coverage under 45% non-stationary learner mismatch vs 3.83% Bayesian and lifting weakest-concept floor +22.3% to 0.3734; N=0 human RCT subjects) with exact 64x64 CPTP Kraus density-matrix Session lookahead (3.8794 true mixed-state SLD-QFI, 29.1x over noise-blind unitary GHZ collapse at 0.1332; 1.9638 ebits partner Logarithmic Negativity; 100% OpenJij collision-free routing).",
+      "x": 312.0,
+      "y": 212.0
     }
   ],
   "edges": [
@@ -2399,6 +2429,69 @@
       "target": "node_three_paper_suite",
       "relation": "documented_in",
       "label": "15-Page Standalone Krump SwarmWorld Preprint"
+    },
+    {
+      "id": "e_031",
+      "source": "node_krumprobot_cbf_closedloop_cfm",
+      "target": "node_krumpflow_actuator",
+      "relation": "upgrades_horizon_stability",
+      "label": "-27.05% 45-step drift & 4/4 3.0s generated G1 survival (37.98 mm)"
+    },
+    {
+      "id": "e_032",
+      "source": "node_krumprobot_cbf_closedloop_cfm",
+      "target": "node_krwm_resppo",
+      "relation": "safety_filters",
+      "label": "4.021 us Split-Chain CBF-QP (8/8 S1..S8 survival, 44.99 mm)"
+    },
+    {
+      "id": "e_033",
+      "source": "node_krumprobot_cbf_closedloop_cfm",
+      "target": "node_mujoco_closed_loop_g1",
+      "relation": "bridges_generated_motion",
+      "label": "Mixamo2G1KinematicBridge (6.27 deg RMSE) in 200 Hz QDD"
+    },
+    {
+      "id": "e_034",
+      "source": "node_krwm_cem_mpc",
+      "target": "node_krwm_mpc",
+      "relation": "extends_rollout_horizon",
+      "label": "5-member H=6 CEM (19/20 OOD survival, 56.54 mm, 3.69 ms)"
+    },
+    {
+      "id": "e_035",
+      "source": "node_krwm_cem_mpc",
+      "target": "node_cartwheel_g1",
+      "relation": "modulates_stepping",
+      "label": "Lowest MPJPE across all 4 OOD terrain regimes"
+    },
+    {
+      "id": "e_036",
+      "source": "node_qkwm_v2_conformal_kraus",
+      "target": "node_qkwm_learner",
+      "relation": "conformalizes_belief",
+      "label": "ACI 88.67% coverage at 45% mismatch (+22.3% floor)"
+    },
+    {
+      "id": "e_037",
+      "source": "node_qkwm_v2_conformal_kraus",
+      "target": "node_qkwm_arena",
+      "relation": "upgrades_to_cptp_kraus",
+      "label": "64x64 Kraus SLD-QFI 3.88 (29.1x) & 1.964 ebits LogNeg"
+    },
+    {
+      "id": "e_038",
+      "source": "node_gov_typesafe_jev",
+      "target": "node_qkwm_v2_conformal_kraus",
+      "relation": "grounds_sensors",
+      "label": "16 live jev-1.14.0 utterances (100% gating, 1.000 Bio-Woo AUC)"
+    },
+    {
+      "id": "e_039",
+      "source": "node_krumprobot_cbf_closedloop_cfm",
+      "target": "node_three_paper_suite",
+      "relation": "documented_in",
+      "label": "29-Page Standalone KrumpRobot Physical AI Preprint"
     }
   ]
 }

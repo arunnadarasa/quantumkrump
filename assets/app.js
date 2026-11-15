@@ -5,9 +5,9 @@ const PREPRINTS = {
     label: "English",
     file: "downloads/quantum-krump-preprint.pdf",
     filename: "quantum-krump-preprint.pdf",
-    title: "Master Monograph (English · 68 Pages)",
+    title: "Master Monograph (English · 71 Pages)",
     abstract:
-      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams (machine-checked across 45/45 zero-sorry theorems in Lean 4.35.0), and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 32 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), exact HiGHS MILP & (w ≥ 66, k_T ≥ 45) classical ceilings, falsifiable Krump SwarmWorld collective evolution (3.64×–3.77× held-out resilience over matched Best-of-N), TypeSafe Jev 1.14 + QK-WM (N = 0 human RCT subjects), and standalone KrumpRobot + KrumpFlow-CFM (2.20° held-out error) + Unitree G1 nonlinear QDD control."
+      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams (machine-checked across 45/45 zero-sorry theorems in Lean 4.35.0), and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 34 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), exact HiGHS MILP & (w ≥ 66, k_T ≥ 45) classical ceilings, falsifiable Krump SwarmWorld collective evolution (3.64×–3.77× held-out resilience), QK-WM-v2 (88.67% Conformal ACI coverage under 45% mismatch, 3.88 Kraus SLD-QFI; N = 0 human RCT subjects), and standalone KrumpRobot + KrumpFlow-CFM-v2 (−27.1% 1.5s drift, 4/4 generated G1 survival) + Split-Chain CBF-QP (8/8 survival, 4.02 µs) + KR-WM-CEM (19/20 OOD)."
   },
   fr: {
     label: "Français",
@@ -201,7 +201,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {68-page Master Reference Monograph in 10 languages; Lean 4.35.0, Quantinuum Nexus Helios-1E-lite, HiGHS MILP \\& (w, k_T) Classical Ceiling, Krump SwarmWorld, DisCoPy, TypeSafe Jev 1.14, QK-WM, AlphaGenome 2, Modal Cloud, and KrumpRobot},
+  note    = {71-page Master Reference Monograph in 10 languages; Lean 4.35.0, Quantinuum Nexus Helios-1E-lite, HiGHS MILP \\& (w, k_T) Classical Ceiling, Krump SwarmWorld, DisCoPy, TypeSafe Jev 1.14, QK-WM-v2 (Conformal ACI \\& CPTP Kraus), AlphaGenome 2, Modal Cloud, and KrumpRobot},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-preprint.pdf}
 }`,
   category: `@article{nadarasa2026functorialkrump,
@@ -225,7 +225,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {15-page Focused Embodied Pedagogy Companion Preprint with QK-WM Learner-WM POMDP},
+  note    = {16-page Focused Embodied Pedagogy Companion Preprint with QK-WM-v2 Conformal ACI Curriculum POMDP \\& Kraus Open-System Choreography},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-pedagogy-paper.pdf}
 }`,
   krumprobot: `@article{nadarasa2026krumprobot,
@@ -233,7 +233,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun},
   year    = {2026},
   month   = {November},
-  note    = {26-page Standalone Physical AI \\& Humanoid Robotics Preprint (KrumpFlow-CFM Held-Out SO(3) Flow Matching, MuJoCo 4.0.1 Unitree G1, Cartwheel Control, KR-WM-ResPPO \\& Nonlinear QDD Actuator Physics)},
+  note    = {29-page Standalone Physical AI \\& Humanoid Robotics Preprint (KrumpFlow-CFM-v2 SO(3) Consistency Flow Matching, Split-Chain Capture-Point CBF-QP, KR-WM-CEM, KR-WM-ResPPO \\& Unitree G1 Nonlinear QDD Actuator Physics)},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/krumprobot-physical-ai-paper.pdf}
 }`
 };
@@ -384,7 +384,8 @@ const PAPER_DOCS = {
       { label: "p.15 KR-WM Ice/Push MPC", page: 15 },
       { label: "p.17 29-DoF ResPPO Sim2Real", page: 17 },
       { label: "p.20 KrumpFlow & QDD Plant", page: 20 },
-      { label: "p.23 WebGL & Roadmap", page: 23 },
+      { label: "p.23 CBF-QP & KR-WM-CEM", page: 23 },
+      { label: "p.26 WebGL & Roadmap", page: 26 },
       { label: "Refs & End", page: -1 }
     ]
   },
@@ -471,7 +472,7 @@ function initPreprintAndModals() {
   let activeDoc = "monograph";
   let zoomFactor = 1.0;
   let currentPdfDoc = null;
-  let currentNumPages = 68;
+  let currentNumPages = 71;
   let currentPage = 1;
   let activeBookmarks = [];
   let pageObserver = null;
@@ -1838,7 +1839,7 @@ function initKnowledgeGraph() {
   let layoutIdx = 0; // Default to clean radial Sector Map (zero physics jitter!)
   let egoOnly = false;
   let zoomScale = 1.05;
-  let selectedId = "node_krump_swarmworld_falsifiable";
+  let selectedId = "node_krumprobot_cbf_closedloop_cfm";
   const historyStack = [];
 
   function syncSpotlightChips() {
@@ -2300,10 +2301,10 @@ function initKnowledgeGraph() {
       b.classList.toggle("active", b.dataset.kgDomain === "all");
     });
     selectNode(
-      nodeById.has("node_krumpflow_actuator")
-        ? "node_krumpflow_actuator"
-        : nodeById.has("node_krwm_resppo")
-          ? "node_krwm_resppo"
+      nodeById.has("node_krumprobot_cbf_closedloop_cfm")
+        ? "node_krumprobot_cbf_closedloop_cfm"
+        : nodeById.has("node_krumpflow_actuator")
+          ? "node_krumpflow_actuator"
           : "node_krwm_mpc",
       false
     );
@@ -3226,6 +3227,138 @@ function initWorldModelCharts() {
           lineStyle: { width: 2.5, type: "dashed", color: "#f4ae42" },
           itemStyle: { color: "#f4ae42" },
           data: [0.8156, 0.8149, 0.7797, 0.7925]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // 9. Lane K323: KrumpFlow-CFM-v2 Horizon Drift & Split-Chain CBF-QP Multi-Hazard Suite
+  const elCbf = document.getElementById("echart-wm-cbf");
+  if (elCbf) {
+    const ch = window.echarts.init(elCbf, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 4, textStyle: { color: "#d8ebe8", fontSize: 9.8 }, itemWidth: 11, itemHeight: 8 },
+      grid: { top: 44, right: 48, bottom: 42, left: 48 },
+      xAxis: {
+        type: "category",
+        axisLabel: { color: "#d8ebe8", fontSize: 9.3, interval: 0 },
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        data: ["Cartwheel\nRL (7/8)", "Discrete\nReflex (7/8)", "Naive\n1.55× (8/8)", "CBF-QP\nOurs (8/8)"]
+      },
+      yAxis: [
+        {
+          type: "value",
+          name: "S1..S8 MPJPE (mm)",
+          min: 38,
+          max: 54,
+          nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+          splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+        },
+        {
+          type: "value",
+          name: "Survival (%)",
+          min: 70,
+          max: 105,
+          nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+          splitLine: { show: false }
+        }
+      ],
+      series: [
+        {
+          name: "S1..S8 Mean MPJPE (mm)",
+          type: "bar",
+          barWidth: "34%",
+          data: [
+            { value: 47.90, itemStyle: { color: "#4e79a7", borderRadius: [3, 3, 0, 0] } },
+            { value: 49.43, itemStyle: { color: "rgba(240,106,59,0.72)", borderRadius: [3, 3, 0, 0] } },
+            { value: 47.95, itemStyle: { color: "rgba(158,183,180,0.48)", borderRadius: [3, 3, 0, 0] } },
+            { value: 44.99, itemStyle: { color: "#38d6c4", borderRadius: [3, 3, 0, 0] }, label: { show: true, position: "top", color: "#38d6c4", fontSize: 9.5, formatter: "44.99 mm" } }
+          ]
+        },
+        {
+          name: "Multi-Hazard Survival (%)",
+          type: "line",
+          yAxisIndex: 1,
+          symbol: "circle",
+          symbolSize: 8,
+          lineStyle: { width: 2.5, color: "#f4ae42" },
+          itemStyle: { color: "#f4ae42" },
+          data: [87.5, 87.5, 100.0, 100.0]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // 10. Lane K324: Dual World Models v2 (Conformal ACI Coverage & Kraus Mixed SLD-QFI)
+  const elQkwm2 = document.getElementById("echart-wm-qkwm-v2");
+  if (elQkwm2) {
+    const ch = window.echarts.init(elQkwm2, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 4, textStyle: { color: "#d8ebe8", fontSize: 9.6 }, itemWidth: 11, itemHeight: 8 },
+      grid: { top: 44, right: 48, bottom: 42, left: 48 },
+      xAxis: {
+        type: "category",
+        axisLabel: { color: "#d8ebe8", fontSize: 9.2, interval: 0 },
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        data: ["M0 (0%\nShift)", "M1 (15%\nShift)", "M2 (30%\nShift)", "M3 (45%\nShift)"]
+      },
+      yAxis: [
+        {
+          type: "value",
+          name: "Empirical Coverage (%)",
+          min: 0,
+          max: 100,
+          nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+          splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+        },
+        {
+          type: "value",
+          name: "Weakest Floor",
+          min: 0.25,
+          max: 0.85,
+          nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+          splitLine: { show: false }
+        }
+      ],
+      series: [
+        {
+          name: "Uncalibrated Bayesian (%)",
+          type: "bar",
+          barWidth: "22%",
+          itemStyle: { color: "rgba(240,106,59,0.75)", borderRadius: [3, 3, 0, 0] },
+          data: [73.33, 27.67, 8.67, 3.83]
+        },
+        {
+          name: "Static Split Conformal (%)",
+          type: "bar",
+          barWidth: "22%",
+          itemStyle: { color: "#4e79a7", borderRadius: [3, 3, 0, 0] },
+          data: [89.83, 55.50, 26.67, 15.83]
+        },
+        {
+          name: "Online ACI Conformal (%)",
+          type: "bar",
+          barWidth: "22%",
+          itemStyle: { color: "#38d6c4", borderRadius: [3, 3, 0, 0] },
+          data: [90.17, 89.50, 89.00, 88.67]
+        },
+        {
+          name: "ACI-POMDP Floor",
+          type: "line",
+          yAxisIndex: 1,
+          symbol: "diamond",
+          symbolSize: 8,
+          lineStyle: { width: 2.4, color: "#f4ae42" },
+          itemStyle: { color: "#f4ae42" },
+          data: [0.768, 0.592, 0.461, 0.3734]
         }
       ]
     });
