@@ -5,9 +5,9 @@ const PREPRINTS = {
     label: "English",
     file: "downloads/quantum-krump-preprint.pdf",
     filename: "quantum-krump-preprint.pdf",
-    title: "Master Monograph (English · 64 Pages)",
+    title: "Master Monograph (English · 66 Pages)",
     abstract:
-      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams (machine-checked across 45/45 zero-sorry theorems in Lean 4.35.0), and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 29 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), TypeSafe Jev 1.14 + QK-WM (64.6% 2Q cut; N = 0 human RCT subjects), and standalone KrumpRobot + KR-WM-ResPPO 5-axis Sim-to-Real Unitree G1 control (29/29 survival across ice, 20 ms delay + noise, payload/slope, and 115–165 BPM)."
+      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams (machine-checked across 45/45 zero-sorry theorems in Lean 4.35.0), and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 31 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), exact HiGHS MILP & (w ≥ 66, k_T ≥ 45) classical ceilings, TypeSafe Jev 1.14 + QK-WM (64.6% 2Q cut; N = 0 human RCT subjects), and standalone KrumpRobot + KrumpFlow-CFM (2.20° held-out error) + Unitree G1 nonlinear QDD control (60.0 s thermal endurance @ 88.51°C)."
   },
   fr: {
     label: "Français",
@@ -201,7 +201,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {64-page Master Reference Monograph in 10 languages; Lean 4.35.0, Quantinuum Nexus Helios-1E-lite, DisCoPy, TypeSafe Jev 1.14, QK-WM, AlphaGenome 2, Modal Cloud, and KrumpRobot},
+  note    = {66-page Master Reference Monograph in 10 languages; Lean 4.35.0, Quantinuum Nexus Helios-1E-lite, HiGHS MILP \\& (w, k_T) Classical Ceiling, DisCoPy, TypeSafe Jev 1.14, QK-WM, AlphaGenome 2, Modal Cloud, and KrumpRobot},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-preprint.pdf}
 }`,
   category: `@article{nadarasa2026functorialkrump,
@@ -209,7 +209,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {14-page Standalone Applied Category Theory Preprint (Lean 4.35.0 45/45 zero-sorry formal proof, DisCoPy 1.2.2, SymPy 1.14.0, pytket 2.18.1)},
+  note    = {17-page Standalone Applied Category Theory Preprint (Lean 4.35.0 45/45 zero-sorry formal proof, HiGHS MILP D=2..32 \\& 2D (w, k_T) Classical Ceiling)},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/categorical-krump-choreography-paper.pdf}
 }`,
   pedagogy: `@article{nadarasa2026pedagogy,
@@ -225,7 +225,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun},
   year    = {2026},
   month   = {November},
-  note    = {23-page Standalone Physical AI \\& Humanoid Robotics Preprint (MuJoCo 4.0.1 Unitree G1, Cartwheel Control, KR-WM-MPC \\& 29-DoF KR-WM-ResPPO Sim-to-Real)},
+  note    = {26-page Standalone Physical AI \\& Humanoid Robotics Preprint (KrumpFlow-CFM Held-Out SO(3) Flow Matching, MuJoCo 4.0.1 Unitree G1, Cartwheel Control, KR-WM-ResPPO \\& Nonlinear QDD Actuator Physics)},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/krumprobot-physical-ai-paper.pdf}
 }`
 };
@@ -335,8 +335,8 @@ const PAPER_DOCS = {
       { label: "p.5 Delooped C_Krump", page: 5 },
       { label: "p.7 Dual-Channel Theorem", page: 7 },
       { label: "p.10 Stage & Lean 4 Proof", page: 10 },
-      { label: "p.11 Multi-Backend Check", page: 11 },
-      { label: "p.13 References", page: 13 }
+      { label: "p.13 Classical Ceiling", page: 13 },
+      { label: "p.16 References", page: 16 }
     ]
   },
   pedagogy: {
@@ -362,7 +362,8 @@ const PAPER_DOCS = {
       { label: "p.9 MuJoCo 4.0.1 G1 WBC", page: 9 },
       { label: "p.15 KR-WM Ice/Push MPC", page: 15 },
       { label: "p.17 29-DoF ResPPO Sim2Real", page: 17 },
-      { label: "p.20 WebGL & Roadmap", page: 20 },
+      { label: "p.20 KrumpFlow & QDD Plant", page: 20 },
+      { label: "p.23 WebGL & Roadmap", page: 23 },
       { label: "Refs & End", page: -1 }
     ]
   },
@@ -449,7 +450,7 @@ function initPreprintAndModals() {
   let activeDoc = "monograph";
   let zoomFactor = 1.0;
   let currentPdfDoc = null;
-  let currentNumPages = 64;
+  let currentNumPages = 66;
   let currentPage = 1;
   let activeBookmarks = [];
   let pageObserver = null;
@@ -1816,7 +1817,7 @@ function initKnowledgeGraph() {
   let layoutIdx = 0; // Default to clean radial Sector Map (zero physics jitter!)
   let egoOnly = false;
   let zoomScale = 1.05;
-  let selectedId = "node_krwm_resppo";
+  let selectedId = "node_krumpflow_actuator";
   const historyStack = [];
 
   function syncSpotlightChips() {
@@ -2150,13 +2151,15 @@ function initKnowledgeGraph() {
         });
       }
 
-      const startNode = nodeById.has("node_krwm_resppo")
-        ? "node_krwm_resppo"
-        : nodeById.has("node_krwm_mpc")
-          ? "node_krwm_mpc"
-          : nodeById.has("node_krumprobot")
-            ? "node_krumprobot"
-            : kg.nodes[0].id;
+      const startNode = nodeById.has("node_krumpflow_actuator")
+        ? "node_krumpflow_actuator"
+        : nodeById.has("node_krwm_resppo")
+          ? "node_krwm_resppo"
+          : nodeById.has("node_krwm_mpc")
+            ? "node_krwm_mpc"
+            : nodeById.has("node_krumprobot")
+              ? "node_krumprobot"
+              : kg.nodes[0].id;
       selectNode(startNode, false);
       renderGraph();
     })
@@ -2275,7 +2278,14 @@ function initKnowledgeGraph() {
     pillsWrap?.querySelectorAll("[data-kg-domain]").forEach((b) => {
       b.classList.toggle("active", b.dataset.kgDomain === "all");
     });
-    selectNode(nodeById.has("node_krwm_resppo") ? "node_krwm_resppo" : "node_krwm_mpc", false);
+    selectNode(
+      nodeById.has("node_krumpflow_actuator")
+        ? "node_krumpflow_actuator"
+        : nodeById.has("node_krwm_resppo")
+          ? "node_krwm_resppo"
+          : "node_krwm_mpc",
+      false
+    );
     renderGraph();
   });
 
@@ -3007,6 +3017,134 @@ function initWorldModelCharts() {
           type: "bar",
           itemStyle: { color: "#38d6c4", borderRadius: [3, 3, 0, 0] },
           data: [4.41, 8.66, 5.22, 5.20, 4.60]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // 6. KrumpFlow-CFM: 5-Stage Held-Out 80/20 SO(3) Ablation & Foot-Skate Rate
+  const elKf = document.getElementById("echart-wm-krumpflow");
+  if (elKf) {
+    const ch = window.echarts.init(elKf, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 4, textStyle: { color: "#d8ebe8", fontSize: 10 }, itemWidth: 11, itemHeight: 8 },
+      grid: { top: 42, right: 44, bottom: 44, left: 44 },
+      xAxis: {
+        type: "category",
+        axisLabel: { color: "#d8ebe8", fontSize: 9.2, interval: 0 },
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        data: ["Direct\nQuat-GRU", "SO(3)\nTang-GRU", "SO(3)\n+Prior", "SO(3)\nRVQ-Prior", "KrumpFlow\nCFM (Ours)"]
+      },
+      yAxis: [
+        {
+          type: "value",
+          name: "Held-Out Error (°)",
+          min: 0,
+          max: 24,
+          nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+          splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+        },
+        {
+          type: "value",
+          name: "Skate (%)",
+          min: 0,
+          max: 20,
+          nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+          splitLine: { show: false }
+        }
+      ],
+      series: [
+        {
+          name: "1-Step Geodesic (°)",
+          type: "bar",
+          barWidth: "24%",
+          itemStyle: { color: "#38d6c4", borderRadius: [3, 3, 0, 0] },
+          data: [16.80, 2.05, 2.01, 2.07, 2.20]
+        },
+        {
+          name: "0.5s (15-Step) Drift (°)",
+          type: "bar",
+          barWidth: "24%",
+          itemStyle: { color: "#4e79a7", borderRadius: [3, 3, 0, 0] },
+          data: [22.15, 18.79, 17.61, 17.31, 16.81]
+        },
+        {
+          name: "Foot-Skate Rate (%)",
+          type: "line",
+          yAxisIndex: 1,
+          symbol: "circle",
+          symbolSize: 7,
+          lineStyle: { width: 2.4, color: "#f4ae42" },
+          itemStyle: { color: "#f4ae42" },
+          data: [15.29, 16.57, 8.29, 6.64, 4.15]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // 7. Classical Ceiling: HiGHS MILP vs OpenJij & Cubic HUBO LP Gap Transition
+  const elCeil = document.getElementById("echart-wm-ceiling");
+  if (elCeil) {
+    const ch = window.echarts.init(elCeil, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 4, textStyle: { color: "#d8ebe8", fontSize: 10 }, itemWidth: 11, itemHeight: 8 },
+      grid: { top: 42, right: 48, bottom: 42, left: 52 },
+      xAxis: {
+        type: "category",
+        axisLabel: { color: "#d8ebe8", fontSize: 9.5, interval: 0 },
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        data: ["D=2\n(QUBO)", "D=12\n(QUBO)", "D=20\n(Cast)", "D=32\n(Dense)", "Cubic\nα=0.75", "Cubic\nα=1.25"]
+      },
+      yAxis: [
+        {
+          type: "log",
+          name: "Solve Time (ms)",
+          min: 5,
+          max: 10000,
+          nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+          splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+        },
+        {
+          type: "value",
+          name: "LP Gap (%)",
+          min: 0,
+          max: 80,
+          nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+          splitLine: { show: false }
+        }
+      ],
+      series: [
+        {
+          name: "HiGHS Exact MILP (ms)",
+          type: "bar",
+          barWidth: "25%",
+          itemStyle: { color: "#38d6c4", borderRadius: [3, 3, 0, 0] },
+          data: [9.11, 46.78, 97.92, 1621.59, 1894.0, 5230.7]
+        },
+        {
+          name: "OpenJij Penalty-QUBO (ms)",
+          type: "bar",
+          barWidth: "25%",
+          itemStyle: { color: "rgba(240,106,59,0.72)", borderRadius: [3, 3, 0, 0] },
+          data: [1442.6, 2031.3, 3570.0, 6315.1, null, null]
+        },
+        {
+          name: "Root LP Integrality Gap (%)",
+          type: "line",
+          yAxisIndex: 1,
+          symbol: "diamond",
+          symbolSize: 8,
+          lineStyle: { width: 2.5, color: "#f4ae42" },
+          itemStyle: { color: "#f4ae42" },
+          data: [0.0, 0.18, 0.0, 0.0, 36.47, 69.61]
         }
       ]
     });

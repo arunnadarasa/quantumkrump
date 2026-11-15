@@ -9,17 +9,17 @@
   },
   "metadata": {
     "name": "Quantum Krump Universal Knowledge Graph",
-    "version": "2.2.0",
-    "description": "Multi-domain interconnected knowledge graph unifying Laban Movement Analysis, Krump street dance, anatomical Bloch kinesphere biomechanics, DisCoPy applied category theory, Lean 4.35.0 machine-checked formal proofs, Quantinuum Helios-1E-lite trapped-ion emulation, Rosenberg-quadratized QUBO stage scheduling, biophysical neuromuscular grounding, Rhyme symbolic quantum execution, KrumpRobot Physical AI humanoid control & 29-DoF residual PPO Sim-to-Real hardening, classical bottleneck ablations, 10-language publication suite, and 11th Quantum Dimension theatrical production.",
+    "version": "2.3.0",
+    "description": "Multi-domain interconnected knowledge graph unifying Laban Movement Analysis, Krump street dance, anatomical Bloch kinesphere biomechanics, DisCoPy applied category theory, Lean 4.35.0 machine-checked formal proofs, Quantinuum Helios-1E-lite trapped-ion emulation, Rosenberg-quadratized QUBO & HiGHS MILP / (w, k_T) classical complexity ceilings, biophysical neuromuscular grounding, Rhyme symbolic quantum execution, KrumpRobot Physical AI humanoid control, KrumpFlow-CFM SO(3) tangent flow matching & Unitree G1 nonlinear QDD actuator physics, 10-language publication suite, and 11th Quantum Dimension theatrical production.",
     "author": "Arun Nadarasa & Dakota Simao (Twin Bad Liks / Jr Outrage)",
     "federation": "Angels of Krump Movement Federation",
     "acknowledgment": "This work was supported in part by complimentary access to Google Antigravity and Gemini 4 Argon to accelerate scientific workflows.",
-    "created_at": "2026-11-15T01:35:00.000000+00:00",
+    "created_at": "2026-11-15T12:05:00.000000+00:00",
     "license": "CC-BY-4.0 / Apache-2.0",
     "repository": "https://arunnadarasa.github.io/quantumkrump/",
     "stats": {
-      "nodes_count": 99,
-      "edges_count": 176,
+      "nodes_count": 101,
+      "edges_count": 182,
       "domains_count": 10
     }
   },
@@ -821,8 +821,8 @@
       "name": "Multilingual Monograph & Focused Companion Suite (10 Languages)",
       "domain": "empirical_pedagogy",
       "category": "Open-Access Publications",
-      "formula": "\\text{Monograph (58 pp. } \\times 10 \\text{ langs)} \\oplus \\text{Pedagogy (15 pp.)} \\oplus \\text{KrumpRobot (15 pp.)} \\oplus \\text{Cat. Choreo. (8 pp.)}",
-      "description": "Open-access publication architecture comprising the 58-page Master Reference Monograph natively typeset across EN, FR, DE, NL, FIL, JA, KO, ZH, HI, and TA, paired with the 15-page Embodied Pedagogy Companion, 15-page Standalone KrumpRobot Physical AI Preprint, and 8-page Categorical Choreography Journal Preprint.",
+      "formula": "\\text{Monograph (66 pp. } \\times 10 \\text{ langs)} \\oplus \\text{Pedagogy (15 pp.)} \\oplus \\text{KrumpRobot (26 pp.)} \\oplus \\text{Cat. Choreo. (17 pp.)}",
+      "description": "Open-access publication architecture comprising the 66-page Master Reference Monograph natively typeset across EN, FR, DE, NL, FIL, JA, KO, ZH, HI, and TA, paired with the 15-page Embodied Pedagogy Companion, 26-page Standalone KrumpRobot Physical AI Preprint, and 17-page Categorical Choreography Journal Preprint.",
       "x": 406.0,
       "y": 285.7
     },
@@ -1065,6 +1065,26 @@
       "description": "Closed-loop 238,139-parameter per-joint residual actor-critic trained via clipped PPO + GAE under 5-axis domain randomization in 200 Hz MuJoCo 4.0.1 contact physics (pure Physical AI & rigid-body robotics). Achieves 29/29 survival across mu=0.12 ice + push, 20 ms FIFO delay + sensor noise (-14.3% upper RMSE vs. scalar MPC), +20% payload + 4.5 deg slope (-13.3% RMSE), and 115-165 BPM held-out phrases at 1.262 ms latency.",
       "x": 433.0,
       "y": 794.0
+    },
+    {
+      "id": "node_krumpflow_actuator",
+      "name": "KrumpFlow-CFM & Unitree G1 Nonlinear QDD Plant",
+      "domain": "biophysical_somatics",
+      "category": "Generative Kinematics & Actuator Physics",
+      "formula": "\\varepsilon_{\\text{1-step}} = 2.20^\\circ \\pm 0.02^\\circ < 2.95^\\circ, \\; \\text{FMD} = 1.745, \\; T_{\\max} = 88.51^\\circ\\text{C}\\;(60\\text{ s})",
+      "description": "Pure Physical AI held-out SO(3) tangent-space Conditional Flow Matching (K=4 midpoint ODE over 2x64 RVQ + 5,084-frame Cartwheel kinematic prior, cutting 80/20 held-out 1-step geodesic error by 88.2% from 18.58 deg to 2.20 deg across 5 seeds with 4.15% foot-skate) paired with KR-WM-ResPPO-ActAware on a 29-DoF Unitree G1 nonlinear QDD plant (PMSM back-EMF, +-0.015 rad Brokate-Sprekels planetary backlash, and stator I^2R + FOC ripple thermal derating: 5/5 survival, -11.0% chatter, 60.0 s continuous duty at 4.18 deg RMSE; N=0 physical robot trials).",
+      "x": 472.0,
+      "y": 826.0
+    },
+    {
+      "id": "node_classical_ceiling_phase",
+      "name": "HiGHS MILP & 2D (w, k_T) Classical Ceiling",
+      "domain": "stage_optimization",
+      "category": "Exact Classical Complexity Boundary",
+      "formula": "t_{\\text{MILP}}(D=20) = 97.9\\text{ ms}\\;(0\\%\\text{ gap}), \\; \\text{Gap}_{\\text{cubic}} = 69.61\\%, \\; w \\ge 66,\\; k_T \\ge 45",
+      "description": "Exact classical ceiling demarcation combining HiGHS branch-and-cut MILP across D=2..32 dancers (9.11 ms at D=2, 97.92 ms at D=20 with 0.00% LP gap, 36.5x-134.9x faster than OpenJij Penalty-QUBO vs. a sharp 69.61% LP integrality gap and >80x slowdown on frustrated Order-3 cubic Session HUBOs) with 64-bit symplectic Pauli backpropagation (n=48, k_T=16 in 24.18 ms) and min-fill treewidth tensor contraction (n=24, w=31 in 2.45 s), locating the 10^3 s classical bottleneck at simultaneous w >= 66 and k_T >= 45.",
+      "x": 852.0,
+      "y": 642.0
     }
   ],
   "edges": [
@@ -2088,7 +2108,7 @@
       "source": "node_three_paper_suite",
       "target": "node_krumprobot",
       "relation": "DOCUMENTS_ROBOTICS",
-      "label": "15-Page Standalone Preprint"
+      "label": "26-Page Standalone Preprint"
     },
     {
       "id": "e_mujoco_krumprobot",
@@ -2299,6 +2319,48 @@
       "target": "node_mujoco_closed_loop_g1",
       "relation": "hardens_sim2real",
       "label": "29/29 survival across 5-axis Sim-to-Real suite"
+    },
+    {
+      "id": "e_021",
+      "source": "node_krumpflow_actuator",
+      "target": "node_krumprobot",
+      "relation": "generalizes_heldout",
+      "label": "-88.2% 80/20 held-out error (18.58 -> 2.20 deg, 1.745 FMD)"
+    },
+    {
+      "id": "e_022",
+      "source": "node_krumpflow_actuator",
+      "target": "node_krwm_resppo",
+      "relation": "couples_actuator_plant",
+      "label": "KR-WM-ResPPO-ActAware (-11.0% backlash chatter)"
+    },
+    {
+      "id": "e_023",
+      "source": "node_krumpflow_actuator",
+      "target": "node_mujoco_closed_loop_g1",
+      "relation": "models_qdd_thermodynamics",
+      "label": "60.0 s PMSM back-EMF + backlash + stator thermal duty (88.51 C)"
+    },
+    {
+      "id": "e_024",
+      "source": "node_classical_ceiling_phase",
+      "target": "node_stage_qubo",
+      "relation": "dominates_quadratic",
+      "label": "HiGHS MILP D=20 in 97.9 ms (0% LP gap vs OpenJij 39 viol.)"
+    },
+    {
+      "id": "e_025",
+      "source": "node_classical_ceiling_phase",
+      "target": "node_rosenberg_quadratization",
+      "relation": "exposes_cubic_gap",
+      "label": "Order-3 frustrated HUBO LP gap 0% -> 69.61% (>80x slowdown)"
+    },
+    {
+      "id": "e_026",
+      "source": "node_classical_ceiling_phase",
+      "target": "node_hw_cpu_floor",
+      "relation": "maps_complexity_frontier",
+      "label": "n=48 symplectic Pauli + treewidth TN (w >= 66, k_T >= 45)"
     }
   ]
 }
