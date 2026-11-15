@@ -7,7 +7,7 @@ const PREPRINTS = {
     filename: "quantum-krump-preprint.pdf",
     title: "Master Monograph (English · 64 Pages)",
     abstract:
-      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams, and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 27 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), TypeSafe Jev 1.14 + QK-WM (64.6% 2Q cut; N = 0 human RCT subjects), and standalone KrumpRobot + KR-WM-MPC Unitree G1 control (5/5 survival on μ = 0.12 ice + push)."
+      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams (machine-checked across 45/45 zero-sorry theorems in Lean 4.35.0), and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 29 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), TypeSafe Jev 1.14 + QK-WM (64.6% 2Q cut; N = 0 human RCT subjects), and standalone KrumpRobot + KR-WM-ResPPO 5-axis Sim-to-Real Unitree G1 control (29/29 survival across ice, 20 ms delay + noise, payload/slope, and 115–165 BPM)."
   },
   fr: {
     label: "Français",
@@ -201,7 +201,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {64-page Master Reference Monograph in 10 languages; Quantinuum Nexus Helios-1E-lite, DisCoPy, TypeSafe Jev 1.14, QK-WM, AlphaGenome 2, Modal Cloud, and KrumpRobot},
+  note    = {64-page Master Reference Monograph in 10 languages; Lean 4.35.0, Quantinuum Nexus Helios-1E-lite, DisCoPy, TypeSafe Jev 1.14, QK-WM, AlphaGenome 2, Modal Cloud, and KrumpRobot},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-preprint.pdf}
 }`,
   category: `@article{nadarasa2026functorialkrump,
@@ -209,7 +209,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {14-page Standalone Applied Category Theory Preprint (DisCoPy 1.2.2, SymPy 1.14.0, pytket 2.18.1)},
+  note    = {14-page Standalone Applied Category Theory Preprint (Lean 4.35.0 45/45 zero-sorry formal proof, DisCoPy 1.2.2, SymPy 1.14.0, pytket 2.18.1)},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/categorical-krump-choreography-paper.pdf}
 }`,
   pedagogy: `@article{nadarasa2026pedagogy,
@@ -225,7 +225,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun},
   year    = {2026},
   month   = {November},
-  note    = {20-page Standalone Physical AI \\& Humanoid Robotics Preprint (MuJoCo 4.0.1 Unitree G1, Cartwheel Control \\& KR-WM-MPC)},
+  note    = {23-page Standalone Physical AI \\& Humanoid Robotics Preprint (MuJoCo 4.0.1 Unitree G1, Cartwheel Control, KR-WM-MPC \\& 29-DoF KR-WM-ResPPO Sim-to-Real)},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/krumprobot-physical-ai-paper.pdf}
 }`
 };
@@ -334,7 +334,7 @@ const PAPER_DOCS = {
       { label: "p.3 CatKS & Yoneda", page: 3 },
       { label: "p.5 Delooped C_Krump", page: 5 },
       { label: "p.7 Dual-Channel Theorem", page: 7 },
-      { label: "p.10 Stage Quadratization", page: 10 },
+      { label: "p.10 Stage & Lean 4 Proof", page: 10 },
       { label: "p.11 Multi-Backend Check", page: 11 },
       { label: "p.13 References", page: 13 }
     ]
@@ -360,8 +360,9 @@ const PAPER_DOCS = {
       { label: "p.4 3D Recovery & Rig", page: 4 },
       { label: "p.6 Causal GRU Policy", page: 6 },
       { label: "p.9 MuJoCo 4.0.1 G1 WBC", page: 9 },
-      { label: "p.13 Cartwheel & KR-WM", page: 13 },
-      { label: "p.16 Ice/Push Rollouts", page: 16 },
+      { label: "p.15 KR-WM Ice/Push MPC", page: 15 },
+      { label: "p.17 29-DoF ResPPO Sim2Real", page: 17 },
+      { label: "p.20 WebGL & Roadmap", page: 20 },
       { label: "Refs & End", page: -1 }
     ]
   },
@@ -1815,7 +1816,7 @@ function initKnowledgeGraph() {
   let layoutIdx = 0; // Default to clean radial Sector Map (zero physics jitter!)
   let egoOnly = false;
   let zoomScale = 1.05;
-  let selectedId = "node_krwm_mpc";
+  let selectedId = "node_krwm_resppo";
   const historyStack = [];
 
   function syncSpotlightChips() {
@@ -2149,11 +2150,13 @@ function initKnowledgeGraph() {
         });
       }
 
-      const startNode = nodeById.has("node_krwm_mpc")
-        ? "node_krwm_mpc"
-        : nodeById.has("node_krumprobot")
-          ? "node_krumprobot"
-          : kg.nodes[0].id;
+      const startNode = nodeById.has("node_krwm_resppo")
+        ? "node_krwm_resppo"
+        : nodeById.has("node_krwm_mpc")
+          ? "node_krwm_mpc"
+          : nodeById.has("node_krumprobot")
+            ? "node_krumprobot"
+            : kg.nodes[0].id;
       selectNode(startNode, false);
       renderGraph();
     })
@@ -2272,7 +2275,7 @@ function initKnowledgeGraph() {
     pillsWrap?.querySelectorAll("[data-kg-domain]").forEach((b) => {
       b.classList.toggle("active", b.dataset.kgDomain === "all");
     });
-    selectNode(nodeById.has("node_krwm_mpc") ? "node_krwm_mpc" : "node_krumprobot", false);
+    selectNode(nodeById.has("node_krwm_resppo") ? "node_krwm_resppo" : "node_krwm_mpc", false);
     renderGraph();
   });
 
@@ -2406,11 +2409,19 @@ const KRWM_PRIMS = {
     label: "1. STOMP",
     pushN: "165 N lateral impulse",
     ice: {
+      resppo: { surv: true, t: 4.98, mpjpe: 100.86, rmse: 8.97, u29: 0.00 },
       mpc: { surv: true, t: 4.98, mpjpe: 100.86, rmse: 8.97, fz: 5.66, gamma: 1.00 },
       base: { surv: true, t: 4.98, mpjpe: 100.86, rmse: 8.97, fz: 5.66, gamma: 1.00 },
-      naive: { surv: false, t: 4.38, mpjpe: 206.55, rmse: 10.18, fz: 11.32, gamma: 1.55 }
+      naive: { surv: false, t: 4.40, mpjpe: 206.55, rmse: 10.18, fz: 11.32, gamma: 1.55 }
+    },
+    delay: {
+      resppo: { surv: true, t: 4.98, mpjpe: 36.66, rmse: 4.63, u29: 1.27 },
+      mpc: { surv: true, t: 4.98, mpjpe: 41.89, rmse: 5.77, fz: 3.92, gamma: 1.06 },
+      base: { surv: true, t: 4.98, mpjpe: 42.32, rmse: 6.10, fz: 3.88, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 41.40, rmse: 4.55, fz: 4.35, gamma: 1.55 }
     },
     nominal: {
+      resppo: { surv: true, t: 4.98, mpjpe: 29.14, rmse: 4.29, u29: 1.33 },
       mpc: { surv: true, t: 4.98, mpjpe: 28.19, rmse: 4.51, fz: 4.57, gamma: 1.38 },
       base: { surv: true, t: 4.98, mpjpe: 28.28, rmse: 5.46, fz: 3.64, gamma: 1.00 },
       naive: { surv: true, t: 4.98, mpjpe: 26.71, rmse: 4.11, fz: 3.83, gamma: 1.55 }
@@ -2420,11 +2431,19 @@ const KRWM_PRIMS = {
     label: "2. JAB",
     pushN: "145 N lateral impulse",
     ice: {
+      resppo: { surv: true, t: 4.98, mpjpe: 59.45, rmse: 7.69, u29: 0.24 },
       mpc: { surv: true, t: 4.98, mpjpe: 66.14, rmse: 7.77, fz: 4.63, gamma: 1.00 },
       base: { surv: true, t: 4.98, mpjpe: 66.14, rmse: 7.77, fz: 4.63, gamma: 1.00 },
       naive: { surv: true, t: 4.98, mpjpe: 70.39, rmse: 6.18, fz: 4.80, gamma: 1.55 }
     },
+    delay: {
+      resppo: { surv: true, t: 4.98, mpjpe: 37.50, rmse: 5.93, u29: 1.38 },
+      mpc: { surv: true, t: 4.98, mpjpe: 38.71, rmse: 7.16, fz: 3.10, gamma: 1.03 },
+      base: { surv: true, t: 4.98, mpjpe: 38.39, rmse: 7.45, fz: 3.05, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 38.90, rmse: 5.10, fz: 3.45, gamma: 1.55 }
+    },
     nominal: {
+      resppo: { surv: true, t: 4.98, mpjpe: 35.21, rmse: 4.66, u29: 1.47 },
       mpc: { surv: true, t: 4.98, mpjpe: 33.56, rmse: 4.52, fz: 2.43, gamma: 1.27 },
       base: { surv: true, t: 4.98, mpjpe: 34.58, rmse: 5.77, fz: 2.93, gamma: 1.00 },
       naive: { surv: true, t: 4.98, mpjpe: 35.56, rmse: 4.40, fz: 3.12, gamma: 1.55 }
@@ -2434,11 +2453,19 @@ const KRWM_PRIMS = {
     label: "3. ARM SWING",
     pushN: "150 N lateral impulse",
     ice: {
+      resppo: { surv: true, t: 4.98, mpjpe: 70.55, rmse: 6.88, u29: 0.04 },
       mpc: { surv: true, t: 4.98, mpjpe: 69.77, rmse: 6.71, fz: 4.29, gamma: 1.00 },
       base: { surv: true, t: 4.98, mpjpe: 69.77, rmse: 6.71, fz: 4.29, gamma: 1.00 },
       naive: { surv: true, t: 4.98, mpjpe: 64.72, rmse: 5.00, fz: 5.95, gamma: 1.55 }
     },
+    delay: {
+      resppo: { surv: true, t: 4.98, mpjpe: 36.15, rmse: 5.37, u29: 0.88 },
+      mpc: { surv: true, t: 4.98, mpjpe: 38.08, rmse: 6.17, fz: 2.85, gamma: 1.05 },
+      base: { surv: true, t: 4.98, mpjpe: 37.47, rmse: 6.49, fz: 2.80, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 37.10, rmse: 4.20, fz: 3.10, gamma: 1.55 }
+    },
     nominal: {
+      resppo: { surv: true, t: 4.98, mpjpe: 27.51, rmse: 3.49, u29: 1.02 },
       mpc: { surv: true, t: 4.98, mpjpe: 28.53, rmse: 3.51, fz: 2.29, gamma: 1.40 },
       base: { surv: true, t: 4.98, mpjpe: 26.69, rmse: 4.09, fz: 2.29, gamma: 1.00 },
       naive: { surv: true, t: 4.98, mpjpe: 28.87, rmse: 3.46, fz: 2.39, gamma: 1.55 }
@@ -2448,11 +2475,19 @@ const KRWM_PRIMS = {
     label: "4. CHEST POP",
     pushN: "195 N lateral impulse",
     ice: {
+      resppo: { surv: true, t: 4.98, mpjpe: 91.06, rmse: 10.51, u29: 0.10 },
       mpc: { surv: true, t: 4.98, mpjpe: 126.12, rmse: 14.13, fz: 6.20, gamma: 1.00 },
       base: { surv: true, t: 4.98, mpjpe: 126.12, rmse: 14.13, fz: 6.20, gamma: 1.00 },
       naive: { surv: false, t: 3.32, mpjpe: 105.23, rmse: 7.28, fz: 4.99, gamma: 1.55 }
     },
+    delay: {
+      resppo: { surv: true, t: 4.98, mpjpe: 35.04, rmse: 5.32, u29: 1.15 },
+      mpc: { surv: true, t: 4.98, mpjpe: 36.09, rmse: 5.91, fz: 2.95, gamma: 1.06 },
+      base: { surv: true, t: 4.98, mpjpe: 35.67, rmse: 5.84, fz: 2.90, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 35.80, rmse: 4.45, fz: 3.20, gamma: 1.55 }
+    },
     nominal: {
+      resppo: { surv: true, t: 4.98, mpjpe: 29.63, rmse: 4.25, u29: 1.15 },
       mpc: { surv: true, t: 4.98, mpjpe: 30.45, rmse: 4.57, fz: 2.00, gamma: 1.09 },
       base: { surv: true, t: 4.98, mpjpe: 30.54, rmse: 4.42, fz: 2.01, gamma: 1.00 },
       naive: { surv: true, t: 4.98, mpjpe: 31.21, rmse: 4.04, fz: 2.40, gamma: 1.55 }
@@ -2462,11 +2497,19 @@ const KRWM_PRIMS = {
     label: "5. KILL-OFF",
     pushN: "135 N lateral impulse",
     ice: {
+      resppo: { surv: true, t: 4.98, mpjpe: 109.61, rmse: 9.23, u29: 0.32 },
       mpc: { surv: true, t: 4.98, mpjpe: 77.19, rmse: 6.67, fz: 5.53, gamma: 1.00 },
       base: { surv: true, t: 4.98, mpjpe: 77.19, rmse: 6.67, fz: 5.53, gamma: 1.00 },
       naive: { surv: true, t: 4.98, mpjpe: 72.95, rmse: 5.15, fz: 4.71, gamma: 1.55 }
     },
+    delay: {
+      resppo: { surv: true, t: 4.98, mpjpe: 39.70, rmse: 4.86, u29: 1.21 },
+      mpc: { surv: true, t: 4.98, mpjpe: 38.31, rmse: 5.45, fz: 3.12, gamma: 1.01 },
+      base: { surv: true, t: 4.98, mpjpe: 37.71, rmse: 5.51, fz: 3.08, gamma: 1.00 },
+      naive: { surv: true, t: 4.98, mpjpe: 38.10, rmse: 4.20, fz: 3.30, gamma: 1.55 }
+    },
     nominal: {
+      resppo: { surv: true, t: 4.98, mpjpe: 41.75, rmse: 5.34, u29: 0.57 },
       mpc: { surv: true, t: 4.98, mpjpe: 40.87, rmse: 5.29, fz: 2.58, gamma: 1.02 },
       base: { surv: true, t: 4.98, mpjpe: 42.44, rmse: 5.40, fz: 2.33, gamma: 1.00 },
       naive: { surv: true, t: 4.98, mpjpe: 40.01, rmse: 4.58, fz: 2.77, gamma: 1.55 }
@@ -2562,16 +2605,26 @@ function initWorldModels() {
         ? `SURVIVED (${d.naive.t.toFixed(2)} s)`
         : `❌ TOPPLED AT t = ${d.naive.t.toFixed(2)} s!`;
 
+      const regimeHeader =
+        activeRegime === "ice"
+          ? `Hidden Ice (μ = 0.12) + ${prim.pushN}`
+          : activeRegime === "delay"
+            ? "20 ms FIFO Delay + Sensor Noise + Push (R3)"
+            : "Nominal Studio Floor (μ = 1.00)";
+
       krReadout.innerHTML =
-        `<span style="color:var(--amber);font-weight:700">${prim.label}</span> · ${activeRegime === "ice" ? `Hidden Ice (μ = 0.12) + ${prim.pushN}` : "Nominal Studio Floor (μ = 1.00)"}\n` +
-        `• KR-WM-MPC (Ours) : ✅ SURVIVED (${d.mpc.t.toFixed(2)} s) | γ_exp = ${d.mpc.gamma.toFixed(2)} | RMSE = ${d.mpc.rmse.toFixed(2)}° | MPJPE = ${d.mpc.mpjpe.toFixed(1)} mm\n` +
-        `• Cartwheel-Base   : ✅ SURVIVED (${d.base.t.toFixed(2)} s) | γ_exp = ${d.base.gamma.toFixed(2)} | RMSE = ${d.base.rmse.toFixed(2)}° | MPJPE = ${d.base.mpjpe.toFixed(1)} mm\n` +
-        `• Naive-HighGain   : ${naiveStatus} | γ_exp = ${d.naive.gamma.toFixed(2)} | Peak F_z = ${d.naive.fz.toFixed(2)}× BW`;
+        `<span style="color:var(--amber);font-weight:700">${prim.label}</span> · ${regimeHeader}\n` +
+        `• KR-WM-ResPPO (29d): ✅ SURVIVED (${d.resppo.t.toFixed(2)} s) | ‖Δu‖₂ = ${d.resppo.u29.toFixed(2)} | RMSE = ${d.resppo.rmse.toFixed(2)}° | MPJPE = ${d.resppo.mpjpe.toFixed(1)} mm\n` +
+        `• KR-WM-MPC (Scalar): ✅ SURVIVED (${d.mpc.t.toFixed(2)} s) | γ_exp = ${d.mpc.gamma.toFixed(2)} | RMSE = ${d.mpc.rmse.toFixed(2)}° | MPJPE = ${d.mpc.mpjpe.toFixed(1)} mm\n` +
+        `• Cartwheel-Base    : ✅ SURVIVED (${d.base.t.toFixed(2)} s) | γ_exp = ${d.base.gamma.toFixed(2)} | RMSE = ${d.base.rmse.toFixed(2)}° | MPJPE = ${d.base.mpjpe.toFixed(1)} mm\n` +
+        `• Naive-HighGain    : ${naiveStatus} | γ_exp = ${d.naive.gamma.toFixed(2)} | Peak F_z = ${d.naive.fz.toFixed(2)}× BW`;
 
       krSummary.innerHTML =
         activeRegime === "ice"
-          ? `<strong style="color:var(--amber)">Slippery Ice + Push Takeaway:</strong> <code>KR-WM</code> detects foot-slip residuals online and predicts 300 ms fall hazard (<code>ROC-AUC = 0.9933</code>), automatically clamping expressive lead gain (<code>γ_exp → 1.00</code>) so the 29-DoF Unitree G1 survives <strong>5 / 5 (100%)</strong> primitives—whereas unpaginated <code>Naive-HighGain</code> (<code>γ_exp = 1.55</code>) topples at <code>4.38 s</code> on <code>STOMP</code> and <code>3.32 s</code> on <code>CHEST POP</code>.`
-          : `<strong style="color:var(--signal)">Nominal Studio Floor Takeaway:</strong> When contact friction is confirmed safe (<code>μ = 1.0</code>, low <code>p̂_fall</code>), <code>KR-WM-MPC</code> safely boosts expressive lead gain (<code>γ_exp = 1.23</code> mean), sharpening upper-body RMSE from <code>5.03° → 4.48°</code> while maintaining <strong>5 / 5 (100%)</strong> floating-base survival.`;
+          ? `<strong style="color:var(--amber)">Slippery Ice + Push Takeaway:</strong> Both <code>KR-WM-ResPPO</code> and <code>KR-WM-MPC</code> preserve <strong>5 / 5 (100%)</strong> Unitree G1 survival on <code>μ = 0.12</code> ice + lateral impulses (with <code>KR-WM-ResPPO</code> tightening mean MPJPE to <code>86.31 mm</code> vs. <code>88.02 mm</code> MPC)—whereas open-loop <code>Naive-HighGain</code> topples at <code>4.40 s</code> on <code>STOMP</code> and <code>3.32 s</code> on <code>CHEST POP</code>.`
+          : activeRegime === "delay"
+            ? `<strong style="color:var(--signal)">20 ms Delay + Noise Sim-to-Real Takeaway:</strong> White joint/IMU velocity noise spoofs scalar <code>KR-WM-MPC</code> into premature friction lockout (<code>6.09°</code> RMSE), whereas causal state-filtered 29-DoF <code>KR-WM-ResPPO</code> cuts upper-body RMSE by <strong>14.3%</strong> (<code>5.22°</code>) and achieves the lowest body MPJPE (<code>37.01 mm</code>) at <code>1.262 ms</code> latency.`
+            : `<strong style="color:var(--signal)">Nominal Studio Floor Takeaway:</strong> On confirmed high-traction ground (<code>μ = 1.0</code>), 29-DoF <code>KR-WM-ResPPO</code> sharpens upper-body RMSE to <code>4.41°</code> (<code>−12.3%</code> vs. <code>Cartwheel-RL</code>, beating scalar <code>MPC 4.48°</code>) while maintaining <strong>5 / 5 (100%)</strong> survival.`;
     }
 
     Object.entries(KRWM_PRIMS).forEach(([k, v]) => {
@@ -2892,6 +2945,68 @@ function initWorldModelCharts() {
             { value: 100.0, itemStyle: { color: "#2dd4bf", borderRadius: [0, 4, 4, 0] }, detail: "100% cross-domain ontology link consistency" },
             { value: 100.0, itemStyle: { color: "#2dd4bf", borderRadius: [0, 4, 4, 0] }, detail: "10/10 languages pass anti-hype & classical-floor disclosure" }
           ]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // 5. KR-WM-ResPPO: 5-Axis Sim-to-Real Upper-Body RMSE & Survival Comparison
+  const elResPpo = document.getElementById("echart-wm-resppo");
+  if (elResPpo) {
+    const ch = window.echarts.init(elResPpo, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: {
+        ...baseTooltip,
+        axisPointer: { type: "shadow" }
+      },
+      legend: {
+        top: 4,
+        textStyle: { color: "#d8ebe8", fontSize: 10.5 },
+        itemWidth: 12,
+        itemHeight: 8
+      },
+      grid: { top: 38, right: 18, bottom: 44, left: 46 },
+      xAxis: {
+        type: "category",
+        axisLabel: { color: "#d8ebe8", fontSize: 9.5, interval: 0 },
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        data: [
+          "R1 Nominal\n(μ=1.0)",
+          "R2 Ice+Push\n(μ=0.12)",
+          "R3 20ms Delay\n+ Noise",
+          "R4 +20% Mass\n+ 4.5° Slope",
+          "R5 Unseen\n140 BPM"
+        ]
+      },
+      yAxis: {
+        type: "value",
+        name: "Upper RMSE (°)",
+        min: 3.5,
+        max: 9.5,
+        nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+        splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+      },
+      series: [
+        {
+          name: "Cartwheel-RL",
+          type: "bar",
+          itemStyle: { color: "#4e79a7", borderRadius: [3, 3, 0, 0] },
+          data: [5.03, 8.85, 6.28, 6.44, 4.78]
+        },
+        {
+          name: "KR-WM-MPC (Scalar)",
+          type: "bar",
+          itemStyle: { color: "#f4ae42", borderRadius: [3, 3, 0, 0] },
+          data: [4.48, 8.85, 6.09, 6.00, 4.69]
+        },
+        {
+          name: "KR-WM-ResPPO (29-DoF)",
+          type: "bar",
+          itemStyle: { color: "#38d6c4", borderRadius: [3, 3, 0, 0] },
+          data: [4.41, 8.66, 5.22, 5.20, 4.60]
         }
       ]
     });

@@ -1,0 +1,390 @@
+{
+  "benchmark": "Lane K319 \u2014 Machine-Checked Lean 4.35.0 Formal Verification of CatKS, C_Krump(Theta), FHilb Semantics & Stage QUBO",
+  "audit_gate": "G_Lean4_Categorical_Krump_Formal_Proof",
+  "status": "VERIFIED (PASS)",
+  "timestamp_utc": "2026-11-15T00:12:00Z",
+  "toolchain": {
+    "lean_version": "Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "lake_version": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)",
+    "host_platform": "Darwin arm64",
+    "external_dependencies": "None (100% self-contained core Lean 4.35.0 + native Lean.Grind.CommRing)"
+  },
+  "hygiene_summary": {
+    "lean_source_files": 6,
+    "total_lines_of_lean": 1174,
+    "sorry_count": 0,
+    "admit_count": 0,
+    "custom_axiom_count": 0,
+    "native_decide_count": 0,
+    "verified_theorems_count": 45,
+    "strictly_axiom_free_theorems": 10,
+    "allowed_standard_foundation_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "scientific_errata_caught_by_lean4": "During machine formalization of Theorem 4.3(3), Lean 4 confirmed 100% of main theorem statements, all 4 Born-rule channel probabilities, the diagonal Fisher matrix I_C = I_Q = I_2, and all 16 two-qubit Pauli expectations, while tightening the intermediate relative signs in the Stage-4 Bell-basis expansion (Eq. bell_expansion: -cos(theta/2)cos(phi/2)|Psi^-> - i cos(theta/2)sin(phi/2)|Psi^+> - i sin(theta/2)cos(phi/2)|Phi^-> - sin(theta/2)sin(phi/2)|Phi^+> and U_Bell|Psi^-> = +|11>).",
+  "source_file_sha256": {
+    "formal/LeanKrump/LeanKrump/CatKS.lean": "2a7918f250d6b786184b20af9e05e579b2f4c346801bee7150e0f3589183e88d",
+    "formal/LeanKrump/LeanKrump/HilbertSemantics.lean": "3acf150ebf46562919b4126f7775731168bd62528d227e7bfb8a03039b432bed",
+    "formal/LeanKrump/LeanKrump/Monoidal.lean": "9bdc146eb2eb948b25255d3addb3ed7f8e81688952c9c3284dffcaaebfd9a363",
+    "formal/LeanKrump/LeanKrump/StageQUBO.lean": "24d341e89a48c8bdfa71bdf947080ae2a684763ae4e4a724b92600daba9cc6b0",
+    "formal/LeanKrump/LeanKrump.lean": "33b364f482fd909cc07ace0104e1224c31d78f36c08348351c9743da771582bd",
+    "formal/LeanKrump/Main.lean": "b5b80c5712cac7086441269e422880dd2d5b95e1783e9bd7b9f6071685391e50"
+  },
+  "audit_executable_stdout": [
+    "===================================================================",
+    "LeanKrump v1.0.0 \u2014 Lean 4.35.0 Kernel Formal Verification Audit",
+    "===================================================================",
+    "1. CatKS Yoneda L=4 Totals : (1, 11, 10, 11, 1, 8)",
+    "2. CatKS Extended Totals   : (5, 72, 58, 68, 5, 42)",
+    "3. Monoidal Coherence      : 1,296/1,296 Interchange + Left/Right Snakes + S_3 Yang-Baxter + Spider Fusion KERNEL-VERIFIED",
+    "4. FHilb & Demultiplexing  : Thm 4.1 Strict/Projective + Lem 4.2 SU(2) Singlet Ricochet + Thm 4.3 Born/Concurrence/16-Pauli Magic KERNEL-VERIFIED",
+    "5. Stage QUBO Rosenberg    : Prop 5.1 Zero-Set, Spectral Gap >= 1, and HUBO->QUBO Ground-State Preservation KERNEL-VERIFIED",
+    "STATUS: ALL THEOREMS VERIFIED BY LEAN 4 KERNEL (ZERO UNPROVED OBLIGATIONS)"
+  ],
+  "verified_theorems": [
+    {
+      "lean_identifier": "LeanKrump.CatKS.finToPosture_left_inv",
+      "paper_correspondence": "Section 2 Eq. (2): Posture <-> Fin 6 Bijection (Left Inverse)",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.postureToFin_left_inv",
+      "paper_correspondence": "Section 2 Eq. (2): Posture <-> Fin 6 Bijection (Right Inverse)",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.catks_id_left",
+      "paper_correspondence": "Definition 2.1: CatKS Free Category Left Identity",
+      "kernel_axioms": []
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.catks_id_right",
+      "paper_correspondence": "Definition 2.1: CatKS Free Category Right Identity",
+      "kernel_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.catks_assoc",
+      "paper_correspondence": "Definition 2.1: CatKS Free Category Associativity",
+      "kernel_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.beatLength_comp",
+      "paper_correspondence": "Remark 2.1: Beat-Duration Functor Additivity l(q o p) = l(p) + l(q)",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.groove_ne_beat_strike",
+      "paper_correspondence": "Remark 2.1: Strict Separation of Groove id_A != Beat Strike r_A^(k+1)",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.liftQuiverMap_preserves_id",
+      "paper_correspondence": "Proposition 2.2(a): Chronological Round Lift Preserves Identities",
+      "kernel_axioms": []
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.liftQuiverMap_preserves_comp",
+      "paper_correspondence": "Proposition 2.2(b): Chronological Round Lift Preserves Composition",
+      "kernel_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.thm_yoneda_L1_distinct",
+      "paper_correspondence": "Theorem 2.3(1a): Pairwise Distinct Yoneda Profiles at Horizon L = 1",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.thm_yoneda_L4_distinct",
+      "paper_correspondence": "Theorem 2.3(1b): Pairwise Distinct Yoneda Profiles at 4-Beat Bar L = 4",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.thm_yoneda_table2_totals",
+      "paper_correspondence": "Theorem 2.3 / Table 2: Exact Repetition-Free Totals (1, 11, 10, 11, 1, 8)",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.thm_yoneda_table2_extended_totals",
+      "paper_correspondence": "Theorem 2.3 / Table 2: Exact Extended Totals (5, 72, 58, 68, 5, 42)",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.thm_chest_pop_unique_extended_hub",
+      "paper_correspondence": "Theorem 2.3: Unique Extended Hub Optimality of CHEST_POP_KRUMP (72 Paths)",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.CatKS.thm_kill_off_terminal_absorbing",
+      "paper_correspondence": "Theorem 2.3(2): Strict Terminal Absorbing Property of KILL_OFF_BUCK",
+      "kernel_axioms": []
+    },
+    {
+      "lean_identifier": "LeanKrump.Monoidal.thm_interchange_general",
+      "paper_correspondence": "Theorem 3.2(1a): General Bifunctorial Interchange Confluence",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.Monoidal.thm_interchange_count_1296",
+      "paper_correspondence": "Theorem 3.2(1b): Exhaustive 1,296 / 1,296 Two-Step Duet Interchange Count",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.Monoidal.thm_interchange_exhaustive_1296",
+      "paper_correspondence": "Theorem 3.2(1c): Fin 6 Universal Duet Interchange Equality",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.Monoidal.thm_snake_left",
+      "paper_correspondence": "Theorem 3.2(2a): Abstract Categorical Left Snake Identity from Frobenius Laws",
+      "kernel_axioms": []
+    },
+    {
+      "lean_identifier": "LeanKrump.Monoidal.thm_snake_right",
+      "paper_correspondence": "Theorem 3.2(2b): Abstract Categorical Right Snake Identity from Frobenius Laws",
+      "kernel_axioms": []
+    },
+    {
+      "lean_identifier": "LeanKrump.Monoidal.thm_session_hype_loop_collapse",
+      "paper_correspondence": "Theorem 3.2(4a): Frobenius Session-Hype Bone/Loop Elimination",
+      "kernel_axioms": []
+    },
+    {
+      "lean_identifier": "LeanKrump.Monoidal.thm_session_spider_2_1_fusion",
+      "paper_correspondence": "Theorem 3.2(4b): Multi-Stage Session Hype S_{2,1} Spider Fusion",
+      "kernel_axioms": []
+    },
+    {
+      "lean_identifier": "LeanKrump.Monoidal.thm_swap2_involutive",
+      "paper_correspondence": "Theorem 3.2(3a): Stage Crossover Involution sigma o sigma = id",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.Monoidal.thm_yang_baxter_3strand",
+      "paper_correspondence": "Theorem 3.2(3b): 3-Dancer Symmetric Yang-Baxter Braid Coherence",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.fh_dagger_comp1",
+      "paper_correspondence": "Section 4: Dagger Contravariance on FHilb Composition",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.fh_dagger_kron1",
+      "paper_correspondence": "Section 4: Dagger Distributivity over Kronecker Tensor Product",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.fh_interchange_action",
+      "paper_correspondence": "Section 4: Strict Monoidal Interchange Action in FHilb",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.krump_stomp_self_adjoint_unitary",
+      "paper_correspondence": "Table 1: STOMP Hadamard Self-Adjointness & Unitarity",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.krump_arm_swing_unitary_group",
+      "paper_correspondence": "Table 1: ARM_SWING(theta) Unitarity & 1-Parameter Angle Addition",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.krump_buck_hop_unitary_group",
+      "paper_correspondence": "Table 1: BUCK_HOP(phi) Unitarity & 1-Parameter Angle Addition",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.thm_strict_fhilb_semantics",
+      "paper_correspondence": "Theorem 4.1(1): Strict Orthonormal Spider & Zero-Defect Snake Semantics",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.thm_projective_circuit_semantics",
+      "paper_correspondence": "Theorem 4.1(2): Projective Unit-Norm Bell Cap & 1/2 Post-Selection Scalar",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.lem_singlet_ricochet",
+      "paper_correspondence": "Lemma 4.2: Antisymmetric Singlet SU(2) Ricochet Identity W = B A^dagger",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.thm_stage3_neg_singlet",
+      "paper_correspondence": "Theorem 4.3 Proof: Exact Stage-3 Preparation of -|Psi^->",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.thm_zero_local_observability",
+      "paper_correspondence": "Theorem 4.3(1): Universal Zero Local Observability rho_A = rho_B = I_2/2",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.thm_psi4_unit_concurrence",
+      "paper_correspondence": "Theorem 4.3: Universal Maximal Entanglement Concurrence C^2 = 1",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.thm_dual_channel_born_demux",
+      "paper_correspondence": "Theorem 4.3(3): Exact Product-Channel Born Demultiplexing at Climax Cup",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.thm_psi4_all_16_pauli_expectations",
+      "paper_correspondence": "Theorem 4.3(2a): Exact Evaluation of All 16 Two-Qubit Pauli Expectations",
+      "kernel_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.thm_pauli16_stabilizer_magic_factorization",
+      "paper_correspondence": "Theorem 4.3(2b): Algebraic 16-Pauli Fourth-Moment Stabilizer Magic Factorization",
+      "kernel_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.HilbertSemantics.thm_fisher_bernoulli_saturation",
+      "paper_correspondence": "Theorem 4.3(4): Exact Bernoulli Classical Fisher Information Saturation",
+      "kernel_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.StageQUBO.rosenberg_nonneg",
+      "paper_correspondence": "Proposition 5.1(a): Non-Negativity of Rosenberg Quadratic Gadget on {0,1}^3",
+      "kernel_axioms": []
+    },
+    {
+      "lean_identifier": "LeanKrump.StageQUBO.rosenberg_zero_iff",
+      "paper_correspondence": "Proposition 5.1(b): Exact Zero-Set Equivalence g(x1,x2,y)=0 <-> y = x1 && x2",
+      "kernel_axioms": []
+    },
+    {
+      "lean_identifier": "LeanKrump.StageQUBO.rosenberg_infeasible_gap",
+      "paper_correspondence": "Proposition 5.1(c): Strict Spectral Gap g >= 1 on Infeasible Auxiliary States",
+      "kernel_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.StageQUBO.quartic_swap_reduction",
+      "paper_correspondence": "Proposition 5.1(d): Exact Quartic Swap-Term Reduction to Quadratic Auxiliary Product",
+      "kernel_axioms": []
+    },
+    {
+      "lean_identifier": "LeanKrump.StageQUBO.thm_rosenberg_ground_state_preservation",
+      "paper_correspondence": "Proposition 5.1(e): Global-Minimum Preservation for Penalty M > Delta H",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "lake_build_wall_clock_s": 0.172,
+  "total_audit_wall_clock_s": 3.573,
+  "sha256": "ea8c302a33f7df97d7054d4a1f7b82d45bdcd0be21d05e0fd0700dca58c5e092"
+}
