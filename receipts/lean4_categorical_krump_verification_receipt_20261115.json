@@ -1,22 +1,22 @@
 {
-  "benchmark": "Lane K319 \u2014 Machine-Checked Lean 4.35.0 Formal Verification of CatKS, C_Krump(Theta), FHilb Semantics & Stage QUBO",
+  "benchmark": "Lane K319 \u2014 Machine-Checked Lean 4.35.0 Formal Verification of CatKS, C_Krump(Theta), FHilb Semantics, Stage QUBO & Tessa Lattice Encoding",
   "audit_gate": "G_Lean4_Categorical_Krump_Formal_Proof",
   "status": "VERIFIED (PASS)",
-  "timestamp_utc": "2026-11-15T00:12:00Z",
+  "timestamp_utc": "2026-11-16T16:12:00Z",
   "toolchain": {
-    "lean_version": "Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
-    "lake_version": "Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)",
+    "lean_version": "Lean (version 4.36.0, arm64-apple-darwin24.6.0, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "lake_version": "Lake version 5.0.0-src+611c117 (Lean version 4.36.0)",
     "host_platform": "Darwin arm64",
     "external_dependencies": "None (100% self-contained core Lean 4.35.0 + native Lean.Grind.CommRing)"
   },
   "hygiene_summary": {
-    "lean_source_files": 6,
-    "total_lines_of_lean": 1174,
+    "lean_source_files": 7,
+    "total_lines_of_lean": 1357,
     "sorry_count": 0,
     "admit_count": 0,
     "custom_axiom_count": 0,
     "native_decide_count": 0,
-    "verified_theorems_count": 45,
+    "verified_theorems_count": 51,
     "strictly_axiom_free_theorems": 10,
     "allowed_standard_foundation_axioms": [
       "Classical.choice",
@@ -30,19 +30,21 @@
     "formal/LeanKrump/LeanKrump/HilbertSemantics.lean": "3acf150ebf46562919b4126f7775731168bd62528d227e7bfb8a03039b432bed",
     "formal/LeanKrump/LeanKrump/Monoidal.lean": "9bdc146eb2eb948b25255d3addb3ed7f8e81688952c9c3284dffcaaebfd9a363",
     "formal/LeanKrump/LeanKrump/StageQUBO.lean": "24d341e89a48c8bdfa71bdf947080ae2a684763ae4e4a724b92600daba9cc6b0",
-    "formal/LeanKrump/LeanKrump.lean": "33b364f482fd909cc07ace0104e1224c31d78f36c08348351c9743da771582bd",
-    "formal/LeanKrump/Main.lean": "b5b80c5712cac7086441269e422880dd2d5b95e1783e9bd7b9f6071685391e50"
+    "formal/LeanKrump/LeanKrump/TessaEncoding.lean": "7a411a0058e770dd1c1c57bddc40981f847ed79c4756e428d87d4e40a3d9bc20",
+    "formal/LeanKrump/LeanKrump.lean": "9371e17e9aa0f27c2fee6d12a2d0971d87436f696186bda762595190662b6b69",
+    "formal/LeanKrump/Main.lean": "3f573ff791c7a866de0914f18724f4d83c52af62bfaa4cc1dca9608eccd40fb1"
   },
   "audit_executable_stdout": [
     "===================================================================",
-    "LeanKrump v1.0.0 \u2014 Lean 4.35.0 Kernel Formal Verification Audit",
+    "LeanKrump v1.1.0 \u2014 Lean 4.35.0 Kernel Formal Verification Audit",
     "===================================================================",
     "1. CatKS Yoneda L=4 Totals : (1, 11, 10, 11, 1, 8)",
     "2. CatKS Extended Totals   : (5, 72, 58, 68, 5, 42)",
     "3. Monoidal Coherence      : 1,296/1,296 Interchange + Left/Right Snakes + S_3 Yang-Baxter + Spider Fusion KERNEL-VERIFIED",
     "4. FHilb & Demultiplexing  : Thm 4.1 Strict/Projective + Lem 4.2 SU(2) Singlet Ricochet + Thm 4.3 Born/Concurrence/16-Pauli Magic KERNEL-VERIFIED",
     "5. Stage QUBO Rosenberg    : Prop 5.1 Zero-Set, Spectral Gap >= 1, and HUBO->QUBO Ground-State Preservation KERNEL-VERIFIED",
-    "STATUS: ALL THEOREMS VERIFIED BY LEAN 4 KERNEL (ZERO UNPROVED OBLIGATIONS)"
+    "6. Tessa Bipartite Lattice : Gray-Code, sfwht Orthogonality, Konig 4-Color, Prop. 1 Trace & Constellation Scale-Invariance KERNEL-VERIFIED",
+    "STATUS: ALL 51 THEOREMS VERIFIED BY LEAN 4 KERNEL (ZERO UNPROVED OBLIGATIONS)"
   ],
   "verified_theorems": [
     {
@@ -382,9 +384,55 @@
         "propext",
         "Quot.sound"
       ]
+    },
+    {
+      "lean_identifier": "LeanKrump.TessaEncoding.thm_gray_code_adjacent_hamming_one",
+      "paper_correspondence": "Section 5.3 / Tessa Sec. 2.1: Cyclic Hamming-1 Property of k-Bit Reflected Gray Code (k=3,4)",
+      "kernel_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.TessaEncoding.thm_sfwht_gray_orthogonality",
+      "paper_correspondence": "Section 5.3 / Tessa Eq. (2): Exact Orthogonality M_k M_k^T = 2^k I of Gray-Permuted Walsh-Hadamard Transform",
+      "kernel_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.TessaEncoding.thm_checkerboard_bipartite_no_monochromatic_edge",
+      "paper_correspondence": "Section 5.3 / Tessa Sec. 2.2: Universal (r+c)%2 Checkerboard Bipartiteness (Zero DD/AA Edges)",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.TessaEncoding.thm_konig_grid_4color_disjoint_matchings",
+      "paper_correspondence": "Section 5.3 / Tessa App. A: Universal 4-Direction Disjoint CNOT Matchings on Z^2",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.TessaEncoding.thm_tessa_superpixel_outer_count_cancellation",
+      "paper_correspondence": "Section 5.3 / Tessa Prop. 1 & Eq. (15): Outer-Address Trace Factorization & Bond-2 Area-Law Rank Bound",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "lean_identifier": "LeanKrump.TessaEncoding.thm_constellation_depolarizing_scale_invariance",
+      "paper_correspondence": "Section 5.3 / Tessa App. G.4: Positive Depolarizing Scale-Invariance of Bloch Constellation Decoding",
+      "kernel_axioms": [
+        "propext",
+        "Quot.sound"
+      ]
     }
   ],
-  "lake_build_wall_clock_s": 0.172,
-  "total_audit_wall_clock_s": 3.573,
-  "sha256": "ea8c302a33f7df97d7054d4a1f7b82d45bdcd0be21d05e0fd0700dca58c5e092"
+  "lake_build_wall_clock_s": 5.217,
+  "total_audit_wall_clock_s": 7.047,
+  "sha256": "eadc9f90751112be8863697a60a9d56f67703f14556842902ec2eff47f54251c"
 }

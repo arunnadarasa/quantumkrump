@@ -5,9 +5,9 @@ const PREPRINTS = {
     label: "English",
     file: "downloads/quantum-krump-preprint.pdf",
     filename: "quantum-krump-preprint.pdf",
-    title: "Master Monograph (English · 71 Pages)",
+    title: "Master Monograph (English · 73 Pages)",
     abstract:
-      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams (machine-checked across 45/45 zero-sorry theorems in Lean 4.35.0), and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 34 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), exact HiGHS MILP & (w ≥ 66, k_T ≥ 45) classical ceilings, falsifiable Krump SwarmWorld collective evolution (3.64×–3.77× held-out resilience), QK-WM-v2 (88.67% Conformal ACI coverage under 45% mismatch, 3.88 Kraus SLD-QFI; N = 0 human RCT subjects), and standalone KrumpRobot + KrumpFlow-CFM-v2 (−27.1% 1.5s drift, 4/4 generated G1 survival) + Split-Chain CBF-QP (8/8 survival, 4.02 µs) + KR-WM-CEM (19/20 OOD)."
+      "Quantum Krump introduces superposition, entanglement, and phase interference through South Central LA Krump street dance, Laban Movement Analysis, DisCoPy Frobenius diagrams (machine-checked across 51/51 zero-sorry theorems in Lean 4.35.0), and the 20-dancer theatrical work 11th Quantum Dimension. Verified across 35 lanes including Quantinuum Helios-1E-lite (99.41% duet fidelity; 0 physical QPU shots), live Moth Quantum Cloud API & Tessa lattice encoding (0 SWAPs, −23.51% fake_fez DRR MAE cut, 89.54% sfwht CX cut vs. 0.051 ms super-pixel floor), exact HiGHS MILP & (w ≥ 66, k_T ≥ 45) classical ceilings, falsifiable Krump SwarmWorld collective evolution (3.64×–3.77× held-out resilience), QK-WM-v2 (88.67% Conformal ACI coverage under 45% mismatch, 3.88 Kraus SLD-QFI; N = 0 human RCT subjects), and standalone KrumpRobot + KrumpFlow-CFM-v2 (−27.1% 1.5s drift, 4/4 generated G1 survival) + Split-Chain CBF-QP (8/8 survival, 4.02 µs) + KR-WM-CEM (19/20 OOD)."
   },
   fr: {
     label: "Français",
@@ -201,7 +201,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {71-page Master Reference Monograph in 10 languages; Lean 4.35.0, Quantinuum Nexus Helios-1E-lite, HiGHS MILP \\& (w, k_T) Classical Ceiling, Krump SwarmWorld, DisCoPy, TypeSafe Jev 1.14, QK-WM-v2 (Conformal ACI \\& CPTP Kraus), AlphaGenome 2, Modal Cloud, and KrumpRobot},
+  note    = {73-page Master Reference Monograph in 10 languages; Lean 4.35.0 (51/51 zero-sorry), Quantinuum Nexus Helios-1E-lite, Live Moth Quantum API \\& Tessa Lattice Encoding, HiGHS MILP \\& (w, k_T) Classical Ceiling, Krump SwarmWorld, DisCoPy, TypeSafe Jev 1.14, QK-WM-v2 (Conformal ACI \\& CPTP Kraus), AlphaGenome 2, Modal Cloud, and KrumpRobot},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/quantum-krump-preprint.pdf}
 }`,
   category: `@article{nadarasa2026functorialkrump,
@@ -209,7 +209,7 @@ const BIBTEX = {
   author  = {Nadarasa, Arun and Simao, Dakota},
   year    = {2026},
   month   = {November},
-  note    = {17-page Standalone Applied Category Theory Preprint (Lean 4.35.0 45/45 zero-sorry formal proof, HiGHS MILP D=2..32 \\& 2D (w, k_T) Classical Ceiling)},
+  note    = {18-page Standalone Applied Category Theory Preprint (Lean 4.35.0 51/51 zero-sorry formal proof, Tessa Lattice Encoding \\& Moth Cloud API, HiGHS MILP D=2..32 \\& 2D (w, k_T) Classical Ceiling)},
   url     = {https://arunnadarasa.github.io/quantumkrump/downloads/categorical-krump-choreography-paper.pdf}
 }`,
   swarmworld: `@article{nadarasa2026swarmworld,
@@ -342,9 +342,9 @@ const PAPER_DOCS = {
       { label: "p.3 CatKS & Yoneda", page: 3 },
       { label: "p.5 Delooped C_Krump", page: 5 },
       { label: "p.7 Dual-Channel Theorem", page: 7 },
-      { label: "p.10 Stage & Lean 4 Proof", page: 10 },
-      { label: "p.13 Classical Ceiling", page: 13 },
-      { label: "p.16 References", page: 16 }
+      { label: "p.10 Stage & Lean 4 (51/51)", page: 10 },
+      { label: "p.13 Classical Ceiling & Tessa", page: 13 },
+      { label: "p.17 References", page: 17 }
     ]
   },
   swarmworld: {
@@ -472,7 +472,7 @@ function initPreprintAndModals() {
   let activeDoc = "monograph";
   let zoomFactor = 1.0;
   let currentPdfDoc = null;
-  let currentNumPages = 71;
+  let currentNumPages = 73;
   let currentPage = 1;
   let activeBookmarks = [];
   let pageObserver = null;
@@ -3359,6 +3359,70 @@ function initWorldModelCharts() {
           lineStyle: { width: 2.4, color: "#f4ae42" },
           itemStyle: { color: "#f4ae42" },
           data: [0.768, 0.592, 0.461, 0.3734]
+        }
+      ]
+    });
+    instances.push(ch);
+  }
+
+  // 11. Lane K325: Live Moth Quantum API & Tessa Lattice Encoding (Positive Capabilities + Noise/Classical Ceilings)
+  const elTessa = document.getElementById("echart-wm-tessa");
+  if (elTessa) {
+    const ch = window.echarts.init(elTessa, null, { renderer: "canvas" });
+    ch.setOption({
+      backgroundColor: "transparent",
+      textStyle: baseTextStyle,
+      tooltip: { ...baseTooltip, axisPointer: { type: "shadow" } },
+      legend: { top: 4, textStyle: { color: "#d8ebe8", fontSize: 9.4 }, itemWidth: 11, itemHeight: 8 },
+      grid: { top: 44, right: 48, bottom: 44, left: 48 },
+      xAxis: {
+        type: "category",
+        axisLabel: { color: "#d8ebe8", fontSize: 9.0, interval: 0 },
+        axisLine: { lineStyle: { color: "rgba(158,183,180,0.28)" } },
+        data: ["CatKS-36\n(2/slot)", "ACTA1 377aa\n(1/slot)", "CHRNA1 482aa\n(1/slot)", "MYH1 1582aa\n(2/slot Null)", "sfwht CX\nCut (0.72°)"]
+      },
+      yAxis: [
+        {
+          type: "value",
+          name: "Recovery / CX Cut (%)",
+          min: 60,
+          max: 105,
+          nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+          splitLine: { lineStyle: { color: "rgba(158,183,180,0.1)", type: "dashed" } }
+        },
+        {
+          type: "value",
+          name: "DD LogNeg (ebits)",
+          min: 0,
+          max: 0.36,
+          nameTextStyle: { color: "#9eb7b4", fontSize: 10 },
+          splitLine: { show: false }
+        }
+      ],
+      series: [
+        {
+          name: "1D Angle Quantization (%)",
+          type: "bar",
+          barWidth: "24%",
+          itemStyle: { color: "rgba(240,106,59,0.78)", borderRadius: [3, 3, 0, 0] },
+          data: [99.06, 77.98, 89.28, 82.68, 0]
+        },
+        {
+          name: "Tessa Fibonacci / sfwht (%)",
+          type: "bar",
+          barWidth: "24%",
+          itemStyle: { color: "#38d6c4", borderRadius: [3, 3, 0, 0] },
+          data: [100.0, 100.0, 100.0, 89.76, 89.54]
+        },
+        {
+          name: "DD LogNeg (Pure=0 → +Duet)",
+          type: "line",
+          yAxisIndex: 1,
+          symbol: "circle",
+          symbolSize: 8,
+          lineStyle: { width: 2.4, color: "#f4ae42" },
+          itemStyle: { color: "#f4ae42" },
+          data: [0.0, 0.0, 0.2962, 0.1515, 0.2384]
         }
       ]
     });

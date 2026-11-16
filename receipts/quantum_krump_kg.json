@@ -9,17 +9,17 @@
   },
   "metadata": {
     "name": "Quantum Krump Universal Knowledge Graph",
-    "version": "2.5.0",
-    "description": "Multi-domain interconnected knowledge graph unifying Laban Movement Analysis, Krump street dance, anatomical Bloch kinesphere biomechanics, DisCoPy applied category theory, Lean 4.35.0 machine-checked formal proofs, Quantinuum Helios-1E-lite trapped-ion emulation, Rosenberg-quadratized QUBO & HiGHS MILP / (w, k_T) classical complexity ceilings, falsifiable Krump SwarmWorld collective intelligence (arXiv:2608.26081 protocol), QK-WM-v2 conformal ACI curriculum belief & 64x64 CPTP Kraus open-system choreography, biophysical neuromuscular grounding, Rhyme symbolic quantum execution, KrumpRobot Physical AI humanoid control, KrumpFlow-CFM-v2 SO(3) consistency flow matching, Split-Chain Capture-Point CBF-QP, KR-WM-CEM horizon-6 ensemble planning & Unitree G1 nonlinear QDD actuator physics, 10-language publication suite, and 11th Quantum Dimension theatrical production.",
+    "version": "2.6.0",
+    "description": "Multi-domain interconnected knowledge graph unifying Laban Movement Analysis, Krump street dance, anatomical Bloch kinesphere biomechanics, DisCoPy applied category theory, Lean 4.35.0 machine-checked formal proofs (51/51 zero-sorry theorems), Quantinuum Helios-1E-lite trapped-ion emulation, live Moth Quantum cloud API execution & Tessa checkerboard lattice encoding (arXiv:2611.18440v1), Rosenberg-quadratized QUBO & HiGHS MILP / (w, k_T) classical complexity ceilings, falsifiable Krump SwarmWorld collective intelligence (arXiv:2608.26081 protocol), QK-WM-v2 conformal ACI curriculum belief & 64x64 CPTP Kraus open-system choreography, biophysical neuromuscular grounding, Rhyme symbolic quantum execution, KrumpRobot Physical AI humanoid control, KrumpFlow-CFM-v2 SO(3) consistency flow matching, Split-Chain Capture-Point CBF-QP, KR-WM-CEM horizon-6 ensemble planning & Unitree G1 nonlinear QDD actuator physics, 10-language publication suite, and 11th Quantum Dimension theatrical production.",
     "author": "Arun Nadarasa & Dakota Simao (Twin Bad Liks / Jr Outrage)",
     "federation": "Angels of Krump Movement Federation",
     "acknowledgment": "This work was supported in part by complimentary access to Google Antigravity and Gemini 4 Argon to accelerate scientific workflows.",
-    "created_at": "2026-11-15T16:36:00.000000+00:00",
+    "created_at": "2026-11-16T16:45:00.000000+00:00",
     "license": "CC-BY-4.0 / Apache-2.0",
     "repository": "https://arunnadarasa.github.io/quantumkrump/",
     "stats": {
-      "nodes_count": 105,
-      "edges_count": 195,
+      "nodes_count": 106,
+      "edges_count": 199,
       "domains_count": 10
     }
   },
@@ -821,8 +821,8 @@
       "name": "Multilingual Monograph & Focused Companion Suite (10 Languages)",
       "domain": "empirical_pedagogy",
       "category": "Open-Access Publications",
-      "formula": "\\text{Monograph (71 pp. } \\times 10\\text{)} \\oplus \\text{Pedagogy (16)} \\oplus \\text{KrumpRobot (29)} \\oplus \\text{Cat. (17)} \\oplus \\text{SwarmWorld (15)}",
-      "description": "Open-access publication architecture comprising the 71-page Master Reference Monograph natively typeset across EN, FR, DE, NL, FIL, JA, KO, ZH, HI, and TA, paired with four venue-targeted standalone preprints: Embodied Pedagogy (16 pp.), KrumpRobot Physical AI (29 pp.), Categorical Choreography (17 pp.), and Krump SwarmWorld Collective Intelligence (15 pp.).",
+      "formula": "\\text{Monograph (73 pp. } \\times 10\\text{)} \\oplus \\text{Pedagogy (16)} \\oplus \\text{KrumpRobot (29)} \\oplus \\text{Cat. (18)} \\oplus \\text{SwarmWorld (15)}",
+      "description": "Open-access publication architecture comprising the 73-page Master Reference Monograph natively typeset across EN, FR, DE, NL, FIL, JA, KO, ZH, HI, and TA, paired with four venue-targeted standalone preprints: Embodied Pedagogy (16 pp.), KrumpRobot Physical AI (29 pp.), Categorical Choreography (18 pp.), and Krump SwarmWorld Collective Intelligence (15 pp.).",
       "x": 406.0,
       "y": 285.7
     },
@@ -1051,8 +1051,8 @@
       "name": "Lean 4.35.0 Formal Proof Suite (LeanKrump)",
       "domain": "category_theory",
       "category": "Machine-Checked Formal Proof",
-      "formula": "45/45\\text{ theorems}: 0\\;\\texttt{sorry}, \\; \\mathcal{F}: \\mathcal{C}_{\\text{Krump}}(\\Theta) \\to \\mathbf{FHilb}, \\; \\Delta E_{\\text{HUBO}\\leftrightarrow\\text{QUBO}} = 0",
-      "description": "Self-contained 1,174-LOC Lean 4.35.0 formal verification package (formal/LeanKrump) kernel-checking 45/45 theorems with zero sorry/admit across CatKS quiver homology, Z^6 abelian invariants, dagger-compact snake/Frobenius laws, strict Hilbert functoriality, and Rosenberg stage HUBO quadratization.",
+      "formula": "51/51\\text{ theorems}: 0\\;\\texttt{sorry}, \\; \\mathcal{F}: \\mathcal{C}_{\\text{Krump}}(\\Theta) \\to \\mathbf{FHilb}, \\; \\Delta E_{\\text{HUBO}\\leftrightarrow\\text{QUBO}} = 0",
+      "description": "Self-contained 1,357-LOC Lean 4.35.0 formal verification package (formal/LeanKrump) kernel-checking 51/51 theorems with zero sorry/admit across CatKS quiver homology, Z^6 abelian invariants, dagger-compact snake/Frobenius laws, strict Hilbert functoriality, Rosenberg stage HUBO quadratization, and Tessa Gray/sfwht/Konig/super-pixel/constellation laws.",
       "x": 964.0,
       "y": 468.0
     },
@@ -1125,6 +1125,16 @@
       "description": "Second-generation Quantum Krump World Model pairing online Adaptive Conformal Inference (ACI) over live jev-1.14.0 studio utterance sensors (16 live API calls, 100% validity gating, 1.000 Bio-Woo ROC-AUC; maintaining 88.67% coverage under 45% non-stationary learner mismatch vs 3.83% Bayesian and lifting weakest-concept floor +22.3% to 0.3734; N=0 human RCT subjects) with exact 64x64 CPTP Kraus density-matrix Session lookahead (3.8794 true mixed-state SLD-QFI, 29.1x over noise-blind unitary GHZ collapse at 0.1332; 1.9638 ebits partner Logarithmic Negativity; 100% OpenJij collision-free routing).",
       "x": 312.0,
       "y": 212.0
+    },
+    {
+      "id": "node_tessa_moth_lattice_encoding",
+      "name": "Tessa Lattice Encoding & Live Moth Quantum Cloud API (Lane K325)",
+      "domain": "quantum_hardware",
+      "category": "Spatial Lattice State Loading & Cloud Emulation",
+      "formula": "0\\;\\texttt{SWAP}\\text{s}, \\; \\Delta\\text{MAE}_{\\text{DRR}} = -23.51\\%, \\; \\Delta\\texttt{CX}_{\\text{sfwht}} = -89.54\\%, \\; t_{\\text{Prop1}} = 0.051\\text{ ms}",
+      "description": "Integration of Bultrini (arXiv:2611.18440v1) checkerboard address-data lattice encoding with 9 live cloud-emulator jobs on api.mothquantum.com (0 physical QPU shots claimed): qpixl-v1 (441-value 3D Krump motion, -23.51% fake_fez mean_std DRR MAE reduction to 0.06181, r=0.85412), pair-mode tessa-image-v1 (1,568 aer and 882 fake_fez Bloch sphere angles), blur-core-v1 (8x8 Act III scrim entropy shift), and otoc-echo-v1 (55 acoustic echo taps). Paired candidly with single-layer Hadamard coherence K_a shock sensing (2.30e-13 SVD match at 20q, unbiased at N=64 vs N>=1,024 classical stratified crossover), 100% 1-slot ACTA1/CHRNA1 Fibonacci Bloch Constellation recovery (vs 89.76% 2-slot 400-pt MYH1 noisy drop), 89.54% commuting sfwht CX cancellation at 0.723 deg RMSE, and a 0.051 ms super-pixel classical floor (N_DD=0, w<=10) ignited to N_DD=0.2962 ebits under U_Krump o U_Tessa.",
+      "x": 774.0,
+      "y": 546.0
     }
   ],
   "edges": [
@@ -2492,6 +2502,34 @@
       "target": "node_three_paper_suite",
       "relation": "documented_in",
       "label": "29-Page Standalone KrumpRobot Physical AI Preprint"
+    },
+    {
+      "id": "e_040",
+      "source": "node_tessa_moth_lattice_encoding",
+      "target": "node_cat_c_krump",
+      "relation": "loads_zero_swap_front_end",
+      "label": "U_Krump o U_Tessa ignites N_DD = 0.2962 ebits (0 routing SWAPs)"
+    },
+    {
+      "id": "e_041",
+      "source": "node_tessa_moth_lattice_encoding",
+      "target": "node_theatre_11th_dim",
+      "relation": "drives_live_cloud_scrim_and_audio",
+      "label": "9 live Moth API jobs (tessa-image-v1, blur-core-v1, otoc-echo-v1 55 taps)"
+    },
+    {
+      "id": "e_042",
+      "source": "node_tessa_moth_lattice_encoding",
+      "target": "node_classical_ceiling_phase",
+      "relation": "demarcates_pure_loading_ceiling",
+      "label": "Prop. 1 0.051 ms super-pixel floor (N_DD=0, w<=10) & N>=1,024 readout crossover"
+    },
+    {
+      "id": "e_043",
+      "source": "node_tessa_moth_lattice_encoding",
+      "target": "node_bio_chrna1",
+      "relation": "encodes_motor_protein_constellation",
+      "label": "100% 1-slot Fibonacci Bloch recovery on ACTA1/CHRNA1 (89.8% 2-slot MYH1 drop)"
     }
   ]
 }

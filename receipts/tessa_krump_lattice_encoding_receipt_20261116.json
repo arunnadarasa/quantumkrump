@@ -1,0 +1,241 @@
+{
+  "lane_id": "K325",
+  "title": "Live Moth Quantum API & Tessa Bipartite Lattice Encoding (arXiv:2611.18440v1)",
+  "audit_gate": "G_Tessa_Moth_Lattice_Encoding",
+  "gate_status": "VERIFIED (PASS)",
+  "timestamp_utc": "2026-11-16T16:43:13Z",
+  "seed": 20261116,
+  "wall_clock_s": 6.28,
+  "epistemic_demarcation": {
+    "physical_qpu_shots": 0,
+    "physical_robot_trials": 0,
+    "human_rct_subjects": 0,
+    "biological_quantum_coherence": false,
+    "classical_ceiling_statement": "Pure Tessa states have bond dimension chi=2, zero data-data negativity (N_DD=0), and treewidth w=min(R,C)<=10<<66; Proposition 1 simulates all 784 Phoenix slots classically in 0.051 ms, and stratified classical readout matches/beats K_a above N>=1024 shots. Tessa provides zero-SWAP constant-depth front-end loading before cross-data entangling layers, unbiased shot-scarce (N<=128) coherence sensing, and depolarizing-invariant Fibonacci Constellation symbol recovery."
+  },
+  "part_a_live_moth_tessa_api": {
+    "api_base": "https://api.mothquantum.com/api/v1",
+    "total_live_jobs": 9,
+    "qpixl_441_krump_motion": {
+      "aer_noiseless": {
+        "job_id": "ffb41d82-b314-4e61-b007-df12226212c0",
+        "wall_s": 0.671,
+        "mae": 0.01189,
+        "pearson_r": 0.99659
+      },
+      "fake_fez_raw": {
+        "job_id": "26886a91-f35a-4156-8a36-04e659319588",
+        "wall_s": 0.661,
+        "mae": 0.08081,
+        "pearson_r": 0.8491
+      },
+      "fake_fez_mean_std_drr": {
+        "job_id": "894be818-cc96-46f4-97ca-92e4d422ccbf",
+        "wall_s": 0.63,
+        "mae": 0.06181,
+        "pearson_r": 0.85412,
+        "drr_mae_reduction_pct": 23.51
+      }
+    },
+    "qpixl_acta1_377aa_discretize20": {
+      "job_id": "9b91e405-cb1c-4883-a241-afcd08706883",
+      "sequence_source": "live_uniprot_rest",
+      "length_aa": 377,
+      "exact_symbol_acc_pct": 38.46
+    },
+    "tessa_image_pair_mode": {
+      "input_asset_id": "8cc1778d-8c9e-4a9d-beee-07d1457325da",
+      "aer_28x28_pair": {
+        "job_id": "0a48da00-a672-4f48-9a30-326d3daf1fe1",
+        "output_asset_id": "cd0e0ff7-98e6-43d9-9cc9-aa41ea2d90a9",
+        "resolution": "28x28",
+        "encoded_sphere_angles": 1568,
+        "mae": 0.00987,
+        "pearson_r": 0.99525
+      },
+      "fake_fez_21x21_pair_drr": {
+        "job_id": "9e65d7cd-6c54-4167-b622-13bfeb4f1845",
+        "output_asset_id": "f90ecb8c-1aef-4f70-90b6-cc2b93b44fd7",
+        "resolution": "21x21",
+        "encoded_sphere_angles": 882,
+        "raw_mae": 0.05794,
+        "mae_after_mean_std_drr": 0.04322,
+        "pearson_r": 0.74835
+      }
+    }
+  },
+  "part_b_live_moth_theatrical_suite": {
+    "blur_core_local_reach0": {
+      "job_id": "89118dc4-623e-47f9-b1d7-8eb2eb93f80b",
+      "shannon_bits_in": 4.429,
+      "shannon_bits_out": 4.9346
+    },
+    "blur_core_nonlocal_reach1": {
+      "job_id": "89b31713-76e3-4cc2-9ab3-d598e48bb01d",
+      "shannon_bits_out": 3.8202
+    },
+    "otoc_echo_act4": {
+      "job_id": "5f09ac2d-99ae-4186-8c62-1702d851ee5b",
+      "emitted_taps_count": 55,
+      "negative_phase_taps_count": 13
+    }
+  },
+  "part_c_coherence_and_constellation": {
+    "exact_20q_4x5_statevector": {
+      "norm_error": 6.261657858885883e-14,
+      "max_abs_diff_Sa_vs_binary_entropy_Ka": 2.3029841922372896e-13,
+      "mean_address_Ka": 0.87627
+    },
+    "table4_shot_crossover_3x4_deg4": [
+      {
+        "shots": 32,
+        "interference_rms": 0.11076,
+        "classical_rms": 0.40096,
+        "classical_bias": -0.3862,
+        "classical_undefined_pct": 93.0
+      },
+      {
+        "shots": 64,
+        "interference_rms": 0.06636,
+        "classical_rms": 0.26281,
+        "classical_bias": -0.24576,
+        "classical_undefined_pct": 25.5
+      },
+      {
+        "shots": 128,
+        "interference_rms": 0.0505,
+        "classical_rms": 0.14054,
+        "classical_bias": -0.12893,
+        "classical_undefined_pct": 0.5
+      },
+      {
+        "shots": 256,
+        "interference_rms": 0.03436,
+        "classical_rms": 0.07042,
+        "classical_bias": -0.05825,
+        "classical_undefined_pct": 0.0
+      },
+      {
+        "shots": 1024,
+        "interference_rms": 0.01931,
+        "classical_rms": 0.01966,
+        "classical_bias": -0.00979,
+        "classical_undefined_pct": 0.0
+      },
+      {
+        "shots": 4096,
+        "interference_rms": 0.0079,
+        "classical_rms": 0.00801,
+        "classical_bias": -0.00274,
+        "classical_undefined_pct": 0.0
+      },
+      {
+        "shots": 16384,
+        "interference_rms": 0.00418,
+        "classical_rms": 0.00381,
+        "classical_bias": 5e-05,
+        "classical_undefined_pct": 0.0
+      }
+    ],
+    "reference_free_kraus_witness_pearson_r": 0.97742,
+    "constellation_vs_angle_32768shots": {
+      "CatKS_6move_1slot": {
+        "constellation_acc_pct": 100.0,
+        "angle_acc_pct": 100.0,
+        "n_constellation_points": 6
+      },
+      "CatKS_36pair_2slot": {
+        "constellation_acc_pct": 100.0,
+        "angle_acc_pct": 99.06,
+        "n_constellation_points": 36
+      },
+      "ACTA1_377aa_1slot": {
+        "constellation_acc_pct": 100.0,
+        "angle_acc_pct": 77.98,
+        "n_constellation_points": 20
+      },
+      "CHRNA1_482aa_1slot": {
+        "constellation_acc_pct": 100.0,
+        "angle_acc_pct": 89.28,
+        "n_constellation_points": 20
+      },
+      "MYH1_1582aa_2slot_400pt_null": {
+        "constellation_acc_pct": 89.76,
+        "angle_acc_pct": 82.68,
+        "n_constellation_points": 400
+      }
+    },
+    "sequence_provenance": {
+      "ACTA1_P68133": "live_uniprot_rest",
+      "CHRNA1_P02708": "live_uniprot_rest",
+      "MYH1_P12882": "live_uniprot_rest"
+    }
+  },
+  "part_d_lossy_sfwht_and_ceiling": {
+    "lossy_sfwht_cnot_pareto": [
+      {
+        "tau_rad": 0.0,
+        "cx_cancelled_pct": 0.0,
+        "rmse_deg": 0.0
+      },
+      {
+        "tau_rad": 0.015,
+        "cx_cancelled_pct": 89.54,
+        "rmse_deg": 0.723
+      },
+      {
+        "tau_rad": 0.035,
+        "cx_cancelled_pct": 98.72,
+        "rmse_deg": 1.369
+      },
+      {
+        "tau_rad": 0.065,
+        "cx_cancelled_pct": 99.74,
+        "rmse_deg": 1.59
+      },
+      {
+        "tau_rad": 0.11,
+        "cx_cancelled_pct": 100.0,
+        "rmse_deg": 1.682
+      }
+    ],
+    "phoenix_784slot_prop1_cpu_ms": 0.0506,
+    "pure_tessa_12q_entanglement": {
+      "DA_dist1_log_negativity": 0.01818,
+      "DD_dist2_log_negativity": 0.0,
+      "col01_cut_entropy_bits": 0.42436,
+      "area_law_bound_bits": 3.0
+    },
+    "post_tessa_ckrump_dd_log_negativity": {
+      "L0_pure_tessa": 0.0,
+      "L1_krump_duet": 0.29616,
+      "L2_krump_duet": 0.15151,
+      "L3_krump_duet": 0.23843
+    },
+    "routing_swap_comparison": {
+      "Tessa_10x12_checkerboard": {
+        "qubits": 120,
+        "values_pair": 1568,
+        "routing_swaps": 0,
+        "two_qubit_depth_single": 32
+      },
+      "QCrank_star_on_10x12": {
+        "qubits": 70,
+        "values_single": 784,
+        "estimated_routing_swaps": 448,
+        "two_qubit_depth_est": 290
+      }
+    }
+  },
+  "gate_checks": {
+    "live_moth_9_jobs_completed": true,
+    "qpixl_fake_fez_drr_improves_mae": true,
+    "tessa_image_pair_roundtrip_verified": true,
+    "exact_20q_ka_entropy_identity": true,
+    "shot_scarce_ka_crossover_verified": true,
+    "constellation_1slot_win_and_2slot_null_disclosed": true,
+    "pure_tessa_separable_area_law_ceiling": true,
+    "post_tessa_ckrump_ignites_dd_negativity": true
+  },
+  "sha256_seal": "8d4b80adca1370ade3fb06a7e72414c908e74456ac8e17966d52fcb7451fdaf7"
+}
