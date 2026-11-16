@@ -13,73 +13,73 @@ const PREPRINTS = {
     label: "Français",
     file: "downloads/quantum-krump-preprint-fr.pdf",
     filename: "quantum-krump-preprint-fr.pdf",
-    title: "Monographie de référence (Français · 51 Pages)",
+    title: "Monographie de référence (Français · 53 Pages)",
     abstract:
-      "Quantum Krump enseigne la superposition, l'intrication et l'interférence par le Krump, l'analyse Laban (LMA), les diagrammes de Frobenius DisCoPy et la pièce 11th Quantum Dimension (Dakota Simao). Validé sur l'émulateur Quantinuum Helios-1E-lite (fidélité 99,41 % ; 0 tir QPU physique), QUBO OpenJij (E0 = -7,3569) et le contrôleur humanoïde KrumpRobot (2,32°, 2,70 ms)."
+      "Quantum Krump enseigne la superposition, l'intrication et l'interférence par le Krump, l'analyse Laban (LMA), les diagrammes de Frobenius DisCoPy (51/51 théorèmes sans sorry dans Lean 4.35.0) et la pièce 11th Quantum Dimension (Dakota Simao). Vérifié sur 35 voies (0 tir QPU physique) : Quantinuum Helios-1E-lite (99,41 %), 9 jobs cloud Moth Quantum API & réseau Tessa (0 SWAP, −23,51 % DRR sur fake_fez, −89,54 % CX sfwht vs plancher CPU 0,051 ms), plafonds HiGHS MILP, Krump SwarmWorld (3,64×–3,77×), QK-WM-v2 (88,67 % ACI) et KrumpRobot + CBF-QP."
   },
   de: {
     label: "Deutsch",
     file: "downloads/quantum-krump-preprint-de.pdf",
     filename: "quantum-krump-preprint-de.pdf",
-    title: "Referenzmonografie (Deutsch · 56 Seiten)",
+    title: "Referenzmonografie (Deutsch · 59 Seiten)",
     abstract:
-      "Quantum Krump vermittelt Superposition, Verschränkung und Phaseninterferenz durch Krump Street Dance, Laban-Bewegungsanalyse (LMA), DisCoPy-Frobenius-Diagramme und das Bühnenwerk 11th Quantum Dimension. Verifiziert auf dem Quantinuum-Helios-1E-lite-Emulator (99,41 % Duett-Fidelität; 0 physische QPU-Shots) sowie durch die humanoide Steuerung KrumpRobot."
+      "Quantum Krump vermittelt Superposition, Verschränkung und Phaseninterferenz durch Krump Street Dance, Laban-Bewegungsanalyse (LMA), DisCoPy-Frobenius-Diagramme (51/51 sorry-freie Theoreme in Lean 4.35.0) und das Bühnenwerk 11th Quantum Dimension. Über 35 Benchmark-Lanes verifiziert (0 physische QPU-Shots): Quantinuum Helios-1E-lite (99,41 %), 9 Live-Cloud-Jobs auf der Moth Quantum API & Tessa-Gitterkodierung (0 SWAPs, −23,51 % fake_fez DRR, −89,54 % sfwht CX vs. 0,051 ms Klassikgrenze), HiGHS MILP, Krump SwarmWorld (3,64×–3,77×), QK-WM-v2 (88,67 % ACI) und KrumpRobot + CBF-QP."
   },
   nl: {
     label: "Nederlands",
     file: "downloads/quantum-krump-preprint-nl.pdf",
     filename: "quantum-krump-preprint-nl.pdf",
-    title: "Referentiemonografie (Nederlands · 55 Pagina's)",
+    title: "Referentiemonografie (Nederlands · 56 Pagina's)",
     abstract:
-      "Quantum Krump onderwijst superpositie, verstrengeling en fase-interferentie via Krump, Laban Movement Analysis (LMA), DisCoPy-Frobenius-diagrammen en het theaterwerk 11th Quantum Dimension met Dakota Simao. Gevalideerd op Quantinuum Helios-1E-lite (99,41 % duetgetrouwheid; 0 fysieke QPU-shots) en KrumpRobot Physical AI."
+      "Quantum Krump onderwijst superpositie, verstrengeling en fase-interferentie via Krump, Laban Movement Analysis (LMA), DisCoPy-Frobenius-diagrammen (51/51 sorry-vrije stellingen in Lean 4.35.0) en het theaterwerk 11th Quantum Dimension met Dakota Simao. Gevalideerd over 35 lanes (0 fysieke QPU-shots): Quantinuum Helios-1E-lite (99,41 %), 9 live cloud-jobs op de Moth Quantum API & Tessa-roostercodering (0 SWAPs, −23,51 % fake_fez DRR, −89,54 % sfwht CX vs. 0,051 ms klassieke grens), HiGHS MILP, Krump SwarmWorld (3,64×–3,77×), QK-WM-v2 (88,67 % ACI) en KrumpRobot + CBF-QP."
   },
   ja: {
     label: "日本語",
     file: "downloads/quantum-krump-preprint-ja.pdf",
     filename: "quantum-krump-preprint-ja.pdf",
-    title: "マスター学術モノグラフ（日本語版・全62頁）",
+    title: "マスター学術モノグラフ（日本語版・全64頁）",
     abstract:
-      "『Quantum Krump』は、Krumpストリートダンス、ラバン動作解析（LMA）、DisCoPyフロベニウス弦図、舞台作品『11th Quantum Dimension』を通じて重ね合わせ・量子もつれ・位相干渉を体現する。Quantinuum Helios-1E-liteエミュレータ（忠実度99.41%、実機QPU 0ショット）およびKrumpRobotヒューマノイド制御（誤差2.32°、遅延2.70 ms）で検証済み。"
+      "『Quantum Krump』は、Krumpストリートダンス、ラバン動作解析（LMA）、DisCoPyフロベニウス弦図（Lean 4.35.0にて51/51個のsorryゼロ定理を機械検証）、舞台作品『11th Quantum Dimension』を通じて重ね合わせ・量子もつれ・位相干渉を体現する。全35レーン（実機QPU 0ショット）で検証済み：Quantinuum Helios-1E-lite（忠実度99.41%）、Moth QuantumクラウドAPI上の9件の実行とTessa格子符号化（0 SWAP、fake_fez DRR −23.51%、sfwht CX −89.54% 対 0.051 ms古典下限）、HiGHS MILP、Krump SwarmWorld（3.64×–3.77×）、QK-WM-v2（ACI 88.67%）、およびKrumpRobot + CBF-QP。"
   },
   ko: {
     label: "한국어",
     file: "downloads/quantum-krump-preprint-ko.pdf",
     filename: "quantum-krump-preprint-ko.pdf",
-    title: "마스터 학술 모노그래프 (한국어판 · 53쪽)",
+    title: "마스터 학술 모노그래프 (한국어판 · 55쪽)",
     abstract:
-      "『Quantum Krump』는 크럼프 스트리트 댄스, 라반 동작 분석(LMA), DisCoPy 프로베니우스 범주론과 무대 작품 『11th Quantum Dimension』으로 중첩·얽힘·위상 간섭을 교육한다. Quantinuum Helios-1E-lite 에뮬레이터(충실도 99.41%, 물리 QPU 0샷)와 KrumpRobot 휴머노이드 제어(오차 2.32°, 지연 2.70 ms)로 검증되었다."
+      "『Quantum Krump』는 크럼프 스트리트 댄스, 라반 동작 분석(LMA), DisCoPy 프로베니우스 범주론(Lean 4.35.0 51/51개 무-sorry 정리 기계 검증)과 무대 작품 『11th Quantum Dimension』으로 중첩·얽힘·위상 간섭을 교육한다. 총 35개 레인(물리 QPU 0샷) 검증: Quantinuum Helios-1E-lite(99.41%), Moth Quantum 클라우드 API 9건 및 Tessa 격자 인코딩(0 SWAP, fake_fez DRR −23.51%, sfwht CX −89.54% 대 0.051 ms 고전 하한), HiGHS MILP, Krump SwarmWorld(3.64×–3.77×), QK-WM-v2(ACI 88.67%), KrumpRobot + CBF-QP."
   },
   zh: {
     label: "中文",
     file: "downloads/quantum-krump-preprint-zh.pdf",
     filename: "quantum-krump-preprint-zh.pdf",
-    title: "完整学术专著预印本（中文版 · 50 页）",
+    title: "完整学术专著预印本（中文版 · 52 页）",
     abstract:
-      "《量子克朗普》(Quantum Krump) 结合 Krump 街舞、拉班动作分析 (LMA)、DisCoPy 弗罗贝尼乌斯弦图与剧场作品《第 11 量子维度》，具身化讲授叠加、纠缠与干涉。已在 Quantinuum Helios-1E-lite 模拟器（保真度 99.41%，0 次物理 QPU 采样）与 KrumpRobot 人形控制策略（误差 2.32°，延迟 2.70 ms）上完成验证。"
+      "《量子克朗普》(Quantum Krump) 结合 Krump 街舞、拉班动作分析 (LMA)、DisCoPy 弗罗贝尼乌斯弦图（Lean 4.35.0 完成 51/51 条零 sorry 定理验证）与剧场作品《第 11 量子维度》，具身化讲授叠加、纠缠与干涉。跨越 35 条基准通道（0 次物理 QPU 采样）：Quantinuum Helios-1E-lite（保真度 99.41%）、Moth Quantum 云端 API 9 项作业与 Tessa 棋盘晶格编码（0 SWAP，fake_fez DRR −23.51%，sfwht CX −89.54% 对比 0.051 ms 经典下界）、HiGHS MILP、Krump SwarmWorld（3.64×–3.77×）、QK-WM-v2（ACI 88.67%）及 KrumpRobot + CBF-QP。"
   },
   fil: {
     label: "Filipino",
     file: "downloads/quantum-krump-preprint-fil.pdf",
     filename: "quantum-krump-preprint-fil.pdf",
-    title: "Master Preprint Monograph (Filipino · 58 Pahina)",
+    title: "Master Preprint Monograph (Filipino · 60 Pahina)",
     abstract:
-      "Itinuturo ng Quantum Krump ang superposition, entanglement, at interference sa pamamagitan ng Krump, Laban Movement Analysis, DisCoPy Frobenius diagrams, at 11th Quantum Dimension kasama si Dakota Simao. Napatunayan sa Quantinuum Helios-1E-lite emulator (99.41% fidelity; 0 pisikal na QPU shots) at KrumpRobot Physical AI."
+      "Itinuturo ng Quantum Krump ang superposition, entanglement, at interference sa pamamagitan ng Krump, Laban Movement Analysis, DisCoPy Frobenius diagrams (51/51 zero-sorry na teorema sa Lean 4.35.0), at 11th Quantum Dimension kasama si Dakota Simao. Napatunayan sa 35 lanes (0 pisikal na QPU shots): Quantinuum Helios-1E-lite (99.41%), 9 live cloud jobs sa Moth Quantum API at Tessa lattice encoding (0 SWAPs, −23.51% fake_fez DRR, −89.54% sfwht CX laban sa 0.051 ms CPU floor), HiGHS MILP, Krump SwarmWorld (3.64×–3.77×), QK-WM-v2 (88.67% ACI), at KrumpRobot + CBF-QP."
   },
   hi: {
     label: "हिन्दी",
     file: "downloads/quantum-krump-preprint-hi.pdf",
     filename: "quantum-krump-preprint-hi.pdf",
-    title: "मुख्य शोध मोनोग्राफ (हिन्दी संस्करण · 52 पृष्ठ)",
+    title: "मुख्य शोध मोनोग्राफ (हिन्दी संस्करण · 53 पृष्ठ)",
     abstract:
-      "Quantum Krump लॉस एंजेलिस के Krump स्ट्रीट डांस, लाबान मूवमेंट एनालिसिस (LMA), DisCoPy श्रेणी सिद्धांत और 11th Quantum Dimension रंगमंच कृति के माध्यम से अध्यारोपण, उलझाव और व्यतिकरण सिखाता है। Quantinuum Helios-1E-lite एमुलेटर (99.41% युगल निष्ठा; 0 भौतिक QPU शॉट्स) व KrumpRobot फिजिकल AI पर सत्यापित।"
+      "Quantum Krump लॉस एंजेलिस के Krump स्ट्रीट डांस, लाबान मूवमेंट एनालिसिस (LMA), DisCoPy श्रेणी सिद्धांत (Lean 4.35.0 में 51/51 शून्य-sorry प्रमेय) और 11th Quantum Dimension रंगमंच कृति के माध्यम से अध्यारोपण, उलझाव और व्यतिकरण सिखाता है। 35 बेंचमार्क लेनों (0 भौतिक QPU शॉट्स) पर सत्यापित: Quantinuum Helios-1E-lite (99.41%), Moth Quantum क्लाउड API के 9 लाइव जॉब्स व Tessa जालक एनकोडिंग (0 SWAPs, fake_fez DRR −23.51%, sfwht CX −89.54% बनाम 0.051 ms सीपीयू सीमा), HiGHS MILP, Krump SwarmWorld (3.64×–3.77×), QK-WM-v2 (88.67% ACI) तथा KrumpRobot + CBF-QP।"
   },
   ta: {
     label: "தமிழ்",
     file: "downloads/quantum-krump-preprint-ta.pdf",
     filename: "quantum-krump-preprint-ta.pdf",
-    title: "முதன்மை ஆராய்ச்சி நூல் (தமிழ் பதிப்பு · 62 பக்கங்கள்)",
+    title: "முதன்மை ஆராய்ச்சி நூல் (தமிழ் பதிப்பு · 64 பக்கங்கள்)",
     abstract:
-      "Quantum Krump என்பது Krump நடனம், லாபன் இயக்கப் பகுப்பாய்வு (LMA), DisCoPy வகைமைக் கோட்பாடு மற்றும் 11th Quantum Dimension நாடக ஆக்கத்தின் வழி மேற்பொருந்துதல், பிணைப்பு, குறுக்கீடு ஆகியவற்றைக் கற்பிக்கிறது. Quantinuum Helios-1E-lite எமுலேட்டர் (99.41% துல்லியம்; 0 இயற்பியல் QPU shots) மற்றும் KrumpRobot Physical AI மூலம் சரிபார்க்கப்பட்டது."
+      "Quantum Krump என்பது Krump நடனம், லாபன் இயக்கப் பகுப்பாய்வு (LMA), DisCoPy வகைமைக் கோட்பாடு (Lean 4.35.0 இல் 51/51 பூஜ்ஜிய-sorry தேற்றங்கள்) மற்றும் 11th Quantum Dimension நாடக ஆக்கத்தின் வழி மேற்பொருந்துதல், பிணைப்பு, குறுக்கீடு ஆகியவற்றைக் கற்பிக்கிறது. 35 தடங்களில் (0 இயற்பியல் QPU ஷாட்கள்) சரிபார்க்கப்பட்டது: Quantinuum Helios-1E-lite (99.41%), நேரடி Moth Quantum கிளவுட் API 9 பணிகள் & Tessa கட்டக் குறியீட்டாக்கம் (0 SWAPs, fake_fez DRR −23.51%, sfwht CX −89.54% எதிர் 0.051 ms CPU வரம்பு), HiGHS MILP, Krump SwarmWorld (3.64×–3.77×), QK-WM-v2 (88.67% ACI) மற்றும் KrumpRobot + CBF-QP."
   }
 };
 
